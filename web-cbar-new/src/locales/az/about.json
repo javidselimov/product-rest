@@ -1,0 +1,95 @@
+{
+  "history": {
+    "yearNav": "İllər",
+    "prev": "Əvvəlki il",
+    "next": "Növbəti il",
+    "zoom": "Şəkli böyüt",
+    "zoomWithAlt": "Şəkli böyüt: {{alt}}"
+  },
+  "board": {
+    "chair": "Sədr",
+    "deputies": "Sədr müavinləri"
+  },
+  "staff": {
+    "receptionDays": "Qəbul günləri",
+    "contact": "Əlaqə",
+    "photoAlt": "{{name}} — foto"
+  },
+  "photos": {
+    "title": "Fotoşəkillər",
+    "downloadAll": "Hamısını yüklə (ZIP, {{size}})",
+    "download": "Yüklə",
+    "downloadAria": "{{name}} faylını yüklə",
+    "alt": "{{name}} — {{file}}"
+  },
+  "divisions": {
+    "title": "Struktur bölmələr",
+    "notFound": "Struktur bölmə tapılmadı"
+  },
+  "ifi": {
+    "sectionTitle": "Əməkdaşlıq edilən təşkilatlar",
+    "membership": "Üzvlük: {{year}}",
+    "mission": "Əsas missiya"
+  },
+  "memorandums": {
+    "title": "Xarici ölkələrin mərkəzi bankları və nəzarət qurumları ilə imzalanmış Anlaşma Memorandumları",
+    "columns": {
+      "organization": "Təşkilat",
+      "country": "Ölkə",
+      "date": "Tarix"
+    },
+    "sort": {
+      "label": "Tarix:",
+      "newest": "əvvəlcə yenilər",
+      "oldest": "əvvəlcə köhnələr"
+    }
+  },
+  "memberships": {
+    "title": "Azərbaycan Respublikası Mərkəzi Bankının üzv olduğu təşkilatlar",
+    "columns": {
+      "organization": "Təşkilat",
+      "year": "Üzvlük tarixi"
+    },
+    "sort": {
+      "label": "Üzvlük tarixi:",
+      "newest": "əvvəlcə yenilər",
+      "oldest": "əvvəlcə köhnələr"
+    }
+  },
+  "literacy": {
+    "imageAlt": "{{title}} — şəkil {{n}}",
+    "photos": "Fotoşəkillər",
+    "ctaButton": "{{email}}-a yazın",
+    "newWindow": "(yeni pəncərədə açılır)"
+  },
+  "consumer": {
+    "latest": "Son məlumat",
+    "archive": "Arxiv",
+    "archiveHint": "İli seçin — aylar üzrə sənədlər açılacaq",
+    "tabsLabel": "Şikayət indeksləri",
+    "tabs": {
+      "bank": "Bank xidmətlərindən istifadə üzrə şikayət indeksi",
+      "insurance": "Avto-icbari sığorta üzrə şikayət indeksi"
+    },
+    "divided": "bölünsün",
+    "statistics": "Müraciətlər üzrə statistika",
+    "channels": "Müraciət kanalları",
+    "year": "İl:",
+    "years": "İllər",
+    "summary": "{{month}} {{year}} — qısa icmal",
+    "table": "{{channel}}, {{year}}",
+    "infographics": "İnfoqrafika",
+    "numbered": "{{n}}."
+  },
+  "document": {
+    "file": "Fayl",
+    "newTab": "(yeni vərəqdə açılır)"
+  },
+  "archive": {
+    "year": "İl",
+    "menu": "İl seçimi",
+    "all": "Hamısı",
+    "allSummary": "İl: Hamısı",
+    "other": "Digər"
+  }
+}

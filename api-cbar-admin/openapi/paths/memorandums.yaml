@@ -1,0 +1,118 @@
+collection:
+  get:
+    tags: [Memorandums]
+    operationId: listMemorandums
+    x-permission: memorandums.read
+    summary: Memoranda of understanding, newest year first
+    description: |
+      By `signedYear` descending, then `sortOrder`, then `id` — the order the site shows by default.
+      Soft-deleted memorandums are excluded. `search` matches the organization or the country in any locale.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of memorandums.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/memorandums.yaml#/MemorandumPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Memorandums]
+    operationId: createMemorandum
+    x-permission: memorandums.create
+    summary: Create a memorandum of understanding
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/memorandums.yaml#/MemorandumUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/memorandums.yaml#/MemorandumDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Memorandums]
+    operationId: getMemorandum
+    x-permission: memorandums.read
+    summary: Memorandum of understanding by id
+    responses:
+      '200':
+        description: The memorandum with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/memorandums.yaml#/MemorandumDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Memorandums]
+    operationId: updateMemorandum
+    x-permission: memorandums.update
+    summary: Update a memorandum of understanding
+    description: A locale left out of `translations` is removed.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/memorandums.yaml#/MemorandumUpsert
+    responses:
+      '200':
+        description: The updated memorandum.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/memorandums.yaml#/MemorandumDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Memorandums]
+    operationId: deleteMemorandum
+    x-permission: memorandums.delete
+    summary: Soft-delete a memorandum of understanding
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

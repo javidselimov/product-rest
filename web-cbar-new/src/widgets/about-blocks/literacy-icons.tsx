@@ -1,0 +1,53 @@
+/**
+ * Icons of the "Financial literacy" principle cards and target groups (spec 047 research R7). They are part of the
+ * design, not chosen by the editor, so they go by position; a list longer than the design repeats them.
+ *
+ * Paths are exported from the Figma instances (`2249:118793…118811`, `2249:118817…118847`) in card coordinates; the
+ * `viewBox` cuts the icon frame out of the card (24 px at 37,37 and 20 px at 21,21), so no path was rewritten.
+ */
+import { LITERACY_CHIP_ICON_BOX, LITERACY_PRINCIPLE_ICON_BOX } from './constants'
+
+const PRINCIPLE_PATHS = [
+  'M41 55L46 49L50 52L57 44M57 49V44H52',
+  'M58 48V44H40V48M58 48V55H40V48M58 48H40M44 52H47',
+  'M49 40V41M49 41V48.125M49 41C52 41 54 42 54 44M49 41C46 41 44 42.5 44 44.5C44 46.75 46.5 47.375 49 48.125M49 48.125V56.5M49 48.125C51.5 48.875 54 49.75 54 52.5C54 55 52 56.5 49 56.5M49 56.5V58M49 56.5C46 56.5 44 55 44 53',
+  'M41 57H43M43 57H48M43 57V50M48 57H53M48 57V46M53 57H57M53 57V42',
+] as const
+
+const TARGET_GROUP_PATHS = [
+  'M30.9999 25.1666H24.3333V36.8333H30.9999M30.9999 25.1666H37.6666V36.8333H30.9999M30.9999 25.1666V36.8333M26.8333 28.5H29.3333M32.6666 28.5H35.1666M26.8333 31H29.3333M32.6666 31H35.1666',
+  'M39.3334 33.5V28.5L31.0001 24.3334L22.6667 28.5L26.0001 30.1667L31.0001 32.6667L36.0001 30.1667M39.3334 28.5L36.0001 30.1667M36.0001 30.1667V34.3334C36.0001 36 26.0001 36 26.0001 34.3334V30.1667',
+  'M31 33.5H38.5V24.3334H23.5V33.5H31ZM31 33.5L27.6667 37.6667M31 33.5L34.3333 37.6667M26.8333 27.6667H32.6667M26.8333 30.1667H30.1667',
+  'M23.5 30.1667L31 24.3334L38.5 30.1667M26 28.5V37.6667H29.3333M29.3333 37.6667H32.6667M29.3333 37.6667V32.6667H32.6667V37.6667M32.6667 37.6667H36V28.5',
+  'M28.5 27.6666H23.5V31.8333M28.5 27.6666H33.5M28.5 27.6666V25.1666H33.5V27.6666M33.5 27.6666H38.5V31.8333M38.5 31.8333V36.8333H23.5V31.8333M38.5 31.8333H23.5',
+  'M23.5 37.6667C23.5 34.3334 25.5833 32.6667 28.5 32.6667C31.4167 32.6667 33.5 34.3334 33.5 37.6667M34.3333 24.75C35.5833 25.1667 36.4167 26 36.4167 27.25C36.4167 28.5 35.5833 29.3334 34.3333 29.75M36 33.0834C37.6667 33.5 38.5 35.1667 38.5 37.6667M28.5 30.1667C30.1667 30.1667 31.4167 28.9167 31.4167 27.25C31.4167 25.5834 30.1667 24.3334 28.5 24.3334C26.8333 24.3334 25.5833 25.5834 25.5833 27.25C25.5833 28.9167 26.8333 30.1667 28.5 30.1667Z',
+  'M35.1666 28.5V25.1666H24.3333V35.1666C24.3333 36 25.1666 36.8333 25.9999 36.8333H35.1666V28.5ZM35.1666 28.5H37.6666V35.1666C37.6666 36 36.8333 36.8333 35.9999 36.8333M26.8333 28.5H32.6666M26.8333 31H32.6666M26.8333 33.5H30.1666',
+] as const
+
+type IconBox = { readonly origin: number; readonly size: number; readonly stroke: number }
+
+function LineIcon({ path, box }: Readonly<{ path: string; box: IconBox }>) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={box.size}
+      height={box.size}
+      viewBox={`${box.origin} ${box.origin} ${box.size} ${box.size}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={box.stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d={path} />
+    </svg>
+  )
+}
+
+export function PrincipleIcon({ index }: Readonly<{ index: number }>) {
+  return <LineIcon path={PRINCIPLE_PATHS[index % PRINCIPLE_PATHS.length]!} box={LITERACY_PRINCIPLE_ICON_BOX} />
+}
+
+export function TargetGroupIcon({ index }: Readonly<{ index: number }>) {
+  return <LineIcon path={TARGET_GROUP_PATHS[index % TARGET_GROUP_PATHS.length]!} box={LITERACY_CHIP_ICON_BOX} />
+}

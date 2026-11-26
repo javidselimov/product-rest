@@ -1,0 +1,44 @@
+tree:
+  get:
+    tags: [Pages]
+    operationId: getPageTree
+    summary: Navigation tree of published pages
+    description: |
+      Published, active, visible pages shown in the locale, by sort order. Pages
+      without a translation in the locale are dropped; their children become roots.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Root nodes.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/pages.yaml#/PageNode
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+bySlug:
+  get:
+    tags: [Pages]
+    operationId: getPageBySlug
+    summary: CMS page by slug
+    description: |
+      Published, active page shown in the locale. Does not check `visible` —
+      hidden-from-menu pages are still reachable by slug.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Slug
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Page with its attachments.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageDetail
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

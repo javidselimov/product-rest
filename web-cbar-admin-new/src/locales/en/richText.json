@@ -1,0 +1,58 @@
+{
+  "bold": "Bold",
+  "italic": "Italic",
+  "textColor": "Text color",
+  "highlight": "Highlight color",
+  "alignLeft": "Align left",
+  "alignCenter": "Align center",
+  "alignRight": "Align right",
+  "alignJustify": "Justify",
+  "heading2": "Heading 2",
+  "heading3": "Heading 3",
+  "bulletList": "Bullet list",
+  "orderedList": "Ordered list",
+  "indent": "Increase indent",
+  "outdent": "Decrease indent",
+  "blockquote": "Blockquote",
+  "accordion": "Accordion",
+  "insertTable": "Insert table",
+  "addRowBelow": "Add row below",
+  "addColumnRight": "Add column right",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "toggleHeaderRow": "Toggle header row",
+  "mergeCells": "Merge cells",
+  "splitCell": "Split cell",
+  "deleteTable": "Delete table",
+  "link": "Link",
+  "insertFile": "Insert file",
+  "insertImage": "Insert image",
+  "clearFormatting": "Clear formatting",
+  "undo": "Undo",
+  "redo": "Redo",
+  "preview": "Preview",
+  "source": "HTML source",
+  "sourceEditor": "HTML source editor",
+  "fullscreen": "Fullscreen",
+  "exitFullscreen": "Exit fullscreen",
+  "linkDialog": {
+    "title": "Link",
+    "description": "Enter the address. Leave it empty to remove the link.",
+    "label": "Address",
+    "placeholder": "https://… or /media/1",
+    "unset": "Remove link",
+    "apply": "Apply",
+    "cancel": "Cancel"
+  },
+  "previewDialog": {
+    "title": "Preview",
+    "description": "Approximate appearance of the content on the public site.",
+    "close": "Close"
+  },
+  "pickFile": {
+    "title": "Pick a file"
+  },
+  "pickImage": {
+    "title": "Pick an image"
+  }
+}

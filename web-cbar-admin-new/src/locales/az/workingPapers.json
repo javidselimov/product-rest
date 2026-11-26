@@ -1,0 +1,45 @@
+{
+  "title": "İşçi məqalələri",
+  "entity": "məqalə",
+  "description": "\"İşçi məqalələr silsiləsi\" səhifəsinin siyahısı: hər məqalə saytda öz səhifəsi ilə görünür",
+  "columns": {
+    "code": "Nömrə",
+    "title": "Başlıq",
+    "locales": "Dillər",
+    "status": "Status",
+    "updatedAt": "Yenilənib"
+  },
+  "filters": {
+    "year": "İl",
+    "status": "Status"
+  },
+  "fields": {
+    "number": "Nömrə",
+    "numberHelp": "İl daxilində sıra: 02/2025-də 2",
+    "year": "İl",
+    "paperLanguage": "Məqalənin dili",
+    "jelCodes": "JEL kodları",
+    "jelCodesHelp": "Vergüllə: C22, E53, E58",
+    "status": "Status",
+    "title": "Başlıq",
+    "authors": "Müəlliflər",
+    "authorsHelp": "Vergüllə ayırın",
+    "abstract": "Xülasə",
+    "abstractHelp": "Sətir sonu saytda yeni paraqraf olur",
+    "keywords": "Açar sözlər",
+    "keywordsHelp": "Vergüllə ayırın",
+    "file": "PDF fayl"
+  },
+  "paperLanguages": {
+    "az": "Azərbaycan dili",
+    "en": "İngilis dili",
+    "other": "Digər"
+  },
+  "validation": {
+    "titleRequired": "Bu dildə başlığı yazın və ya dili tam boş saxlayın",
+    "titleTooLong": "Başlıq ən çox {{max}} simvol ola bilər",
+    "authorsRequired": "Başlığı olan dildə ən azı bir müəllif yazın",
+    "jelCode": "\"{{code}}\" JEL kodu deyil: hərf və 1–2 rəqəm olmalıdır (məs. E58)"
+  },
+  "empty": "Hələ işçi məqaləsi yoxdur"
+}

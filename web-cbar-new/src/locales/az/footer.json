@@ -1,0 +1,26 @@
+{
+  "contact": "Əlaqə",
+  "addressLabel": "Ünvan",
+  "address": "Bakı şəhəri, Nizami rayonu, Heydər Əliyev prospekti, 167, AZ1029",
+  "hotline": "Qaynar xətt",
+  "phone": "Əlaqə nömrəsi",
+  "press": "Mətbuat üçün",
+  "internal": "daxili",
+  "onlineFeedback": "Onlayn müraciət",
+  "questionary": "Sorğu platforması",
+  "navigation": "Naviqasiya",
+  "usefulLinks": "Faydalı linklər",
+  "privacy": "Məxfilik siyasəti",
+  "sitemap": "Saytın xəritəsi",
+  "legalLabel": "Hüquqi məlumat",
+  "allRightsReserved": "Bütün hüquqlar qorunur",
+  "socialLabel": "Sosial şəbəkələr",
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "X",
+    "telegram": "Telegram",
+    "youtube": "YouTube",
+    "linkedin": "LinkedIn"
+  }
+}

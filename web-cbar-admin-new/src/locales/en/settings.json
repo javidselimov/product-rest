@@ -1,0 +1,44 @@
+{
+  "title": "Settings",
+  "description": "System settings: key → JSON value. Changes apply to the public site immediately.",
+  "new": "New setting",
+  "empty": "No settings",
+  "emptyHint": "Add the first key with the \"New setting\" button.",
+  "editAria": "Edit setting {{key}}",
+  "columns": {
+    "key": "Key",
+    "value": "Value (JSON)",
+    "updatedAt": "Updated",
+    "actions": "Actions"
+  },
+  "dialog": {
+    "createTitle": "New setting",
+    "editTitle": "Setting: {{key}}",
+    "description": "The value must be valid JSON — an object, array, string, number or boolean.",
+    "key": "Key",
+    "keyPlaceholder": "site.contact",
+    "value": "Value (JSON)",
+    "valuePlaceholder": "{ \"example\": true }",
+    "valueHelp": "Write a text value in quotes: \"text\"."
+  },
+  "validation": {
+    "keyRequired": "Key is required",
+    "keyNoSpaces": "The key cannot contain spaces",
+    "valueRequired": "Value is required",
+    "invalidJson": "The value is not valid JSON"
+  },
+  "created": "Setting created",
+  "saved": "Setting saved",
+  "accessibilityWidget": {
+    "title": "Accessibility menu",
+    "description": "Accessibility menu in the bottom-left corner of the site (CERT.az widget): font size, contrast, dyslexia font and more.",
+    "toggle": "Show the accessibility menu on the public site",
+    "active": "Active",
+    "inactive": "Inactive",
+    "activated": "Accessibility menu enabled",
+    "deactivated": "Accessibility menu disabled",
+    "lastChanged": "Last changed: {{date}}",
+    "neverChanged": "Not changed yet",
+    "cacheHint": "The change appears on the public site within 1 minute."
+  }
+}

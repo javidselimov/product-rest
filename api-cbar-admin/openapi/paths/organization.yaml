@@ -1,0 +1,630 @@
+staff:
+  get:
+    tags: [Organization]
+    operationId: listStaff
+    x-permission: organization.read
+    summary: All staff members, by sort order
+    description: Ordered by `sortOrder`, then id. Active and inactive members alike (not paged).
+    parameters:
+      - name: type
+        in: query
+        description: Only members of this type (`1` = board, `2` = director general, `3` = adviser to the Governor).
+        schema:
+          type: integer
+          format: int16
+    responses:
+      '200':
+        description: Every matching staff member.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/organization.yaml#/OrganizationStaff
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Organization]
+    operationId: createStaffMember
+    x-permission: organization.create
+    summary: Create a staff member
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationStaffUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationStaff
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+staffMember:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Organization]
+    operationId: getStaffMember
+    x-permission: organization.read
+    summary: Staff member by id
+    responses:
+      '200':
+        description: The staff member with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationStaff
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Organization]
+    operationId: updateStaffMember
+    x-permission: organization.update
+    summary: Replace a staff member
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationStaffUpsert
+    responses:
+      '200':
+        description: The updated staff member.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationStaff
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Organization]
+    operationId: deleteStaffMember
+    x-permission: organization.delete
+    summary: Delete a staff member
+    description: Hard delete, together with its translations and press-photo links. The media assets stay.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+staffPhotos:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [Organization]
+    operationId: attachStaffPhoto
+    x-permission: organization.update
+    summary: Add an uploaded photo to a staff member's press set
+    description: |
+      Appended after the existing photos. The same media asset cannot be attached to one member
+      twice (409). Only `image/*` assets are accepted (400) — the public site offers the set as
+      downloadable photographs.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/common.yaml#/AttachAsset
+    responses:
+      '200':
+        description: The new staff photo.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationStaffPhotoAttached
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+staffPhotosOrder:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [Organization]
+    operationId: reorderStaffPhotos
+    x-permission: organization.update
+    summary: Reorder a staff member's press photos
+    description: '`photoIds` must be exactly the set of the member''s photo ids, otherwise 400.'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationStaffPhotoOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+staffPhoto:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - name: photoId
+      in: path
+      required: true
+      description: Route constraint `{photoId:long}`. The staff-photo id (`photos[].id`), not the media id.
+      schema:
+        type: integer
+        format: int64
+  delete:
+    tags: [Organization]
+    operationId: detachStaffPhoto
+    x-permission: organization.update
+    summary: Remove a photo from a staff member's press set
+    description: |
+      Removes the link only; the media asset itself stays. The remaining photos keep their
+      `sortOrder` (a gap is left).
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        description: No photo with this id on this member.
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/common.yaml#/ProblemDetails
+
+divisions:
+  get:
+    tags: [Organization]
+    operationId: listDivisions
+    x-permission: organization.read
+    summary: All structural divisions, by sort order
+    description: Ordered by `sortOrder`, then id. Active and inactive alike (not paged).
+    responses:
+      '200':
+        description: Every division.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/organization.yaml#/OrganizationDivision
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Organization]
+    operationId: createDivision
+    x-permission: organization.create
+    summary: Create a structural division
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationDivisionUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationDivision
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+division:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Organization]
+    operationId: getDivision
+    x-permission: organization.read
+    summary: Structural division by id
+    responses:
+      '200':
+        description: The division with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationDivision
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Organization]
+    operationId: updateDivision
+    x-permission: organization.update
+    summary: Replace a structural division
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationDivisionUpsert
+    responses:
+      '200':
+        description: The updated division.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationDivision
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Organization]
+    operationId: deleteDivision
+    x-permission: organization.delete
+    summary: Delete a structural division
+    description: Hard delete, together with its translations. The media asset stays.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+offices:
+  get:
+    tags: [Organization]
+    operationId: listOffices
+    x-permission: organization.read
+    summary: All regional offices, by sort order
+    description: Ordered by `sortOrder`, then id. Active and inactive alike (not paged).
+    responses:
+      '200':
+        description: Every office.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/organization.yaml#/OrganizationOffice
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Organization]
+    operationId: createOffice
+    x-permission: organization.create
+    summary: Create a regional office
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationOfficeUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationOffice
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+office:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Organization]
+    operationId: getOffice
+    x-permission: organization.read
+    summary: Regional office by id
+    responses:
+      '200':
+        description: The office with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationOffice
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Organization]
+    operationId: updateOffice
+    x-permission: organization.update
+    summary: Replace a regional office
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrganizationOfficeUpsert
+    responses:
+      '200':
+        description: The updated office.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrganizationOffice
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Organization]
+    operationId: deleteOffice
+    x-permission: organization.delete
+    summary: Delete a regional office
+    description: Hard delete, together with its translations.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+chart:
+  get:
+    tags: [Organization]
+    operationId: listOrgChartNodes
+    x-permission: organization.read
+    summary: Every node of the organisational chart, flat
+    description: |
+      Flat list ordered by `sortOrder`, then id; the client builds the tree from `parentId`.
+      Active and inactive alike (not paged).
+    responses:
+      '200':
+        description: Every chart node.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/organization.yaml#/OrgChartNode
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Organization]
+    operationId: createOrgChartNode
+    x-permission: organization.create
+    summary: Create a chart node
+    description: |
+      The desktop chart is laid out from the tree (spec 060): parent, `sortOrder` among
+      siblings, `kind` and `departmentsOpen`. The new node's `layout` and `connector` are null.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrgChartNodeUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrgChartNode
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+chartNode:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Organization]
+    operationId: getOrgChartNode
+    x-permission: organization.read
+    summary: Chart node by id
+    responses:
+      '200':
+        description: The node with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrgChartNode
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Organization]
+    operationId: updateOrgChartNode
+    x-permission: organization.update
+    summary: Replace a chart node
+    description: |
+      Locales absent from `translations` are deleted. `layout` and `connector` are not part of
+      the body and stay as they are; `departmentsOpen` omitted or null keeps the stored value.
+      A `parentId` that is the node itself or one of its descendants is rejected (400).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrgChartNodeUpsert
+    responses:
+      '200':
+        description: The updated node.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/organization.yaml#/OrgChartNode
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Organization]
+    operationId: deleteOrgChartNode
+    x-permission: organization.delete
+    summary: Delete a chart node
+    description: |
+      Hard delete, together with its translations and its `departmentsOpen` setting. The linked
+      staff member or division stays.
+      A node that still has children is refused (409) — move or delete them first.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+chartLayout:
+  put:
+    tags: [Organization]
+    operationId: updateOrgChartLayout
+    x-permission: organization.update
+    deprecated: true
+    summary: Save desktop positions of chart nodes
+    description: |
+      Deprecated since spec 060: the desktop chart is laid out from the tree and the admin panel
+      no longer calls this. The stored positions are kept for a rollback.
+
+      Sets `layout` and `connector` of the listed nodes in one transaction; nodes not listed
+      keep theirs. An unknown or repeated id is rejected (400) and nothing is saved.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrgChartLayoutUpdate
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+chartOrder:
+  put:
+    tags: [Organization]
+    operationId: reorderOrgChartNodes
+    x-permission: organization.update
+    summary: Reorder the children of one chart node
+    description: |
+      `ids` must be exactly the children of `parentId` (the roots when null), inactive ones
+      included, each once; otherwise 400 with `message`. Writes `sortOrder` 1…n in that order.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/organization.yaml#/OrgChartOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

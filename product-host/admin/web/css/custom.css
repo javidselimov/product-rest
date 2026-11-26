@@ -1,0 +1,131 @@
+.bg-login {
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
+
+.bg-white {
+    background-color: white !important;
+}
+
+.error-summary ul, .kv-treeview-alerts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    left: 0;
+}
+
+.account-logo-box a {
+    color: #E3E5E5 !important;
+    text-decoration: none !important;
+}
+
+.form-footer-button {
+    margin-right: 5px;
+}
+
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.kv-treeview-alerts {
+    margin-bottom: 15px;
+}
+
+.trumbowyg-box, .trumbowyg-editor {
+    background-color: white;
+    min-height: 110px;
+    margin: 5px auto;
+}
+
+.popup-wrapper {
+    margin: 10px 5px 5px 5px !important;
+}
+
+.fancybox-slide--iframe .fancybox-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: 50px 0;
+    overflow: visible;
+    background: #000;
+}
+
+.fancybox-infobar button {
+    display: none;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-close,
+.fancybox-slide--iframe .fancybox-content .button-previous,
+.fancybox-slide--iframe .fancybox-content .button-next {
+    position: absolute;
+    width: 74px;
+    height: 74px;
+    background-color: rgba(55, 71, 79, 0.5) !important;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-close {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-previous,
+.fancybox-slide--iframe .fancybox-content .button-next {
+    top: 50%;
+    margin-top: -22px;
+    line-height: 74px;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-previous {
+    left: -80px;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-next {
+    right: -80px;
+}
+
+.fancybox-slide--iframe .fancybox-content .button-close {
+    top: -40px;
+    right: -44px;
+}
+
+div.mce-fullscreen {
+    z-index: 1050;
+}
+
+.mce-tinymce {
+    margin-bottom: 25px !important;
+}
+
+.grid-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.kv-node-label {
+    padding-left: 3px
+}
+
+.panel-title button {
+    margin-top: -7px;
+}
+
+input.touchspin {
+    width: 50px !important;
+    text-align: center;
+}
+
+.btn-copy, .btn-delete {
+    margin-bottom: 5px;
+    margin-left: 0 !important;
+}

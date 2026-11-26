@@ -1,0 +1,189 @@
+# Sync: 1de2eb2 · 2026-10-06 · inkremental · qismən: currencies 2026-10-20, yield-curves f542884 + işçi ağac 2026-10-21, organization (staff photos) 2ed364c + işçi ağac 2026-10-27, organization (offices: photo, director, regulation) işçi ağac 2026-10-28, organization (chart, spec 027) işçi ağac 2026-10-29, organization (divisions: regulation) işçi ağac 2026-10-30, press-releases (spec 033) işçi ağac 2026-11-04, events (spec 034) işçi ağac 2026-11-04, media-content (spec 035) işçi ağac 2026-11-05, release-schedule (spec 039) işçi ağac 2026-11-11, pages (spec 041) işçi ağac 2026-11-12, ifi-organizations (spec 044) işçi ağac 2026-11-13, memorandums (spec 045) işçi ağac 2026-11-13, faq (spec 051) işçi ağac 2026-11-17, monthly-reports (spec 052) işçi ağac 2026-11-18, fincert (spec 053) işçi ağac 2026-11-19, working-papers + pages tree (spec 054) işçi ağac 2026-11-20, homepage strategy docs (spec 057) 2dd1929 2026-11-24, events sort=newest (spec 059) işçi ağac 2026-11-25, organization (chart: departmentsOpen, spec 060) işçi ağac 2026-11-26
+openapi: 3.1.1
+info:
+  title: cbar.az public API (api-cbar)
+  version: 1.0.0
+  description: |
+    Read-only API behind the public cbar.az site. Connects to the shared database as the
+    SELECT-only `cbar_web_ro` role; content is written by api-cbar-admin.
+
+    **Everything is filtered for the public**: `status = published`, not soft-deleted,
+    `isActive`, translated into (and shown in) the requested locale, and for dated
+    content not embargoed by a future `publishedAt`. An empty list usually means no
+    matching content, not an error.
+
+    Conventions:
+    - JSON is camelCase. Dates are `yyyy-MM-dd`, timestamps ISO 8601 with offset,
+      money/rates are JSON numbers.
+    - Paged lists return `{ items, total, page, pageSize }`; lookups and small lists
+      return bare arrays.
+    - Media fields are root-relative URLs (`/media/{id}`) on this API's origin.
+    - All routes except `/healthz` and `/openapi/*` are rate-limited to 1000 req/min per client IP.
+    - No authentication.
+
+    This document is maintained by hand (see `README.md`); the runtime `/openapi/v1.json`
+    carries no response schemas because the controllers return anonymous types.
+  license:
+    name: Proprietary
+    identifier: LicenseRef-CBAR-Proprietary
+servers:
+  - url: https://api-cbar-test.cbar.az
+    description: Test
+  - url: http://localhost:5139
+    description: Local (dotnet run)
+  # TODO(devops): production URL
+security: []
+tags:
+  - name: Currencies
+    description: Official AZN exchange rates, including the legacy XML feed.
+  - name: Pages
+    description: CMS page tree and pages.
+  - name: PressReleases
+    description: Press releases.
+  - name: Events
+    description: Upcoming and past events, and their categories.
+  - name: CsrProjects
+    description: Corporate social responsibility projects.
+  - name: IfiOrganizations
+    description: International financial institutions of the cooperation page.
+  - name: Faq
+    description: Questions and answers (FAQ page and the topic link cards of CMS pages).
+  - name: Fincert
+    description: FinCERT page content (spec 053).
+  - name: Memorandums
+    description: Memoranda of understanding of the "Cooperation with central banks" page.
+  - name: MonthlyReports
+    description: Monthly reports of the consumer rights pages — complaint indices and infographics (spec 052).
+  - name: WorkingPapers
+    description: Working papers of the publications and research section (spec 054).
+  - name: ReleaseSchedule
+    description: Information disclosure schedule and monetary policy decision dates.
+  - name: Laws
+    description: Laws, regulations and their categories.
+  - name: Homepage
+    description: Homepage aggregate.
+  - name: Statistics
+    description: AZIR, inflation and yield curves.
+  - name: Meas
+    description: MEAS (securities disclosure) documents and lookups.
+  - name: MoneyMarks
+    description: Banknotes, coins and money-mark news.
+  - name: Organization
+    description: Staff, divisions and offices.
+  - name: MediaContent
+    description: Photo galleries, videos, live streams and the image popup.
+  - name: Media
+    description: Binary media files.
+  - name: Search
+    description: Site search.
+  - name: SiteSettings
+    description: Public subset of CMS settings.
+  - name: Health
+    description: Health check.
+paths:
+  /api/v1/currencies:
+    $ref: paths/currencies.yaml#/rates
+  /currencies/{date}.xml:
+    $ref: paths/currencies.yaml#/ratesXml
+  /api/v1/pages/tree:
+    $ref: paths/pages.yaml#/tree
+  /api/v1/pages/{slug}:
+    $ref: paths/pages.yaml#/bySlug
+  /api/v1/press-releases:
+    $ref: paths/press-releases.yaml#/list
+  /api/v1/press-releases/{slug}:
+    $ref: paths/press-releases.yaml#/bySlug
+  /api/v1/events:
+    $ref: paths/events.yaml#/list
+  /api/v1/events/{slug}:
+    $ref: paths/events.yaml#/bySlug
+  /api/v1/event-categories:
+    $ref: paths/events.yaml#/categories
+  /api/v1/csr-projects:
+    $ref: paths/csr-projects.yaml#/list
+  /api/v1/ifi-organizations:
+    $ref: paths/ifi-organizations.yaml#/list
+  /api/v1/faq:
+    $ref: paths/faq.yaml#/faq
+  /api/v1/faq/topics:
+    $ref: paths/faq.yaml#/topics
+  /api/v1/fincert:
+    $ref: paths/fincert.yaml#/fincert
+  /api/v1/memorandums:
+    $ref: paths/memorandums.yaml#/list
+  /api/v1/monthly-reports:
+    $ref: paths/monthly-reports.yaml#/list
+  /api/v1/working-papers:
+    $ref: paths/working-papers.yaml#/list
+  /api/v1/working-papers/{key}:
+    $ref: paths/working-papers.yaml#/item
+  /api/v1/release-schedule:
+    $ref: paths/release-schedule.yaml#/list
+  /api/v1/laws:
+    $ref: paths/laws.yaml#/list
+  /api/v1/laws/{slug}:
+    $ref: paths/laws.yaml#/bySlug
+  /api/v1/law-categories:
+    $ref: paths/laws.yaml#/categories
+  /api/v1/homepage:
+    $ref: paths/homepage.yaml#/homepage
+  /api/v1/azir:
+    $ref: paths/statistics.yaml#/azir
+  /api/v1/azir/summary:
+    $ref: paths/statistics.yaml#/azirSummary
+  /api/v1/inflation:
+    $ref: paths/statistics.yaml#/inflation
+  /api/v1/inflation/settings:
+    $ref: paths/statistics.yaml#/inflationSettings
+  /api/v1/yield-curves/latest:
+    $ref: paths/statistics.yaml#/yieldCurveLatest
+  /api/v1/yield-curves/{date}:
+    $ref: paths/statistics.yaml#/yieldCurveByDate
+  /api/v1/meas:
+    $ref: paths/meas.yaml#/list
+  /api/v1/meas-emitents:
+    $ref: paths/meas.yaml#/emitents
+  /api/v1/meas-info-types:
+    $ref: paths/meas.yaml#/infoTypes
+  /api/v1/money-marks:
+    $ref: paths/money-marks.yaml#/list
+  /api/v1/money-marks/{slug}:
+    $ref: paths/money-marks.yaml#/bySlug
+  /api/v1/money-mark-categories:
+    $ref: paths/money-marks.yaml#/categories
+  /api/v1/money-mark-news:
+    $ref: paths/money-marks.yaml#/newsList
+  /api/v1/money-mark-news/{slug}:
+    $ref: paths/money-marks.yaml#/newsBySlug
+  /api/v1/organization/staff:
+    $ref: paths/organization.yaml#/staff
+  /api/v1/organization/staff/{id}:
+    $ref: paths/organization.yaml#/staffMember
+  /api/v1/organization/staff/{id}/photos.zip:
+    $ref: paths/organization.yaml#/staffPhotosZip
+  /api/v1/organization/divisions:
+    $ref: paths/organization.yaml#/divisions
+  /api/v1/organization/offices:
+    $ref: paths/organization.yaml#/offices
+  /api/v1/organization/chart:
+    $ref: paths/organization.yaml#/chart
+  /api/v1/galleries:
+    $ref: paths/media-content.yaml#/galleries
+  /api/v1/galleries/{id}:
+    $ref: paths/media-content.yaml#/gallery
+  /api/v1/videos:
+    $ref: paths/media-content.yaml#/videos
+  /api/v1/videos/{id}:
+    $ref: paths/media-content.yaml#/video
+  /api/v1/video-streams:
+    $ref: paths/media-content.yaml#/videoStreams
+  /api/v1/image-popups:
+    $ref: paths/media-content.yaml#/imagePopups
+  /media/{id}:
+    $ref: paths/misc.yaml#/media
+  /api/v1/search:
+    $ref: paths/misc.yaml#/search
+  /api/v1/site-settings/accessibility-widget:
+    $ref: paths/misc.yaml#/accessibilityWidget
+  /healthz:
+    $ref: paths/misc.yaml#/healthz

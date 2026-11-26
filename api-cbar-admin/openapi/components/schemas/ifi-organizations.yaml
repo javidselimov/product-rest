@@ -1,0 +1,196 @@
+IfiOrganizationListItem:
+  type: object
+  required: [id, status, sortOrder, showAz, showEn, name, memberSince, membershipCount]
+  properties:
+    id:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    sortOrder:
+      type: integer
+      format: int32
+    showAz:
+      type: boolean
+    showEn:
+      type: boolean
+    name:
+      type: [string, 'null']
+      description: The az name, else any locale's.
+    memberSince:
+      type: [integer, 'null']
+      format: int16
+    membershipCount:
+      type: integer
+      format: int32
+
+IfiOrganizationPage:
+  allOf:
+    - $ref: ./common.yaml#/PageMeta
+    - type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/IfiOrganizationListItem'
+
+IfiOrganizationTranslation:
+  type: object
+  required: [name]
+  properties:
+    name:
+      type: string
+      maxLength: 255
+    mission:
+      type: [string, 'null']
+      description: Text of the "main mission" box; null hides the box.
+    membershipIntro:
+      type: [string, 'null']
+      maxLength: 500
+      description: The bold line above the membership dates.
+    content:
+      type: [string, 'null']
+      description: HTML shown below the membership dates.
+
+IfiOrganizationUpsert:
+  type: object
+  required: [status, translations]
+  properties:
+    logoMediaId:
+      type: [integer, 'null']
+      format: int64
+      description: Must be an image.
+    websiteUrl:
+      type: [string, 'null']
+      maxLength: 500
+      description: An absolute `http` or `https` URL.
+    memberSince:
+      type: [integer, 'null']
+      format: int16
+      minimum: 1900
+      maximum: 2100
+      description: The year in the card header.
+    sortOrder:
+      type: integer
+      format: int32
+      default: 0
+    status:
+      $ref: ./common.yaml#/ContentStatus
+      description: "`scheduled` is refused: organizations have no planned publication."
+    showAz:
+      type: boolean
+      default: true
+    showEn:
+      type: boolean
+      default: true
+    translations:
+      type: object
+      minProperties: 1
+      description: At least one locale; a locale left out does not show on the site.
+      additionalProperties:
+        $ref: '#/IfiOrganizationTranslation'
+
+IfiOrganizationDetail:
+  type: object
+  required:
+    - id
+    - logoMediaId
+    - logo
+    - websiteUrl
+    - memberSince
+    - sortOrder
+    - status
+    - showAz
+    - showEn
+    - createdAt
+    - updatedAt
+    - translations
+    - memberships
+  properties:
+    id:
+      type: integer
+      format: int32
+    logoMediaId:
+      type: [integer, 'null']
+      format: int64
+    logo:
+      description: Display data of the logo for the media field; null without a logo.
+      oneOf:
+        - $ref: ./common.yaml#/AssetRef
+        - type: 'null'
+    websiteUrl:
+      type: [string, 'null']
+    memberSince:
+      type: [integer, 'null']
+      format: int16
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    showAz:
+      type: boolean
+    showEn:
+      type: boolean
+    createdAt:
+      $ref: ./common.yaml#/DateTime
+    updatedAt:
+      $ref: ./common.yaml#/DateTime
+    translations:
+      type: object
+      additionalProperties:
+        $ref: '#/IfiOrganizationTranslation'
+    memberships:
+      type: array
+      description: The membership dates, in display order.
+      items:
+        $ref: '#/IfiMembership'
+
+IfiMembershipTranslation:
+  type: object
+  required: [name]
+  properties:
+    name:
+      type: string
+      maxLength: 255
+
+IfiMembershipUpsert:
+  type: object
+  required: [joinedOn, translations]
+  properties:
+    joinedOn:
+      $ref: ./common.yaml#/Date
+    translations:
+      type: object
+      minProperties: 1
+      additionalProperties:
+        $ref: '#/IfiMembershipTranslation'
+
+IfiMembership:
+  type: object
+  required: [id, joinedOn, sortOrder, translations]
+  properties:
+    id:
+      type: integer
+      format: int64
+    joinedOn:
+      $ref: ./common.yaml#/Date
+    sortOrder:
+      type: integer
+      format: int32
+    translations:
+      type: object
+      additionalProperties:
+        $ref: '#/IfiMembershipTranslation'
+
+IfiMembershipOrder:
+  type: object
+  required: [ids]
+  properties:
+    ids:
+      type: array
+      description: Every membership of the organization (`memberships[].id`), exactly once, in the new order.
+      items:
+        type: integer
+        format: int64

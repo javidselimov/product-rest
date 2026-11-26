@@ -1,0 +1,78 @@
+{
+  "title": "Yayım qrafiki",
+  "entity": "sətir",
+  "description": "Media → Məlumatların yayımlanması qrafiki səhifəsinin cədvəli",
+  "tabs": {
+    "items": "Sətirlər",
+    "groups": "Qruplar",
+    "periodicities": "Dövriliklər"
+  },
+  "columns": {
+    "id": "ID",
+    "title": "Məzmun",
+    "group": "Qrup",
+    "periodicity": "Dövrilik",
+    "timingMode": "Müddət xanası",
+    "sortOrder": "Sıra",
+    "status": "Status"
+  },
+  "fields": {
+    "group": "Qrup",
+    "periodicity": "Dövrilik",
+    "periodicityHelp": "Boş qalsa, saytda \"—\" göstərilir.",
+    "timingMode": "Müddət xanası",
+    "timingModeHelp": "\"Qərarlar qrafiki\" seçiləndə saytda Tədbirlərdəki \"Qərar\" tarixləri pəncərədə açılır.",
+    "timingUrl": "Link",
+    "timingUrlHelp": "Yalnız \"Link\" rejimində: https://… və ya saytın öz yolu, məsələn /az/statistics. Digər rejimlərdə saxlanmır.",
+    "status": "Status",
+    "sortOrder": "Sıra",
+    "sortOrderHelp": "Sətirlər qrup daxilində bu rəqəmə görə, kiçikdən böyüyə düzülür.",
+    "showAz": "Azərbaycan dilində göstər",
+    "showEn": "İngilis dilində göstər",
+    "title": "Məzmun",
+    "timing": "Təqdim olunma müddəti",
+    "timingHelp": "Məsələn: \"Növbəti ayın 20-dək\"."
+  },
+  "timingModes": {
+    "text": "Mətn",
+    "link": "Link",
+    "decisions": "Qərarlar qrafiki"
+  },
+  "filters": {
+    "group": "Qrup",
+    "periodicity": "Dövrilik",
+    "status": "Status"
+  },
+  "validation": {
+    "titleRequired": "Bu dildə məzmunu yazın və ya dili tam boş saxlayın",
+    "linkRequired": "\"Link\" rejimində link məcburidir",
+    "linkInvalid": "Link https://, http:// və ya / ilə başlamalıdır"
+  },
+  "lookups": {
+    "columns": {
+      "name": "Ad",
+      "sortOrder": "Sıra"
+    },
+    "fields": {
+      "name": "Ad",
+      "sortOrder": "Sıra"
+    }
+  },
+  "groups": {
+    "title": "Qruplar",
+    "entity": "qrup",
+    "description": "Cədvəlin bölmə başlıqları, məsələn \"Pul və məzənnə siyasəti üzrə\"",
+    "columns": {
+      "isActive": "Status"
+    },
+    "fields": {
+      "isActive": "Aktiv",
+      "isActiveHelp": "Deaktiv qrup və onun sətirləri saytda görünmür."
+    }
+  },
+  "periodicities": {
+    "title": "Dövriliklər",
+    "entity": "dövrilik",
+    "description": "Sətirlərdə seçilən dövrilik dəyərləri, məsələn \"Aylıq\""
+  }
+}

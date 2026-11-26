@@ -1,0 +1,76 @@
+{
+  "tabs": {
+    "general": "General",
+    "directions": "Areas of activity",
+    "memberships": "International memberships"
+  },
+  "general": {
+    "title": "FinCERT",
+    "description": "Contacts, reporting portal, mission and RFC-2350 document of the FinCERT page.",
+    "contacts": "Contacts",
+    "portal": "Reporting portal",
+    "texts": "Texts and document",
+    "saved": "FinCERT details saved"
+  },
+  "directions": {
+    "title": "Areas of activity",
+    "entity": "Area",
+    "description": "Numbered accordions on the FinCERT page. The number follows the order.",
+    "reorderTitle": "Order of the areas"
+  },
+  "memberships": {
+    "title": "International memberships",
+    "entity": "Membership",
+    "description": "Organisation cards in the \"International cooperation\" block of the FinCERT page.",
+    "reorderTitle": "Order of the memberships"
+  },
+  "fields": {
+    "email": "Email",
+    "phone": "Phone",
+    "phoneHelp": "Shown as written, e.g. (+994 12) 437 00 97.",
+    "portalUrl": "Portal address",
+    "portalUrlHelp": "Required when a portal name is filled in.",
+    "portalTitle": "Portal name",
+    "portalDescription": "Portal description",
+    "mission": "Mission",
+    "missionHelp": "Each line is a paragraph on the site.",
+    "rfcMediaId": "RFC-2350 file",
+    "rfcUrl": "RFC-2350 link",
+    "rfcUrlHelp": "The link is not shown while a file is chosen.",
+    "status": "Status",
+    "statusHelp": "A draft is not shown on the site.",
+    "title": "Title",
+    "body": "Text",
+    "logo": "Logo",
+    "logoHelp": "Images only. Without a logo the card shows none.",
+    "url": "Link",
+    "urlPlaceholder": "https://www.first.org/",
+    "name": "Organisation name",
+    "description": "Description",
+    "badge": "Badge",
+    "badgeHelp": "e.g. Full member since 2026"
+  },
+  "columns": {
+    "number": "No.",
+    "title": "Title",
+    "languages": "Languages",
+    "status": "Status",
+    "updatedAt": "Updated",
+    "logo": "Logo",
+    "name": "Name",
+    "badge": "Badge"
+  },
+  "filters": {
+    "status": "Status"
+  },
+  "validation": {
+    "email": "The email address is not valid (e.g. fincert@cbar.az).",
+    "url": "The address must be a full link starting with http:// or https://.",
+    "portalUrlRequired": "With a portal name, the address is required too.",
+    "tooLong": "At most {{max}} characters.",
+    "oneLanguage": "Write a title and a text in at least one language.",
+    "pairRequired": "Title and text go together in this language.",
+    "nameRequired": "Write the organisation name in at least one language.",
+    "nameForLanguage": "If this language has any text, write the organisation name too."
+  }
+}

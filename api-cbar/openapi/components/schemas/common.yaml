@@ -1,0 +1,121 @@
+# Cross-cutting schemas. Referenced as <relative>/components/schemas/common.yaml#/<Name>.
+
+ProblemDetails:
+  description: RFC 9457 problem details, as emitted by ASP.NET Core's client-error mapping.
+  type: object
+  required: [type, title, status]
+  properties:
+    type:
+      type: string
+    title:
+      type: string
+    status:
+      type: integer
+      format: int32
+    detail:
+      type: string
+    instance:
+      type: string
+    traceId:
+      type: string
+
+ValidationProblemDetails:
+  allOf:
+    - $ref: '#/ProblemDetails'
+    - type: object
+      required: [errors]
+      properties:
+        errors:
+          type: object
+          description: Field name → error messages.
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+ErrorMessage:
+  description: Hand-written error body used by a few endpoints instead of ProblemDetails.
+  type: object
+  required: [message]
+  properties:
+    message:
+      type: string
+
+PageMeta:
+  description: Paging envelope fields. `page` and `pageSize` echo the clamped values actually used.
+  type: object
+  required: [total, page, pageSize]
+  properties:
+    total:
+      type: integer
+      format: int32
+      minimum: 0
+    page:
+      type: integer
+      format: int32
+      minimum: 1
+    pageSize:
+      type: integer
+      format: int32
+      minimum: 1
+
+NamedItem:
+  description: Lookup item (category, emitent, info type) with its name in the requested locale.
+  type: object
+  required: [id, name]
+  properties:
+    id:
+      type: integer
+      format: int32
+    name:
+      type: string
+
+MediaUrl:
+  description: Root-relative URL of a media asset served by `GET /media/{id}`.
+  type: string
+  pattern: ^/media/[0-9]+$
+  examples: [/media/42]
+
+NullableMediaUrl:
+  anyOf:
+    - $ref: '#/MediaUrl'
+    - type: 'null'
+
+AssetFile:
+  description: A downloadable file attached to a content item, in attachment sort order.
+  type: object
+  required: [mediaId, originalName, mimeType, sizeBytes, url]
+  properties:
+    mediaId:
+      type: integer
+      format: int64
+    originalName:
+      type: string
+    mimeType:
+      type: string
+    sizeBytes:
+      type: integer
+      format: int64
+      description: As stored; rows migrated from the legacy site may carry inaccurate sizes.
+    url:
+      $ref: '#/MediaUrl'
+
+Date:
+  type: string
+  format: date
+  description: Calendar date, `yyyy-MM-dd`.
+
+DateTime:
+  type: string
+  format: date-time
+
+NullableDate:
+  type: [string, 'null']
+  format: date
+
+NullableDateTime:
+  type: [string, 'null']
+  format: date-time
+
+NullableString:
+  type: [string, 'null']

@@ -1,0 +1,55 @@
+.paginate-pagination ul {
+    margin: 20px 10px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginate-pagination ul:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.paginate-pagination ul li:after {
+    display: none;
+    background: none !important;
+}
+
+.paginate-pagination ul > li {
+    float: left;
+    margin-top: 10px;
+    margin-right: 3px;
+    padding-left: 1px !important;
+}
+
+.paginate-pagination ul > li > a.page {
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.paginate-pagination ul > li > a.page img {
+    width: 14px;
+}
+
+.paginate-pagination ul > li > a.page:hover {
+    opacity: 0.7;
+}
+
+.paginate-pagination ul > li > a.page.active {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.paginate-pagination ul > li > a.page-next.deactive,
+.paginate-pagination ul > li > a.page-prev.deactive {
+    opacity: 0.5;
+    cursor: default;
+}

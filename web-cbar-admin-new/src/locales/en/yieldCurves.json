@@ -1,0 +1,78 @@
+{
+  "title": "Yield curve",
+  "tabs": {
+    "yields": "Curve",
+    "parameters": "Parameters",
+    "periods": "Tenors"
+  },
+  "columns": {
+    "curveDate": "Date",
+    "pointsCount": "Points",
+    "beta0": "β₀",
+    "beta1": "β₁",
+    "beta2": "β₂",
+    "lambda": "λ",
+    "threeMonth": "3M",
+    "sixMonth": "6M",
+    "nineMonth": "9M",
+    "oneYear": "1Y",
+    "twoYear": "2Y",
+    "threeYear": "3Y",
+    "fourYear": "4Y",
+    "updatedAt": "Imported"
+  },
+  "yields": {
+    "entity": "curve points",
+    "description": "Yield points by tenor (days) for each date, imported from Excel.",
+    "empty": "No curve points imported",
+    "deleteConfirm": "Delete every curve point for {{name}}? Parameters and tenors are not affected.",
+    "importTitle": "Import curve points",
+    "importDescription": "Column B is the tenor in days, column C the yield, from row 2 on. Written for the selected date right away."
+  },
+  "parameters": {
+    "entity": "parameters",
+    "description": "Nelson–Siegel parameters (β₀, β₁, β₂, λ) for each date, imported from Excel.",
+    "empty": "No parameters imported",
+    "deleteConfirm": "Delete the parameters for {{name}}? Curve points and tenors are not affected.",
+    "importTitle": "Import parameters",
+    "importDescription": "Row 2 of the file: A — β₀, B — β₁, C — β₂, D — λ. Written for the selected date right away."
+  },
+  "periods": {
+    "entity": "tenors",
+    "description": "Yields at the 7 standard tenors (3 months … 4 years) for each date, imported from Excel.",
+    "empty": "No tenors imported",
+    "deleteConfirm": "Delete the tenors for {{name}}? Curve points and parameters are not affected.",
+    "importTitle": "Import tenors",
+    "importDescription": "Cells C2:C8 of the file: 3M, 6M, 9M, 1Y, 2Y, 3Y, 4Y. Written for the selected date right away."
+  },
+  "points": {
+    "open": "View points for {{date}}",
+    "title": "{{date}} — curve points",
+    "description": "{{count}} points",
+    "period": "Tenor (days)",
+    "yield": "Yield (%)"
+  },
+  "import": {
+    "open": "Import from Excel",
+    "date": "Date",
+    "file": "Excel file",
+    "pickFile": "Drop the file here or click to choose",
+    "fileHint": ".xlsx only, up to 5 MB",
+    "submit": "Import",
+    "overwrite": "Overwrite",
+    "confirmOverwrite": "This data has already been imported for {{date}}. Replace it with the file's?",
+    "done": "Imported for {{date}}",
+    "errors": {
+      "pickDate": "Choose a date",
+      "pickFile": "Choose a file",
+      "date_required": "Choose a date",
+      "file_required": "Choose a file",
+      "not_xlsx": "Only .xlsx files can be imported",
+      "file_too_large": "The file is too large",
+      "no_rows": "No data found in the file — check that you chose the right file",
+      "too_many_rows": "The file has more rows than expected — check that you chose this section's file",
+      "invalid_value": "Cell {{column}}{{row}} is empty or not a valid number",
+      "duplicate_period": "Row {{row}}: the tenor appears more than once"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+collection:
+  get:
+    tags: [Media]
+    operationId: listMedia
+    x-permission: media.read
+    summary: Media library, newest first
+    description: Ordered by upload time. Soft-deleted assets are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - name: pageSize
+        in: query
+        description: |
+          Page size. Clamped, never rejected: values below 1 use the default (24), values above
+          100 are capped at 100.
+        schema:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+          default: 24
+      - name: search
+        in: query
+        description: Case-insensitive substring match (`ILIKE '%…%'`) on the original file name. Blank is ignored.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: One page of media assets.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media.yaml#/MediaPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Media]
+    operationId: uploadMedia
+    x-permission: media.create
+    summary: Upload a file
+    description: |
+      Storage is content-addressed by SHA-256. If an asset with identical bytes already
+      exists, nothing is stored and that asset is returned as-is (its original name and
+      upload time, not this request's file name); if it was soft-deleted it is restored.
+      This holds for two concurrent uploads of the same bytes too — both get the same asset —
+      and where legacy data holds several assets with one checksum (the oldest live one wins).
+      The file name is sanitised before it is stored: directory parts (`/` and `\`), control
+      and bidi-control characters and surrounding whitespace are removed, it is normalised to
+      NFC and cut to 255 characters keeping the extension; a name left empty becomes `file`
+      plus the extension. The extension is checked on the sanitised name.
+
+      The first 1024 bytes must match the extension: for the raster image extensions
+      (`.jpg .jpeg .png .gif .webp`) any JPEG, PNG, GIF or WebP signature — they are checked
+      as one family, so a JPEG named `.png` is accepted; `%PDF-` within those bytes; `PK` for
+      `.zip`/`.docx`/`.xlsx` (the three are not told apart); the OLE2 signature for
+      `.doc`/`.xls`; a RAR or 7-Zip signature for `.rar`; and for `.xml`/`.svg` an optional BOM,
+      whitespace, then `<`. The stored MIME type still follows the extension.
+
+      400 for an empty file, a disallowed extension, content that does not match the
+      extension (`File content does not match type '.pdf'.`), or a missing `file` part —
+      nothing is stored in any of these cases. A body over the 250 MB limit fails while the
+      form is read, before the action runs (ASP.NET Core reports this as a binding error,
+      i.e. 400; a proxy in front may answer 413 first). The upload is buffered on disk by the
+      framework, not in memory; memory use does not grow with the file size.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/media.yaml#/MediaUpload
+    responses:
+      '200':
+        description: The new asset, or the existing one with the same content (200 in both cases).
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media.yaml#/MediaUploadResult
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+item:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Route constraint `{id:long}` — a non-integer segment does not match the route (404, problem details without `message`).
+      schema:
+        type: integer
+        format: int64
+  delete:
+    tags: [Media]
+    operationId: deleteMedia
+    x-permission: [media.delete, media.delete_own]
+    summary: Soft-delete a media asset
+    description: |
+      Refused (409) while anything references the asset — page, press-release and law
+      attachments, MEAS documents, gallery images, banners, news slides, homepage
+      publications, image popups, divisions, staff photos, user avatars, money-mark images — including
+      rows of soft-deleted content. The stored object is kept; re-uploading the same bytes
+      restores the asset.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+preview:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Route constraint `{id:long}` — a non-integer segment does not match the route (404, problem details without `message`).
+      schema:
+        type: integer
+        format: int64
+  get:
+    tags: [Media]
+    operationId: getMediaPreview
+    x-permission: media.read
+    summary: Image bytes for panel previews
+    description: |
+      Streams an image asset with the bearer token, so the panel can show it as a blob
+      without calling the public API. Non-images answer 415 without touching object
+      storage — that is how the panel decides to show an icon instead. The bytes behind an
+      id never change, so 200, 304 and 415 are cacheable (`private`); the checksum is the
+      ETag. No `Content-Length` (legacy rows carry inaccurate sizes). SVGs are served with
+      a sandboxing `Content-Security-Policy`. Soft-deleted assets and objects missing from
+      storage answer 404.
+    parameters:
+      - name: If-None-Match
+        in: header
+        description: ETag from a previous response, or `*`.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: Image bytes with the stored MIME type.
+        headers:
+          ETag:
+            description: Quoted SHA-256 of the content.
+            schema:
+              type: string
+          Cache-Control:
+            schema:
+              type: string
+              const: private, max-age=31536000, immutable
+          Content-Disposition:
+            description: '`inline` with the original file name.'
+            schema:
+              type: string
+          Content-Security-Policy:
+            schema:
+              type: string
+              const: default-src 'none'; style-src 'unsafe-inline'; sandbox
+        content:
+          image/*:
+            schema:
+              type: string
+              contentMediaType: application/octet-stream
+      '304':
+        description: '`If-None-Match` matched; no body.'
+        headers:
+          ETag:
+            schema:
+              type: string
+          Cache-Control:
+            schema:
+              type: string
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        description: 'No such asset (or soft-deleted; no `message`), or its object is missing from storage (`message: "Not found."`). `Cache-Control: no-store`.'
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/common.yaml#/ProblemDetails
+      '415':
+        description: The asset is not an image (`mimeType` does not start with `image/`). Cacheable like 200.
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/media.yaml#/MediaPreviewUnsupported

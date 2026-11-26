@@ -1,0 +1,36 @@
+app:
+  listenPort: 8080
+
+service:
+  enabled: true
+
+ingress:
+  enabled: true
+
+pod:
+  labels:
+    # Opts out of Instana AutoTrace injection. Its webhook sets DOTNET_STARTUP_HOOKS to
+    # /opt/instana/instrumentation/netcore/glibc/Instana.Tracing.Core.dll, which is not in the
+    # container, so the runtime dies with FileNotFoundException before Main and the rollout
+    # never becomes Ready (the old pod keeps serving). Same fix as web-cbar-new.
+    instana-autotrace: "false"
+  annotations:
+    prometheus.io/scrape: "true"
+
+deployment:
+  annotations:
+    reloader.stakater.com/auto: "true"
+
+probes:
+  readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 8080
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  livenessProbe:
+    httpGet:
+      path: /healthz
+      port: 8080
+    initialDelaySeconds: 30
+    periodSeconds: 30

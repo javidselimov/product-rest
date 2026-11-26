@@ -1,0 +1,86 @@
+{
+  "securities": "Securities database",
+  "securitiesDescription": "Information disclosed by issuers",
+  "emitent": "Issuer",
+  "infoType": "Information type",
+  "allEmitents": "All issuers",
+  "allInfoTypes": "All types",
+  "regDate": "Registration date",
+  "dqn": "ISIN",
+  "file": "File",
+  "download": "Download",
+  "officialRates": "Official exchange rates",
+  "sheetDate": "Rate date",
+  "chooseDate": "Choose a date",
+  "show": "Show",
+  "nominal": "Nominal",
+  "code": "Code",
+  "currency": "Currency",
+  "rate": "Rate (AZN)",
+  "xml": "XML",
+  "xmlHint": "Download the rates for this date as XML",
+  "noSheet": "There is no rate sheet for the selected date",
+  "ratesNote": "Rates are the official exchange rates of the Central Bank of the Republic of Azerbaijan.",
+  "xmlFeed": "Download as XML",
+  "nsParams": "Nelson-Siegel parameters",
+  "azir": "AZIR — interbank interest rate",
+  "azirShort": "AZIR",
+  "term": "Term",
+  "inflation": "Inflation",
+  "inflationYear": "{{year}}",
+  "month": "Month",
+  "year": "Year",
+  "yieldCurve": "Yield curve",
+  "period": "Period",
+  "yield": "Yield (%)",
+  "curveDate": "Curve date",
+  "noData": "No data for this indicator",
+  "parameters": {
+    "cpi_yoy": "CPI, year-on-year (%)",
+    "core_yoy": "Core inflation, year-on-year (%)",
+    "target": "Target (%)"
+  },
+  "chart": "Chart",
+  "chartTitle": "{{title}} chart",
+  "azirPage": {
+    "title": "Benchmark rate in the unsecured interbank money market – AZIR",
+    "methodologyAlert": "Starting from May 15, 2025, the AZIR indices are calculated based on the methodology approved by the Board of the Central Bank of Azerbaijan on May 6, 2025.",
+    "filter": {
+      "from": "From",
+      "to": "To",
+      "submit": "Show",
+      "error": {
+        "format": "The date is not valid.",
+        "order": "The start date cannot be after the end date.",
+        "tooLong": "The range cannot exceed 10 years."
+      }
+    },
+    "download": "Download",
+    "columns": {
+      "date": "Date",
+      "rate": "Interest rate",
+      "volume": "Value of transactions (mln. AZN)",
+      "count": "Number of transactions"
+    },
+    "reserveFootnote": "*Calculated on the basis of the contingency plan",
+    "empty": "No data for the selected period.",
+    "summary": {
+      "title": "Information about the 1D AZIR index",
+      "lastDate": "Renewal date",
+      "lastRate": "Interest rate, %",
+      "rateChangeSinceMonthEnd": "Interest rate change since previous month-end",
+      "rateChangeSinceYearEnd": "Interest rate change since previous year-end",
+      "lastMinRate": "Minimum interest rate on the last transaction day",
+      "lastMaxRate": "Maximum interest rate on the last transaction day",
+      "lastVolume": "Value of transactions, mln AZN",
+      "volumeChangeSinceMonthEnd": "Change since previous month-end",
+      "volumeMin": "Minimum value for the past 1 year",
+      "volumeMax": "Maximum value for the past 1 year",
+      "lastVolumeUsd": "Value of transactions in US dollars, mln USD"
+    },
+    "export": {
+      "sheetNotes": "Notes",
+      "reserveDates": "Days calculated on the basis of the contingency plan"
+    }
+  }
+}

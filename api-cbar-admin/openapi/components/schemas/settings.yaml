@@ -1,0 +1,32 @@
+SettingValue:
+  description: |
+    Any JSON value — object, array, string, number, boolean or `null` — stored as `jsonb`.
+    `PUT` echoes the value as sent; `GET` returns it as `jsonb` normalised it (object key
+    order and duplicate keys are not preserved).
+
+Setting:
+  type: object
+  required: [key, value, updatedAt]
+  properties:
+    key:
+      type: string
+    value:
+      $ref: '#/SettingValue'
+    updatedAt:
+      $ref: ./common.yaml#/DateTime
+
+SettingList:
+  type: object
+  required: [items]
+  properties:
+    items:
+      type: array
+      items:
+        $ref: '#/Setting'
+
+SettingUpsert:
+  type: object
+  required: [value]
+  properties:
+    value:
+      $ref: '#/SettingValue'

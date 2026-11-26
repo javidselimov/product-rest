@@ -1,0 +1,11 @@
+# TODO(devops): confirm the hostname before the first deploy.
+# Cutover-ə qədər köhnə web-cbar-admin chart-ı ilə EYNİ host — ikisi eyni anda
+# deploy olunarsa toqquşur.
+ingress:
+  hostname: admin-temp.cbar.az
+
+build:
+  args:
+    BUILD_ENV: test
+# TODO(devops): api-cbar-admin `Cors__Origins__0=https://admin-temp.cbar.az`.
+# Spec 005: refresh cookie üçün panel və API eyni saytda (`*.cbar.az`) olmalıdır — burada belədir.

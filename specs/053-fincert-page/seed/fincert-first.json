@@ -1,0 +1,15 @@
+{
+  "url": "https://www.first.org/",
+  "translations": {
+    "az": {
+      "name": "Forum for Incident Response and Security Teams",
+      "description": "İnsidentlərlə Mübarizə və Təhlükəsizlik Mərkəzlərinin Beynəlxalq Forumu",
+      "badge": "2026-cı ildən tam hüquqlu üzv"
+    },
+    "en": {
+      "name": "Forum of Incident Response and Security Teams",
+      "description": "International forum of incident response and security teams",
+      "badge": "Full member since 2026"
+    }
+  }
+}

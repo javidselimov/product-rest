@@ -1,0 +1,130 @@
+collection:
+  get:
+    tags: [WorkingPapers]
+    operationId: listWorkingPapers
+    x-permission: working_papers.read
+    summary: Working papers, newest first
+    description: |
+      By `year` descending, then `number` descending, then `id`. Soft-deleted papers are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - name: year
+        in: query
+        schema:
+          type: integer
+          format: int16
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of working papers.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/working-papers.yaml#/WorkingPaperPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [WorkingPapers]
+    operationId: createWorkingPaper
+    x-permission: working_papers.create
+    summary: Create a working paper
+    description: |
+      The number is unique within its year among papers that are not deleted; a second one is refused
+      with 409. Lists are trimmed, and blank and repeated items are dropped; JEL codes are upper-cased.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/working-papers.yaml#/WorkingPaperUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/working-papers.yaml#/WorkingPaperDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [WorkingPapers]
+    operationId: getWorkingPaper
+    x-permission: working_papers.read
+    summary: Working paper by id
+    responses:
+      '200':
+        description: The paper with every locale's translation.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/working-papers.yaml#/WorkingPaperDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [WorkingPapers]
+    operationId: updateWorkingPaper
+    x-permission: working_papers.update
+    summary: Update a working paper
+    description: A locale left out of `translations` loses its translation, so the paper leaves that locale's site.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/working-papers.yaml#/WorkingPaperUpsert
+    responses:
+      '200':
+        description: The updated paper.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/working-papers.yaml#/WorkingPaperDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+  delete:
+    tags: [WorkingPapers]
+    operationId: deleteWorkingPaper
+    x-permission: working_papers.delete
+    summary: Soft-delete a working paper
+    description: The number becomes free in its year; a new paper may take it.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

@@ -1,0 +1,32 @@
+{
+  "mission": "The mission of the Financial Computer Emergency Response Center (FinCERT), established by the Central Bank of the Republic of Azerbaijan (Central Bank), is to strengthen the level of cybersecurity and resilience of the financial market.",
+  "directions": [
+    {
+      "title": "Obtaining and Sharing of Information on Incidents",
+      "body": "<p>FinCERT ensures the centralized collection and timely sharing of information regarding cybersecurity incidents affecting financial market participants. FinCERT:</p>\n<ul><li>closely communicates and cooperates with other CERTs within the legislative framework.</li>\n<li>forms an effective communication environment that ensures the enhancement of cybersecurity in financial markets.</li>\n<li>implements global best practices by cooperating with international financial CERTs.</li>\n</ul>"
+    },
+    {
+      "title": "Incident Analysis and Provision of Initial Response Measures",
+      "body": "<p>By analyzing incoming information, FinCERT identifies the root causes of incidents, assesses their impact on the financial sector, and ensures operational information exchange and the provision of guiding recommendations to ensure that relevant parties take appropriate measures.</p>"
+    },
+    {
+      "title": "Coordination of Incident Activities and Strengthening Resilience in the Financial Ecosystem",
+      "body": "<p>FinCERT organizes unified incident response processes by ensuring coordination between financial market participants, CERTs, and other stakeholders. This coordinated approach enables faster and more effective responses across the sector and strengthens the resilience of the financial system. FinCERT also:</p>\n<ul><li>creates conditions for increasing knowledge and skills in cybersecurity in the financial market.</li>\n<li>raises the level of cyber hygiene through awareness initiatives.</li>\n<li>ensures the dissemination of cybersecurity information through digital channels in close cooperation with CERTs.</li>\n</ul>"
+    },
+    {
+      "title": "Proactive Threat Detection and Early Warning of Participants",
+      "body": "<p>One of FinCERT's areas of activity is the proactive detection of cybersecurity threats targeting the financial sector and the prevention of their possible consequences. In this framework, FinCERT identifies new and emerging threats by using various data collection and analysis mechanisms, assesses their potential impact on financial institutions, and timely informs participants to take appropriate preventive measures.</p>\n<p>With these efforts, the financial sector identifies risks proactively, enhances the preparedness among market participants and strengthens overall cyber resilience</p>"
+    }
+  ],
+  "email": "fincert@cbar.az",
+  "phone": "(+994 12) 437 00 97",
+  "portal": {
+    "url": "https://portal.e-cbar.az/",
+    "title": "Unified Electronic Reporting Portal",
+    "description": "The Central Bank's \"Unified Electronic Reporting Portal\" is used by supervised entities to submit reports on high-category incidents to the Central Bank."
+  },
+  "rfc": {
+    "legacyName": "02c3d655e376515419c623ce2.pdf",
+    "url": "https://uploads.cbar.az/assets/02c3d655e376515419c623ce2.pdf"
+  }
+}

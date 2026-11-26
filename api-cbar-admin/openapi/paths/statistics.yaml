@@ -1,0 +1,802 @@
+currencies:
+  get:
+    tags: [Statistics]
+    operationId: listCurrencies
+    x-permission: currencies.read
+    summary: All currencies, by sort order
+    description: The ISO currency master list (active or not), ordered by `sortOrder`, then code. Not paged.
+    responses:
+      '200':
+        description: Every currency, wrapped in `{ items }`.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyList
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+currency:
+  parameters:
+    - name: code
+      in: path
+      required: true
+      description: ISO 4217 code, matched case-sensitively (`USD`, not `usd`).
+      schema:
+        type: string
+  put:
+    tags: [Statistics]
+    operationId: updateCurrency
+    x-permission: currencies.update
+    summary: Update a currency's homepage flag, order and activity
+    description: Currencies cannot be created, renamed or deleted through the API; only these three fields change.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/CurrencyUpdate
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        description: Unknown currency code.
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/common.yaml#/ErrorMessage
+
+rateSheet:
+  get:
+    tags: [Statistics]
+    operationId: getCurrencyRateSheet
+    x-permission: currency_rates.read
+    summary: Official rates for one date
+    description: |
+      Without `date`, returns the latest date that has rates. A date with no rates is not an
+      error: the response is `200` with that date and an empty `rates`. When no rates exist
+      at all and `date` is omitted, `date` is null.
+    parameters:
+      - name: date
+        in: query
+        description: Sheet date, `yyyy-MM-dd`. Omit for the latest sheet.
+        schema:
+          type: string
+          format: date
+    responses:
+      '200':
+        description: The rate sheet.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyRateSheet
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  put:
+    tags: [Statistics]
+    operationId: saveCurrencyRateSheet
+    x-permission: currency_rates.prepare
+    summary: Create or update the rates for a date
+    description: |
+      A merge, not a replacement: each listed currency's rate for `date` is inserted or
+      overwritten; rates already stored for that date for currencies **not** in the payload
+      are left untouched. To drop a currency from a sheet, delete the whole date and re-save.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/CurrencyRateSheetUpsert
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  delete:
+    tags: [Statistics]
+    operationId: deleteCurrencyRateSheet
+    x-permission: currency_rates.prepare
+    summary: Delete every rate for a date
+    description: Hard delete of the whole sheet.
+    parameters:
+      - name: date
+        in: query
+        required: true
+        description: |
+          Sheet date, `yyyy-MM-dd`. Not enforced by binding: if omitted, the server uses
+          `0001-01-01`, finds nothing and answers 404.
+        schema:
+          type: string
+          format: date
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+rateImport:
+  post:
+    tags: [Statistics]
+    operationId: importCurrencyRateSheet
+    x-permission: currency_rates.prepare
+    summary: Import the rates for a date from the official bulletin (.xlsx)
+    description: |
+      Reads the active sheet's `B7:G100` like the legacy importer: a row counts when column `B`
+      (trimmed, upper-cased) is three letters A–Z; column `G` is its rate, rounded to 4 decimals
+      half away from zero. `XDR` is stored as `SDR`. Codes not in the currency master are skipped
+      and listed in `skipped`. Column `A` (nominal) and the bulletin's own date are not read.
+
+      Written like `PUT /currency-rates` — a merge: rates for the file's codes are inserted or
+      overwritten, other rates already stored for `date` are left untouched. A date that already
+      has rates needs `overwrite=true`. Every check runs before anything is written, and the
+      write is one transaction: a failed import changes nothing.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/CurrencyRateImportForm
+    responses:
+      '200':
+        description: The rates written.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyRateImportResult
+      '400':
+        description: |
+          The request or the file was rejected (`code`: `date_required`, `file_required`,
+          `not_xlsx`, `file_too_large`, `no_rates`, `invalid_rate`, `duplicate_code`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyRateImportProblem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: |
+          The date already has rates and `overwrite` is not `true` (`code` is `sheet_exists`,
+          with `count`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyRateImportProblem
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+rateDates:
+  get:
+    tags: [Statistics]
+    operationId: listCurrencyRateDates
+    x-permission: currency_rates.read
+    summary: Dates that have rates, newest first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of dates with their rate counts.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/CurrencyRateDatePage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+azir:
+  get:
+    tags: [Statistics]
+    operationId: listAzir
+    x-permission: azir.read
+    summary: AZIR index values, newest first
+    description: Ordered by `valueDate` descending, then `term`.
+    parameters:
+      - name: from
+        in: query
+        description: Only values on or after this date (`yyyy-MM-dd`).
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        description: Only values on or before this date (`yyyy-MM-dd`).
+        schema:
+          type: string
+          format: date
+      - name: term
+        in: query
+        description: Only this tenor (exact, case-sensitive match). Blank is ignored.
+        schema:
+          type: string
+      - $ref: ../components/parameters.yaml#/Page
+      - name: pageSize
+        in: query
+        description: |
+          Page size. Clamped, never rejected: values below 1 use the default (50), values above
+          100 are capped at 100.
+        schema:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+          default: 50
+    responses:
+      '200':
+        description: One page of AZIR values.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/AzirValuePage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Statistics]
+    operationId: saveAzir
+    x-permission: azir.create
+    summary: Create or update an AZIR value
+    description: |
+      Upsert keyed on (`valueDate`, `term`): an existing value for that pair has its `rate` and
+      deal details (`dealVolume`, `dealCount`, `minRate`, `maxRate`, `isReservePlan`) replaced,
+      otherwise a new one is created. Saved values are public immediately. Always `200`, never
+      `201`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/AzirUpsert
+    responses:
+      '200':
+        description: The stored value.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/AzirValueSaved
+      '400':
+        description: |
+          Model binding failed (`errors` keyed by JSON path), the controller rejected a field
+          (`AzirValidationProblem`), or the database rejected a value (`urn:cbar:problem:*`).
+        content:
+          application/problem+json:
+            schema:
+              anyOf:
+                - $ref: ../components/schemas/common.yaml#/ValidationProblemDetails
+                - $ref: ../components/schemas/statistics.yaml#/AzirValidationProblem
+                - $ref: ../components/schemas/common.yaml#/ErrorMessage
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+azirImport:
+  post:
+    tags: [Statistics]
+    operationId: importAzir
+    x-permission: azir.create
+    summary: Import one day of AZIR values from the bank's daily workbook (.xlsx)
+    description: |
+      Reads the active sheet. The date is cell `B2` (an Excel date, or `dd.MM.yyyy` text). The
+      table starts after the first row whose `B` is `Ad` and `C` is `Faiz`; `B` names the index,
+      `C` its rate, `D` and `E` the 1D deal volume and count. Names are matched trimmed and
+      case-insensitively, `*` marks the reserve plan: `AZIR` / `1D AZIR` → 1D,
+      `TF AZIR 30D|90D|180D` → that tenor, `LAST MIN RATE` / `LAST MAX RATE` → the 1D minimum /
+      maximum rate. `AZIR TFAI` is recognised and not stored. Rows starting with `*` and blank rows
+      are ignored; any other name rejects the file.
+
+      Rates are fractions in the file and are stored × 100, rounded to 4 decimals half away from
+      zero. A blank, `-` or zero 30D/90D/180D rate leaves that tenor out (`skipped`). A zero
+      minimum or maximum is stored as null. The 1D deal volume is stored in millions of manat: up
+      to 10 000 as is, from 1 000 000 divided by 1 000 000 (`volumeConverted`), anything between
+      is rejected (`ambiguous_volume`).
+
+      Written like `POST /azir` for each tenor in the file — a merge: other tenors of the date are
+      left untouched. A date that already has any of the file's tenors needs `overwrite=true`.
+      Every check runs before anything is written, and the write is one transaction: a failed
+      import changes nothing.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/AzirImportForm
+    responses:
+      '200':
+        description: The values written.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/AzirImportResult
+      '400':
+        description: |
+          The request or the file was rejected (`code`: `file_required`, `not_xlsx`,
+          `file_too_large`, `date_missing`, `date_in_future`, `header_missing`, `unknown_index`,
+          `duplicate_index`, `missing_1d`, `invalid_value`, `ambiguous_volume`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/AzirImportProblem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: |
+          The date already has some of the file's tenors and `overwrite` is not `true` (`code` is
+          `date_exists`, with `valueDate`, `count` and `terms`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/AzirImportProblem
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+azirItem:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Route constraint `{id:long}`.
+      schema:
+        type: integer
+        format: int64
+  delete:
+    tags: [Statistics]
+    operationId: deleteAzir
+    x-permission: azir.delete
+    summary: Delete an AZIR value
+    description: Hard delete, together with its deal details.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+inflation:
+  get:
+    tags: [Statistics]
+    operationId: listInflationParameters
+    x-permission: inflation.read
+    summary: Monthly inflation parameters, newest first
+    description: Ordered by year and month descending, then `parameterCode`. Not paged — a bare array.
+    parameters:
+      - name: year
+        in: query
+        description: Only this year.
+        schema:
+          type: integer
+          format: int16
+    responses:
+      '200':
+        description: Every matching parameter.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/statistics.yaml#/InflationParameter
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Statistics]
+    operationId: saveInflationParameter
+    x-permission: inflation.create
+    summary: Create or update a monthly inflation parameter
+    description: |
+      Upsert keyed on (`year`, `month`, `parameterCode`): an existing row has its `value`
+      overwritten, otherwise a new one is created. Always `200`, never `201`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/InflationParameterUpsert
+    responses:
+      '200':
+        description: The stored parameter.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/InflationParameterSaved
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+inflationSettings:
+  get:
+    tags: [Statistics]
+    operationId: getInflationSettings
+    x-permission: inflation.read
+    summary: Homepage inflation summary
+    responses:
+      '200':
+        description: The saved summary.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/InflationSettings
+      '204':
+        description: |
+          Nothing saved yet. The controller returns `Ok(null)`, which ASP.NET Core's default
+          output formatters turn into an empty `204`.
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  put:
+    tags: [Statistics]
+    operationId: saveInflationSettings
+    x-permission: inflation.update
+    summary: Create or replace the homepage inflation summary
+    description: Creates the single row on first save, overwrites it afterwards. Always `200`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/InflationSettingsUpdate
+    responses:
+      '200':
+        description: The saved summary (`targetInflation` trimmed).
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/InflationSettings
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+inflationItem:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  delete:
+    tags: [Statistics]
+    operationId: deleteInflationParameter
+    x-permission: inflation.delete
+    summary: Delete a monthly inflation parameter
+    description: Hard delete.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+
+# --- Yield curves: three independent date-keyed datasets, each imported from its own .xlsx
+# like the legacy admin (product-host/admin/controllers/YieldCurveController.php).
+
+yieldCurveYields:
+  get:
+    tags: [Statistics]
+    operationId: listYieldCurveDates
+    x-permission: yield_curves.read
+    summary: Dates that have yield curve points, newest first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of dates with their point counts.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveDatePage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+yieldCurveYieldsImport:
+  post:
+    tags: [Statistics]
+    operationId: importYieldCurvePoints
+    x-permission: yield_curves.create
+    summary: Import the yield curve points for a date (.xlsx)
+    description: |
+      Reads the active sheet from row 2 on, like the legacy importer: column `B` is the tenor in
+      days (a whole number, 1–32767), column `C` the yield. A row with both cells empty is
+      skipped; columns `A` (date) and beyond `C` are not read. At most 5000 points. Every period
+      at most once.
+
+      A date that already has points needs `overwrite=true`; its points are then replaced as a
+      whole. Every check runs before anything is written, and the write is one transaction: a
+      failed import changes nothing.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/YieldCurveImportForm
+    responses:
+      '200':
+        description: The points written.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportResult
+      '400':
+        description: |
+          The request or the file was rejected (`code`: `date_required`, `file_required`,
+          `not_xlsx`, `file_too_large`, `no_rows`, `too_many_rows`, `invalid_value`,
+          `duplicate_period`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: The date already has points and `overwrite` is not `true` (`code` is `date_exists`, with `count`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+yieldCurveYieldsByDate:
+  parameters:
+    - $ref: ../components/parameters.yaml#/CurveDate
+  get:
+    tags: [Statistics]
+    operationId: getYieldCurvePoints
+    x-permission: yield_curves.read
+    summary: Yield curve points for a date
+    responses:
+      '200':
+        description: The date's points.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurvePoints
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Statistics]
+    operationId: deleteYieldCurvePoints
+    x-permission: yield_curves.delete
+    summary: Delete every yield curve point for a date
+    description: Hard delete. The date's parameters and periods are not touched.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+yieldCurveParameters:
+  get:
+    tags: [Statistics]
+    operationId: listYieldCurveParameters
+    x-permission: yield_curves.read
+    summary: Nelson–Siegel parameters, newest date first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of parameter sets.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveParametersPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+yieldCurveParametersImport:
+  post:
+    tags: [Statistics]
+    operationId: importYieldCurveParameters
+    x-permission: yield_curves.create
+    summary: Import the Nelson–Siegel parameters for a date (.xlsx)
+    description: |
+      Reads row 2 of the active sheet: `A` β₀, `B` β₁, `C` β₂, `D` λ, each a number, rounded
+      to 6 decimals half away from zero. Other rows are not read.
+
+      A date that already has parameters needs `overwrite=true`; they are then replaced. A failed
+      import changes nothing.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/YieldCurveImportForm
+    responses:
+      '200':
+        description: The parameters written.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveParameters
+      '400':
+        description: |
+          The request or the file was rejected (`code`: `date_required`, `file_required`,
+          `not_xlsx`, `file_too_large`, `no_rows`, `invalid_value`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: The date already has parameters and `overwrite` is not `true` (`code` is `date_exists`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+yieldCurveParametersByDate:
+  parameters:
+    - $ref: ../components/parameters.yaml#/CurveDate
+  delete:
+    tags: [Statistics]
+    operationId: deleteYieldCurveParameters
+    x-permission: yield_curves.delete
+    summary: Delete the Nelson–Siegel parameters for a date
+    description: Hard delete. The date's points and periods are not touched.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+yieldCurvePeriods:
+  get:
+    tags: [Statistics]
+    operationId: listYieldCurvePeriods
+    x-permission: yield_curves.read
+    summary: Standard-tenor yields, newest date first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of standard-tenor rows.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurvePeriodsPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+yieldCurvePeriodsImport:
+  post:
+    tags: [Statistics]
+    operationId: importYieldCurvePeriods
+    x-permission: yield_curves.create
+    summary: Import the standard-tenor yields for a date (.xlsx)
+    description: |
+      Reads `C2:C8` of the active sheet like the legacy importer: 3 months, 6 months, 9 months,
+      1 year, 2 years, 3 years, 4 years, in that order; each must be a number, rounded to 4
+      decimals half away from zero. The labels in column `B` are not checked. A sheet with data in
+      `C9` or below (a yield curve file, for instance) is refused with `too_many_rows`.
+
+      A date that already has periods needs `overwrite=true`; they are then replaced. A failed
+      import changes nothing.
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../components/schemas/statistics.yaml#/YieldCurveImportForm
+    responses:
+      '200':
+        description: The periods written.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurvePeriods
+      '400':
+        description: |
+          The request or the file was rejected (`code`: `date_required`, `file_required`,
+          `not_xlsx`, `file_too_large`, `no_rows`, `too_many_rows`, `invalid_value`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: The date already has periods and `overwrite` is not `true` (`code` is `date_exists`).
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/statistics.yaml#/YieldCurveImportProblem
+      '413':
+        $ref: ../components/responses.yaml#/PayloadTooLarge
+
+yieldCurvePeriodsByDate:
+  parameters:
+    - $ref: ../components/parameters.yaml#/CurveDate
+  delete:
+    tags: [Statistics]
+    operationId: deleteYieldCurvePeriods
+    x-permission: yield_curves.delete
+    summary: Delete the standard-tenor yields for a date
+    description: Hard delete. The date's points and parameters are not touched.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

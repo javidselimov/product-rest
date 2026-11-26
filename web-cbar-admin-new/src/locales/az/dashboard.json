@@ -1,0 +1,19 @@
+{
+  "title": "İdarə paneli",
+  "description": "CBAR CMS admin panelinə xoş gəlmisiniz. Bölmələr sol menyudadır.",
+  "publishQueue": {
+    "title": "Dərc növbəsi",
+    "description": "Planlaşdırılmış məzmun",
+    "body": "Dərc tarixi gələcəkdə olan qeydlər burada göstəriləcək."
+  },
+  "latestEdits": {
+    "title": "Son redaktələr",
+    "description": "Son dəyişikliklər",
+    "body": "Ən son redaktə olunmuş səhifə və qeydlər burada göstəriləcək."
+  },
+  "auditLog": {
+    "title": "Audit jurnalı",
+    "description": "Kim nəyi dəyişib",
+    "body": "Audit qeydləri gələcək versiyada bu paneldə əlçatan olacaq."
+  }
+}

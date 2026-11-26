@@ -1,0 +1,337 @@
+# FinCERT (spec 053): the "FinCERT" panel section — the settings record, activity directions and international memberships.
+settings:
+  get:
+    tags: [Fincert]
+    operationId: getFincertSettings
+    x-permission: fincert.read
+    summary: FinCERT settings (contacts, portal, RFC-2350, mission)
+    description: "Never 404: until the record is first saved every field is null and `translations` is empty."
+    responses:
+      '200':
+        description: The settings record.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertSettings
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  put:
+    tags: [Fincert]
+    operationId: updateFincertSettings
+    x-permission: fincert.update
+    summary: Save the FinCERT settings
+    description: |
+      Creates the record on first save. A locale left out of `translations` is kept (unlike the other sections);
+      a null or missing field is cleared. Field failures answer 400 with `errors` keyed by body path.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertSettingsUpdate
+    responses:
+      '200':
+        description: The saved record, as `GET` returns it.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertSettings
+      '400':
+        description: |
+          Model binding failed (`errors` keyed by JSON path), the controller rejected a field (`FincertFieldProblem`),
+          or the database rejected a value (`urn:cbar:problem:*`).
+        content:
+          application/problem+json:
+            schema:
+              anyOf:
+                - $ref: ../components/schemas/common.yaml#/ValidationProblemDetails
+                - $ref: ../components/schemas/fincert.yaml#/FincertFieldProblem
+                - $ref: ../components/schemas/common.yaml#/ErrorMessage
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+directionsCollection:
+  get:
+    tags: [Fincert]
+    operationId: listFincertDirections
+    x-permission: fincert.read
+    summary: FinCERT activity directions, by sort order
+    description: "Soft-deleted directions are excluded. `search` matches the title in any locale literally (`%` and `_` are not wildcards); longer than 200 characters is a 400."
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of directions.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertDirectionPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Fincert]
+    operationId: createFincertDirection
+    x-permission: fincert.create
+    summary: Create a FinCERT activity direction
+    description: "Appended after the other directions."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertDirectionUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertDirectionDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+directionsItem:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Fincert]
+    operationId: getFincertDirection
+    x-permission: fincert.read
+    summary: FinCERT activity direction by id
+    responses:
+      '200':
+        description: The direction with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertDirectionDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Fincert]
+    operationId: updateFincertDirection
+    x-permission: fincert.update
+    summary: Update a FinCERT activity direction
+    description: "A locale left out of `translations` is removed."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertDirectionUpsert
+    responses:
+      '200':
+        description: The updated direction.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertDirectionDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Fincert]
+    operationId: deleteFincertDirection
+    x-permission: fincert.delete
+    summary: Soft-delete a FinCERT activity direction
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+directionsOrder:
+  put:
+    tags: [Fincert]
+    operationId: reorderFincertDirections
+    x-permission: fincert.update
+    summary: Reorder the FinCERT activity directions
+    description: "`ids` must be exactly the set of non-deleted directions, otherwise 400 with `message`."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+membershipsCollection:
+  get:
+    tags: [Fincert]
+    operationId: listFincertMemberships
+    x-permission: fincert.read
+    summary: FinCERT international memberships, by sort order
+    description: "Soft-deleted memberships are excluded. `search` matches the name in any locale literally (`%` and `_` are not wildcards); longer than 200 characters is a 400."
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of memberships.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertMembershipPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Fincert]
+    operationId: createFincertMembership
+    x-permission: fincert.create
+    summary: Create a FinCERT international membership
+    description: "Appended after the other memberships."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertMembershipUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertMembershipDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+membershipsItem:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Fincert]
+    operationId: getFincertMembership
+    x-permission: fincert.read
+    summary: FinCERT international membership by id
+    responses:
+      '200':
+        description: The membership with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertMembershipDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Fincert]
+    operationId: updateFincertMembership
+    x-permission: fincert.update
+    summary: Update a FinCERT international membership
+    description: "A locale left out of `translations` is removed."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertMembershipUpsert
+    responses:
+      '200':
+        description: The updated membership.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/FincertMembershipDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Fincert]
+    operationId: deleteFincertMembership
+    x-permission: fincert.delete
+    summary: Soft-delete a FinCERT international membership
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+membershipsOrder:
+  put:
+    tags: [Fincert]
+    operationId: reorderFincertMemberships
+    x-permission: fincert.update
+    summary: Reorder the FinCERT international memberships
+    description: "`ids` must be exactly the set of non-deleted memberships, otherwise 400 with `message`."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fincert.yaml#/FincertOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden

@@ -1,0 +1,166 @@
+# This project's CI extension (spec 004). The organization template is the include in
+# `.gitlab-ci.yml` (devops-linux-team/ci-cd, ref 1.0.0, pipelines/npm.gitlab-ci.yml) and
+# is NOT TOUCHED; this file is layered on top of it as a local include.
+#
+# Why it is needed: the UI kit (@cbar/lib-react-ui-kit) is an optional dependency served
+# only from the internal Nexus. A plain `npm ci` without credentials skips it SILENTLY, so
+# the pipeline stays "green" without the kit and then dies later in the build with an
+# unrelated-looking error. Here every install point goes through
+# `npm run install:nexus -- --context=ci`: it reads the credentials from the GitLab
+# variables, runs `npm ci`, verifies that the kit is really present, and on failure prints
+# the reason plus the next step (those runtime messages stay in Azerbaijani — they are
+# user-facing developer guidance owned by scripts/install/lib.mjs).
+#
+# Required GitLab CI/CD variables (Settings -> CI/CD -> Variables):
+#   NEXUS_USERNAME   masked
+#   NEXUS_PASSWORD   masked (>= 8 characters, single line — GitLab's masking requirement)
+#   Set the Protected flag only if the branch running the pipeline is protected as well;
+#   otherwise the job cannot see the variable and stops with the "empty variable" message.
+# Credential VALUES are never written into this file (constitution article VIII.3).
+#
+# When the template version is bumped (`ref` in `.gitlab-ci.yml`): diff the overrides below
+# (`unit-tests`, `build-image`) against the template's new definitions — GitLab merges
+# a local job with the template job key by key, and a local `script:` replaces the
+# template's one COMPLETELY, so any step the template added must be copied over here.
+
+variables:
+  # Keep in sync with the FROM line of the Dockerfile.
+  NODE_IMAGE: "node:22-alpine"
+  # npm cache shared between jobs (cache: .npm/); npm picks it up without extra arguments.
+  npm_config_cache: ".npm"
+  npm_config_fund: "false"
+  npm_config_audit: "false"
+
+# The template may default to `GIT_STRATEGY: none` (it does in the kit repository), so every
+# job that needs the sources fetches them explicitly here.
+.needs-sources:
+  variables:
+    GIT_STRATEGY: fetch
+    GIT_DEPTH: "1"
+
+# Installing every dependency including the kit — the shared prologue of each runner job.
+# `npm ci` (strict about the lockfile) runs inside install:nexus's `ci` context.
+.install:
+  extends: .needs-sources
+  cache:
+    key: "npm-$CI_COMMIT_REF_SLUG"
+    paths:
+      - .npm/
+  before_script:
+    - node -v && npm -v
+    - npm run install:nexus -- --context=ci
+
+# The pipeline form of the constitution's article VI.3 gate: Lint -> TypeCheck -> Build
+# (Test lives in the separate `unit-tests` job — Sonar reads its coverage artifact).
+# `npm audit` is kept out of the install (article X.4): the install's `--no-audit` is only
+# there for speed.
+app:check:
+  image: $NODE_IMAGE
+  stage: check
+  tags:
+    - kubernetes
+  extends: .install
+  interruptible: true
+  script:
+    - npm run lint
+    - npx tsc -b
+    - npm run build
+    # A Nexus-hosted repository may not implement the audit endpoint, so the audit only
+    # covers public dependencies (`--omit=optional` drops the kit from the list).
+    # Blocking gate: runtime dependencies only — everything that ends up in the bundle.
+    # Dev dependencies are audited by `app:audit-dev` below (spec 003, D1).
+    - npm audit --audit-level=high --omit=dev --omit=optional
+  rules:
+    - if: $DEPLOY_ENVIRONMENT =~ /^(dev|test|prod)$/
+
+# TEMPORARY exception to constitution article X.4 (specs/003-dev-audit-exception, D1):
+# GHSA-fc5q-39xc-vjpf (picomatch <= 4.0.7, ReDoS) has no patched release yet and reaches
+# us only through build/test tooling (vite, vitest, typescript-eslint). The full audit
+# still runs on every pipeline and shows as a warning instead of failing it.
+# Remove this job and drop `--omit=dev` above once a fixed picomatch is in the lockfile.
+# `npm audit` reads only package-lock.json, so no install is needed.
+app:audit-dev:
+  image: $NODE_IMAGE
+  stage: check
+  tags:
+    - kubernetes
+  extends: .needs-sources
+  interruptible: true
+  allow_failure: true
+  script:
+    - npm audit --audit-level=high --omit=optional
+  rules:
+    - if: $DEPLOY_ENVIRONMENT =~ /^(dev|test|prod)$/
+
+# Override of the template's `unit-tests` job. The template (ci-cd@1.0.0) runs
+# `apt-get install chromium` + `npm ci` + `npm run test:coverage` on `node:20-bookworm`;
+# both parts are useless here: jsdom@30 requires Node >= 22.22 (on Node 20 every worker
+# crashes with `webidl.util.markAsUncloneable is not a function`, confirmed in the kit
+# repository), and nothing reads chromium (vitest runs in the jsdom environment). On top of
+# that the kit has to be installed — which is what `.install` does.
+# The job name and stage are the template's so that `sonar-scanning`'s `needs: [unit-tests]`
+# reference and the coverage artifact keep working.
+unit-tests:
+  image: $NODE_IMAGE
+  tags:
+    - kubernetes
+  extends: .install
+  interruptible: true
+  script:
+    - npm run test:coverage
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - coverage/
+  rules:
+    - if: $DEPLOY_ENVIRONMENT =~ /^(dev|test|prod)$/
+
+# Override of the template's `build-image` job.
+#
+# The template's actual definition has been read (devops-linux-team/ci-cd@1.0.0 ->
+# pipeline-templates/defaults.gitlab-ci.yml, `.build-image`): images are built with ROOTLESS
+# BuildKit — `buildctl-daemonless.sh` plus BUILDKITD_FLAGS `--oci-worker-no-process-sandbox`.
+# There is no daemon and no privileged container, which is why `docker:dind` CANNOT work on
+# this runner (pipeline of 2026-09-17: the dind service never came up) — and BuildKit
+# supports `--secret` natively anyway.
+#
+# This override keeps the template's base (`extends: .build-image`): registry and Docker Hub
+# auth, cache, tag and push all come from it. ONLY `script:` is replaced, because the
+# Dockerfile's RUN step expects the Nexus credentials as `--secret id=nexus_env` and the
+# template's buildctl invocation has no such flag. BuildKit never writes a secret into a
+# layer, into the cache or into `docker history` (spec 004, D8).
+#
+# The buildctl invocation below is IDENTICAL to the template's one plus `--secret`. Diff the
+# two whenever the template version is bumped. Two details in particular must not be changed:
+#   * `--output ...name=$CI_REGISTRY_IMAGE:$APP_VERSION` — the helm deploy pulls exactly this
+#     tag (`--set image.tag=$APP_VERSION`; APP_VERSION: dev-<slug> | test | prod-<short-sha>).
+#     Invent your own tag scheme and the deploy will pull a tag that was never pushed.
+#   * `$CBAR_CICD_BUILD_ARGS` — this is where BUILD_ENV comes from: `.ci-cd/<env>.yaml`
+#     `build.args` -> set-env.sh -> pipeline.env. It is not computed here.
+build-image:
+  extends: .build-image
+  interruptible: true
+  script:
+    # Credential pre-flight: without Nexus, `npm ci` skips the kit silently and the build
+    # fails later with a confusing error — stop here instead, with the reason spelled out.
+    - test -n "$NEXUS_USERNAME" && test -n "$NEXUS_PASSWORD" || { echo "✗ NEXUS_USERNAME/NEXUS_PASSWORD CI variable-ları boşdur — GitLab → Settings → CI/CD → Variables (dəyişən Protected-dirsə, branch də protected olmalıdır)"; exit 1; }
+    - source pipeline.env
+    # Secret source: a 0600 temporary file (the Dockerfile expects this exact format).
+    # `trap` removes it however the job ends; the values are never printed.
+    - |
+      umask 077
+      trap 'rm -f /tmp/nexus_env' EXIT
+      printf 'NEXUS_USERNAME=%s\nNEXUS_PASSWORD=%s\n' "$NEXUS_USERNAME" "$NEXUS_PASSWORD" > /tmp/nexus_env
+    - |
+      buildctl-daemonless.sh build \
+        --frontend dockerfile.v0 \
+        --secret id=nexus_env,src=/tmp/nexus_env \
+        $CBAR_CICD_BUILD_ARGS \
+        --local context=. \
+        --local dockerfile=. \
+        --export-cache type=registry,ref=$CACHE_IMAGE \
+        --import-cache type=registry,ref=$CACHE_IMAGE,mode=max \
+        --output type=image,name=$CI_REGISTRY_IMAGE:$APP_VERSION,push=true
+  rules:
+    - if: $DEPLOY_ENVIRONMENT =~ /^(dev|test|prod)$/

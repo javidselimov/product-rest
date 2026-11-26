@@ -1,0 +1,39 @@
+{
+  "title": "Info lines",
+  "entity": "info line",
+  "description": "Numeric indicators on the homepage. Lines are grouped by alias; corridor aliases hold a single line, \"Key indicators\" holds several.",
+  "columns": {
+    "id": "ID",
+    "alias": "Alias",
+    "title": "Title",
+    "value": "Value",
+    "year": "Year",
+    "sortOrder": "Sort",
+    "isActive": "Status",
+    "updatedAt": "Updated at"
+  },
+  "fields": {
+    "alias": "Alias",
+    "aliasHelp": "Where this line shows on the homepage. Corridor aliases hold a single line, \"Key indicators\" holds several.",
+    "year": "Year",
+    "sortOrder": "Sort order",
+    "isActive": "Active",
+    "title": "Title",
+    "value": "Value"
+  },
+  "aliases": {
+    "homepage_indicators": "Key indicators",
+    "corridor_min": "Interest corridor — floor",
+    "corridor_max": "Interest corridor — ceiling",
+    "corridor_percent": "Interest corridor — refinancing rate",
+    "money_reserve_usd": "Monetary indicators — FX reserves",
+    "money_base": "Monetary indicators — money base",
+    "nots_volume": "CB notes — volume in circulation",
+    "nots_levels_28": "CB notes — 28-day level",
+    "nots_levels_84": "CB notes — 84-day level",
+    "nots_levels_168": "CB notes — 168-day level",
+    "nots_levels_252": "CB notes — 252-day level",
+    "bank_credit": "Banking sector — credit investments",
+    "bank_nation": "Banking sector — deposits"
+  }
+}

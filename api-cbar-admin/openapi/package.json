@@ -1,0 +1,18 @@
+{
+  "name": "api-cbar-admin-openapi",
+  "private": true,
+  "type": "module",
+  "description": "Hand-maintained OpenAPI contract for api-cbar-admin, with lint, bundle, drift and contract checks against a running API.",
+  "scripts": {
+    "lint": "redocly lint",
+    "bundle": "redocly bundle api-cbar-admin -o dist/openapi.yaml && redocly bundle api-cbar-admin -o dist/openapi.json",
+    "preview": "redocly preview",
+    "contract": "npm run bundle && node scripts/contract-check.mjs",
+    "drift": "npm run bundle && node scripts/drift-check.mjs"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^2.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

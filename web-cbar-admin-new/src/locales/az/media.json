@@ -1,0 +1,65 @@
+{
+  "title": "Media kitabxanası",
+  "description": "Yüklənmiş fayllar və şəkillər. İcazəli formatlar: jpg, png, gif, webp, svg, pdf, xlsx, xls, docx, doc, zip, xml.",
+  "search": "Fayl axtar",
+  "searchPlaceholder": "Fayl adı…",
+  "empty": "Fayl tapılmadı",
+  "emptyHint": "Axtarış şərtini dəyişin və ya yeni fayl yükləyin.",
+  "grid": "Fayllar",
+  "refreshing": "Yenilənir…",
+  "dismiss": "Bildirişi bağla",
+  "deleteAria": "{{name}} faylını sil",
+  "deleteFailed": "Fayl silinmədi",
+  "upload": "Fayl yüklə",
+  "uploading": "Yüklənir",
+  "uploaded": "\"{{name}}\" yükləndi",
+  "uploadFailed": "Fayl yüklənmədi",
+  "deleted": "Fayl silindi",
+  "deleteTitle": "Faylı sil",
+  "deleteConfirm": "\"{{name}}\" faylı silinsin?",
+  "attachedWarning": "Fayl məzmuna bağlıdır — əvvəlcə onu məzmundan ayırın.",
+  "dimensions": "Ölçülər",
+  "size": "Ölçü",
+  "created": "Yüklənib",
+  "type": "Tip",
+  "picker": {
+    "title": "Fayl seç",
+    "description": "Media kitabxanasından fayl seçin.",
+    "list": "Fayllar",
+    "pick": "{{name}} faylını seç",
+    "accept": {
+      "image": "Yalnız şəkil seçmək olar.",
+      "document": "Yalnız sənəd seçmək olar (PDF, Word, Excel, arxiv)."
+    }
+  },
+  "field": {
+    "none": "Fayl seçilməyib",
+    "choose": "Seç",
+    "change": "Dəyiş",
+    "clear": "Təmizlə"
+  },
+  "preview": {
+    "open": "{{name}} — böyüt",
+    "unavailable": "Önizləmə əlçatan deyil",
+    "loading": "Önizləmə yüklənir"
+  },
+  "assets": {
+    "title": "Sənədlər",
+    "description": "Bu qeydə bağlanmış fayllar.",
+    "add": "Sənəd əlavə et",
+    "empty": "Sənəd yoxdur.",
+    "attached": "Sənəd bağlandı",
+    "attachFailed": "Sənəd bağlanmadı",
+    "detached": "Sənəd ayrıldı",
+    "detach": "Ayır",
+    "detachTitle": "Sənədi ayır",
+    "detachConfirm": "\"{{name}}\" bu qeyddən ayrılsın? Fayl kitabxanada qalır.",
+    "detachAria": "{{name}} sənədini ayır",
+    "moveUpAria": "{{name}} faylını yuxarı köçür",
+    "moveDownAria": "{{name}} faylını aşağı köçür",
+    "reordered": "Sıra yeniləndi",
+    "reorderFailed": "Sıra yenilənmədi",
+    "localeChanged": "Fayl dili yeniləndi",
+    "localeFailed": "Fayl dili yenilənmədi"
+  }
+}

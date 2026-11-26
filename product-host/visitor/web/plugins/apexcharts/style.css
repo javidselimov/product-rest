@@ -1,0 +1,481 @@
+.two-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.two-column, .one-column {
+    min-height: 415px;
+    margin: 0 -10px 50px;
+}
+
+.two-column .chart {
+    width: 49%;
+}
+
+.two-column .chart,
+.one-column .chart {
+    background-color: #FFFFFF;
+    max-height: 980px;
+    min-height: 415px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0 rgb(0 0 0 / 15%);
+    overflow: hidden;
+}
+
+.one-column.pie-chart .chart {
+    min-height: auto;
+    margin-bottom: -25px;
+}
+
+.flip-card-front > .resize-triggers {
+    height: 0;
+}
+
+.chart > .resize-triggers {
+    height: 0;
+}
+
+.two-column .chart h4,
+.one-column .chart h4 {
+    background-color: #1A324B;
+    margin-bottom: 32px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.pie-chart h4 {
+    background-color: #1A324B;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.second-legend-none .apexcharts-legend-series[rel="2"] {
+    display: none !important;
+}
+
+.chart.visible-legend .apexcharts-legend-series[rel="2"] {
+    display: flex !important;
+}
+
+.pie-chart .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+}
+
+.cursor-pointer .apexcharts-slices g[rel="1"] {
+    cursor: pointer;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.animated {
+    -webkit-animation-name: bounceInLeft;
+    animation: bounceInLeft;
+    animation-duration: 2s;
+}
+
+.animate-chart {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated-out {
+    opacity: 0;
+    -webkit-animation-name: bounceOutLeft;
+    animation: bounceOutLeft;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(3);
+        transform: translate3d(-300px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0) scaleX(1);
+        transform: translate3d(25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0) scaleX(0.98);
+        transform: translate3d(-10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0) scaleX(0.995);
+        transform: translate3d(5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(3);
+        transform: translate3d(-300px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0) scaleX(1);
+        transform: translate3d(25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0) scaleX(0.98);
+        transform: translate3d(-10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0) scaleX(0.995);
+        transform: translate3d(5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0) scaleX(0.9);
+        transform: translate3d(20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(2);
+        transform: translate3d(-300px, 0, 0) scaleX(2);
+    }
+}
+
+@keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0) scaleX(0.9);
+        transform: translate3d(20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(2);
+        transform: translate3d(-300px, 0, 0) scaleX(2);
+    }
+}
+
+@-webkit-keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(-20px, 0, 0) scaleX(0.9);
+        transform: translate3d(-20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(300px, 0, 0) scaleX(2);
+        transform: translate3d(300px, 0, 0) scaleX(2);
+    }
+}
+
+.bottom-value-light .apexcharts-bar-series > g:nth-child(3) > g > text {
+    fill: #ffffff;
+}
+
+.transform-down .apexcharts-bar-series > g:nth-child(3) > g > text {
+    transform: translateY(28px);
+}
+
+.visible-last-four-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+5),
+.visible-last-four-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+5) {
+    opacity: 0;
+}
+
+.visible-last-five-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+4),
+.visible-last-five-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+4) {
+    opacity: 0;
+}
+
+.visible-last-six-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+3),
+.visible-last-six-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+3) {
+    opacity: 0;
+}
+
+.visible-last-seven-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+2),
+.visible-last-seven-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+2) {
+    opacity: 0;
+}
+
+.visible-last-eight-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+1),
+.visible-last-eight-values .apexcharts-bar-series > g:nth-child(3) > g:nth-child(-n+1) {
+    opacity: 0;
+}
+
+.chart.visible-values .apexcharts-bar-series > g:nth-child(3) > g {
+    opacity: 1 !important;
+}
+
+.cursor-auto .apexcharts-legend .apexcharts-legend-marker {
+    cursor: auto;
+}
+
+.chart.chart-flip {
+    background-color: transparent;
+    box-shadow: none;
+    overflow: unset;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    max-height: 507px;
+    position: relative;
+    -webkit-transition: all 1.5s cubic-bezier(0.5, 1.1, 0.5, 1.1);
+    transition: all 1.5s cubic-bezier(0.5, 1.1, 0.5, 1.1);
+    transform-style: preserve-3d;
+}
+
+.one-column.pie-chart .flip-card-inner {
+    max-height: none;
+}
+
+.flip-card-front,
+.flip-card-back {
+    height: 100%;
+    background-color: #ffffff;
+    -webkit-perspective: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    visibility: visible;
+    backface-visibility: hidden;
+    box-shadow: 5px 5px 15px 0 rgb(0 0 0 / 15%);
+    border-radius: 5px;
+}
+
+.flip-card-front {
+    padding-bottom: 15px;
+    z-index: 2;
+}
+
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.rotate-card {
+    transform: rotateY(180deg);
+}
+
+.apexcharts-menu-icon {
+    background-image: url('../apexcharts/upload.svg');
+    background-repeat: no-repeat;
+    width: 22px !important;
+    height: 22px !important;
+    margin-left: auto;
+}
+
+.apexcharts-menu-icon svg {
+    display: none;
+}
+
+.apexcharts-toolbar {
+    max-width: 100% !important;
+    width: 100%;
+    top: -24px !important;
+    align-items: end !important;
+}
+
+.apexcharts-toolbar:before {
+    content: '';
+    background-color: #E9E9E9;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-49%);
+}
+
+/* charts tabs */
+.chart-list {
+    transition: 3s ease;
+}
+
+.chart-list-item {
+    border: 1px solid #DCE7EB;
+    background: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 15px;
+    margin: 0;
+}
+
+.chart-list-item:before {
+    content: "+";
+    font-size: 22px;
+    padding-right: 5px;
+}
+
+.chart-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.chart-inner {
+    background: white;
+    padding: 10px 30px;
+    border: 1px solid #F6F6F6;
+}
+
+.chart-list-item.active-tab {
+    cursor: pointer;
+    outline: none;
+    background: #1C3651;
+    color: white;
+}
+
+.chart-list-item.active-tab:before {
+    content: "-";
+    padding-right: 5px;
+}
+
+.chart-list-item.active-tab + .chart-wrapper {
+    max-height: 100%;
+    overflow: inherit;
+    transition: max-height 0.9s ease-in-out;
+}
+
+/* media */
+@media (max-width: 1370px) {
+    .flip-card-inner {
+        max-height: none;
+    }
+
+    .flip-card-front div .apexcharts-canvas {
+        padding-top: 60px;
+    }
+
+    .two-column .chart h4,
+    .one-column .chart h4 {
+        min-height: 84px;
+    }
+
+    .flip-card-back div .apexcharts-canvas {
+        padding-top: 38px;
+    }
+}
+
+@media (max-width: 1171px) {
+    .two-column {
+        flex-direction: column;
+    }
+
+    .two-column .chart {
+        width: 100%;
+        min-height: 320px;
+    }
+
+    .two-column .chart:first-child {
+        margin-bottom: 50px;
+    }
+
+    .chart-button {
+        top: 90px;
+    }
+
+    .flip-card-front div .apexcharts-canvas {
+        padding-top: 0;
+    }
+
+    .two-column .chart h4, .one-column .chart h4 {
+        min-height: auto;
+    }
+
+    .flip-card-back div .apexcharts-canvas {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 1080px) {
+    .overflow-hidden {
+        overflow: visible;
+    }
+}
+
+@media (max-width: 880px) {
+    .one-column.pie-chart .chart {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .flip-card-front {
+        padding-bottom: 15px;
+    }
+
+    .flip-card-back div .apexcharts-legend {
+        margin-bottom: 15px;
+    }
+
+    .flip-card-back {
+        min-height: 465px;
+    }
+}
+
+@media (max-width: 385px) {
+    .flip-card-back div .apexcharts-legend {
+        margin-bottom: 15px;
+    }
+
+    .flip-card-back {
+        min-height: auto;
+    }
+}

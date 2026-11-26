@@ -1,0 +1,129 @@
+{
+  "csr": {
+    "projectsTitle": "Layihələrimiz"
+  },
+  "logo": {
+    "download": "Yüklə",
+    "downloadFile": "{{label}} yüklə"
+  },
+  "title": "Media",
+  "galleries": "Fotoqalereyalar",
+  "videos": "Videolar",
+  "streams": "Canlı yayım",
+  "photos": "Foto",
+  "watchVideo": "Videoya bax",
+  "watchOnYoutube": "YouTube-da izlə",
+  "images": "Şəkillər",
+  "live": "Canlı",
+  "eventDate": "Tədbir tarixi",
+  "noGalleries": "Fotoqalereya tapılmadı",
+  "noVideos": "Video tapılmadı",
+  "noImages": "Bu qalereyada şəkil yoxdur",
+  "noStreams": "Hazırda canlı yayım yoxdur",
+  "videoFrameTitle": "Video: {{title}}",
+  "openStream": "Yayımı aç",
+  "galleryImageAlt": "{{title}} — şəkil {{index}}",
+  "gallery": {
+    "title": "Qalereya",
+    "tabs": "Qalereya növləri",
+    "photos": "Fotoqalereya",
+    "videos": "Videoqalereya",
+    "noResults": "Heç nə tapılmadı",
+    "play": "Videonu oynat: {{title}}",
+    "filter": {
+      "form": "Qalereya filtri",
+      "search": "Bölmə üzrə axtarış",
+      "dateRange": "Tarix aralığı",
+      "dateFrom": "Başlanğıc tarixi",
+      "dateTo": "Son tarix",
+      "submit": "Axtar",
+      "clear": "Filtrləri təmizlə"
+    }
+  },
+  "imagePopup": {
+    "title": "Elan",
+    "openLink": "Ətraflı",
+    "newTab": "(yeni tabda açılır)"
+  },
+  "events": {
+    "title": "Tədbirlər",
+    "upcoming": "Gələcək tədbirlər",
+    "past": "Keçmiş tədbirlər",
+    "all": "Hamısı",
+    "more": "Daha çox göstər",
+    "emptyUpcoming": "Bu bölmə üzrə gələcək tədbir yoxdur",
+    "emptyPast": "Bu bölmə üzrə keçmiş tədbir yoxdur",
+    "seePast": "Keçmiş tədbirlərə baxa bilərsiniz",
+    "date": "Tarix",
+    "time": "Vaxt",
+    "location": "Məkan",
+    "comingSoon": "Tədbir haqqında ətraflı məlumat və proqram tezliklə dərc olunacaq.",
+    "pressRelease": "Press-reliz",
+    "imageAlt": "{{title}} — şəkil {{n}}",
+    "types": {
+      "1": "Qərar",
+      "2": "Mətbuat konfransı",
+      "3": "Konfrans",
+      "4": "Seminar"
+    },
+    "filter": {
+      "form": "Tədbirləri süz",
+      "search": "Tədbirin adı üzrə axtarış",
+      "dateRange": "Tarix aralığı",
+      "dateFrom": "Başlanğıc tarixi",
+      "dateTo": "Son tarix",
+      "type": "Tədbir növü",
+      "submit": "Axtar",
+      "clear": "Filtrləri təmizlə",
+      "categories": "Bölmələr",
+      "category": "Bölmə",
+      "other": "Digər",
+      "categorySearch": "Bölmə üzrə axtar"
+    },
+    "monthShort": {
+      "1": "yan",
+      "2": "fev",
+      "3": "mar",
+      "4": "apr",
+      "5": "may",
+      "6": "iyn",
+      "7": "iyl",
+      "8": "avq",
+      "9": "sen",
+      "10": "okt",
+      "11": "noy",
+      "12": "dek"
+    }
+  },
+  "releaseSchedule": {
+    "title": "Məlumatların yayımlanması qrafiki",
+    "caption": "Məlumatların yayımlanması qrafiki: məzmun, dövrilik və təqdim olunma müddəti",
+    "filter": {
+      "form": "Qrafik üzrə axtarış",
+      "search": "Məzmun üzrə axtarış",
+      "submit": "Axtar",
+      "clear": "Filtrləri təmizlə"
+    },
+    "columns": {
+      "content": "Məzmun",
+      "periodicity": "Dövrilik",
+      "timing": "Təqdim olunma müddəti"
+    },
+    "empty": "Axtarışa uyğun məlumat tapılmadı.",
+    "noValue": "—",
+    "linkFallback": "Keçid",
+    "decisionsFallback": "Qrafikə uyğun",
+    "newWindow": "(yeni pəncərədə açılır)",
+    "decisions": {
+      "title": "Pul siyasəti qərarlarının açıqlanması qrafiki",
+      "subtitle": "{{year}}-{{suffix}} il · Mərkəzi Bankın İdarə Heyəti",
+      "next": "Növbəti açıqlama",
+      "pressRelease": "Press-reliz",
+      "pressReleaseAndConference": "Press-reliz və mətbuat konfransı",
+      "empty": "Bu il üçün qrafik hələ dərc olunmayıb.",
+      "all": "Bütün qərarlar",
+      "past": "keçib",
+      "upcoming": "gözlənilir"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+dt {
+    border: 1px solid #DCE7EB;
+    background: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 15px;
+    margin: 0;
+}
+
+dt.jquery-list-active {
+    cursor: pointer;
+    outline: none;
+    background: #1C3651;
+    color: white;
+}
+
+dd {
+    display: none;
+    padding: 10px 30px;
+    border: 1px solid #F6F6F6;
+    background: white;
+}
+
+dd.assets {
+    padding: 0 5px !important;
+    border: 0 !important;
+    background: none;
+}
+
+dd table {
+    margin: 15px 0 !important;
+}
+
+dt:before {
+    content: "+";
+    font-size: 22px;
+    padding-right: 5px;
+}
+
+dt.jquery-list-active:before {
+    content: "-";
+    padding-right: 5px;
+}

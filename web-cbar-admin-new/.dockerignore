@@ -1,0 +1,21 @@
+node_modules
+dist
+.git
+.sync
+.tanstack
+*.log
+.env.local
+.env.*.local
+# The Nexus credential file MUST NOT enter the build context (spec 004, D13): `COPY . .`
+# would copy it into a build layer. Inside Docker the credentials arrive only through the
+# secret mount (`npm run docker:build`). The example file (.env.nexus.example) carries no
+# real values and stays.
+.env.nexus
+coverage
+.npm
+
+# CI/CD definitions are never read by the image build, but `COPY . .` would put them in a
+# layer and every pipeline edit would invalidate the build cache from that point on.
+.gitlab-ci.yml
+app.gitlab-ci.yml
+.ci-cd

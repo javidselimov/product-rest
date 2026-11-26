@@ -1,0 +1,20 @@
+{
+  "title": "Axtarış",
+  "placeholder": "Axtarış sorğusu…",
+  "submit": "Axtar",
+  "results": "Nəticələr",
+  "resultsFor": "«{{query}}» üzrə nəticələr",
+  "resultCount": "{{count}} nəticə",
+  "noResults": "Sorğunuza uyğun nəticə tapılmadı",
+  "emptyQuery": "Axtarış üçün sorğu daxil edin",
+  "types": {
+    "page": "Səhifələr",
+    "press-release": "Press relizlər",
+    "event": "Tədbirlər",
+    "csr-project": "KSM layihələri",
+    "law": "Qanunvericilik",
+    "money-mark": "Pul nişanları",
+    "staff": "Əməkdaşlar",
+    "other": "Digər"
+  }
+}

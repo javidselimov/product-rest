@@ -1,0 +1,133 @@
+{
+  "groups": {
+    "about": "About us",
+    "marketParticipants": "Market participants",
+    "legalActs": "Legal acts",
+    "nationalCurrency": "National currency",
+    "statistics": "Statistics",
+    "media": "Media",
+    "cooperation": "International cooperation",
+    "consumer": "Consumer rights",
+    "publications": "Publications and research",
+    "faq": "FAQ",
+    "fincert": "FinCERT",
+    "homepage": "Homepage",
+    "admin": "Administration"
+  },
+  "dashboard": {
+    "label": "Dashboard",
+    "description": "Publish queue, latest edits and audit"
+  },
+  "pages": {
+    "label": "Pages",
+    "description": "CMS page tree and content"
+  },
+  "pressReleases": {
+    "label": "Press releases",
+    "description": "Press releases and their attachments"
+  },
+  "events": {
+    "label": "Events",
+    "description": "Upcoming and past events, categories"
+  },
+  "csrProjects": {
+    "label": "CSR projects",
+    "description": "Corporate social responsibility projects, categories"
+  },
+  "ifiOrganizations": {
+    "label": "Financial institutions",
+    "description": "International financial institutions and membership dates"
+  },
+  "memorandums": {
+    "label": "Memorandums",
+    "description": "Memoranda of Understanding with central banks and supervisors"
+  },
+  "releaseSchedule": {
+    "label": "Disclosure schedule",
+    "description": "Information disclosure schedule: rows, groups, periodicities"
+  },
+  "monthlyReports": {
+    "label": "Monthly reports",
+    "description": "Complaint indices and infographics, month by month"
+  },
+  "workingPapers": {
+    "label": "Working papers",
+    "description": "Working paper series: number, authors, abstract, PDF"
+  },
+  "faq": {
+    "label": "FAQ",
+    "description": "FAQ page: questions, topics, videos"
+  },
+  "fincert": {
+    "label": "FinCERT",
+    "description": "Mission, areas of activity, contacts, RFC-2350 and memberships"
+  },
+  "laws": {
+    "label": "Laws",
+    "description": "Laws, regulations and their categories"
+  },
+  "meas": {
+    "label": "MEAS",
+    "description": "MEAS documents, emitents and info types"
+  },
+  "organization": {
+    "label": "Organization",
+    "description": "Management, divisions and regional offices"
+  },
+  "moneyMarks": {
+    "label": "Money marks",
+    "description": "Banknotes, coins, categories and news"
+  },
+  "mediaLibrary": {
+    "label": "Media library",
+    "description": "Uploaded files and images"
+  },
+  "galleries": {
+    "label": "Galleries",
+    "description": "Photo galleries"
+  },
+  "videos": {
+    "label": "Videos",
+    "description": "YouTube videos"
+  },
+  "liveStreams": {
+    "label": "Live streams",
+    "description": "YouTube live stream shown on the site as a popup"
+  },
+  "imagePopups": {
+    "label": "Image popups",
+    "description": "Announcement image shown as a popup on the site"
+  },
+  "homepageBlocks": {
+    "label": "Homepage blocks",
+    "description": "Banners, slider, running lines, links, publications"
+  },
+  "infoLines": {
+    "label": "Info lines",
+    "description": "Key indicators and the rate corridor"
+  },
+  "currencyRates": {
+    "label": "Currency rates",
+    "description": "Daily rate sheets and currencies"
+  },
+  "azir": {
+    "label": "AZIR",
+    "description": "AZIR index values"
+  },
+  "inflation": {
+    "label": "Inflation",
+    "description": "Monthly inflation parameters"
+  },
+  "yieldCurves": {
+    "label": "Yield curves",
+    "description": "Curve points, Nelson–Siegel parameters and tenors — from Excel"
+  },
+  "users": {
+    "label": "Users",
+    "description": "Panel users and roles"
+  },
+  "settings": {
+    "label": "Settings",
+    "description": "System settings (key → JSON)"
+  }
+}

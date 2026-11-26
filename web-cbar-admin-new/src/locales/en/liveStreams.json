@@ -1,0 +1,29 @@
+{
+  "title": "Live streams",
+  "entity": "live stream",
+  "description": "YouTube live stream shown on the site as a popup and a header button",
+  "columns": {
+    "title": "Title",
+    "startsAt": "Date",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "isLive": "Status"
+  },
+  "fields": {
+    "title": "Title",
+    "streamUrl": "YouTube URL",
+    "startsAt": "Date",
+    "isLive": "Active"
+  },
+  "placeholders": {
+    "streamUrl": "https://www.youtube.com/watch?v=…"
+  },
+  "toggle": {
+    "action": "Change status: {{name}} ({{status}})",
+    "activated": "\"{{name}}\" activated",
+    "deactivated": "\"{{name}}\" deactivated"
+  },
+  "validation": {
+    "url": "Enter a YouTube link (https://www.youtube.com/… or https://youtu.be/…)"
+  }
+}

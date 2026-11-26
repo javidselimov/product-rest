@@ -1,0 +1,476 @@
+@media (max-width: 1370px) {
+    .content_overlay {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .ratings-wrap {
+        width: 100%;
+    }
+
+    .cards-item > hr {
+        position: absolute;
+        bottom: 45px;
+        width: 87%;
+    }
+
+    .cards-content-btn {
+        position: absolute;
+        bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    table.references tbody {
+        font-size: 14px;
+    }
+
+    table.references tr td {
+        padding: 5px;
+    }
+
+    .content_title {
+        padding-left: 13px;
+        position: relative;
+    }
+
+    #controls {
+        padding-right: 11px;
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: -96px;
+        justify-content: flex-start;
+        background-color: #eeeeeef7;
+    }
+
+    #controls a {
+        display: block;
+        font-weight: 700;
+        padding: 8px;
+        height: inherit;
+        width: 37px;
+        color: #1c3651 !important;
+        margin: 0 3px;
+    }
+
+    #controls a:hover, #controls a:active, #controls a:focus {
+        background: #c3c6ca !important;
+    }
+
+    #controls #small {
+        font-size: 16px !important;
+    }
+
+    #controls #large, #controls #medium {
+        font-size: 20px !important;
+    }
+
+    #controls .resize-icon {
+        top: 1px;
+    }
+
+    dd {
+        padding: 10px 15px;
+    }
+
+    .references {
+        width: 312px !important;
+    }
+
+    table.references tr td {
+        padding: 10px 5px;
+        line-height: 19px;
+    }
+
+    .meas-table th, .meas-table td {
+        font-size: 14px;
+        padding: 10px 9px;
+    }
+
+    .social_icons {
+        padding: 0 0 0 11px;
+        width: 100%;
+        background-color: #fbfbfb;
+        margin-bottom: 38px;
+    }
+
+    .social_icons a {
+        margin-right: 15px;
+    }
+
+    .social_icons a:last-child {
+        padding-right: 0;
+    }
+
+    .content_content {
+        position: relative;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .man_txt > p {
+        min-height: 63px;
+    }
+
+    .meas-table .fix-col {
+        width: 355px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top_img a {
+        width: 300px;
+        height: 65px;
+        background-size: 296px !important;
+        background-position: left center !important;
+    }
+
+    .table_title p {
+        width: 80%;
+        text-align: center;
+        float: left;
+        margin-right: 2px;
+    }
+
+    .excel-btn {
+        width: 19% !important;
+        margin: 0 !important;
+    }
+
+    [class*=hint--]:after {
+        display: none !important;
+    }
+
+    [class*=hint--]:before {
+        display: none !important;
+    }
+
+    .meas-search-wrap {
+        margin: 25px 10px 20px;
+    }
+
+    .meas-search-wrap label {
+        font-size: 16px;
+    }
+
+    .meas-table th {
+        text-align: center;
+    }
+}
+
+@media (max-width: 668px) {
+    .relize_item ul li img {
+        margin-right: 31px !important;
+    }
+}
+
+@media (min-width: 481px) {
+    .laws_table_wrap {
+        padding: 20px !important;
+    }
+}
+
+@media (max-width: 481px) {
+    .table_title {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .table_title p {
+        width: 100% !important;
+        margin: 0 0 5px 0 !important;
+        display: block !important;
+        float: none !important;
+        height: auto !important;
+        line-height: normal !important;
+        padding: 15px 10px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .date_select {
+        width: 100% !important;
+        position: relative !important;
+        display: block !important;
+        float: none !important;
+        clear: both !important;
+        margin: 0 !important;
+        height: 45px !important;
+    }
+
+    .date_select:after {
+        left: 20px !important;
+        margin-left: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .date_select:before {
+        right: 20px !important;
+        margin-right: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .top_txt p {
+        font-size: 13px !important;
+    }
+
+    .top_img {
+        margin-right: 19px !important;
+    }
+
+    .top_txt span {
+        font-size: 27px !important;
+    }
+
+    .top_txt_en p {
+        font-size: 12px !important;
+    }
+
+    .type_text {
+        padding: 11px !important;
+    }
+}
+
+@media (max-width: 1080px) {
+    .lang {
+        /*margin-left: 10px !important;*/
+    }
+
+    .head_icons {
+        width: 133px !important;
+    }
+
+    .header_menu {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 980px) {
+    .header_menu .menu {
+        background: none !important;
+    }
+
+    .header_menu .menu > li {
+        border: 1px solid #ECF0F1;
+    }
+
+    .header_menu .menu > li {
+        background: #fff;
+    }
+
+    .laws_table {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .head_icons {
+        width: 145px !important;
+    }
+
+    .meas-table .table_title p {
+        text-align: left;
+        padding: 0 13px !important;
+    }
+
+    .header_menu {
+        margin-right: 0;
+    }
+
+    .header_menu .menu, header .header_hotline {
+        display: none;
+    }
+
+    .mh-menu {
+        display: block;
+    }
+
+    .mh-menu {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to bottom, rgb(240, 239, 239) 0%, rgb(245, 245, 245) 100%) !important;
+    }
+
+    .mh-menu > li {
+        width: 50%;
+        margin: 0 !important;
+    }
+
+    .mh-menu > li:first-child {
+        border-right: 1px solid #dedede !important;
+    }
+
+    .header_menu .menu li a {
+        font-size: 16px;
+    }
+
+    .header_menu .header_hotline {
+        color: #000 !important;
+        display: flex;
+        align-items: center;
+        padding: 3px 0;
+        justify-content: center;
+        font-size: 18px !important;
+        margin-right: 0;
+    }
+
+    .header_hotline img {
+        width: 10px;
+    }
+
+    .header_menu .header_hotline:hover,
+    .header_menu .header_hotline:active,
+    .header_menu .header_hotline:focus {
+        background-color: transparent !important;
+    }
+
+    .menu_drop_link {
+        padding: 7px 33px 7px 13px !important;
+    }
+
+    .mh-menu .submenu {
+        width: 100%;
+    }
+
+    .mh-menu .submenu::before {
+        content: '';
+        position: absolute;
+        right: 5px;
+        top: calc(50% - 3px);
+        border-top: 5px solid rgba(0, 0, 0, 0.3);
+        border-bottom: 0 solid transparent;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+    }
+
+    .header_menu .menu .menu_drop_link span {
+        border-left: 0 !important;
+    }
+
+    .search_block {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-in {
+        height: 40px !important;
+    }
+
+    .banner-in img {
+        height: 40px !important;
+    }
+
+    .emo {
+        margin-top: 15px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1171px) {
+    .date_select {
+        width: 150px !important;
+    }
+}
+
+@media (max-width: 1171px) {
+    .table_title p {
+        font-size: 14px !important;
+        height: 45px !important;
+        line-height: 45px !important;
+        padding: 0 10px !important;
+    }
+
+    .excel-btn {
+        padding: 0 25px !important;
+        height: 45px !important;
+    }
+
+    .table_hand_input {
+        width: 100% !important;
+    }
+
+    .banner-in {
+        height: 63px;
+    }
+
+    .banner-in img {
+        height: 63px;
+    }
+
+    .header_menu .menu > li {
+        margin: 0 4px;
+    }
+
+    .header_menu {
+        margin-right: 7px;
+    }
+
+    .m_header_menu {
+        margin-right: 0 !important;
+    }
+
+}
+
+@media (max-width: 1170px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr;
+        padding: 20px 20px 20px 35px;
+    }
+
+    .cards-item {
+        min-height: 300px;
+    }
+
+    .cards-content {
+        min-height: 200px;
+    }
+
+}
+
+@media (min-width: 240px) and (max-width: 320px) {
+
+    .header {
+        padding: 18px 15px 18px 15px !important;
+    }
+
+    .head_icons {
+        width: 111px !important;
+    }
+
+    .references {
+        width: 258px !important;
+    }
+
+    .references tbody {
+        font-size: 12.5px !important;
+    }
+
+    .meas-table th, .meas-table td {
+        font-size: 12px;
+    }
+
+    .meas-search-wrap label {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 890px) {
+    .table-wrap {
+        overflow: auto;
+        margin: 0 -30px;
+    }
+
+    .search_block {
+        display: none !important;
+    }
+}

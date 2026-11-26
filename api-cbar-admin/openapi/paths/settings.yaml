@@ -1,0 +1,90 @@
+collection:
+  get:
+    tags: [Settings]
+    operationId: listSettings
+    x-permission: settings.read
+    summary: All settings, by key
+    responses:
+      '200':
+        description: Every setting, wrapped in `{ items }` (not paged).
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/settings.yaml#/SettingList
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - name: key
+      in: path
+      required: true
+      description: Setting key, matched exactly (case-sensitive). Stored as `varchar(100)`.
+      schema:
+        type: string
+        maxLength: 100
+  get:
+    tags: [Settings]
+    operationId: getSetting
+    x-permission: settings.read
+    summary: Setting by key
+    responses:
+      '200':
+        description: The setting.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/settings.yaml#/Setting
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Settings]
+    operationId: upsertSetting
+    x-permission: settings.update
+    summary: Create or replace a setting
+    description: |
+      Creates the key if it does not exist, otherwise replaces its value; 200 either way.
+      A missing `value` is rejected (400 with `message`); `"value": null` is accepted and
+      stored as JSON `null`. A **new** key must be a known one (currently only
+      `accessibility.widget`), else 400 `Unknown setting key '<key>'.`; a key already stored
+      can still be replaced or deleted.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/settings.yaml#/SettingUpsert
+    responses:
+      '200':
+        description: The setting after the write.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/settings.yaml#/Setting
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  delete:
+    tags: [Settings]
+    operationId: deleteSetting
+    summary: Delete a setting
+    description: Removes the key, known or not. Audited as `settings.delete` with the old value.
+    x-permission: settings.delete
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

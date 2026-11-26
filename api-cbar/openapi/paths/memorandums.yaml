@@ -1,0 +1,28 @@
+list:
+  get:
+    tags: [Memorandums]
+    operationId: listMemorandums
+    summary: Published memoranda of understanding
+    description: |
+      Every row of the table on the "Cooperation with central banks" page, so the list has no
+      paging and there is no item route: a memorandum has no address of its own.
+      Only published memorandums that are visible in the locale and have a translation in it,
+      by `year` descending, then the editor's order within a year, then `id`. The site reorders
+      them itself for "oldest first"; there is no sort parameter.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The memorandums.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/memorandums.yaml#/Memorandum
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

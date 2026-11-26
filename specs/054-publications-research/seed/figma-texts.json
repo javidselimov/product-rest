@@ -1,0 +1,165 @@
+{
+  "source": "Figma \"cbar website (Copy)\" › \"Publications and research\" (2698:5000), figma_text 2026-11-19. en texts are draft translations (spec 054 Assumptions).",
+  "rootSlug": "nesrler-ve-tedqiqatlar",
+  "groups": [
+    {
+      "key": "research",
+      "node": "3487:291490",
+      "slug": {
+        "az": "tedqiqatlar",
+        "en": "research"
+      },
+      "title": {
+        "az": "Tədqiqatlar",
+        "en": "Research"
+      },
+      "intro": {
+        "az": [
+          "Azərbaycan Respublikasının Mərkəzi Bankında aparılan tədqiqat işlərinin əsas məqsədi ölkədə effektiv makroiqtisadi, o cümlədən pul və məzənnə siyasətinin analitik-empirik tədqiqat bazasını formalaşdırmaq, sosial-iqtisadi inkişafı dəstəkləyən makroiqtisadi sabitliyin fundamentallarının aşkarlanmasına töhfə verməkdir. Tədqiqat işləri dövri xarakter daşıyır və mütəmadi olaraq elektron formatda ictimaiyyətə təqdim olunur.",
+          "Tədqiqatların nəticələri ilə “İşçi məqalələr silsiləsi”, qurulmuş modellər və indekslərlə “Ekonometrik modellər” bölməsində, tədqiqat yönümlü əlavə materiallarla “Digər nəşrlər” bölməsində tanış olmaq mümkündür.",
+          "İqtisadiyyat və maliyyə sektoru üzrə aktual məsələlərin araşdırılmasına, nəzəri və empirik qiymətləndirilməsinə həsr olunmuş tədqiqat işləri burada təqdim olunur."
+        ],
+        "en": [
+          "The main purpose of the research conducted at the Central Bank of the Republic of Azerbaijan is to build an analytical and empirical research base for effective macroeconomic policy, including monetary and exchange rate policy, and to help identify the fundamentals of macroeconomic stability that support socio-economic development. Research is periodic and regularly published electronically.",
+          "The research results are presented in the “Working paper series”, the models and indices built in the “Econometric models” section, and additional research materials in the “Other publications” section.",
+          "Research papers devoted to the study and the theoretical and empirical assessment of topical issues of the economy and the financial sector are presented here."
+        ]
+      },
+      "children": [
+        "ekonometrik-modeller",
+        "isci-meqaleler-silsilesi"
+      ]
+    },
+    {
+      "key": "publications",
+      "node": "2730:100609",
+      "slug": {
+        "az": "nesrler-hesabatlar-ve-senedler",
+        "en": "publications-reports-and-documents"
+      },
+      "title": {
+        "az": "Nəşrlər, hesabatlar və sənədlər",
+        "en": "Publications, reports and documents"
+      },
+      "intro": {
+        "az": [
+          "Mərkəzi Bank tərəfindən hazırlanmış analitik materiallar, dövri hesabatlar, konseptual sənədlər və digər nəşrlər burada təqdim olunur."
+        ],
+        "en": [
+          "Analytical materials, periodic reports, conceptual documents and other publications prepared by the Central Bank are presented here."
+        ]
+      },
+      "children": [
+        "illik-hesabat",
+        "sahelerarasi-maliyye-axinlarinin-tehlili",
+        "mikromaliyye-modeli-uzre-strateji-cercive",
+        "maliyye-bazarlarinda-kibertehlukesizlik-strategiyasi",
+        "risk-esasli-nezaret-uzre-siyaset-konsepsiyasi",
+        "nezaret-texnologiyalari-uzre-yol-xeritesi",
+        "reqemsal-firildaqciliq-statistikasi",
+        "odenis-xidmetleri"
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "slug": "isci-meqaleler-silsilesi",
+      "node": "2825:22947",
+      "az": {
+        "legacy": "İşçi məqalələr silsiləsi",
+        "figma": "İşçi məqalələri"
+      },
+      "en": {
+        "legacy": "Working paper series",
+        "figma": "Working papers"
+      }
+    },
+    {
+      "slug": "risk-esasli-nezaret-uzre-siyaset-konsepsiyasi",
+      "node": "2776:16546",
+      "az": {
+        "legacy": "Risk əsaslı nəzarət üzrə Siyasət Konsepsiyası",
+        "figma": "Azərbaycan Respublikası Mərkəzi Bankının risk əsaslı nəzarət üzrə Siyasət Konsepsiyası"
+      }
+    },
+    {
+      "slug": "nezaret-texnologiyalari-uzre-yol-xeritesi",
+      "node": "2776:18033",
+      "az": {
+        "legacy": "Nəzarət Texnologiyaları üzrə Yol Xəritəsi",
+        "figma": "Azərbaycan Respublikası Mərkəzi Bankının 2024-2029-cu illəri əhatə edəcək Nəzarət Texnologiyaları üzrə Yol Xəritəsinin qısa icmalı"
+      }
+    }
+  ],
+  "intros": [
+    {
+      "slug": "mikromaliyye-modeli-uzre-strateji-cercive",
+      "node": "2766:114051",
+      "az": "«Mikromaliyyə Modeli üzrə Strateji Çərçivə» “Azərbaycan Respublikasının 2022–2026-cı illərdə sosial-iqtisadi inkişaf Strategiyası”nda maliyyəyə çıxışın təmin edilməsi ilə bağlı nəzərdə tutulan tədbirlərin icrası məqsədilə hazırlanıb. Sənəd özünüməşğul şəxslərin və MKOB-ların münasib şərtlərlə maliyyə xidmətlərinə çıxışının genişləndirilməsini və 2030-cu ilədək çevik, effektiv və inklüziv mikromaliyyə sektorunun formalaşdırılmasını hədəfləyir.",
+      "en": "The “Strategic Framework for a Microfinance Model” was prepared to implement the measures on access to finance set out in the “Strategy of Socio-Economic Development of the Republic of Azerbaijan for 2022–2026”. The document aims to broaden access to financial services on affordable terms for the self-employed and MSMEs and to build an agile, effective and inclusive microfinance sector by 2030."
+    },
+    {
+      "slug": "maliyye-bazarlarinda-kibertehlukesizlik-strategiyasi",
+      "node": "2767:115663",
+      "az": "2023–2026-cı illər üçün “Maliyyə bazarları üzrə kibertəhlükəsizlik Strategiyası” Mərkəzi Bankda və ölkədə fəaliyyət göstərən maliyyə institutlarında informasiya təhlükəsizliyinin və kibertəhlükəsizliyin gücləndirilməsi, müasir dövrün kibertəhlükəsizlik təhdidlərinin və kiberhücumların qarşısının daha effektiv alınması üzrə əsas fəaliyyət istiqamətlərini müəyyən edir. Strategiyanın vizyonu maliyyə sabitliyinin təmin edilməsi üçün artan kibertəhdidlər fonunda ölkənin maliyyə bazarlarında kiber dayanıqlığın gücləndirilməsidir.",
+      "en": "The “Cybersecurity Strategy for Financial Markets” for 2023–2026 sets out the main lines of action for strengthening information security and cybersecurity at the Central Bank and the financial institutions operating in the country, and for preventing modern cyber threats and cyberattacks more effectively. The vision of the Strategy is to strengthen cyber resilience in the country’s financial markets against growing cyber threats in order to ensure financial stability."
+    },
+    {
+      "slug": "risk-esasli-nezaret-uzre-siyaset-konsepsiyasi",
+      "node": "2776:16546",
+      "az": "“Azərbaycan Respublikası Mərkəzi Bankının risk əsaslı nəzarət üzrə Siyasət Konsepsiyası” “2024–2026-cı illərdə maliyyə sektorunun inkişaf Strategiyası” çərçivəsində hazırlanıb və nəzarət subyektləri üzrə risk əsaslı nəzarət yanaşmasının tətbiqini hədəfləyir. Sənəd Mərkəzi Bankın tətbiq etdiyi ARAS (Azərbaycan Risklərin Qiymətləndirilməsi Sistemi) nəzarət tsiklini, risk reytinqi sistemini və risk əsaslı nəzarətin təşkilati quruluşunu müəyyən edir.",
+      "en": "The “Risk-Based Supervision Policy Concept of the Central Bank of the Republic of Azerbaijan” was prepared under the “Financial Sector Development Strategy for 2024–2026” and aims to apply a risk-based supervision approach to supervised entities. The document defines the ARAS (Azerbaijan Risk Assessment System) supervisory cycle applied by the Central Bank, the risk rating system and the organisational structure of risk-based supervision."
+    },
+    {
+      "slug": "nezaret-texnologiyalari-uzre-yol-xeritesi",
+      "node": "2776:18033",
+      "az": "Nəzarət Texnologiyaları (SupTech) üzrə Yol Xəritəsi “2024–2026-cı illərdə maliyyə sektorunun inkişaf Strategiyası” çərçivəsində Mərkəzi Bank və Dünya Bankı Qrupu tərəfindən birgə hazırlanıb. Sənəd risk əsaslı nəzarət məqsədilə texnologiya və dataların istifadəsi üzrə gələcək perspektivləri, o cümlədən təkmil analitika, böyük data və təbii dil emalı kimi texnologiyaların tətbiqini, eləcə də 2024–2029-cu illər üçün SupTech layihə və təşəbbüslər portfelini müəyyən edir.",
+      "en": "The Supervision Technologies (SupTech) Road Map was prepared jointly by the Central Bank and the World Bank Group under the “Financial Sector Development Strategy for 2024–2026”. The document sets out the outlook for using technology and data for risk-based supervision, including advanced analytics, big data and natural language processing, as well as the portfolio of SupTech projects and initiatives for 2024–2029."
+    },
+    {
+      "slug": "odenis-xidmetleri",
+      "node": "2795:36871",
+      "az": "Ölkədə ödəniş xidməti göstərən ödəniş və elektron pul təşkilatları Mərkəzi Bankdan lisenziya almalıdırlar. Təlimatda təşkilatın və ya ödəniş agentinin lisenziyasının Mərkəzi Bankın internet səhifəsindəki reyestrlərdən necə yoxlanılacağı, həmçinin lisenziyasız fəaliyyət aşkar edildikdə bu barədə Mərkəzi Banka “Elektron müraciətlər sistemi” vasitəsilə necə məlumat veriləcəyi addım-addım izah olunur. Məlumat verən şəxsin konfidensiallığına Mərkəzi Bank təminat verir.",
+      "en": "Payment and electronic money institutions that provide payment services in the country must be licensed by the Central Bank. The guide explains step by step how to check the licence of an institution or a payment agent in the registers on the Central Bank’s website, and how to report unlicensed activity to the Central Bank through the “Electronic appeals system”. The Central Bank guarantees the confidentiality of the person who reports."
+    }
+  ],
+  "menuGroups": [
+    {
+      "group": {
+        "az": "Strategiyalar və konsepsiyalar",
+        "en": "Strategies and concepts"
+      },
+      "slugs": [
+        "mikromaliyye-modeli-uzre-strateji-cercive",
+        "maliyye-bazarlarinda-kibertehlukesizlik-strategiyasi",
+        "risk-esasli-nezaret-uzre-siyaset-konsepsiyasi",
+        "nezaret-texnologiyalari-uzre-yol-xeritesi"
+      ]
+    },
+    {
+      "group": {
+        "az": "Ödəniş sistemləri",
+        "en": "Payment systems"
+      },
+      "slugs": [
+        "odenis-xidmetleri"
+      ]
+    }
+  ],
+  "hiddenFromMenus": [
+    "maliyye-sabitliyi-hesabati",
+    "bank-sektoru-uzre-makroprudensial-siyaset-cercivesi",
+    "istehlakcilarin-huquqlarinin-mudafiesi-ve-maliyye-savadliligi",
+    "dayaniqli-maliyye-uzre-yol-xeritesi",
+    "kreditlesme-fealiyyeti-ve-maliyyelesme-menbelerine-dair-sorgu",
+    "maliyye-xidmetleri-sahesinde-tenzimleyici-cercivenin-hazirliq-seviyyesinin-tehlili",
+    "nesrler-ve-tedqiqatlar-copy"
+  ],
+  "dropdownOnly": [
+    "odenis-xidmetleri"
+  ],
+  "movedIn": [
+    "reqemsal-firildaqciliq-statistikasi",
+    "odenis-xidmetleri"
+  ]
+}

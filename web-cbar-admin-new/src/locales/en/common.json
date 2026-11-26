@@ -1,0 +1,121 @@
+{
+  "tagline": "Content management panel",
+  "search": "Search…",
+  "loading": "Loading…",
+  "pageTitleFallback": "{{appName}}",
+  "footer": "© {{year}} {{orgName}}",
+  "brand": {
+    "orgName": "Central Bank of the Republic of Azerbaijan"
+  },
+  "template": {
+    "badge": "This is the {{appName}} starter",
+    "linkLabel": "Source on GitLab",
+    "linkAria": "Open the repository on GitLab in a new tab",
+    "demoHint": "Demo sign-in: admin, password"
+  },
+  "status": {
+    "draft": "Draft",
+    "scheduled": "Scheduled",
+    "published": "Published",
+    "archived": "Archived",
+    "active": "Active",
+    "inactive": "Inactive",
+    "live": "Live",
+    "offline": "Offline",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "moderator": "Moderator",
+    "measManager": "MEAS manager"
+  },
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "add": "Add",
+    "remove": "Remove",
+    "back": "Back",
+    "confirm": "Confirm",
+    "choose": "Choose",
+    "change": "Change",
+    "clear": "Clear",
+    "up": "Up",
+    "down": "Down",
+    "refresh": "Refresh",
+    "open": "Open"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "language": {
+    "label": "Language",
+    "az": "Azərbaycanca",
+    "en": "English"
+  },
+  "navigation": {
+    "open": "Open navigation",
+    "title": "Navigation",
+    "description": "Every section of {{appName}}",
+    "primary": "Primary"
+  },
+  "account": {
+    "menu": "Account menu",
+    "user": "User",
+    "signOut": "Sign out"
+  },
+  "commandPalette": {
+    "title": "Command palette",
+    "description": "Jump to a section or run an action",
+    "placeholder": "Search sections…",
+    "empty": "Nothing matches that.",
+    "goTo": "Go to",
+    "actions": "Actions"
+  },
+  "errors": {
+    "unexpected": "An unexpected error occurred",
+    "requestFailed": "The request could not be completed",
+    "unauthorized": "Your session is no longer valid — sign in again",
+    "forbidden": "You do not have permission for this action",
+    "notFound": "Record not found",
+    "conflict": "The operation conflicts with existing data",
+    "contract": "The API response has an unexpected shape — notify the technical team",
+    "timeout": "The request timed out",
+    "network": "Network error — check your connection",
+    "loadFailed": "Data failed to load",
+    "boundaryTitle": "Something went wrong",
+    "boundaryDescription": "An error occurred while rendering the page. Try again — if it persists, let the team know.",
+    "retry": "Try again"
+  },
+  "languages": {
+    "az": "AZ",
+    "en": "EN",
+    "missing": "No {{locale}}"
+  },
+  "notFound": {
+    "title": "No page at {{path}}",
+    "description": "The link may come from an older version of {{appName}}.",
+    "back": "Back to the dashboard"
+  }
+}

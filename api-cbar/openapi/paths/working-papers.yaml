@@ -1,0 +1,58 @@
+list:
+  get:
+    tags: [WorkingPapers]
+    operationId: listWorkingPapers
+    summary: Published working papers of a locale
+    description: |
+      Every working paper visible in the locale (spec 054): published, not deleted, with a title in the
+      locale. By `year` descending, then `number` descending. There is no paging and no search: the
+      list is small (a few papers a year) and the site filters it, folding Azerbaijani letters that
+      Postgres does not fold. Abstract, JEL codes and file are on the item route.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The papers of the locale; an empty list is not an error.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/working-papers.yaml#/WorkingPaperListItem
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+item:
+  get:
+    tags: [WorkingPapers]
+    operationId: getWorkingPaper
+    summary: Working paper by key
+    description: |
+      `key` is `NN-YYYY` (the number padded to two digits, then the year), the same in both locales.
+      404 when the key is malformed or the paper is not visible in the locale.
+    parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '^\d{2}-\d{4}$'
+        examples:
+          paper:
+            value: 02-2025
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The paper in the locale.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/working-papers.yaml#/WorkingPaper
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

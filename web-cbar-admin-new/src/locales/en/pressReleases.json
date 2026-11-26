@@ -1,0 +1,44 @@
+{
+  "title": "Press releases",
+  "entity": "press release",
+  "description": "Press statements and their attached documents",
+  "columns": {
+    "id": "ID",
+    "type": "Type",
+    "title": "Title",
+    "status": "Status",
+    "publishedAt": "Published at"
+  },
+  "fields": {
+    "type": "Type",
+    "status": "Status",
+    "publishedAt": "Published at",
+    "title": "Title",
+    "content": "Content"
+  },
+  "filters": {
+    "type": "Type",
+    "status": "Status"
+  },
+  "types": {
+    "1": "News",
+    "2": "Announcement",
+    "3": "Interview and speech"
+  },
+  "attachments": {
+    "title": "Images and documents",
+    "description": "The first image is the cover on the site, the remaining images form the photo gallery; files are listed. Change the order with the arrows.",
+    "descriptionAnnouncement": "Announcements show no images; every file is listed as an attachment on the site. Change the order with the arrows.",
+    "descriptionInterview": "The first image appears only on the list card. The first PDF of each language is the \"Save as PDF\" button, other files are listed as documents. Reorder with the arrows and choose each file's language.",
+    "cover": "Cover",
+    "gallery": "Gallery",
+    "cardImage": "Card image",
+    "pdfButton": "PDF button",
+    "locale": {
+      "label": "File language: {{name}}",
+      "all": "Both languages",
+      "az": "AZ",
+      "en": "EN"
+    }
+  }
+}

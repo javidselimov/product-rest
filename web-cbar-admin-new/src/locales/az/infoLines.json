@@ -1,0 +1,39 @@
+{
+  "title": "Məlumat sətirləri",
+  "entity": "məlumat sətri",
+  "description": "Ana səhifədəki rəqəmli göstəricilər. Sətirlər alias-a görə qruplaşdırılır; dəhliz alias-ları bir sətir, \"Əsas göstəricilər\" isə bir neçə sətir saxlayır.",
+  "columns": {
+    "id": "ID",
+    "alias": "Alias",
+    "title": "Başlıq",
+    "value": "Dəyər",
+    "year": "İl",
+    "sortOrder": "Sıra",
+    "isActive": "Status",
+    "updatedAt": "Yenilənib"
+  },
+  "fields": {
+    "alias": "Alias",
+    "aliasHelp": "Sətrin ana səhifədə göstərildiyi yer. Dəhliz alias-ları bir sətir, \"Əsas göstəricilər\" bir neçə sətir saxlayır.",
+    "year": "İl",
+    "sortOrder": "Sıra",
+    "isActive": "Aktiv",
+    "title": "Başlıq",
+    "value": "Dəyər"
+  },
+  "aliases": {
+    "homepage_indicators": "Əsas göstəricilər",
+    "corridor_min": "Faiz dəhlizi — aşağı hədd",
+    "corridor_max": "Faiz dəhlizi — yuxarı hədd",
+    "corridor_percent": "Faiz dəhlizi — uçot dərəcəsi",
+    "money_reserve_usd": "Pul göstəriciləri — valyuta ehtiyatları",
+    "money_base": "Pul göstəriciləri — pul bazası",
+    "nots_volume": "MB notları — dövriyyədəki həcm",
+    "nots_levels_28": "MB notları — 28 günlük",
+    "nots_levels_84": "MB notları — 84 günlük",
+    "nots_levels_168": "MB notları — 168 günlük",
+    "nots_levels_252": "MB notları — 252 günlük",
+    "bank_credit": "Bank sektoru — kredit qoyuluşları",
+    "bank_nation": "Bank sektoru — depozitlər"
+  }
+}

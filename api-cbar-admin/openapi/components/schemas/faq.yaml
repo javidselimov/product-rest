@@ -1,0 +1,317 @@
+# FAQ (spec 051): topics, questions, videos. Referenced as ../components/schemas/faq.yaml#/<Name>.
+
+FaqOrder:
+  type: object
+  required: [ids]
+  properties:
+    ids:
+      type: array
+      description: Every non-deleted item of the list exactly once, in the new order.
+      items:
+        type: integer
+        format: int32
+
+FaqLocales:
+  type: array
+  description: Locales whose translation is complete.
+  items:
+    $ref: ./common.yaml#/Locale
+
+# Topics
+
+FaqTopicTranslation:
+  type: object
+  required: [name]
+  properties:
+    name:
+      type: string
+      maxLength: 255
+
+FaqTopicPageRef:
+  type: object
+  required: [id, title]
+  properties:
+    id:
+      type: integer
+      format: int32
+    title:
+      type: string
+      description: The az title, else any locale's.
+
+FaqTopicListItem:
+  type: object
+  required: [id, slug, sortOrder, status, name, questionCount, locales, pages]
+  properties:
+    id:
+      type: integer
+      format: int32
+    slug:
+      type: string
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    name:
+      type: [string, 'null']
+      description: The az name, else any locale's.
+    questionCount:
+      type: integer
+      format: int32
+      description: Non-deleted questions, any status.
+    locales:
+      $ref: '#/FaqLocales'
+    pages:
+      type: array
+      description: CMS pages that show the topic's link card, in link order.
+      items:
+        $ref: '#/FaqTopicPageRef'
+
+FaqTopicPage:
+  allOf:
+    - $ref: ./common.yaml#/PageMeta
+    - type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/FaqTopicListItem'
+
+FaqTopicUpsert:
+  type: object
+  required: [status, translations]
+  properties:
+    status:
+      $ref: ./common.yaml#/ContentStatus
+      description: "`scheduled` is refused."
+    translations:
+      type: object
+      minProperties: 1
+      description: At least one locale; a locale left out is removed.
+      additionalProperties:
+        $ref: '#/FaqTopicTranslation'
+    pageIds:
+      type: [array, 'null']
+      description: |
+        CMS pages that show the topic's link card, in this order. Existing, non-deleted pages; no duplicates.
+        Omitted or null keeps the stored links (the panel's topic form saves the name and the status without them).
+      items:
+        type: integer
+        format: int32
+
+FaqTopicDetail:
+  type: object
+  required: [id, slug, sortOrder, status, createdAt, updatedAt, translations, pageIds, pages]
+  properties:
+    id:
+      type: integer
+      format: int32
+    slug:
+      type: string
+      description: Generated from the az (else en) name at creation; never changes.
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    createdAt:
+      $ref: ./common.yaml#/DateTime
+    updatedAt:
+      $ref: ./common.yaml#/DateTime
+    translations:
+      type: object
+      additionalProperties:
+        $ref: '#/FaqTopicTranslation'
+    pageIds:
+      type: array
+      items:
+        type: integer
+        format: int32
+    pages:
+      type: array
+      items:
+        $ref: '#/FaqTopicPageRef'
+
+# Questions
+
+FaqQuestionTranslation:
+  type: object
+  required: [question, answer]
+  properties:
+    question:
+      type: string
+      maxLength: 1000
+    answer:
+      type: string
+      description: HTML from the rich-text editor.
+
+FaqQuestionListItem:
+  type: object
+  required: [id, topicId, topicName, sortOrder, number, status, question, locales, incompleteLocales]
+  properties:
+    id:
+      type: integer
+      format: int32
+    topicId:
+      type: integer
+      format: int32
+    topicName:
+      type: [string, 'null']
+    sortOrder:
+      type: integer
+      format: int32
+    number:
+      type: integer
+      format: int32
+      description: Position in the topic among non-deleted questions, from 1.
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    question:
+      type: [string, 'null']
+      description: The az question, else any locale's.
+    locales:
+      $ref: '#/FaqLocales'
+    incompleteLocales:
+      type: array
+      description: Locales with a question or an answer but not both (normally empty — the API refuses them).
+      items:
+        $ref: ./common.yaml#/Locale
+
+FaqQuestionPage:
+  allOf:
+    - $ref: ./common.yaml#/PageMeta
+    - type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/FaqQuestionListItem'
+
+FaqQuestionUpsert:
+  type: object
+  required: [topicId, status, translations]
+  properties:
+    topicId:
+      type: integer
+      format: int32
+      description: An existing topic. Changing it moves the question to the end of the new topic.
+    status:
+      $ref: ./common.yaml#/ContentStatus
+      description: "`scheduled` is refused."
+    translations:
+      type: object
+      minProperties: 1
+      description: |
+        At least one complete locale. A locale given with only a question or only an answer is refused
+        (400 with `message`); a locale left out is removed.
+      additionalProperties:
+        $ref: '#/FaqQuestionTranslation'
+
+FaqQuestionDetail:
+  type: object
+  required: [id, topicId, sortOrder, status, createdAt, updatedAt, translations]
+  properties:
+    id:
+      type: integer
+      format: int32
+    topicId:
+      type: integer
+      format: int32
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    createdAt:
+      $ref: ./common.yaml#/DateTime
+    updatedAt:
+      $ref: ./common.yaml#/DateTime
+    translations:
+      type: object
+      additionalProperties:
+        $ref: '#/FaqQuestionTranslation'
+
+# Videos
+
+FaqVideoTranslation:
+  type: object
+  required: [title]
+  properties:
+    title:
+      type: string
+      maxLength: 255
+
+FaqVideoListItem:
+  type: object
+  required: [id, youtubeUrl, youtubeId, sortOrder, status, title]
+  properties:
+    id:
+      type: integer
+      format: int32
+    youtubeUrl:
+      type: string
+    youtubeId:
+      type: string
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    title:
+      type: [string, 'null']
+      description: The az title, else any locale's.
+
+FaqVideoPage:
+  allOf:
+    - $ref: ./common.yaml#/PageMeta
+    - type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/FaqVideoListItem'
+
+FaqVideoUpsert:
+  type: object
+  required: [youtubeUrl, status, translations]
+  properties:
+    youtubeUrl:
+      type: string
+      maxLength: 500
+      description: A YouTube link (`watch?v=`, `youtu.be/`, `embed/`, `shorts/`); 400 with `message` when no video id can be read.
+    status:
+      $ref: ./common.yaml#/ContentStatus
+      description: "`scheduled` is refused."
+    translations:
+      type: object
+      minProperties: 1
+      additionalProperties:
+        $ref: '#/FaqVideoTranslation'
+
+FaqVideoDetail:
+  type: object
+  required: [id, youtubeUrl, youtubeId, sortOrder, status, createdAt, updatedAt, translations]
+  properties:
+    id:
+      type: integer
+      format: int32
+    youtubeUrl:
+      type: string
+    youtubeId:
+      type: string
+    sortOrder:
+      type: integer
+      format: int32
+    status:
+      $ref: ./common.yaml#/ContentStatus
+    createdAt:
+      $ref: ./common.yaml#/DateTime
+    updatedAt:
+      $ref: ./common.yaml#/DateTime
+    translations:
+      type: object
+      additionalProperties:
+        $ref: '#/FaqVideoTranslation'

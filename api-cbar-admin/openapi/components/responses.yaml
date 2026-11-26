@@ -1,0 +1,94 @@
+# Shared responses. Referenced as ../components/responses.yaml#/<Name>.
+# Every error body is `application/problem+json` (components/schemas/common.yaml#/ProblemDetails).
+
+NoContent:
+  description: Done; no body.
+
+NotFound:
+  description: |
+    No such item (or it is soft-deleted). Produced by `[ApiController]`'s client-error
+    mapping of a bare `NotFound()` (`title: "Not Found"`), or with a `message` where the
+    controller names what is missing.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ProblemDetails
+
+ValidationFailed:
+  description: |
+    The request could not be bound or failed model validation: malformed JSON, a missing
+    non-nullable field, a wrong type, or a route/query value of the wrong type.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ValidationProblemDetails
+
+BusinessRule:
+  description: |
+    Either model binding failed (as `ValidationFailed`, with `errors`) or the values were
+    rejected — by the controller (no translations, unknown media id, invalid slug) or by the
+    database (unknown locale, a value longer than its column, out of range, or not allowed:
+    `type` is then a `urn:cbar:problem:*`). A rejection carries `message`.
+  content:
+    application/problem+json:
+      schema:
+        anyOf:
+          - $ref: ./schemas/common.yaml#/ValidationProblemDetails
+          - $ref: ./schemas/common.yaml#/ErrorMessage
+
+Conflict:
+  description: |
+    The change conflicts with existing data: a duplicate (also one created by a concurrent
+    request — `urn:cbar:problem:unique-violation`), data still referenced elsewhere
+    (`urn:cbar:problem:reference-in-use` on delete), or an item already attached.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ErrorMessage
+
+Unauthorized:
+  description: |
+    Missing, malformed, expired or revoked access token. A token is revoked once its
+    user is deactivated or deleted, or their password is reset or role changed (spec 020);
+    the panel refreshes and retries. `WWW-Authenticate: Bearer` (with
+    `error="invalid_token"` when a token was sent but rejected). The body has no `title`
+    and no `message`, and does not say why the token was rejected.
+  headers:
+    WWW-Authenticate:
+      schema:
+        type: string
+        pattern: ^Bearer
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ProblemDetails
+
+Forbidden:
+  description: Authenticated, but the caller's role lacks the permission this operation requires (its `x-permission`). No data was changed, and the refusal is in the audit log as `authz.denied`. The body has no `title` and no `message`.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ProblemDetails
+
+OriginForbidden:
+  description: The request's `Origin` header is not one of the configured CORS origins.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/auth.yaml#/OriginError
+
+PayloadTooLarge:
+  description: The request body is larger than this operation accepts.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ProblemDetails
+
+ServerError:
+  description: |
+    Unexpected failure. Any operation may return it. The body carries no internal details and
+    no `title`; `traceId` identifies the request in the server log.
+  content:
+    application/problem+json:
+      schema:
+        $ref: ./schemas/common.yaml#/ProblemDetails

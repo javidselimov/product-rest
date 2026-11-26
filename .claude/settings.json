@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/spec-first.mjs\"",
+            "timeout": 90,
+            "statusMessage": "spec-first: checking routes against OpenAPI"
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/frontend-skills.mjs\"",
+            "timeout": 10,
+            "statusMessage": "frontend-skills: spec-kit gate"
+          }
+        ]
+      }
+    ]
+  }
+}

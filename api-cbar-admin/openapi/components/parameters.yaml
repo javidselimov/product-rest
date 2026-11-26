@@ -1,0 +1,88 @@
+# Shared parameters. Referenced as ../components/parameters.yaml#/<Name>.
+# `pageSize` is not shared: its default differs per endpoint, so each list declares its own
+# (copy `PageSize20` and change the default, or use it as-is when the default is 20).
+
+Id:
+  name: id
+  in: path
+  required: true
+  description: Route constraint `{id:int}` — a non-integer segment does not match the route (404, problem details without `message`).
+  schema:
+    type: integer
+    format: int32
+
+CurveDate:
+  name: date
+  in: path
+  required: true
+  description: '`yyyy-MM-dd`. Route constraint `{date:datetime}` — a segment that is not a date does not match the route (404).'
+  schema:
+    type: string
+    format: date
+
+MediaId:
+  name: mediaId
+  in: path
+  required: true
+  description: Route constraint `{mediaId:long}`.
+  schema:
+    type: integer
+    format: int64
+
+MembershipId:
+  name: membershipId
+  in: path
+  required: true
+  description: Route constraint `{membershipId:long}`.
+  schema:
+    type: integer
+    format: int64
+
+Page:
+  name: page
+  in: query
+  description: |
+    1-based page number. Clamped, never rejected: values below 1 are treated as 1, values
+    above 100000 as 100000. The response's `page` is the value applied.
+  schema:
+    type: integer
+    format: int32
+    minimum: 1
+    maximum: 100000
+    default: 1
+
+PageSize20:
+  name: pageSize
+  in: query
+  description: |
+    Page size. Clamped, never rejected: values below 1 use the default (20), values above 100
+    are capped at 100. The response's `pageSize` is the value applied.
+  schema:
+    type: integer
+    format: int32
+    minimum: 1
+    maximum: 100
+    default: 20
+
+Search:
+  name: search
+  in: query
+  description: Case-insensitive substring match (`ILIKE '%…%'`) on the title/name in any locale. Blank is ignored.
+  schema:
+    type: string
+
+PressReleaseType:
+  name: type
+  in: query
+  description: Only press releases of this type — `1` news, `2` announcement, `3` interview or speech. Omitted = all.
+  schema:
+    type: integer
+    format: int16
+    enum: [1, 2, 3]
+
+Status:
+  name: status
+  in: query
+  description: Only items in this status.
+  schema:
+    $ref: ./schemas/common.yaml#/ContentStatus

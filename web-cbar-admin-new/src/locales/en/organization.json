@@ -1,0 +1,150 @@
+{
+  "tabs": {
+    "staff": "Staff",
+    "divisions": "Divisions",
+    "offices": "Offices",
+    "chart": "Org chart"
+  },
+  "staff": {
+    "title": "Staff",
+    "entity": "staff member",
+    "description": "Board members, directors general and advisers to the Governor"
+  },
+  "divisions": {
+    "title": "Divisions",
+    "entity": "division",
+    "description": "Structural units and departments"
+  },
+  "offices": {
+    "title": "Offices",
+    "entity": "office",
+    "description": "Regional offices, addresses and contact details"
+  },
+  "type": {
+    "board": "Board",
+    "management": "Director General",
+    "adviser": "Adviser to the Governor"
+  },
+  "columns": {
+    "id": "ID",
+    "name": "Name",
+    "fullName": "Full name",
+    "position": "Position",
+    "type": "Category",
+    "address": "Address",
+    "phone": "Phone",
+    "sortOrder": "Sort",
+    "isActive": "Status"
+  },
+  "fields": {
+    "name": "Name",
+    "fullName": "Full name",
+    "position": "Position",
+    "receptionDays": "Reception days",
+    "bio": "Biography",
+    "description": "Description",
+    "address": "Address",
+    "phone": "Phone",
+    "type": "Category",
+    "sortOrder": "Sort order",
+    "isActive": "Active",
+    "media": "Image",
+    "photo": "Photo",
+    "directorName": "Head of office",
+    "regulation": "Regulation",
+    "regulationHelp": "The \"Regulation\" button on the public card opens this document; pick a separate file per language (usually a PDF).",
+    "divisionRegulationHelp": "Shown on the public department page as a \"Regulation\" file row under the info card; pick a separate file per language (usually a PDF). Hidden when none is selected."
+  },
+  "photos": {
+    "title": "Press photos",
+    "description": "Photos offered for download under the biography on the site — in the order listed here. Image files only.",
+    "add": "Add photo",
+    "pickerTitle": "Choose a photo",
+    "empty": "No photos.",
+    "position": "position {{position}}",
+    "added": "Photo added",
+    "addFailed": "The photo could not be added",
+    "reordered": "Order updated",
+    "reorderFailed": "The order could not be updated",
+    "removed": "Photo removed",
+    "remove": "Remove",
+    "removeTitle": "Remove photo",
+    "removeConfirm": "Remove \"{{name}}\" from the member's photos? The file stays in the library.",
+    "removeAria": "Remove photo {{name}}",
+    "moveUpAria": "Move photo {{name}} up",
+    "moveDownAria": "Move photo {{name}} down"
+  },
+  "chart": {
+    "title": "Org chart",
+    "description": "The organisational chart of the site’s “Structure and regulations” page. The desktop, tablet and mobile views are built from this tree automatically: each card’s parent, kind and order among its siblings.",
+    "newNode": "New card",
+    "listLabel": "Chart cards",
+    "empty": "The chart has no cards yet",
+    "untitled": "Untitled",
+    "inactive": "Inactive",
+    "addChild": "Add a card under «{{name}}»",
+    "edit": "Edit card «{{name}}»",
+    "delete": "Delete card «{{name}}»",
+    "kinds": {
+      "1": "Governor",
+      "2": "Deputy governor",
+      "3": "Director general",
+      "4": "Block",
+      "5": "Department",
+      "6": "Group"
+    },
+    "fields": {
+      "kind": "Type",
+      "parent": "Parent card",
+      "root": "Root (no parent)",
+      "linkType": "Link",
+      "link": {
+        "none": "Not linked",
+        "staff": "Staff member",
+        "division": "Division"
+      },
+      "record": "Linked record",
+      "recordPlaceholder": "Choose (optional)",
+      "noRecords": "No records found",
+      "title": "Name",
+      "subtitle": "Position",
+      "overrideHint": "Leave name and position empty to show the linked record.",
+      "unitStaffHint": "Type the block's or group's name in «Name» — left empty, the card shows the staff member's name. The staff member only gives the card its link.",
+      "curatorDirect": "Directly under the curator (*)",
+      "isActive": "Active",
+      "departments": "Departments",
+      "departmentsMode": {
+        "dropdown": "Dropdown list",
+        "open": "Always open"
+      },
+      "departmentsHint": "How the site’s desktop chart shows the block’s departments: a list that opens on click, or a column shown without a click."
+    },
+    "form": {
+      "createTitle": "New card",
+      "editTitle": "Edit card",
+      "description": "On the site the card opens the linked staff member or division page.",
+      "save": "Save",
+      "saved": "Card saved",
+      "titleRequired": "Without a linked record enter a name in at least one language"
+    },
+    "deleteDialog": {
+      "title": "Delete card",
+      "description": "Card «{{name}}» will be deleted. A card with child cards cannot be deleted.",
+      "deleted": "Card deleted"
+    },
+    "reorder": "Reorder the cards under “{{name}}”",
+    "reorderTitle": "Order of the cards under “{{name}}”",
+    "reorderRoots": "Order of the root cards",
+    "viewOnSite": "View on site",
+    "departmentsOpenBadge": "Departments open",
+    "viewSwitch": "View",
+    "views": {
+      "list": "List",
+      "chart": "Chart"
+    },
+    "localeSwitch": "Chart language",
+    "previewLabel": "The site's desktop chart",
+    "previewHint": "The site's desktop view. Cards the site does not show are left out here too. Click a card to open its form.",
+    "previewEmpty": "No card is shown on the site in this language"
+  }
+}

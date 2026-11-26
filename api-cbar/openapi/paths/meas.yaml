@@ -1,0 +1,68 @@
+list:
+  get:
+    tags: [Meas]
+    operationId: listMeasDocuments
+    summary: Published MEAS documents, newest registration first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize
+      - name: emitentId
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: infoTypeId
+        in: query
+        schema:
+          type: integer
+          format: int32
+    responses:
+      '200':
+        description: One page of documents.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/meas.yaml#/MeasDocumentPage
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+emitents:
+  get:
+    tags: [Meas]
+    operationId: listMeasEmitents
+    summary: Active MEAS emitents
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Emitents translated into the locale, by id.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/common.yaml#/NamedItem
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+infoTypes:
+  get:
+    tags: [Meas]
+    operationId: listMeasInfoTypes
+    summary: Active MEAS info types
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Info types translated into the locale, by id.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/common.yaml#/NamedItem
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

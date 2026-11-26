@@ -1,0 +1,26 @@
+{
+  "title": "Videolar",
+  "entity": "video",
+  "description": "Saytda göstərilən YouTube videoları",
+  "columns": {
+    "id": "ID",
+    "title": "Başlıq",
+    "youtubeUrl": "YouTube URL",
+    "publishedAt": "Dərc tarixi",
+    "sortOrder": "Sıra",
+    "isActive": "Status"
+  },
+  "fields": {
+    "youtubeUrl": "YouTube URL",
+    "publishedAt": "Dərc tarixi",
+    "sortOrder": "Sıra",
+    "isActive": "Aktiv",
+    "title": "Başlıq"
+  },
+  "placeholders": {
+    "youtubeUrl": "https://www.youtube.com/watch?v=…"
+  },
+  "validation": {
+    "url": "YouTube URL http:// və ya https:// ilə başlamalıdır"
+  }
+}

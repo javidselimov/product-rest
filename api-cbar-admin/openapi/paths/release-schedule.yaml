@@ -1,0 +1,361 @@
+items:
+  get:
+    tags: [ReleaseSchedule]
+    operationId: listReleaseScheduleItems
+    x-permission: release_schedule.read
+    summary: Schedule items, by group order then item order
+    description: Soft-deleted items are excluded. `search` matches the title in any locale.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+      - name: groupId
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: periodicityId
+        in: query
+        schema:
+          type: integer
+          format: int32
+    responses:
+      '200':
+        description: One page of items.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [ReleaseSchedule]
+    operationId: createReleaseScheduleItem
+    x-permission: release_schedule.create
+    summary: Create a schedule item
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [ReleaseSchedule]
+    operationId: getReleaseScheduleItem
+    x-permission: release_schedule.read
+    summary: Schedule item by id
+    responses:
+      '200':
+        description: The item with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [ReleaseSchedule]
+    operationId: updateReleaseScheduleItem
+    x-permission: release_schedule.update
+    summary: Update a schedule item
+    description: A locale left out of `translations` is removed.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemUpsert
+    responses:
+      '200':
+        description: The updated item.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleItemDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [ReleaseSchedule]
+    operationId: deleteReleaseScheduleItem
+    x-permission: release_schedule.delete
+    summary: Soft-delete a schedule item
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+groups:
+  get:
+    tags: [ReleaseSchedule]
+    operationId: listReleaseScheduleGroups
+    x-permission: release_schedule.read
+    summary: Schedule groups, by sort order
+    description: Inactive groups are included.
+    responses:
+      '200':
+        description: The groups.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupListItem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [ReleaseSchedule]
+    operationId: createReleaseScheduleGroup
+    x-permission: release_schedule.create
+    summary: Create a schedule group
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+group:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [ReleaseSchedule]
+    operationId: getReleaseScheduleGroup
+    x-permission: release_schedule.read
+    summary: Schedule group by id
+    responses:
+      '200':
+        description: The group with its translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [ReleaseSchedule]
+    operationId: updateReleaseScheduleGroup
+    x-permission: release_schedule.update
+    summary: Update a schedule group
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupUpsert
+    responses:
+      '200':
+        description: The updated group.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseScheduleGroupDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [ReleaseSchedule]
+    operationId: deleteReleaseScheduleGroup
+    x-permission: release_schedule.delete
+    summary: Delete a schedule group
+    description: Refused while any item uses it, soft-deleted ones included.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+periodicities:
+  get:
+    tags: [ReleaseSchedule]
+    operationId: listReleaseSchedulePeriodicities
+    x-permission: release_schedule.read
+    summary: Periodicities, by sort order
+    responses:
+      '200':
+        description: The periodicities.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityListItem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [ReleaseSchedule]
+    operationId: createReleaseSchedulePeriodicity
+    x-permission: release_schedule.create
+    summary: Create a periodicity
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+periodicity:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [ReleaseSchedule]
+    operationId: getReleaseSchedulePeriodicity
+    x-permission: release_schedule.read
+    summary: Periodicity by id
+    responses:
+      '200':
+        description: The periodicity with its translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [ReleaseSchedule]
+    operationId: updateReleaseSchedulePeriodicity
+    x-permission: release_schedule.update
+    summary: Update a periodicity
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityUpsert
+    responses:
+      '200':
+        description: The updated periodicity.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedulePeriodicityDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [ReleaseSchedule]
+    operationId: deleteReleaseSchedulePeriodicity
+    x-permission: release_schedule.delete
+    summary: Delete a periodicity
+    description: Refused while any item uses it, soft-deleted ones included.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict

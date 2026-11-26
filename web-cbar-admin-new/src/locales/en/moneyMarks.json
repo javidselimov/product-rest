@@ -1,0 +1,53 @@
+{
+  "tabs": {
+    "marks": "Marks",
+    "categories": "Categories",
+    "news": "News"
+  },
+  "marks": {
+    "title": "Money marks",
+    "entity": "money mark",
+    "description": "Banknotes and coins in circulation"
+  },
+  "categories": {
+    "title": "Categories",
+    "entity": "category",
+    "description": "Money mark categories",
+    "deleteConfirm": "Delete category \"{{name}}\"? Money marks referencing it must be reassigned first."
+  },
+  "news": {
+    "title": "News",
+    "entity": "news item",
+    "description": "News about money marks"
+  },
+  "type": {
+    "banknote": "Banknote",
+    "coin": "Coin"
+  },
+  "columns": {
+    "id": "ID",
+    "title": "Title",
+    "name": "Name",
+    "type": "Type",
+    "category": "Category",
+    "sortOrder": "Sort",
+    "status": "Status",
+    "isActive": "Status",
+    "publishedAt": "Published at"
+  },
+  "fields": {
+    "category": "Category",
+    "type": "Type",
+    "frontMedia": "Front image",
+    "rearMedia": "Rear image",
+    "sortOrder": "Sort order",
+    "status": "Status",
+    "isActive": "Active",
+    "publishedAt": "Published at",
+    "title": "Title",
+    "name": "Name",
+    "description": "Description",
+    "securityFeatures": "Security features",
+    "content": "Content"
+  }
+}

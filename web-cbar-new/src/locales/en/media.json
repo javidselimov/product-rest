@@ -1,0 +1,129 @@
+{
+  "csr": {
+    "projectsTitle": "Our projects"
+  },
+  "logo": {
+    "download": "Download",
+    "downloadFile": "Download {{label}}"
+  },
+  "title": "Media",
+  "galleries": "Photo galleries",
+  "videos": "Videos",
+  "streams": "Live stream",
+  "photos": "Photos",
+  "watchVideo": "Watch video",
+  "watchOnYoutube": "Watch on YouTube",
+  "images": "Images",
+  "live": "Live",
+  "eventDate": "Event date",
+  "noGalleries": "No photo galleries found",
+  "noVideos": "No videos found",
+  "noImages": "This gallery has no images",
+  "noStreams": "There is no live stream at the moment",
+  "videoFrameTitle": "Video: {{title}}",
+  "openStream": "Open stream",
+  "galleryImageAlt": "{{title}} — image {{index}}",
+  "gallery": {
+    "title": "Gallery",
+    "tabs": "Gallery types",
+    "photos": "Photo gallery",
+    "videos": "Video gallery",
+    "noResults": "Nothing found",
+    "play": "Play video: {{title}}",
+    "filter": {
+      "form": "Gallery filter",
+      "search": "Search in section",
+      "dateRange": "Date range",
+      "dateFrom": "From",
+      "dateTo": "To",
+      "submit": "Search",
+      "clear": "Clear filters"
+    }
+  },
+  "imagePopup": {
+    "title": "Announcement",
+    "openLink": "Learn more",
+    "newTab": "(opens in a new tab)"
+  },
+  "events": {
+    "title": "Events",
+    "upcoming": "Upcoming events",
+    "past": "Past events",
+    "all": "All",
+    "more": "Show more",
+    "emptyUpcoming": "No upcoming events in this category",
+    "emptyPast": "No past events in this category",
+    "seePast": "See past events",
+    "date": "Date",
+    "time": "Time",
+    "location": "Location",
+    "comingSoon": "Details and the programme of the event will be published soon.",
+    "pressRelease": "Press release",
+    "imageAlt": "{{title}} — photo {{n}}",
+    "types": {
+      "1": "Decision",
+      "2": "Press conference",
+      "3": "Conference",
+      "4": "Seminar"
+    },
+    "filter": {
+      "form": "Filter events",
+      "search": "Search by event name",
+      "dateRange": "Date range",
+      "dateFrom": "From date",
+      "dateTo": "To date",
+      "type": "Event type",
+      "submit": "Search",
+      "clear": "Clear filters",
+      "categories": "Categories",
+      "category": "Category",
+      "other": "Other",
+      "categorySearch": "Search categories"
+    },
+    "monthShort": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mar",
+      "4": "Apr",
+      "5": "May",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Aug",
+      "9": "Sep",
+      "10": "Oct",
+      "11": "Nov",
+      "12": "Dec"
+    }
+  },
+  "releaseSchedule": {
+    "title": "Information disclosure schedule",
+    "caption": "Information disclosure schedule: content, periodicity and period of release",
+    "filter": {
+      "form": "Search the schedule",
+      "search": "Search by content",
+      "submit": "Search",
+      "clear": "Clear filters"
+    },
+    "columns": {
+      "content": "Content",
+      "periodicity": "Periodicity",
+      "timing": "Period of release"
+    },
+    "empty": "Nothing matches your search.",
+    "noValue": "—",
+    "linkFallback": "Link",
+    "decisionsFallback": "According to the schedule",
+    "newWindow": "(opens in a new window)",
+    "decisions": {
+      "title": "Schedule of monetary policy decision announcements",
+      "subtitle": "{{year}} · Board of the Central Bank",
+      "next": "Next announcement",
+      "pressRelease": "Press release",
+      "pressReleaseAndConference": "Press release and press conference",
+      "empty": "The schedule for this year has not been published yet.",
+      "all": "All decisions",
+      "past": "past",
+      "upcoming": "upcoming"
+    }
+  }
+}

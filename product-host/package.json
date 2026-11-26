@@ -1,0 +1,22 @@
+{
+  "name": "cbar-project",
+  "version": "1.10.18",
+  "description": "Cbar.az build system",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mA",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-hub": "^4.2.0",
+    "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {}
+}

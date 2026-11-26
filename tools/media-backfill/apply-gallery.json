@@ -1,0 +1,1058 @@
+[
+  {
+    "table": "galleries",
+    "id": 1,
+    "key": "Maliyyə savadlılığı tədbiri @2026-06-01",
+    "current": {
+      "images": 2,
+      "names": [
+        "cbar-test.pdf",
+        "test-image-2.png"
+      ]
+    },
+    "status": "unmatched"
+  },
+  {
+    "table": "galleries",
+    "id": 3,
+    "key": "“Türk Dövlətləri Təşkilatına üzv ölkələrin mərkəzi (milli) banklarının Şurası”nın ikinci toplantısı @2026-06-04",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/f73bd3b17a1194c97d339e698.jpg",
+      "https://uploads.cbar.az/photo-gallery/96e71378eb40f22ee3727550f.jpg",
+      "https://uploads.cbar.az/photo-gallery/d705ea7422199f9dce38e8843.jpg",
+      "https://uploads.cbar.az/photo-gallery/b5b268732ff4e50e89966e26d.jpg",
+      "https://uploads.cbar.az/photo-gallery/959d373d5d758f9d1d46a79da.jpg",
+      "https://uploads.cbar.az/photo-gallery/fc9307f866dc1911d98732769.jpg",
+      "https://uploads.cbar.az/photo-gallery/5654a78092687766760cbcc55.jpg",
+      "https://uploads.cbar.az/photo-gallery/df5a2116a7815f4bdbffa437b.jpg",
+      "https://uploads.cbar.az/photo-gallery/99ea2f075bc75c132e1686a58.jpg",
+      "https://uploads.cbar.az/photo-gallery/c8a24d4be565e07f954182c5a.jpg",
+      "https://uploads.cbar.az/photo-gallery/319343a367ce27f0e361eb52d.jpg",
+      "https://uploads.cbar.az/photo-gallery/4a5508fe1a5d455a84a757381.jpg",
+      "https://uploads.cbar.az/photo-gallery/27cafc4345c03186440363ee4.jpg",
+      "https://uploads.cbar.az/photo-gallery/cc09c6060e36d0b3992f72560.jpg",
+      "https://uploads.cbar.az/photo-gallery/872999f22e280047d17037a41.jpg",
+      "https://uploads.cbar.az/photo-gallery/f2221b6c4db2fa04098844aa2.jpg",
+      "https://uploads.cbar.az/photo-gallery/2cf8f6b433dc85eac3b78c5d5.jpg",
+      "https://uploads.cbar.az/photo-gallery/963344db4e7c9729e71574e15.jpg",
+      "https://uploads.cbar.az/photo-gallery/a09b518f43b45976e9b9db78c.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/228",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 1820,
+        "bytes": 482114,
+        "reusedAsset": 1820
+      },
+      {
+        "mediaId": 2020,
+        "bytes": 594804,
+        "createdAsset": 2020,
+        "key": "2026/09/1b154359b4e864bc.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2021,
+        "bytes": 466861,
+        "createdAsset": 2021,
+        "key": "2026/09/6cf9b2c3be6c1c64.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2022,
+        "bytes": 627711,
+        "createdAsset": 2022,
+        "key": "2026/09/09778df0cdf34e2a.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2023,
+        "bytes": 504900,
+        "createdAsset": 2023,
+        "key": "2026/09/cd09620e4386369e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2024,
+        "bytes": 448369,
+        "createdAsset": 2024,
+        "key": "2026/09/2d8a0b1e9e156338.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2025,
+        "bytes": 504745,
+        "createdAsset": 2025,
+        "key": "2026/09/879bcd662c769794.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2026,
+        "bytes": 473414,
+        "createdAsset": 2026,
+        "key": "2026/09/73d69602f3084c34.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2027,
+        "bytes": 481522,
+        "createdAsset": 2027,
+        "key": "2026/09/742b325e74c1a90b.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2028,
+        "bytes": 521158,
+        "createdAsset": 2028,
+        "key": "2026/09/f6d4051aa535ffd1.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2029,
+        "bytes": 527822,
+        "createdAsset": 2029,
+        "key": "2026/09/d8c75739d0649bac.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2030,
+        "bytes": 523026,
+        "createdAsset": 2030,
+        "key": "2026/09/a02af06deca11c46.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2031,
+        "bytes": 547600,
+        "createdAsset": 2031,
+        "key": "2026/09/84151abe92b688aa.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2032,
+        "bytes": 466998,
+        "createdAsset": 2032,
+        "key": "2026/09/c7a0e9caa90f065e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2033,
+        "bytes": 557977,
+        "createdAsset": 2033,
+        "key": "2026/09/0fdafe6d14025366.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2034,
+        "bytes": 514566,
+        "createdAsset": 2034,
+        "key": "2026/09/0f9e04fc37fa0760.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2035,
+        "bytes": 558187,
+        "createdAsset": 2035,
+        "key": "2026/09/270544e375418bd5.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2036,
+        "bytes": 584210,
+        "createdAsset": 2036,
+        "key": "2026/09/49d7784388b46382.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2037,
+        "bytes": 646178,
+        "createdAsset": 2037,
+        "key": "2026/09/b04b3832bb8db4d8.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 19
+  },
+  {
+    "table": "galleries",
+    "id": 4,
+    "key": "Azərbaycan Respublikasının Prezidenti İlham Əliyev Mərkəzi Bankın yeni inzibati binasının açılışında iştirak edib @2026-06-03",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/208419facadbd6391fb321649.jpg",
+      "https://uploads.cbar.az/photo-gallery/f3dda59cb622ba0d8050591c7.jpg",
+      "https://uploads.cbar.az/photo-gallery/cb7ec16dc63471e58d975a4da.jpg",
+      "https://uploads.cbar.az/photo-gallery/9f0aca09f7c9ab7916361c6d6.jpg",
+      "https://uploads.cbar.az/photo-gallery/eaa211eed25c895b90fb0d3fa.jpg",
+      "https://uploads.cbar.az/photo-gallery/5ebc1fa146f4fc77f20b59b0a.jpg",
+      "https://uploads.cbar.az/photo-gallery/6677b54a82b49a4c0f44550b8.jpg",
+      "https://uploads.cbar.az/photo-gallery/d31558e463f142f6db507153f.jpg",
+      "https://uploads.cbar.az/photo-gallery/0a9afc56bbf45239c4d6164c6.jpg",
+      "https://uploads.cbar.az/photo-gallery/4644167a0a81a42282ac14af2.jpg",
+      "https://uploads.cbar.az/photo-gallery/ac00e43ed37674aa25c3a0944.jpg",
+      "https://uploads.cbar.az/photo-gallery/061452c9b2d8ece9ad0d1de4c.jpg",
+      "https://uploads.cbar.az/photo-gallery/17bea640f997914c8a4b88ee8.jpg",
+      "https://uploads.cbar.az/photo-gallery/a360a9d155b3efcd6e37cb5fe.jpg",
+      "https://uploads.cbar.az/photo-gallery/e65c2a9a370fcb60024a283b6.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/227",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 1807,
+        "bytes": 633542,
+        "reusedAsset": 1807
+      },
+      {
+        "mediaId": 2038,
+        "bytes": 603296,
+        "createdAsset": 2038,
+        "key": "2026/09/816af0f3d6ed6124.jpg",
+        "dimensions": "1200×813"
+      },
+      {
+        "mediaId": 2039,
+        "bytes": 520011,
+        "createdAsset": 2039,
+        "key": "2026/09/c9c63d90d646af19.jpg",
+        "dimensions": "1200×805"
+      },
+      {
+        "mediaId": 2040,
+        "bytes": 544674,
+        "createdAsset": 2040,
+        "key": "2026/09/38745b2df66a9da3.jpg",
+        "dimensions": "1200×803"
+      },
+      {
+        "mediaId": 2041,
+        "bytes": 461707,
+        "createdAsset": 2041,
+        "key": "2026/09/8724c84f5dd41609.jpg",
+        "dimensions": "1200×800"
+      },
+      {
+        "mediaId": 2042,
+        "bytes": 445431,
+        "createdAsset": 2042,
+        "key": "2026/09/fcccc93999d809c9.jpg",
+        "dimensions": "1200×781"
+      },
+      {
+        "mediaId": 2043,
+        "bytes": 514552,
+        "createdAsset": 2043,
+        "key": "2026/09/a01e04b74be2c7dc.jpg",
+        "dimensions": "1200×744"
+      },
+      {
+        "mediaId": 2044,
+        "bytes": 689002,
+        "createdAsset": 2044,
+        "key": "2026/09/be4fcb9949bbf417.jpg",
+        "dimensions": "1200×796"
+      },
+      {
+        "mediaId": 2045,
+        "bytes": 529119,
+        "createdAsset": 2045,
+        "key": "2026/09/1e4a6f70fd47a1e7.jpg",
+        "dimensions": "1200×777"
+      },
+      {
+        "mediaId": 2046,
+        "bytes": 553714,
+        "createdAsset": 2046,
+        "key": "2026/09/65d3223cec26bb26.jpg",
+        "dimensions": "1200×790"
+      },
+      {
+        "mediaId": 2047,
+        "bytes": 564109,
+        "createdAsset": 2047,
+        "key": "2026/09/35234801103269fe.jpg",
+        "dimensions": "1200×800"
+      },
+      {
+        "mediaId": 2048,
+        "bytes": 718272,
+        "createdAsset": 2048,
+        "key": "2026/09/b4a5bb1b321d0f8b.jpg",
+        "dimensions": "1200×800"
+      },
+      {
+        "mediaId": 2049,
+        "bytes": 681276,
+        "createdAsset": 2049,
+        "key": "2026/09/e2813a873109e7a7.jpg",
+        "dimensions": "1200×762"
+      },
+      {
+        "mediaId": 2050,
+        "bytes": 1207330,
+        "createdAsset": 2050,
+        "key": "2026/09/70e71d07b7c21643.jpg",
+        "dimensions": "1200×1643"
+      },
+      {
+        "mediaId": 2051,
+        "bytes": 1408469,
+        "createdAsset": 2051,
+        "key": "2026/09/5354bd6864092142.jpg",
+        "dimensions": "1200×1997"
+      }
+    ],
+    "removed": 1,
+    "inserted": 15
+  },
+  {
+    "table": "galleries",
+    "id": 5,
+    "key": "Mərkəzi Bankın rəhbərliyi və kollektivi ümummilli lider Heydər Əliyevin anım günündə Fəxri xiyabanı ziyarət edib @2026-05-10",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/3d96eb3442cc899fb44c546be.jpg",
+      "https://uploads.cbar.az/photo-gallery/bbe79956ec07dbe7490f7c77e.jpg",
+      "https://uploads.cbar.az/photo-gallery/f9830ae1c99af41273883df88.jpg",
+      "https://uploads.cbar.az/photo-gallery/3b0b440a98cb208a41a8c1d1f.jpg",
+      "https://uploads.cbar.az/photo-gallery/3528307dcf0198531437aa181.jpg",
+      "https://uploads.cbar.az/photo-gallery/1799d753281650adcd6bbb369.jpg",
+      "https://uploads.cbar.az/photo-gallery/62b85961f5a6e4df9944ff8a2.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/226",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 1808,
+        "bytes": 874653,
+        "reusedAsset": 1808
+      },
+      {
+        "mediaId": 2052,
+        "bytes": 878632,
+        "createdAsset": 2052,
+        "key": "2026/09/73b0347764630a1a.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2053,
+        "bytes": 789978,
+        "createdAsset": 2053,
+        "key": "2026/09/4c26b02fbe768619.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2054,
+        "bytes": 770532,
+        "createdAsset": 2054,
+        "key": "2026/09/6228beab29274b7e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2055,
+        "bytes": 925450,
+        "createdAsset": 2055,
+        "key": "2026/09/bf7e00e929158f4b.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2056,
+        "bytes": 926726,
+        "createdAsset": 2056,
+        "key": "2026/09/470c297b06d462a1.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2057,
+        "bytes": 779539,
+        "createdAsset": 2057,
+        "key": "2026/09/77c53c2516c0180f.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 7
+  },
+  {
+    "table": "galleries",
+    "id": 6,
+    "key": "Mərkəzi Bankın rəhbər heyəti Xocalı soyqırımının 34-cü ildönümümü ilə əlaqədar “Ana harayı” abidəsini ziyarət edib @2026-02-26",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/6c53a75903a32cc68935ce0b5.jpg",
+      "https://uploads.cbar.az/photo-gallery/b12edb56e023db66656147255.jpg",
+      "https://uploads.cbar.az/photo-gallery/6e3745aac7843b4d41e07b7f4.jpg",
+      "https://uploads.cbar.az/photo-gallery/041382851759e9a1e25c74f6f.jpg",
+      "https://uploads.cbar.az/photo-gallery/c145fd8eb46a4b23acd018101.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/225",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 1816,
+        "bytes": 160159,
+        "reusedAsset": 1816
+      },
+      {
+        "mediaId": 2058,
+        "bytes": 147121,
+        "createdAsset": 2058,
+        "key": "2026/09/95a0dfeb312cf2a0.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2059,
+        "bytes": 156807,
+        "createdAsset": 2059,
+        "key": "2026/09/7e79b385b89ce5b2.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2060,
+        "bytes": 195421,
+        "createdAsset": 2060,
+        "key": "2026/09/af8d02e8fcfd515d.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2061,
+        "bytes": 222630,
+        "createdAsset": 2061,
+        "key": "2026/09/c72058a7796ae0d7.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 5
+  },
+  {
+    "table": "galleries",
+    "id": 7,
+    "key": "Mərkəzi Bankın rəhbər heyəti 20 Yanvar - Ümumxalq Hüzn Günü ilə əlaqədar Şəhidlər xiyabanını ziyarət etdilər @2026-01-20",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/05a57969be996625388d0d17f.jpg",
+      "https://uploads.cbar.az/photo-gallery/b8ceaa3c640f638b77e683ae0.jpg",
+      "https://uploads.cbar.az/photo-gallery/9e555db1cb6244e226777e61a.jpg",
+      "https://uploads.cbar.az/photo-gallery/d5f8353d4691883c36f025f06.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/224",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2062,
+        "bytes": 165010,
+        "createdAsset": 2062,
+        "key": "2026/09/a6aef2304b9ec48b.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2063,
+        "bytes": 173890,
+        "createdAsset": 2063,
+        "key": "2026/09/b9b88440e5248a00.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2064,
+        "bytes": 172574,
+        "createdAsset": 2064,
+        "key": "2026/09/ab88d5f29f19eb80.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2065,
+        "bytes": 82823,
+        "createdAsset": 2065,
+        "key": "2026/09/f3687b6c90e7d474.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 4
+  },
+  {
+    "table": "galleries",
+    "id": 8,
+    "key": "Mərkəzi Bankın rəhbərliyi və kollektivi ümummilli lider Heydər Əliyevin anım günündə Fəxri xiyabanı ziyarət edib @2025-12-12",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/df09e4ba3410fda13c84b378d.jpg",
+      "https://uploads.cbar.az/photo-gallery/755b7631d7cb1656c016a80ad.jpg",
+      "https://uploads.cbar.az/photo-gallery/024d98bfe9caa21edeff3e146.jpg",
+      "https://uploads.cbar.az/photo-gallery/adc8ddfa47dea8ba58b093e77.jpg",
+      "https://uploads.cbar.az/photo-gallery/80712fdf63312c1734415d20b.jpg",
+      "https://uploads.cbar.az/photo-gallery/a7440dbc267367e29fef9c5a5.jpg",
+      "https://uploads.cbar.az/photo-gallery/8685e337d4fea57d1735bd7e0.jpg",
+      "https://uploads.cbar.az/photo-gallery/d7113d23a5c06e3fac19edb48.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/223",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2066,
+        "bytes": 205626,
+        "createdAsset": 2066,
+        "key": "2026/09/36bcfc180bae19e6.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2067,
+        "bytes": 184230,
+        "createdAsset": 2067,
+        "key": "2026/09/b3cd1f958b8e3afb.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2068,
+        "bytes": 211230,
+        "createdAsset": 2068,
+        "key": "2026/09/0ff86a22496b56cd.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2069,
+        "bytes": 156722,
+        "createdAsset": 2069,
+        "key": "2026/09/65a36648f0f614b5.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2070,
+        "bytes": 223170,
+        "createdAsset": 2070,
+        "key": "2026/09/d99d61aefc9b16f5.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2071,
+        "bytes": 195547,
+        "createdAsset": 2071,
+        "key": "2026/09/8f3ad4525465c77d.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2072,
+        "bytes": 181574,
+        "createdAsset": 2072,
+        "key": "2026/09/c17de1fae4a193a9.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2073,
+        "bytes": 177986,
+        "createdAsset": 2073,
+        "key": "2026/09/bd7de7d15059cc37.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 8
+  },
+  {
+    "table": "galleries",
+    "id": 9,
+    "key": "Mərkəzi Bankın heyəti Azərbaycanda mərkəzi bankçılığın yaranmasının 106-cı ildönümü münasibətilə Fəxri xiyabanı və Şəhidlər xiyabanını ziyarət edib @2025-09-30",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/413c6630953084156c5081978.jpg",
+      "https://uploads.cbar.az/photo-gallery/2f69595f0d827a116ae432520.jpg",
+      "https://uploads.cbar.az/photo-gallery/85357842031246bda705a0156.jpg",
+      "https://uploads.cbar.az/photo-gallery/55f1ad6a5c2d3f389b3fce48e.jpg",
+      "https://uploads.cbar.az/photo-gallery/e32e93d413538c112ff360221.jpg",
+      "https://uploads.cbar.az/photo-gallery/e17004debd6ac0f550940608a.jpg",
+      "https://uploads.cbar.az/photo-gallery/d0f1165f2e9a22dbdb826254e.jpg",
+      "https://uploads.cbar.az/photo-gallery/d2ea3a88142930c8043d99488.jpg",
+      "https://uploads.cbar.az/photo-gallery/297ac4b30bf6058ee54dd6263.jpg",
+      "https://uploads.cbar.az/photo-gallery/06e5a819685f74eb663004669.jpg",
+      "https://uploads.cbar.az/photo-gallery/e0526ea315371787131c4959b.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/222",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2074,
+        "bytes": 189536,
+        "createdAsset": 2074,
+        "key": "2026/09/b1a5d456a55373c5.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2075,
+        "bytes": 144745,
+        "createdAsset": 2075,
+        "key": "2026/09/143170a2690bd55b.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2076,
+        "bytes": 165266,
+        "createdAsset": 2076,
+        "key": "2026/09/ffa07b036d4a4daa.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2077,
+        "bytes": 149411,
+        "createdAsset": 2077,
+        "key": "2026/09/3fefc9d45370b93e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2078,
+        "bytes": 177094,
+        "createdAsset": 2078,
+        "key": "2026/09/5b40b619a110ac56.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2079,
+        "bytes": 190760,
+        "createdAsset": 2079,
+        "key": "2026/09/d42de8f42d74148f.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2080,
+        "bytes": 193389,
+        "createdAsset": 2080,
+        "key": "2026/09/f897f5150f4033cf.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2081,
+        "bytes": 167446,
+        "createdAsset": 2081,
+        "key": "2026/09/d861ac8e445dd3a6.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2082,
+        "bytes": 170793,
+        "createdAsset": 2082,
+        "key": "2026/09/0bf8764383b79c4e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2083,
+        "bytes": 121063,
+        "createdAsset": 2083,
+        "key": "2026/09/69a004863d1c3d09.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2084,
+        "bytes": 171752,
+        "createdAsset": 2084,
+        "key": "2026/09/ddb4c938837a6f78.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 11
+  },
+  {
+    "table": "galleries",
+    "id": 10,
+    "key": "Mərkəzi Bankın rəhbərliyi və kollektivi Anım Günündə Zəfər parkını ziyarət edib @2025-09-27",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/a087dae2bdb67023f94eee3fe.jpg",
+      "https://uploads.cbar.az/photo-gallery/844fdbda5e03411f129a5e80a.jpg",
+      "https://uploads.cbar.az/photo-gallery/d15eb1592e9c4543a7360c3b0.jpg",
+      "https://uploads.cbar.az/photo-gallery/07651a7917141bfec47b45816.jpg",
+      "https://uploads.cbar.az/photo-gallery/caeb97b3f3a6de29738a3a680.jpg",
+      "https://uploads.cbar.az/photo-gallery/e9ce8b95876f5d84bc426f679.jpg",
+      "https://uploads.cbar.az/photo-gallery/0d349e70a76ba1c8cb2c42607.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/221",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2085,
+        "bytes": 110199,
+        "createdAsset": 2085,
+        "key": "2026/09/0087d6a546364999.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2086,
+        "bytes": 126656,
+        "createdAsset": 2086,
+        "key": "2026/09/d0e092e1fd2a5c54.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2087,
+        "bytes": 94782,
+        "createdAsset": 2087,
+        "key": "2026/09/395813aa08937337.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2088,
+        "bytes": 98353,
+        "createdAsset": 2088,
+        "key": "2026/09/88d50089cda9677a.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2089,
+        "bytes": 112510,
+        "createdAsset": 2089,
+        "key": "2026/09/688f0a62701623fd.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2090,
+        "bytes": 112407,
+        "createdAsset": 2090,
+        "key": "2026/09/b2d632e58b652c34.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2091,
+        "bytes": 113760,
+        "createdAsset": 2091,
+        "key": "2026/09/8719717cde8f1891.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 7
+  },
+  {
+    "table": "galleries",
+    "id": 11,
+    "key": "Azərbaycan Mərkəzi Bankının sədri İsveçrə Milli Bankının nümayəndə heyətini qəbul edib @2025-07-09",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/9ebe2671e766876a9f1648a5d.jpg",
+      "https://uploads.cbar.az/photo-gallery/009a7e4d9789be9a923debbb0.jpg",
+      "https://uploads.cbar.az/photo-gallery/bef5471c01f8af400f5f74cac.jpg",
+      "https://uploads.cbar.az/photo-gallery/d9b1ae14c3aa062dfb3586aa8.jpg",
+      "https://uploads.cbar.az/photo-gallery/5cd2acd370b0fce6acc88c93c.jpg",
+      "https://uploads.cbar.az/photo-gallery/42830b3b2ddc94b1638d11f7b.jpg",
+      "https://uploads.cbar.az/photo-gallery/311657abaad2e266178d7e473.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/220",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2092,
+        "bytes": 77919,
+        "createdAsset": 2092,
+        "key": "2026/09/22a47ff9573c6f14.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2093,
+        "bytes": 129576,
+        "createdAsset": 2093,
+        "key": "2026/09/11a9c0fb5caffdcd.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2094,
+        "bytes": 106256,
+        "createdAsset": 2094,
+        "key": "2026/09/9b98dc237d6b1b86.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2095,
+        "bytes": 123972,
+        "createdAsset": 2095,
+        "key": "2026/09/1d9eafd61d4b6eed.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2096,
+        "bytes": 101355,
+        "createdAsset": 2096,
+        "key": "2026/09/b3fc62d73776a1ae.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2097,
+        "bytes": 129755,
+        "createdAsset": 2097,
+        "key": "2026/09/8950be0714e07c1a.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2098,
+        "bytes": 116850,
+        "createdAsset": 2098,
+        "key": "2026/09/cf4eb66479828a8c.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 7
+  },
+  {
+    "table": "galleries",
+    "id": 12,
+    "key": "Azərbaycan Mərkəzi Bankı ilə Qazaxıstan Maliyyə Bazarının Tənzimlənməsi və İnkişafı Agentliyi arasında Anlaşma Memorandumu imzalanıb @2025-05-27",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/64740f9e8dff8d02cdc418e23.jpg",
+      "https://uploads.cbar.az/photo-gallery/2e2acafac1806fd8a49b1e5b8.jpg",
+      "https://uploads.cbar.az/photo-gallery/0d4b3b94db0737f525931d6a8.jpg",
+      "https://uploads.cbar.az/photo-gallery/0b1bfb94befe37d9cffd19eec.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/218",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2099,
+        "bytes": 91375,
+        "createdAsset": 2099,
+        "key": "2026/09/452e1f1d7b990369.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2100,
+        "bytes": 134233,
+        "createdAsset": 2100,
+        "key": "2026/09/df53d7dbbce97112.jpg",
+        "dimensions": "1200×1500"
+      },
+      {
+        "mediaId": 2101,
+        "bytes": 142364,
+        "createdAsset": 2101,
+        "key": "2026/09/39aadd4b689610c6.jpg",
+        "dimensions": "1200×1500"
+      },
+      {
+        "mediaId": 2102,
+        "bytes": 129933,
+        "createdAsset": 2102,
+        "key": "2026/09/7d8f014419f30fb3.jpg",
+        "dimensions": "1200×900"
+      }
+    ],
+    "removed": 1,
+    "inserted": 4
+  },
+  {
+    "table": "galleries",
+    "id": 13,
+    "key": "Türk Dövlətləri Təşkilatına üzv ölkələrin mərkəzi banklarının Şurasının birinci toplantısı keçirilib @2025-05-27",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/abe2a4f3daa9e17c80a3fd477.jpg",
+      "https://uploads.cbar.az/photo-gallery/972549b83d99c84bd12214bdc.jpg",
+      "https://uploads.cbar.az/photo-gallery/2112e2cec0566a86732fc53d7.jpg",
+      "https://uploads.cbar.az/photo-gallery/a72510ceeb7d8e86d29e45291.jpg",
+      "https://uploads.cbar.az/photo-gallery/1bdb31284e5b9f51bf5a4731f.jpg",
+      "https://uploads.cbar.az/photo-gallery/23c95a8a2ba288942cd958dfc.jpg",
+      "https://uploads.cbar.az/photo-gallery/768d7907d4965fbf025d3f406.jpg",
+      "https://uploads.cbar.az/photo-gallery/0d69111710255c7c1939d67e7.jpg",
+      "https://uploads.cbar.az/photo-gallery/6856e826b3f17874b05404004.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/219",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2103,
+        "bytes": 125496,
+        "createdAsset": 2103,
+        "key": "2026/09/731f6d8a43ce6638.jpg",
+        "dimensions": "1200×748"
+      },
+      {
+        "mediaId": 2104,
+        "bytes": 171993,
+        "createdAsset": 2104,
+        "key": "2026/09/04717f5d14c287ac.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2105,
+        "bytes": 99036,
+        "createdAsset": 2105,
+        "key": "2026/09/27565b61f94aa6a5.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2106,
+        "bytes": 92134,
+        "createdAsset": 2106,
+        "key": "2026/09/e68cba97873fbe1e.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2107,
+        "bytes": 123742,
+        "createdAsset": 2107,
+        "key": "2026/09/7f2ce90a883f7c39.jpg",
+        "dimensions": "1200×889"
+      },
+      {
+        "mediaId": 2108,
+        "bytes": 175688,
+        "createdAsset": 2108,
+        "key": "2026/09/125377f21caf1448.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2109,
+        "bytes": 185488,
+        "createdAsset": 2109,
+        "key": "2026/09/67f81c5398ec5bd0.jpg",
+        "dimensions": "1200×900"
+      },
+      {
+        "mediaId": 2110,
+        "bytes": 89799,
+        "createdAsset": 2110,
+        "key": "2026/09/3b8ea70fcb997700.jpg",
+        "dimensions": "1200×850"
+      },
+      {
+        "mediaId": 2111,
+        "bytes": 196714,
+        "createdAsset": 2111,
+        "key": "2026/09/2543e485518d0edc.jpg",
+        "dimensions": "1200×820"
+      }
+    ],
+    "removed": 1,
+    "inserted": 9
+  },
+  {
+    "table": "galleries",
+    "id": 14,
+    "key": "Mərkəzi Bankın rəhbərliyi və kollektivi Ümummilli lider Heydər Əliyevin Fəxri xiyabanda məzarını ziyarət edib @2025-05-10",
+    "current": {
+      "images": 1,
+      "names": [
+        "mock_placeholder.jpg"
+      ]
+    },
+    "photos": [
+      "https://uploads.cbar.az/photo-gallery/65b7b2203640dbc3461871c4f.jpg",
+      "https://uploads.cbar.az/photo-gallery/84d3ce1deefb2f8c2aa935e2f.jpg",
+      "https://uploads.cbar.az/photo-gallery/f381681937ac1082f68c0f132.jpg",
+      "https://uploads.cbar.az/photo-gallery/5669b401aa6213dba06468611.jpg",
+      "https://uploads.cbar.az/photo-gallery/eb963915f9856c67dd18f0e71.jpg"
+    ],
+    "legacyPage": "/gallery/photos/detail/217",
+    "status": "relinked",
+    "assets": [
+      {
+        "mediaId": 2112,
+        "bytes": 128001,
+        "createdAsset": 2112,
+        "key": "2026/09/c7477d4e0c463823.jpg",
+        "dimensions": "1200×790"
+      },
+      {
+        "mediaId": 2113,
+        "bytes": 152742,
+        "createdAsset": 2113,
+        "key": "2026/09/7f1aa779f45c6d1d.jpg",
+        "dimensions": "1200×790"
+      },
+      {
+        "mediaId": 2114,
+        "bytes": 149857,
+        "createdAsset": 2114,
+        "key": "2026/09/ef8078732b932d6b.jpg",
+        "dimensions": "1200×790"
+      },
+      {
+        "mediaId": 2115,
+        "bytes": 151353,
+        "createdAsset": 2115,
+        "key": "2026/09/98b5b400c95c2b33.jpg",
+        "dimensions": "1200×790"
+      },
+      {
+        "mediaId": 2116,
+        "bytes": 147926,
+        "createdAsset": 2116,
+        "key": "2026/09/7b8e133ee00f7f0a.jpg",
+        "dimensions": "1200×790"
+      }
+    ],
+    "removed": 1,
+    "inserted": 5
+  },
+  {
+    "table": "galleries",
+    "id": 15,
+    "key": "Fotoqalereya @2026-06-05",
+    "current": {
+      "images": 4,
+      "names": [
+        "208419facadbd6391fb321649.jpg",
+        "f73bd3b17a1194c97d339e698.jpg",
+        "3d96eb3442cc899fb44c546be.jpg",
+        "6c53a75903a32cc68935ce0b5.jpg"
+      ]
+    },
+    "status": "unmatched"
+  }
+]

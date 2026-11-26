@@ -1,0 +1,75 @@
+list:
+  get:
+    tags: [PressReleases]
+    operationId: listPressReleases
+    summary: Published press releases, newest first
+    description: |
+      Only items with `publishedAt` in the past and a translation in the locale.
+      The optional `q`, `from` and `to` filters combine with AND; omitting them
+      keeps the unfiltered list.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize
+      - name: type
+        in: query
+        description: "`1` = news, `2` = announcement, `3` = interview or speech. Omitted = all."
+        schema:
+          type: integer
+          format: int16
+          enum: [1, 2, 3]
+      - name: q
+        in: query
+        description: |
+          Case-insensitive substring match on the title in `locale`. Trimmed; blank means
+          no filter. `%`, `_` and `\` are matched literally. More than 200 characters is a 400.
+        schema:
+          type: string
+          maxLength: 200
+      - name: from
+        in: query
+        description: |
+          First publication day, inclusive, in Asia/Baku time (UTC+04:00):
+          `publishedAt >= from 00:00+04:00`. A malformed date is a 400.
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        description: |
+          Last publication day, inclusive, in Asia/Baku time:
+          `publishedAt < (to + 1 day) 00:00+04:00`. `from` after `to` yields an empty page, not an error.
+        schema:
+          type: string
+          format: date
+    responses:
+      '200':
+        description: One page of press releases.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/press-releases.yaml#/PressReleasePage
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+bySlug:
+  get:
+    tags: [PressReleases]
+    operationId: getPressReleaseBySlug
+    summary: Press release by slug
+    parameters:
+      - $ref: ../components/parameters.yaml#/Slug
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Press release with its attachments.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/press-releases.yaml#/PressReleaseDetail
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

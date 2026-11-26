@@ -1,0 +1,157 @@
+series:
+  get:
+    tags: [MonthlyReports]
+    operationId: listMonthlyReportSeries
+    x-permission: monthly_reports.read
+    summary: The fixed monthly report series
+    description: |
+      The three series of the consumer rights pages (spec 052): the bank and the insurance complaint
+      index and the infographics. A series is addressed by its `key`, which is the same in every
+      environment; the list is seeded by migration and has no write endpoints.
+    responses:
+      '200':
+        description: Every series, in the site's order.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportSeriesItem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+collection:
+  get:
+    tags: [MonthlyReports]
+    operationId: listMonthlyReports
+    x-permission: monthly_reports.read
+    summary: Monthly reports, newest period first
+    description: |
+      By `year` descending, then `month` descending, then the series order, then `id`. With a `series`
+      filter the first item is the series' newest period. Soft-deleted reports are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - name: series
+        in: query
+        description: A series key; an unknown key gives an empty page.
+        schema:
+          type: string
+      - name: year
+        in: query
+        schema:
+          type: integer
+          format: int16
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of monthly reports.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [MonthlyReports]
+    operationId: createMonthlyReport
+    x-permission: monthly_reports.create
+    summary: Create a monthly report
+    description: One report per series and period; a second one for the same period is refused with 409.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [MonthlyReports]
+    operationId: getMonthlyReport
+    x-permission: monthly_reports.read
+    summary: Monthly report by id
+    responses:
+      '200':
+        description: The report with the file of each locale.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [MonthlyReports]
+    operationId: updateMonthlyReport
+    x-permission: monthly_reports.update
+    summary: Update a monthly report
+    description: A locale left out of `translations` loses its file.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportUpsert
+    responses:
+      '200':
+        description: The updated report.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+  delete:
+    tags: [MonthlyReports]
+    operationId: deleteMonthlyReport
+    x-permission: monthly_reports.delete
+    summary: Soft-delete a monthly report
+    description: The period becomes free; a new report for it may be created.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

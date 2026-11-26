@@ -1,0 +1,28 @@
+list:
+  get:
+    tags: [ReleaseSchedule]
+    operationId: getReleaseSchedule
+    summary: The information disclosure schedule
+    description: |
+      Everything the "Information disclosure schedule" page needs, so there is no paging and no
+      search: the site filters the rows itself. Only published, not deleted items that are
+      visible in the locale and have a translation in it, in active groups that have a name in
+      the locale; a group without such items is left out. Groups by `sortOrder`, then `id`; items
+      likewise within a group.
+
+      `decisions` feeds the monetary policy decisions dialog: the dates of published events of
+      type 1 (decision) in the current Baku year, whether a published event of type 2 (press
+      conference) falls on the same day, and the next decision date from today on, which may be
+      in the following year. Event translations are not required, so the dates are the same in
+      both locales.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The schedule.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/release-schedule.yaml#/ReleaseSchedule
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

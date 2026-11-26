@@ -1,0 +1,110 @@
+list:
+  get:
+    tags: [MoneyMarks]
+    operationId: listMoneyMarks
+    summary: Published banknotes and coins
+    description: Not paged — returns every match, by sort order.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - name: type
+        in: query
+        schema:
+          $ref: ../components/schemas/money-marks.yaml#/MoneyMarkType
+      - name: categoryId
+        in: query
+        schema:
+          type: integer
+          format: int32
+    responses:
+      '200':
+        description: Money marks.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/money-marks.yaml#/MoneyMarkListItem
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+bySlug:
+  get:
+    tags: [MoneyMarks]
+    operationId: getMoneyMarkBySlug
+    summary: Money mark by slug
+    parameters:
+      - $ref: ../components/parameters.yaml#/Slug
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Money mark.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/money-marks.yaml#/MoneyMarkDetail
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+categories:
+  get:
+    tags: [MoneyMarks]
+    operationId: listMoneyMarkCategories
+    summary: Active money-mark categories
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Categories translated into the locale, by sort order.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/common.yaml#/NamedItem
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+newsList:
+  get:
+    tags: [MoneyMarks]
+    operationId: listMoneyMarkNews
+    summary: Published money-mark news, newest first
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize
+    responses:
+      '200':
+        description: One page of news.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/money-marks.yaml#/MoneyMarkNewsPage
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+newsBySlug:
+  get:
+    tags: [MoneyMarks]
+    operationId: getMoneyMarkNewsBySlug
+    summary: Money-mark news item by slug
+    parameters:
+      - $ref: ../components/parameters.yaml#/Slug
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: News item.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/money-marks.yaml#/MoneyMarkNewsDetail
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

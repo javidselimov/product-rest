@@ -1,0 +1,225 @@
+collection:
+  get:
+    tags: [IfiOrganizations]
+    operationId: listIfiOrganizations
+    x-permission: ifi.read
+    summary: International financial institutions, by sort order
+    description: Soft-deleted organizations are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of organizations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [IfiOrganizations]
+    operationId: createIfiOrganization
+    x-permission: ifi.create
+    summary: Create an international financial institution
+    description: Membership dates are added afterwards through `/memberships`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [IfiOrganizations]
+    operationId: getIfiOrganization
+    x-permission: ifi.read
+    summary: International financial institution by id
+    responses:
+      '200':
+        description: The organization with all translations and membership dates.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [IfiOrganizations]
+    operationId: updateIfiOrganization
+    x-permission: ifi.update
+    summary: Update an international financial institution
+    description: A locale left out of `translations` is removed. Membership dates are managed through `/memberships`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationUpsert
+    responses:
+      '200':
+        description: The updated organization.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganizationDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [IfiOrganizations]
+    operationId: deleteIfiOrganization
+    x-permission: ifi.delete
+    summary: Soft-delete an international financial institution
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+memberships:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [IfiOrganizations]
+    operationId: createIfiMembership
+    x-permission: ifi.update
+    summary: Add a membership date
+    description: Appended after the existing dates.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ifi-organizations.yaml#/IfiMembershipUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the organization.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiMembership
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+membershipsOrder:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [IfiOrganizations]
+    operationId: reorderIfiMemberships
+    x-permission: ifi.update
+    summary: Reorder an organization's membership dates
+    description: "`ids` must be exactly the set of the organization's memberships, otherwise 400 with `message`."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ifi-organizations.yaml#/IfiMembershipOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+membership:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - $ref: ../components/parameters.yaml#/MembershipId
+  put:
+    tags: [IfiOrganizations]
+    operationId: updateIfiMembership
+    x-permission: ifi.update
+    summary: Update a membership date
+    description: A locale left out of `translations` is removed. The position is kept.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ifi-organizations.yaml#/IfiMembershipUpsert
+    responses:
+      '200':
+        description: The updated membership.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/ifi-organizations.yaml#/IfiMembership
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [IfiOrganizations]
+    operationId: deleteIfiMembership
+    x-permission: ifi.update
+    summary: Delete a membership date
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

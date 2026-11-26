@@ -1,0 +1,31 @@
+{
+  "search": {
+    "label": "Suallarda axtar",
+    "placeholder": "Sualınızı axtarın, məsələn: inflyasiya, REPO, məzənnə",
+    "placeholderShort": "Sualınızı axtarın",
+    "submit": "Axtar"
+  },
+  "topic": {
+    "label": "Mövzu",
+    "all": "Bütün mövzular",
+    "apply": "Göstər",
+    "openSeparately": "Ayrıca aç"
+  },
+  "count_one": "{{count}} sual",
+  "count_other": "{{count}} sual",
+  "results_one": "{{count}} sual tapıldı",
+  "results_other": "{{count}} sual tapıldı",
+  "empty": {
+    "title": "«{{query}}» üzrə sual tapılmadı",
+    "clear": "Axtarışı təmizlə"
+  },
+  "videos": {
+    "title": "Video sual-cavab",
+    "watch": "{{title}} — YouTube-da bax (yeni pəncərədə açılır)"
+  },
+  "link": {
+    "list": "Sual-cavab",
+    "title": "{{topic}} üzrə sual-cavab",
+    "more": "Bax"
+  }
+}

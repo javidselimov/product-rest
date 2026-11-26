@@ -1,0 +1,29 @@
+MeasDocument:
+  type: object
+  required: [id, regDate, dqn, emitentName, infoTypeName, fileUrl]
+  properties:
+    id:
+      type: integer
+      format: int64
+    regDate:
+      $ref: ./common.yaml#/Date
+    dqn:
+      $ref: ./common.yaml#/NullableString
+      description: State registration number.
+    emitentName:
+      $ref: ./common.yaml#/NullableString
+    infoTypeName:
+      $ref: ./common.yaml#/NullableString
+    fileUrl:
+      $ref: ./common.yaml#/NullableMediaUrl
+
+MeasDocumentPage:
+  allOf:
+    - $ref: ./common.yaml#/PageMeta
+    - type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/MeasDocument'

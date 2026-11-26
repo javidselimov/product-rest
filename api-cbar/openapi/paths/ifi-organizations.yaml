@@ -1,0 +1,27 @@
+list:
+  get:
+    tags: [IfiOrganizations]
+    operationId: listIfiOrganizations
+    summary: Published international financial institutions
+    description: |
+      Everything the cooperation page needs for its accordion cards, so the list has no paging
+      and there is no item route: an organization has no address of its own.
+      Only published organizations that are visible in the locale and have a translation in it,
+      by `sortOrder`, then `id`.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The organizations.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/ifi-organizations.yaml#/IfiOrganization
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

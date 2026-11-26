@@ -1,0 +1,21 @@
+# phpstorm project files
+.idea
+
+# composer vendor dir
+/vendor
+
+/common/web
+/common/config/db.php
+/visitor/config/statsDb.php
+/*/web/index.php
+
+/*/runtime/*
+/common/config/params.php
+/composer.lock
+
+node_modules/
+/admin/web/clean.php
+/visitor/web/clean.php
+
+/visitor/web/bankinfonew/*
+/visitor/web/assets/*

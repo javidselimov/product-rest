@@ -1,0 +1,13 @@
+{
+  "loadError": "Məlumat yüklənə bilmədi",
+  "contract": "Serverdən gözlənilməyən formatda cavab gəldi",
+  "network": "Serverlə əlaqə qurulmadı",
+  "server": "Serverdə xəta baş verdi. Bir azdan yenidən cəhd edin",
+  "unexpected": "Gözlənilməz xəta baş verdi",
+  "retry": "Yenidən cəhd et",
+  "notFound": {
+    "title": "Səhifə tapılmadı",
+    "description": "Axtardığınız səhifə mövcud deyil və ya köçürülüb.",
+    "home": "Ana səhifəyə qayıt"
+  }
+}

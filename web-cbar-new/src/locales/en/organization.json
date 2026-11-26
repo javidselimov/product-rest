@@ -1,0 +1,28 @@
+{
+  "title": "Organizational structure and management",
+  "sections": {
+    "board": "Board",
+    "management": "Directors General and Advisers",
+    "divisions": "Divisions",
+    "offices": "Regional offices"
+  },
+  "management": {
+    "directors": "Directors General",
+    "advisers": "Advisers"
+  },
+  "phone": "Phone",
+  "office": {
+    "address": "Address",
+    "director": "Head of office",
+    "regulation": "Regulation"
+  },
+  "division": {
+    "regulation": "Regulation"
+  },
+  "noStaff": "No information for this section",
+  "chart": {
+    "label": "Organisational chart",
+    "footnote": "* Unit reporting directly to the curator",
+    "scroll": "Organisational chart (scrolls horizontally)"
+  }
+}

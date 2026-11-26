@@ -1,0 +1,62 @@
+{
+  "title": "Tədbirlər",
+  "entity": "tədbir",
+  "description": "Saytın Media bölməsindəki gələcək və keçmiş tədbirlər",
+  "tabs": {
+    "events": "Tədbirlər",
+    "categories": "Bölmələr"
+  },
+  "columns": {
+    "id": "ID",
+    "title": "Başlıq",
+    "startsOn": "Tarix",
+    "category": "Bölmə",
+    "type": "Növ",
+    "status": "Status"
+  },
+  "fields": {
+    "type": "Növ",
+    "category": "Bölmə",
+    "status": "Status",
+    "startsOn": "Başlanğıc tarixi",
+    "endsOn": "Bitmə tarixi",
+    "endsOnHelp": "Yalnız çoxgünlük tədbir üçün doldurun.",
+    "startTime": "Saat",
+    "gallery": "Qalereya",
+    "pressRelease": "Press reliz",
+    "page": "CMS səhifəsi",
+    "pageHelp": "Seçilsə, saytda kart tədbirin yox, bu səhifənin ünvanını açır.",
+    "title": "Başlıq",
+    "location": "Məkan",
+    "content": "Məzmun"
+  },
+  "filters": {
+    "category": "Bölmə",
+    "type": "Növ",
+    "status": "Status"
+  },
+  "types": {
+    "1": "Qərar",
+    "2": "Mətbuat konfransı",
+    "3": "Konfrans",
+    "4": "Seminar"
+  },
+  "validation": {
+    "endsBeforeStart": "Bitmə tarixi başlanğıc tarixindən əvvəl ola bilməz"
+  },
+  "categories": {
+    "title": "Bölmələr",
+    "entity": "bölmə",
+    "description": "Saytdakı tədbir filtrinin bölmələri",
+    "columns": {
+      "name": "Ad",
+      "sortOrder": "Sıra",
+      "isActive": "Status"
+    },
+    "fields": {
+      "name": "Ad",
+      "sortOrder": "Sıra",
+      "isActive": "Aktiv"
+    }
+  }
+}

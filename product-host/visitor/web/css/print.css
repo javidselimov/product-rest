@@ -1,0 +1,8 @@
+.type_text {
+    padding: 0 !important;
+    padding-top: 15px !important;
+}
+
+.button, .map_canvas, iframe {
+    display: none !important;
+}

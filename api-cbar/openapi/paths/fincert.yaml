@@ -1,0 +1,21 @@
+fincert:
+  get:
+    tags: [Fincert]
+    operationId: getFincert
+    summary: The FinCERT page content (spec 053)
+    description: |
+      Everything the FinCERT page needs in one answer: mission, contacts, the reporting portal, the RFC-2350
+      document and the published activity directions and international memberships. Blank text is `null`.
+      Always `200`: an empty FinCERT has null fields and empty arrays (the site then shows the CMS page text).
+      Not cached.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: The FinCERT content in the locale.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/fincert.yaml#/Fincert
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

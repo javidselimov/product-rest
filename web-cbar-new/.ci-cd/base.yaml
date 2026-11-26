@@ -1,0 +1,37 @@
+# Bütün mühitlərin ortaq Helm dəyərləri (contracts/runtime-config.md §2).
+# Format `web-cbar`-dan gəlir ki, paylaşılan pipeline onu dəyişmədən oxusun.
+
+app:
+  # Dockerfile-dakı PORT=3000 ilə uyğun olmalıdır.
+  listenPort: 3000
+
+service:
+  enabled: true
+
+ingress:
+  enabled: true
+
+pod:
+  labels:
+    # Instana AutoTrace inyeksiyasını söndürür: webhook-un NODE_OPTIONS-a qoşduğu
+    # `--require /opt/instana/.../@instana/collector/src/immediate` modulu konteynerdə
+    # tapılmır və Node `server.js`-dən əvvəl MODULE_NOT_FOUND ilə ölür.
+    instana-autotrace: "false"
+  annotations:
+    prometheus.io/scrape: "true"
+
+deployment:
+  annotations:
+    # ConfigMap/Secret dəyişəndə pod-u avtomatik yenidən başladır.
+    reloader.stakater.com/auto: "true"
+
+# Request node-da istifadə olunsa da, olunmasa da rezerv edilir. RHEL 8-dən upgrade-dən sonra
+# (cgroup v1 -> v2) overcommit yoxdur, yüksək request pod-u Pending-də saxlayır; real istifadə
+# ~12-13%-dir. Limit start zamanı 1 CPU-ya qədər burst-ə imkan verir.
+resources:
+  limits:
+    cpu: 1
+    memory: 1Gi
+  requests:
+    cpu: 40m
+    memory: 128Mi

@@ -1,0 +1,18 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "label": "Breadcrumb"
+  },
+  "share": {
+    "label": "Share",
+    "facebook": "Share on Facebook",
+    "linkedin": "Share on LinkedIn",
+    "whatsapp": "Share on WhatsApp",
+    "email": "Send by email",
+    "print": "Print",
+    "newTab": "opens in a new window"
+  },
+  "nav": {
+    "label": "Section navigation"
+  }
+}

@@ -1,0 +1,175 @@
+galleries:
+  get:
+    tags: [MediaContent]
+    operationId: listGalleries
+    summary: Active photo galleries
+    description: |
+      Active galleries with a translation in the locale, ordered by sort order, then newest
+      event. The date filter is on `eventDate`; a gallery without one is left out once
+      `from` or `to` is given.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize
+      - name: q
+        in: query
+        description: |
+          Case-insensitive substring match on the title in `locale`. Trimmed; blank means
+          no filter. `%`, `_` and `\` are matched literally. More than 200 characters is a 400.
+        schema:
+          type: string
+          maxLength: 200
+      - name: from
+        in: query
+        description: Keeps galleries whose event date is on or after this day.
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        description: Keeps galleries whose event date is on or before this day.
+        schema:
+          type: string
+          format: date
+    responses:
+      '200':
+        description: One page of galleries.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryPage
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+gallery:
+  get:
+    tags: [MediaContent]
+    operationId: getGallery
+    summary: Gallery with its images
+    description: An inactive gallery, or one without a translation in the locale, is a 404.
+    parameters:
+      - $ref: ../components/parameters.yaml#/IntId
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Gallery.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryDetail
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+videos:
+  get:
+    tags: [MediaContent]
+    operationId: listVideos
+    summary: Active videos
+    description: |
+      Active videos with a translation in the locale, ordered by sort order, then newest.
+      The date filter is on the Asia/Baku day of `publishedAt`; a video without one is left
+      out once `from` or `to` is given.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize
+      - name: q
+        in: query
+        description: |
+          Case-insensitive substring match on the title in `locale`. Trimmed; blank means
+          no filter. `%`, `_` and `\` are matched literally. More than 200 characters is a 400.
+        schema:
+          type: string
+          maxLength: 200
+      - name: from
+        in: query
+        description: Keeps videos published on or after this Baku day.
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        description: Keeps videos published on or before this Baku day.
+        schema:
+          type: string
+          format: date
+    responses:
+      '200':
+        description: One page of videos.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoPage
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+video:
+  get:
+    tags: [MediaContent]
+    operationId: getVideo
+    summary: Single video
+    description: An inactive video, or one without a translation in the locale, is a 404.
+    parameters:
+      - $ref: ../components/parameters.yaml#/IntId
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Video.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/Video
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+videoStreams:
+  get:
+    tags: [MediaContent]
+    operationId: listVideoStreams
+    summary: Live video streams
+    description: Streams flagged live and translated into the locale, newest start first.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Streams.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/media-content.yaml#/VideoStream
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+
+imagePopups:
+  get:
+    tags: [MediaContent]
+    operationId: listImagePopups
+    summary: Image popup for the locale
+    description: |
+      At most one element: among active popups whose translation in the locale has a
+      (not soft-deleted) image, the one activated last. Popups never activated sort last;
+      ties go to the higher id. Empty array when none qualifies.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Zero or one popup.
+        content:
+          application/json:
+            schema:
+              type: array
+              maxItems: 1
+              items:
+                $ref: ../components/schemas/media-content.yaml#/ImagePopup
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

@@ -1,0 +1,38 @@
+{
+  "brand": {
+    "name": "Central Bank of the Republic of Azerbaijan",
+    "short": "Central Bank"
+  },
+  "actions": {
+    "retry": "Try again",
+    "search": "Search",
+    "close": "Close",
+    "readMore": "Read more",
+    "back": "Back",
+    "all": "All",
+    "download": "Download",
+    "home": "Home",
+    "open": "Open",
+    "show": "Show"
+  },
+  "states": {
+    "loading": "Loading…",
+    "empty": "Nothing to show",
+    "error": "Could not load data"
+  },
+  "language": {
+    "label": "Language",
+    "az": "Azerbaijani",
+    "en": "English",
+    "switchTo": "Switch language: {{language}}"
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "/",
+    "previous": "Previous page",
+    "next": "Next page",
+    "label": "Pagination",
+    "goTo": "Go to page {{page}}"
+  },
+  "dateLocale": "en-GB"
+}

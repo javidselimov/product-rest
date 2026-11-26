@@ -1,0 +1,38 @@
+{
+  "title": "Galleries",
+  "entity": "gallery",
+  "description": "Photo galleries and their images",
+  "columns": {
+    "id": "ID",
+    "title": "Title",
+    "eventDate": "Event date",
+    "imageCount": "Images",
+    "sortOrder": "Sort",
+    "isActive": "Status"
+  },
+  "fields": {
+    "eventDate": "Event date",
+    "sortOrder": "Sort order",
+    "isActive": "Active",
+    "title": "Title"
+  },
+  "images": {
+    "title": "Images",
+    "description": "Gallery images — shown on the site in the order listed here.",
+    "add": "Add image",
+    "pickerTitle": "Choose an image",
+    "empty": "No images.",
+    "position": "position {{position}}",
+    "added": "Image added",
+    "addFailed": "The image could not be added",
+    "reordered": "Order updated",
+    "reorderFailed": "The order could not be updated",
+    "removed": "Image removed",
+    "remove": "Remove",
+    "removeTitle": "Remove image",
+    "removeConfirm": "Remove \"{{name}}\" from the gallery? The file stays in the library.",
+    "removeAria": "Remove image {{name}}",
+    "moveUpAria": "Move image {{name}} up",
+    "moveDownAria": "Move image {{name}} down"
+  }
+}

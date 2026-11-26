@@ -1,0 +1,32 @@
+{
+  "title": "Memorandums",
+  "entity": "memorandum",
+  "description": "The table of Memoranda of Understanding on the \"Cooperation with central banks\" page",
+  "columns": {
+    "id": "ID",
+    "organization": "Organization",
+    "country": "Country",
+    "signedYear": "Year",
+    "sortOrder": "Order",
+    "status": "Status"
+  },
+  "fields": {
+    "status": "Status",
+    "signedYear": "Year of signing",
+    "signedYearHelp": "Shown in the \"Date\" column on the site; the table is sorted by this year.",
+    "sortOrder": "Order",
+    "sortOrderHelp": "Memorandums of the same year are listed on the site by this number, lowest first.",
+    "showAz": "Show in Azerbaijani",
+    "showEn": "Show in English",
+    "organization": "Organization",
+    "country": "Country",
+    "countryHelp": "Shown on the site as typed (for example, \"UAE\")."
+  },
+  "filters": {
+    "status": "Status"
+  },
+  "validation": {
+    "organizationRequired": "Enter the organization in this language or leave the language empty",
+    "countryRequired": "Enter the country in this language or leave the language empty"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "securities": "Qiymətli kağızlar bazası",
+  "securitiesDescription": "Emitentlərin açıqladığı məlumatlar",
+  "emitent": "Emitent",
+  "infoType": "Məlumat növü",
+  "allEmitents": "Bütün emitentlər",
+  "allInfoTypes": "Bütün növlər",
+  "regDate": "Qeydiyyat tarixi",
+  "dqn": "DQN",
+  "file": "Fayl",
+  "download": "Yüklə",
+  "officialRates": "Rəsmi məzənnələr",
+  "sheetDate": "Məzənnə tarixi",
+  "chooseDate": "Tarix seçin",
+  "show": "Göstər",
+  "nominal": "Nominal",
+  "code": "Kod",
+  "currency": "Valyuta",
+  "rate": "Məzənnə (AZN)",
+  "xml": "XML",
+  "xmlHint": "Bu tarix üçün məzənnələri XML formatında yüklə",
+  "noSheet": "Seçilmiş tarix üçün məzənnə vərəqi yoxdur",
+  "ratesNote": "Məzənnələr Azərbaycan Respublikası Mərkəzi Bankının rəsmi məzənnələridir.",
+  "xmlFeed": "XML formatında yüklə",
+  "nsParams": "Nelson-Siegel parametrləri",
+  "azir": "AZIR — banklararası faiz dərəcəsi",
+  "azirShort": "AZIR",
+  "term": "Müddət",
+  "inflation": "İnflyasiya",
+  "inflationYear": "{{year}}-ci il",
+  "month": "Ay",
+  "year": "İl",
+  "yieldCurve": "Gəlirlik əyrisi",
+  "period": "Müddət",
+  "yield": "Gəlirlik (%)",
+  "curveDate": "Əyrinin tarixi",
+  "noData": "Bu göstərici üçün məlumat yoxdur",
+  "parameters": {
+    "cpi_yoy": "İQİ, illik (%)",
+    "core_yoy": "Baza inflyasiya, illik (%)",
+    "target": "Hədəf (%)"
+  },
+  "chart": "Qrafik",
+  "chartTitle": "{{title}} qrafiki",
+  "azirPage": {
+    "title": "Banklararası Təminatsız Pul Bazarında İstinad Faiz Dərəcəsi - AZIR",
+    "methodologyAlert": "15 may 2025-ci il tarixindən etibarən AZIR indeksləri Mərkəzi Bankın İdarə Heyətinin 06 may 2025-ci il tarixində təsdiqlədiyi metodologiya əsasında açıqlanır.",
+    "filter": {
+      "from": "Başlanğıc tarix",
+      "to": "Son tarix",
+      "submit": "Göstər",
+      "error": {
+        "format": "Tarix düzgün deyil.",
+        "order": "Başlanğıc tarix son tarixdən sonra ola bilməz.",
+        "tooLong": "Aralıq 10 ildən uzun ola bilməz."
+      }
+    },
+    "download": "Yüklə",
+    "columns": {
+      "date": "Tarix",
+      "rate": "Faiz",
+      "volume": "Əqdlərin həcmi (mln. AZN)",
+      "count": "Əqdlərin sayı"
+    },
+    "reserveFootnote": "*Ehtiyat plan əsasında hesablanmışdır",
+    "empty": "Seçilmiş dövr üçün məlumat yoxdur.",
+    "summary": {
+      "title": "AZIR indeksi ilə bağlı məlumatlar",
+      "lastDate": "Yenilənmə tarixi",
+      "lastRate": "Faiz indeksi, %-lə",
+      "rateChangeSinceMonthEnd": "Ötən ayın sonundan faiz fərqi",
+      "rateChangeSinceYearEnd": "Ötən ilin sonundan faiz fərqi",
+      "lastMinRate": "Son əməliyyat günündə minimum faiz",
+      "lastMaxRate": "Son əməliyyat günündə maksimum faiz",
+      "lastVolume": "Əməliyyat həcmi, mln. manatla",
+      "volumeChangeSinceMonthEnd": "Ötən ayın sonundan dəyişim",
+      "volumeMin": "Son 1 ildə minimum həcm",
+      "volumeMax": "Son 1 ildə maksimum həcm",
+      "lastVolumeUsd": "Əməliyyat həcminin dollarla ifadəsi, mln. USD"
+    },
+    "export": {
+      "sheetNotes": "Qeydlər",
+      "reserveDates": "Ehtiyat plan əsasında hesablanmış günlər"
+    }
+  }
+}

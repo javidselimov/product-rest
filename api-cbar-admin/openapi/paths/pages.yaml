@@ -1,0 +1,299 @@
+collection:
+  post:
+    tags: [Pages]
+    operationId: createPage
+    x-permission: pages.create
+    summary: Create a page
+    description: |
+      Slugs come from `slug` when given, else from each title; unique per locale across all
+      pages, including soft-deleted ones (`-2`, `-3` on collision). Omitted `flags` take
+      their defaults — which do not allow changing parent later (`movableL`/`movableR`
+      are false). There is no list endpoint; use `/pages/tree`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new page. `assets` is empty.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: 'Another item in the same language took this slug concurrently (`urn:cbar:problem:unique-violation`, `field: slug`); saving again picks a free one.'
+        $ref: ../components/responses.yaml#/Conflict
+
+tree:
+  get:
+    tags: [Pages]
+    operationId: getPageTree
+    x-permission: pages.read
+    summary: The whole page tree
+    description: |
+      Every non-deleted page in any status, nested under its parent; siblings by
+      `sortOrder`. Titles and slugs are in the requested locale.
+    parameters:
+      - name: locale
+        in: query
+        description: Locale for `title`/`slug`. Not validated; an unknown value gives null titles and slugs.
+        schema:
+          type: string
+          default: az
+          examples: [az, en]
+    responses:
+      '200':
+        description: Root pages (a bare array), each with its `children`, recursively.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/pages.yaml#/PageTreeNode
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Pages]
+    operationId: getPage
+    x-permission: pages.read
+    summary: Page by id
+    responses:
+      '200':
+        description: The page with all translations and attachments.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Pages]
+    operationId: updatePage
+    x-permission: pages.update
+    summary: Replace a page
+    description: |
+      Locales absent from `translations` are deleted; an empty map is accepted and removes
+      them all. A slug is stable: it changes only when `slug` is sent and normalises to
+      something different — a title change keeps it. Omitted `flags`/`navUrl` are left
+      unchanged. The parent cannot change here (`/move`). Attachments are managed via
+      `/assets`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageUpsert
+    responses:
+      '200':
+        description: The updated page, including its attachments.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        description: 'Another item in the same language took this slug concurrently (`urn:cbar:problem:unique-violation`, `field: slug`); saving again picks a free one.'
+        $ref: ../components/responses.yaml#/Conflict
+  delete:
+    tags: [Pages]
+    operationId: deletePage
+    x-permission: pages.delete
+    summary: Soft-delete a page
+    description: |
+      Refused (409) when the page's `removable` flag is off, or when it has (non-deleted)
+      children and `removableAll` is off. With children and `removableAll` on, the whole
+      subtree is soft-deleted — descendants' own `removable` flags are not checked — which
+      additionally needs `pages.delete_subtree` (403 otherwise, nothing deleted). The audit
+      entry lists every deleted id.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+move:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [Pages]
+    operationId: movePage
+    x-permission: pages.update
+    summary: Move or reorder a page
+    description: |
+      Sets the parent and `sortOrder` and rewrites the paths of the whole subtree.
+      Changing parent needs `movableL` or `movableR`; changing only `sortOrder` needs
+      `movableU` or `movableD` (409 otherwise — checked before the parent is validated).
+      The new parent must exist and must not be the page itself or one of its descendants
+      (400). Siblings are not renumbered.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageMove
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+assets:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [Pages]
+    operationId: attachPageAsset
+    x-permission: pages.update
+    summary: Attach an uploaded file
+    description: |
+      Appended after the existing attachments. Without translations the file's original
+      name becomes the `az` and `en` title. The same media can be attached to a page only
+      once (409).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageAssetAttach
+    responses:
+      '200':
+        description: The new attachment (200, not 201).
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageAsset
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+assetsOrder:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [Pages]
+    operationId: reorderPageAssets
+    x-permission: pages.update
+    summary: Reorder a page's attachments
+    description: '`assetIds` must be exactly the page''s attachment ids (400 otherwise); they get `sortOrder` 1..n.'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageAssetOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+asset:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - name: assetId
+      in: path
+      required: true
+      description: Attachment id (`PageAsset.id`, not the media id). Route constraint `{assetId:long}`.
+      schema:
+        type: integer
+        format: int64
+  put:
+    tags: [Pages]
+    operationId: updatePageAsset
+    x-permission: pages.update
+    summary: Update an attachment's titles and group
+    description: |
+      Locales absent from `translations` are deleted. An empty map is rejected (400) before
+      the attachment is looked up. 404 also when the attachment belongs to another page.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/pages.yaml#/PageAssetUpdate
+    responses:
+      '200':
+        description: The updated attachment.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/pages.yaml#/PageAsset
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Pages]
+    operationId: detachPageAsset
+    x-permission: pages.update
+    summary: Detach a file
+    description: Removes the attachment only; the media asset itself stays. 404 also when the attachment belongs to another page.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

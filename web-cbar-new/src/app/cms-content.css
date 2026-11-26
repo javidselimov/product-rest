@@ -1,0 +1,638 @@
+/*
+ * CMS content — styles for the legacy cbar.az markup (spec 002 FR-013, research R7).
+ *
+ * The 27 `.cms-content` rules of the old `web-cbar/src/app/globals.css` rewritten with the
+ * kit's semantic tokens: no hex values, the same rules work in light and dark themes. This
+ * file is imported AFTER the route B block of `globals.css` and does not touch it
+ * (constitution Article III.4).
+ *
+ * Elements: `<details data-accordion>` accordion, `.tableWrapper` + table, media images,
+ * `div[data-youtube-video] iframe`, list markers.
+ */
+
+.cms-content {
+  color: var(--foreground);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.cms-content p {
+  margin: 0 0 1rem;
+}
+
+.cms-content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.cms-content a:hover {
+  color: var(--foreground);
+}
+
+.cms-content h2,
+.cms-content h3,
+.cms-content h4 {
+  color: var(--foreground);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.cms-content h2 {
+  font-size: var(--text-2xl);
+}
+
+.cms-content h3 {
+  font-size: var(--text-xl);
+}
+
+.cms-content h4 {
+  font-size: var(--text-lg);
+}
+
+.cms-content ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.cms-content ul > li {
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.cms-content ul > li::before {
+  content: '';
+  position: absolute;
+  left: -1.1rem;
+  top: 0.65em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background-color: var(--primary);
+}
+
+.cms-content ul > li::marker {
+  content: '';
+}
+
+.cms-content ol {
+  list-style: decimal;
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.cms-content ol > li {
+  margin-bottom: 0.35rem;
+}
+
+/* ── Accordion (TipTap details) ─────────────────────────────────────────── */
+
+.cms-content details[data-accordion] {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: 0 0 0.75rem;
+  background-color: var(--card);
+}
+
+.cms-content details[data-accordion] > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background-color: var(--muted);
+  border-radius: inherit;
+}
+
+.cms-content details[data-accordion] > summary:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.cms-content details[data-accordion] > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cms-content details[data-accordion] > summary::after {
+  content: '';
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 150ms ease;
+}
+
+.cms-content details[data-accordion][open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+.cms-content details[data-accordion] [data-type='details-content'] {
+  padding: 0.85rem 1rem 0.25rem;
+}
+
+.cms-content details[data-accordion] [data-type='details-content'] > :first-child {
+  margin-top: 0;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+
+.cms-content .tableWrapper {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.cms-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.cms-content th,
+.cms-content td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cms-content th {
+  background-color: var(--muted);
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* ── Media ──────────────────────────────────────────────────────────────── */
+
+.cms-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 0.5rem 0 1rem;
+}
+
+/*
+ * An editor aligns an image through its paragraph (`<p style="text-align: right;">`, the TipTap TextAlign form and the legacy
+ * content's). Tailwind's preflight makes images blocks, which text-align does not move, so the alignment becomes auto inline
+ * margins. Descendant, not child: legacy images also sit in a link or a <strong> (spec 057 T061).
+ */
+.cms-content p[style*='text-align: right'] img {
+  margin-inline-start: auto;
+}
+
+.cms-content p[style*='text-align: center'] img {
+  margin-inline: auto;
+}
+
+/* Below --breakpoint-tab a right-aligned image (the strategy page's portrait) takes the column's width, as on the legacy site. */
+@media (width < 46.5rem) {
+  .cms-content p[style*='text-align: right'] img {
+    width: 100%;
+  }
+}
+
+.cms-content div[data-youtube-video] iframe,
+.cms-content iframe {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: var(--radius-md);
+  margin: 0.5rem 0 1rem;
+}
+
+/*
+ * ── "About us" variant (spec 024, ui-contract §2–§3) ───────────────────────
+ *
+ * Figma typography: text 16/400 lh28 (mobile 14/400 lh24), heading 20/600 lh28, 32 between
+ * sections. The accordion is Figma `Accordion Item` (`1186:14901`): white, border `#E5E5E5`,
+ * r4, p16, 16 between items. The media query 744 equals `--breakpoint-tab`.
+ */
+
+.cms-content[data-variant='about'] {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.cms-content[data-variant='about'] > :first-child {
+  margin-top: 0;
+}
+
+.cms-content[data-variant='about'] > :last-child {
+  margin-bottom: 0;
+}
+
+.cms-content[data-variant='about'] p {
+  margin: 0 0 1rem;
+}
+
+.cms-content[data-variant='about'] h2,
+.cms-content[data-variant='about'] h3,
+.cms-content[data-variant='about'] h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+}
+
+.cms-content[data-variant='about'] details[data-accordion] {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  margin: 0 0 1rem;
+}
+
+.cms-content[data-variant='about'] details[data-accordion] > summary {
+  padding: 1rem;
+  background-color: transparent;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.cms-content[data-variant='about'] details[data-accordion] > summary:hover {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.cms-content[data-variant='about'] details[data-accordion] [data-type='details-content'] {
+  padding: 0 1rem 1rem;
+}
+
+@media (width >= 46.5rem) {
+  .cms-content[data-variant='about'] {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+/*
+ * History year card (spec 026, contracts/ui-contract.md §2 "Hadisə"): on the dark gradient,
+ * text 14/400 lh28, white 80%; links teal. The same at every width (Figma `1845:119481`).
+ */
+.cms-content[data-variant='history'] {
+  color: color-mix(in oklab, var(--primary-foreground) 80%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.cms-content[data-variant='history'] > :first-child {
+  margin-top: 0;
+}
+
+.cms-content[data-variant='history'] > :last-child {
+  margin-bottom: 0;
+}
+
+.cms-content[data-variant='history'] p {
+  margin: 0 0 0.5rem;
+}
+
+.cms-content[data-variant='history'] a {
+  color: var(--site-history-accent);
+}
+
+.cms-content[data-variant='history'] a:hover {
+  color: var(--primary-foreground);
+}
+
+/*
+ * "Media requests" page (spec 037, contracts/ui-contract.md): text 16/400 lh28 (mobile 14/400 lh22),
+ * paragraphs a blank line apart, heading 18/500 lh24 in the brand colour. The text under the
+ * heading keeps lh28 at every width. The media queries equal --breakpoint-tab and --breakpoint-desk.
+ */
+.cms-content[data-variant='media-requests'] {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+.cms-content[data-variant='media-requests'] > :first-child {
+  margin-top: 0;
+}
+
+.cms-content[data-variant='media-requests'] > :last-child {
+  margin-bottom: 0;
+}
+
+.cms-content[data-variant='media-requests'] p {
+  margin: 0 0 1.375rem;
+}
+
+.cms-content[data-variant='media-requests'] :is(h2, h3, h4) {
+  color: var(--primary);
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  margin: 1.75rem 0 1.25rem;
+}
+
+.cms-content[data-variant='media-requests'] :is(h2, h3, h4) ~ p {
+  line-height: 1.75rem;
+}
+
+@media (width >= 46.5rem) {
+  .cms-content[data-variant='media-requests'] {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .cms-content[data-variant='media-requests'] p {
+    margin-bottom: 1.75rem;
+  }
+
+  .cms-content[data-variant='media-requests'] :is(h2, h3, h4) {
+    margin-top: 2rem;
+  }
+}
+
+@media (width >= 85rem) {
+  .cms-content[data-variant='media-requests'] :is(h2, h3, h4) {
+    margin-top: 2.25rem;
+  }
+}
+
+/*
+ * ── CSR page and its project dialog (spec 038) ─────────────────────────────
+ *
+ * Figma `1801:5472`: 14/22 on mobile, 16/28 from tablet, 20 between paragraphs. Link lines sit 8
+ * apart (`Links`) and keep 16/28 on every width. A long address wraps instead of overflowing.
+ */
+.cms-content[data-variant='csr'] {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+.cms-content[data-variant='csr'] p {
+  margin: 0 0 1.25rem;
+}
+
+.cms-content[data-variant='csr'] > :first-child {
+  margin-top: 0;
+}
+
+.cms-content[data-variant='csr'] > :last-child {
+  margin-bottom: 0;
+}
+
+.cms-content[data-variant='csr'] p:has(> a:only-child) {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  overflow-wrap: anywhere;
+}
+
+.cms-content[data-variant='csr'] p:has(> a:only-child):has(+ p > a:only-child) {
+  margin-bottom: 0.5rem;
+}
+
+@media (width >= 46.5rem) {
+  .cms-content[data-variant='csr'] {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+/*
+ * ── Central Bank logo page (spec 040, contracts/ui-contract.md) ───────────
+ *
+ * Text around the version table: heading 20/22/24 600 (Figma `2071:3015`, line height auto),
+ * text 16/28 (mobile 14/22). The block sets the gaps itself, so the edges carry no margin.
+ */
+.cms-content[data-variant='logo'] {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+.cms-content[data-variant='logo'] p {
+  margin: 0 0 1.25rem;
+}
+
+.cms-content[data-variant='logo'] :is(h2, h3, h4) {
+  margin: 0 0 1.25rem;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cms-content[data-variant='logo'] > :first-child {
+  margin-top: 0;
+}
+
+.cms-content[data-variant='logo'] > :last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 46.5rem) {
+  .cms-content[data-variant='logo'] {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .cms-content[data-variant='logo'] :is(h2, h3, h4) {
+    font-size: 1.375rem;
+  }
+}
+
+@media (width >= 85rem) {
+  .cms-content[data-variant='logo'] :is(h2, h3, h4) {
+    font-size: 1.5rem;
+  }
+}
+
+/*
+ * ── Inherit (spec 047) ──────────────────────────────────────────────────────
+ *
+ * A CMS fragment inside a styled box (the definition quote, the note box, the banner's address line): the box sets
+ * size, weight and colour, the fragment takes them over and adds no margin of its own. Paragraphs of one fragment
+ * keep a small gap; links keep the box colour, underlined.
+ */
+.cms-content[data-variant='inherit'] {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.cms-content[data-variant='inherit'] p {
+  margin: 0;
+}
+
+.cms-content[data-variant='inherit'] p + p {
+  margin-top: 0.5rem;
+}
+
+.cms-content[data-variant='inherit'] a,
+.cms-content[data-variant='inherit'] a:hover {
+  color: inherit;
+}
+
+/*
+ * ── Announcement list table (spec 031 ui-contract §2.1) ────────────────────
+ *
+ * Figma `1658:18539` (auto layout, the source of the numbers) and `1308:29093` (desktop): title
+ * h52, column headings h40, rows 44 + 1 separator, no vertical lines.
+ *
+ * Rows are recognised by position, not by th/td. The 22 tables on the test API have no <th> and
+ * no title: their first row is <td><strong>, and the editor's header-row button only reaches the
+ * first row anyway. So a first row holding one merged cell is the title, and the column headings
+ * are the row after it, or the first row when there is no title.
+ *
+ * The first column is always "№" there. The last column is a time or a score in 3–4 column
+ * tables; with 5–6 columns it is a tax number or long text and stays plain.
+ */
+.cms-content[data-tables='list'] table {
+  border: 1px solid var(--site-table-border);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Figma `1308:29068`: the title bar has elliptical top corners, 20.5 × 12. Tables without it stay square. */
+.cms-content[data-tables='list'] table:has(tr:first-child > [colspan]:only-child) {
+  border-radius: 1.28125rem 1.28125rem 0 0 / 0.75rem 0.75rem 0 0;
+}
+
+/* The bar stands on its own only with a title row; a heading paragraph above the table stays close to it. */
+.cms-content[data-tables='list'] .tableWrapper:not(:first-child):has(tr:first-child > [colspan]:only-child) {
+  margin-top: 3.75rem;
+}
+
+.cms-content[data-tables='list'] th,
+.cms-content[data-tables='list'] td {
+  padding: 0.75rem 1rem;
+  border: 0;
+  background-color: var(--background);
+  color: var(--site-table-text);
+  font-size: 0.96875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  /* Wrap on words: `anywhere` of .cms-content lets a cell shrink to one letter, so wide tables never scroll. */
+  overflow-wrap: break-word;
+  vertical-align: middle;
+}
+
+.cms-content[data-tables='list'] :is(th, td) p {
+  margin: 0;
+}
+
+.cms-content[data-tables='list'] tr:not(:last-child) > td {
+  border-bottom: 1px solid var(--site-table-row-border);
+}
+
+/* Counts data rows only, so the stripes do not depend on the rows above them. */
+.cms-content[data-tables='list']
+  tr:nth-child(even of :not(:first-child, :first-child:has(> [colspan]:only-child) + tr))
+  > td {
+  background-color: var(--site-table-stripe);
+}
+
+.cms-content[data-tables='list'] tr > :first-child {
+  width: 3.5rem;
+  color: var(--site-table-muted);
+  font-size: 0.875rem;
+}
+
+.cms-content[data-tables='list'] tr > :nth-child(2) {
+  padding-left: 0;
+}
+
+/* 5–6 column tables scroll on a phone anyway, so the name keeps room instead of wrapping into four lines. */
+.cms-content[data-tables='list'] tr:has(> :nth-child(5)) > :nth-child(2) {
+  min-width: 10.5rem;
+}
+
+.cms-content[data-tables='list'] tr:has(> :nth-child(3)):not(:has(> :nth-child(5))) > :last-child {
+  width: 4.375rem;
+  color: var(--site-table-title);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cms-content[data-tables='list'] tr:first-child:has(> [colspan]:only-child) + tr > *,
+.cms-content[data-tables='list'] tr:first-child:not(:has(> [colspan]:only-child)) > * {
+  border-bottom: 0;
+  background-color: var(--site-table-head);
+  color: var(--site-table-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+}
+
+.cms-content[data-tables='list'] tr:first-child > [colspan]:only-child {
+  width: auto;
+  padding: 1rem;
+  border-bottom: 0;
+  /* The table's radius minus its 1px border, so no white shows in the corners. */
+  border-radius: 1.21875rem 1.21875rem 0 0 / 0.6875rem 0.6875rem 0 0;
+  background-color: var(--site-table-title);
+  color: var(--primary-foreground);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (width >= 85rem) {
+  .cms-content[data-tables='list'] tr > :first-child {
+    width: 5.0625rem;
+    padding-left: 2.0625rem;
+  }
+
+  .cms-content[data-tables='list'] tr:has(> :nth-child(3)):not(:has(> :nth-child(5))) > :last-child {
+    width: 7.125rem;
+    padding-right: 1.9375rem;
+  }
+}
+
+/*
+ * ── FinCERT activity directions (spec 053, contracts/ui-contract.md §3) ────
+ *
+ * Body of an open direction accordion (Figma `2678:3838`): 16/28 on mobile, 16/26 from tablet, 12 between blocks,
+ * list items 10 apart with a 6 px primary dot 12 from the text. The accordion sets the padding, so the edges carry no
+ * margin.
+ */
+.cms-content[data-variant='fincert'] {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.cms-content[data-variant='fincert'] :is(p, ul, ol) {
+  margin: 0;
+}
+
+.cms-content[data-variant='fincert'] > * + * {
+  margin-top: 0.75rem;
+}
+
+.cms-content[data-variant='fincert'] ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-left: 1.125rem;
+}
+
+.cms-content[data-variant='fincert'] ul > li {
+  margin: 0;
+}
+
+.cms-content[data-variant='fincert'] ul > li::before {
+  left: -1.125rem;
+  top: calc((1lh - 0.375rem) / 2);
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+@media (width >= 46.5rem) {
+  .cms-content[data-variant='fincert'] {
+    line-height: 1.625rem;
+  }
+}

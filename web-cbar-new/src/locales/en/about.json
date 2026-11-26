@@ -1,0 +1,95 @@
+{
+  "history": {
+    "yearNav": "Years",
+    "prev": "Previous year",
+    "next": "Next year",
+    "zoom": "Enlarge photo",
+    "zoomWithAlt": "Enlarge photo: {{alt}}"
+  },
+  "board": {
+    "chair": "Chairman",
+    "deputies": "Deputy Chairmen"
+  },
+  "staff": {
+    "receptionDays": "Reception days",
+    "contact": "Contact",
+    "photoAlt": "{{name}} — photo"
+  },
+  "photos": {
+    "title": "Photos",
+    "downloadAll": "Download all (ZIP, {{size}})",
+    "download": "Download",
+    "downloadAria": "Download {{name}}",
+    "alt": "{{name}} — {{file}}"
+  },
+  "divisions": {
+    "title": "Divisions",
+    "notFound": "Division not found"
+  },
+  "ifi": {
+    "sectionTitle": "Cooperating organizations",
+    "membership": "Membership: {{year}}",
+    "mission": "Main mission"
+  },
+  "memorandums": {
+    "title": "Memoranda of Understanding signed with central banks and supervisory authorities of foreign countries",
+    "columns": {
+      "organization": "Organization",
+      "country": "Country",
+      "date": "Date"
+    },
+    "sort": {
+      "label": "Date:",
+      "newest": "newest first",
+      "oldest": "oldest first"
+    }
+  },
+  "memberships": {
+    "title": "Organizations the Central Bank of the Republic of Azerbaijan is a member of",
+    "columns": {
+      "organization": "Organization",
+      "year": "Year of membership"
+    },
+    "sort": {
+      "label": "Membership year:",
+      "newest": "newest first",
+      "oldest": "oldest first"
+    }
+  },
+  "literacy": {
+    "imageAlt": "{{title}} — image {{n}}",
+    "photos": "Photos",
+    "ctaButton": "Write to {{email}}",
+    "newWindow": "(opens in a new window)"
+  },
+  "consumer": {
+    "latest": "Latest",
+    "archive": "Archive",
+    "archiveHint": "Choose a year to open the monthly documents",
+    "tabsLabel": "Complaint indices",
+    "tabs": {
+      "bank": "Complaint index on the use of banking services",
+      "insurance": "Complaint index on compulsory motor insurance"
+    },
+    "divided": "divided by",
+    "statistics": "Statistics of appeals",
+    "channels": "Appeal channels",
+    "year": "Year:",
+    "years": "Years",
+    "summary": "{{month}} {{year}} — summary",
+    "table": "{{channel}}, {{year}}",
+    "infographics": "Infographics",
+    "numbered": "{{n}}."
+  },
+  "document": {
+    "file": "File",
+    "newTab": "(opens in a new tab)"
+  },
+  "archive": {
+    "year": "Year",
+    "menu": "Year",
+    "all": "All",
+    "allSummary": "Year: All",
+    "other": "Other"
+  }
+}

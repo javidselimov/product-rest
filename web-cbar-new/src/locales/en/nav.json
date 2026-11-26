@@ -1,0 +1,24 @@
+{
+  "home": "Home",
+  "menu": "Menu",
+  "mainNavigation": "Main navigation",
+  "mobileMenu": "Mobile menu",
+  "topLinks": {
+    "label": "Secondary links",
+    "career": "Careers",
+    "media": "Media",
+    "contact": "Contact"
+  },
+  "openMenu": "Open menu",
+  "allSections": "All sections",
+  "closeMenu": "Close menu",
+  "search": {
+    "label": "Site search",
+    "placeholder": "Search",
+    "submit": "Search"
+  },
+  "hotline": "Hotline",
+  "ecbar": "E-CBAR",
+  "skipToContent": "Skip to content",
+  "logoAlt": "Central Bank of the Republic of Azerbaijan"
+}

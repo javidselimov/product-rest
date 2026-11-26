@@ -1,0 +1,170 @@
+collection:
+  get:
+    tags: [Users]
+    operationId: listUsers
+    x-permission: users.read
+    summary: CMS users, by id
+    description: Soft-deleted users are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - name: search
+        in: query
+        description: Case-insensitive substring match (`ILIKE '%…%'`) on username or email. Blank is ignored.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: One page of users.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/users.yaml#/UserPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Users]
+    operationId: createUser
+    x-permission: users.create
+    summary: Create a user
+    description: |
+      The new user is active. 400 for a blank username or email, a password that fails the
+      policy, or an unknown role; 409 when the username or email is taken (soft-deleted
+      users included — their names stay reserved).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/users.yaml#/UserCreate
+    responses:
+      '201':
+        description: Created; `Location` points at the new user.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/users.yaml#/UserDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: 'Username or email already in use — also when a concurrent request created it first; the body then carries `errors.Username` / `errors.Email`.'
+        $ref: ../components/responses.yaml#/Conflict
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Users]
+    operationId: getUser
+    x-permission: users.read
+    summary: User by id
+    responses:
+      '200':
+        description: The user.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/users.yaml#/UserDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Users]
+    operationId: updateUser
+    x-permission: users.update
+    summary: Update a user's email, role and active flag
+    description: |
+      The username cannot be changed. The body is validated (400) before the user is
+      looked up (404). Deactivating a user revokes their refresh tokens (an access token
+      already issued stays valid until it expires); a role change takes effect at their
+      next refresh. Refused (409) if it would leave no active admin: the last active admin
+      cannot be deactivated or demoted. Reactivating a user (`isActive` false → true) clears
+      their login lock and failed-attempt count.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/users.yaml#/UserUpdate
+    responses:
+      '200':
+        description: The updated user.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/users.yaml#/UserDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+  delete:
+    tags: [Users]
+    operationId: deleteUser
+    x-permission: users.delete
+    summary: Soft-delete a user
+    description: |
+      Also deactivates the user and revokes their refresh tokens. Refused (409) for your
+      own account and for the last active admin. The username and email stay reserved.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+password:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [Users]
+    operationId: resetUserPassword
+    x-permission: users.update
+    summary: Set a user's password
+    description: |
+      No current password needed. Revokes all of the user's refresh tokens (yours too, if
+      you reset your own). The policy is checked (400) before the user is looked up (404).
+      Also clears the user's login lock and failed-attempt count, so a locked user can sign
+      in with the new password straight away.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/users.yaml#/UserPasswordReset
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

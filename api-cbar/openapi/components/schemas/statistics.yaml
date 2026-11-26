@@ -1,0 +1,179 @@
+AzirValue:
+  type: object
+  description: |
+    The deal details (`dealVolume` … `isReservePlan`) were added in spec 021; a value entered
+    without them has nulls and `isReservePlan: false`.
+  required: [valueDate, term, rate, isReservePlan]
+  properties:
+    valueDate:
+      $ref: ./common.yaml#/Date
+    term:
+      type: string
+      description: Tenor, e.g. `1D`, `1W`, `1M`.
+    rate:
+      type: number
+      description: numeric(8,4).
+    dealVolume:
+      type: [number, 'null']
+      description: Value of transactions, mln AZN — numeric(12,2).
+    dealCount:
+      type: [integer, 'null']
+      format: int32
+      description: Number of transactions.
+    minRate:
+      type: [number, 'null']
+      description: Minimum rate on the last transaction day — numeric(8,4).
+    maxRate:
+      type: [number, 'null']
+      description: Maximum rate on the last transaction day — numeric(8,4).
+    isReservePlan:
+      type: boolean
+      description: Calculated under the contingency (reserve) plan; the site marks it `*`.
+
+AzirSummary:
+  type: object
+  description: |
+    "Information about the 1D AZIR index": computed from 1D values with a rate above zero and
+    the official USD rate, independent of any date filter. Every field is null when it cannot
+    be computed (no data, no baseline, no USD rate); the object itself is always returned.
+    Rates and volumes are rounded to 4 decimals, `lastVolumeUsd` to 2.
+  required: [lastDate, lastRate, rateChangeSinceMonthEnd, rateChangeSinceYearEnd,
+             lastMinRate, lastMaxRate, lastVolume, volumeChangeSinceMonthEnd,
+             volumeMinSincePrevYearStart, volumeMaxSincePrevYearStart, lastVolumeUsd]
+  properties:
+    lastDate:
+      description: Latest 1D value date.
+      oneOf:
+        - $ref: ./common.yaml#/Date
+        - type: 'null'
+    lastRate:
+      type: [number, 'null']
+    rateChangeSinceMonthEnd:
+      type: [number, 'null']
+      description: '`lastRate` minus the last rate on or before the end of the month preceding `lastDate`.'
+    rateChangeSinceYearEnd:
+      type: [number, 'null']
+      description: '`lastRate` minus the last rate on or before 31 December of the year preceding `lastDate`.'
+    lastMinRate:
+      type: [number, 'null']
+      description: '`minRate` of the `lastDate` value.'
+    lastMaxRate:
+      type: [number, 'null']
+      description: '`maxRate` of the `lastDate` value.'
+    lastVolume:
+      type: [number, 'null']
+      description: '`dealVolume` of the `lastDate` value, mln AZN.'
+    volumeChangeSinceMonthEnd:
+      type: [number, 'null']
+      description: '`lastVolume` minus the last volume on or before the end of the month preceding `lastDate`.'
+    volumeMinSincePrevYearStart:
+      type: [number, 'null']
+      description: |
+        Smallest volume from 1 January of the previous year (Asia/Baku today) to today — the
+        legacy site's "past 1 year" figure, kept as it was.
+    volumeMaxSincePrevYearStart:
+      type: [number, 'null']
+      description: Largest volume over the same period.
+    lastVolumeUsd:
+      type: [number, 'null']
+      description: '`lastVolume` divided by the last official USD rate (per unit) on or before `lastDate`, mln USD.'
+
+InflationParameter:
+  type: object
+  required: [year, month, parameterCode, value]
+  properties:
+    year:
+      type: integer
+      format: int16
+    month:
+      type: integer
+      format: int16
+      minimum: 1
+      maximum: 12
+    parameterCode:
+      type: string
+      description: e.g. `cpi_yoy`, `cpi_mom`.
+    value:
+      type: number
+      description: numeric(10,4).
+
+InflationSettings:
+  type: object
+  required: [currentInflation, targetInflation, nextUpdateDate]
+  properties:
+    currentInflation:
+      type: number
+      description: numeric(6,2).
+    targetInflation:
+      type: string
+      description: Free text, e.g. `4 (±2)`.
+    nextUpdateDate:
+      $ref: ./common.yaml#/Date
+
+YieldCurveParameters:
+  description: Nelson-Siegel parameters, numeric(12,6).
+  type: object
+  required: [beta0, beta1, beta2, lambda]
+  properties:
+    beta0:
+      type: number
+    beta1:
+      type: number
+    beta2:
+      type: number
+    lambda:
+      type: number
+
+YieldPoint:
+  type: object
+  required: [period, yield]
+  properties:
+    period:
+      type: string
+      description: Tenor in days as a decimal string (`"90"`, `"91"`, …).
+    yield:
+      type: number
+      description: numeric(8,4).
+
+YieldCurvePeriods:
+  description: Yields (%) at the seven standard tenors, numeric(8,4).
+  type: object
+  required: [threeMonth, sixMonth, nineMonth, oneYear, twoYear, threeYear, fourYear]
+  properties:
+    threeMonth:
+      type: number
+    sixMonth:
+      type: number
+    nineMonth:
+      type: number
+    oneYear:
+      type: number
+    twoYear:
+      type: number
+    threeYear:
+      type: number
+    fourYear:
+      type: number
+
+YieldCurve:
+  description: |
+    The three datasets the admin imports separately for a date. A date is a curve when it has
+    points; `parameters` and `periods` are null when they were not imported for it.
+  type: object
+  required: [curveDate, parameters, yields, periods]
+  properties:
+    curveDate:
+      $ref: ./common.yaml#/Date
+    parameters:
+      anyOf:
+        - $ref: '#/YieldCurveParameters'
+        - type: 'null'
+    yields:
+      type: array
+      description: Ordered by tenor.
+      items:
+        $ref: '#/YieldPoint'
+    periods:
+      anyOf:
+        - $ref: '#/YieldCurvePeriods'
+        - type: 'null'

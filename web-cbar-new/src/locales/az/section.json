@@ -1,0 +1,18 @@
+{
+  "breadcrumb": {
+    "home": "Ana səhifə",
+    "label": "Səhifənin yeri"
+  },
+  "share": {
+    "label": "Paylaş",
+    "facebook": "Facebook-da paylaş",
+    "linkedin": "LinkedIn-də paylaş",
+    "whatsapp": "WhatsApp-da paylaş",
+    "email": "E-poçtla göndər",
+    "print": "Çap et",
+    "newTab": "yeni pəncərədə açılır"
+  },
+  "nav": {
+    "label": "Bölmə naviqasiyası"
+  }
+}

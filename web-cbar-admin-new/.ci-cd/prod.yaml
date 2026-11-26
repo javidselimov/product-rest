@@ -1,0 +1,13 @@
+# TODO(devops): confirm the hostname before the first deploy.
+# Cutover-ə qədər köhnə web-cbar-admin chart-ı ilə EYNİ host — ikisi eyni anda
+# deploy olunarsa toqquşur.
+ingress:
+  hostname: cbar-admin.e-cbar.az
+
+build:
+  args:
+    BUILD_ENV: production
+# TODO(devops): api-cbar-admin `Cors__Origins__0=https://<bu panelin host-u>` (dəqiq, credentials ilə).
+# TODO(devops): spec 005 (Q2a) — API `api-cbar-admin.cbar.az`-dadır; refresh cookie
+# SameSite=Strict olduğundan panel də `*.cbar.az` altında olmalıdır. `e-cbar.az`
+# başqa saytdır: orada F5-dən sonra sessiya bərpa olunmur (hər yenilənmədə login).

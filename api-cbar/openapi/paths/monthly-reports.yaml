@@ -1,0 +1,38 @@
+list:
+  get:
+    tags: [MonthlyReports]
+    operationId: listMonthlyReports
+    summary: Published monthly reports, grouped by series
+    description: |
+      The year → month archives of the consumer rights pages (spec 052): the bank and the insurance
+      complaint index and the infographics. One report is one month of a series with one file per
+      locale, so there is no paging and no item route.
+
+      Only published reports that have a file in the locale whose media is not deleted. Series in
+      their own order; reports by `year` descending, then `month` descending. A series without a
+      report in the locale is left out, so the site falls back to the page text for it.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+      - name: series
+        in: query
+        description: Comma-separated series keys; without it every series. Unknown keys are ignored.
+        schema:
+          type: string
+        examples:
+          complaintIndex:
+            value: bank-complaint-index,insurance-complaint-index
+    responses:
+      '200':
+        description: The series with reports in the locale.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [series]
+              properties:
+                series:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/monthly-reports.yaml#/MonthlyReportSeries
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

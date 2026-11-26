@@ -1,0 +1,10 @@
+{
+  "name": "figma-bridge-tools",
+  "private": true,
+  "type": "module",
+  "description": "Scope marker only. Everything here is ESM and dependency-free; nothing is installed or published. See README.md.",
+  "scripts": {
+    "bridge": "node bridge.mjs",
+    "cli": "node cli.mjs"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "mission": "Missiya",
+    "directions": "Fəaliyyətin əsas istiqamətləri",
+    "contacts": "Əlaqə məlumatları",
+    "portal": "Yüksək kateqoriyalı insident üzrə hesabatın göndərilməsi",
+    "rfc": "RFC-2350",
+    "cooperation": "Beynəlxalq əməkdaşlıq"
+  },
+  "contacts": {
+    "email": "Elektron poçt",
+    "phone": "Əlaqə nömrəsi"
+  },
+  "portal": {
+    "open": "Portala keçid"
+  },
+  "rfc": {
+    "name": "RFC-2350",
+    "download": "Endir"
+  },
+  "newTab": "yeni vərəqdə açılır"
+}

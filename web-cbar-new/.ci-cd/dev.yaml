@@ -1,0 +1,18 @@
+# ⚠ TODO(devops): API ünvanını ilk deploy-dan əvvəl təsdiqlə.
+#
+# Dev mühitində ayrıca ingress hostname yoxdur (`web-cbar` ilə eyni).
+#
+# `API_URL` runtime-da `src/server/env.ts` tərəfindən oxunur — **yalnız server**
+# tərəfdə. Brauzer API-yə birbaşa getmir, bu tətbiqin öz serverinə müraciət edir,
+# ona görə eyni image üç mühitdə yenidən build olmadan işləyir (spec 002 FR-026).
+#
+# `CSP_FRAME_SRC` (optional): CMS məzmunundakı ümumi <iframe> mənbələri, boşluqla
+# ayrılmış; YouTube həmişə icazəlidir (contracts/runtime-config.md §3).
+
+env:
+  - name: API_URL
+    value: "https://api-cbar-test.e-cbar.az"
+  - name: NODE_ENV
+    value: "production"
+  - name: TZ
+    value: "Asia/Baku"

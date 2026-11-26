@@ -1,0 +1,438 @@
+# Sync: 1de2eb2 · 2026-10-06 · inkremental + işçi ağac · qismən: statistics (currencies, currency-rates) 2026-10-20, yield-curves f542884 + işçi ağac 2026-10-21, organization (staff photos) 2ed364c + işçi ağac 2026-10-27, organization (offices: photo, director, regulation) işçi ağac 2026-10-28, organization (chart, spec 027) işçi ağac 2026-10-29, organization (divisions: regulation) işçi ağac 2026-10-30, press-releases (spec 033) işçi ağac 2026-11-04, events (spec 034) işçi ağac 2026-11-04, release-schedule (spec 039) işçi ağac 2026-11-11, pages (spec 041) işçi ağac 2026-11-12, ifi-organizations (spec 044) işçi ağac 2026-11-13, memorandums (spec 045) işçi ağac 2026-11-13, faq (spec 051) işçi ağac 2026-11-17, monthly-reports (spec 052) işçi ağac 2026-11-18, fincert (spec 053) işçi ağac 2026-11-19, working-papers + pages (spec 054) işçi ağac 2026-11-20, homepage strategy docs (spec 057) 2dd1929 2026-11-24, azir import (spec 058) işçi ağac 2026-11-24, organization (chart: order, departmentsOpen, spec 060) işçi ağac 2026-11-26
+openapi: 3.1.1
+info:
+  title: cbar.az CMS API (api-cbar-admin)
+  version: 1.0.0
+  description: |
+    Content-management API behind the cbar.az admin panel. Owns the database schema and
+    is its only writer; the public site reads the same data through api-cbar.
+
+    Conventions:
+    - JSON is camelCase; enums are lowercase strings. Dates are `yyyy-MM-dd`, timestamps
+      ISO 8601 with offset.
+    - Every route except `/api/v1/auth/*` and `/healthz` needs `Authorization: Bearer <access token>`.
+    - Every protected operation also needs a permission (spec 008), named in its `x-permission`
+      extension as `<module>.<action>`; a list means any one of them suffices. The `admin` role
+      holds every permission; other roles hold what `role_permissions` grants them
+      (`GET /api/v1/roles`). Without it the answer is 403 (`Forbidden`), the request changes no
+      data, and the refusal is written to the audit log as `authz.denied`. An operation with no
+      `x-permission` is open to any authenticated user (`GET /api/v1/me/permissions` only).
+    - Translatable items carry `translations: { az?: {...}, en?: {...} }`. On write, a locale
+      absent from the map is **deleted**; send every locale you want to keep.
+    - Paged lists return `{ items, total, page, pageSize }`; some unpaged lists return
+      `{ items }` and some a bare array — each operation says which.
+    - Every error is RFC 9457 problem details (`application/problem+json`, schema
+      `ProblemDetails`) with a `traceId` for the server log. Business-rule failures and
+      database rejections also carry `message` — the text the earlier `{ message }` bodies had
+      — and the auth endpoints a `code`. 401, 403 and 5xx without a `message` carry no `title`,
+      so clients keep showing their own text. A write the database rejects is 400 or 409
+      (`type: urn:cbar:problem:*`), never 500. Any operation may answer `500` (`ServerError`).
+    - Not rate-limited.
+
+    Maintained by hand (see `README.md`): the runtime `/openapi/v1.json` has request
+    schemas but no response schemas, because the controllers return anonymous types.
+    The runtime document is served only in Development and Staging (local, dev, test) —
+    not in Production.
+  license:
+    name: Proprietary
+    identifier: LicenseRef-CBAR-Proprietary
+  x-known-issues:
+    - 'No input validation beyond binding and a few hand checks: an unknown locale key (e.g. `ru`), a string longer than its varchar column, an out-of-range decimal or a non-positive rate are rejected by PostgreSQL and answered 400 without naming the field (field-level validation is #8b).'
+    - 'Several PUTs validate the body before looking up the id, so a bad body to a missing id is 400, not 404.'
+    - 'Create/update responses omit data that is not loaded: `assets: []` (press releases, laws), `originalName: null` (banners, news slider, publications), `media: null` (MEAS documents). Re-fetch the item.'
+    - 'Attachment routes are inconsistent: press releases/laws address by `mediaId` and answer 204; pages by attachment id and galleries by image id, answering 200 with a body.'
+    - 'Detach on pages, laws and galleries queries the attachment table directly, so it still works on a soft-deleted parent.'
+    - 'Soft-deleted content keeps its attachment rows; `DELETE /media/{id}` therefore answers 409 for files only referenced by deleted content.'
+    - '`GET /inflation/settings` answers 204 (no body) until settings are first saved — `Ok(null)` meets the no-content formatter.'
+    - '`PUT /pages/{id}` accepts an empty `translations` map (deleting every translation), ignores `parentId: null`, and rejects a changed `parentId` with a stale "Phase 2" message although `/move` exists.'
+    - 'Settings are writable by any authenticated user.'
+    - 'Users: two admins deactivating, demoting or deleting each other at the same moment can still leave no active admin — the last-admin check and the write are not atomic.'
+    - 'Currency codes are matched case-sensitively (`usd` is unknown). `DELETE /currency-rates` without `date` binds `0001-01-01` and answers 404 instead of 400.'
+servers:
+  - url: https://api-cbar-admin-test.cbar.az
+    description: Test
+  - url: http://localhost:5253
+    description: Local (dotnet run)
+# TODO(devops): production URL (api-cbar-admin.cbar.az per .ci-cd/prod.yaml, unconfirmed)
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Auth
+    description: Sign-in, token refresh (httpOnly cookie) and sign-out.
+  - name: Users
+    description: CMS user accounts. `admin` role only.
+  - name: Settings
+    description: Key/value site settings (JSON values).
+  - name: Media
+    description: File library. Uploads are stored in MinIO, content-addressed by SHA-256.
+  - name: Pages
+    description: The CMS page tree, page content and per-page attachments.
+  - name: PressReleases
+    description: Press releases and their attachments.
+  - name: Events
+    description: Events and their categories.
+  - name: CsrProjects
+    description: Corporate social responsibility projects, their photos and categories.
+  - name: IfiOrganizations
+    description: International financial institutions and their membership dates.
+  - name: Faq
+    description: FAQ topics, questions and videos ("Sual-cavab" section).
+  - name: Fincert
+    description: FinCERT page — settings, activity directions and international memberships (spec 053).
+  - name: Memorandums
+    description: Memoranda of understanding with foreign central banks and supervisors.
+  - name: MonthlyReports
+    description: Monthly reports of the consumer rights pages — complaint indices and infographics (spec 052).
+  - name: WorkingPapers
+    description: Working papers of the publications and research section (spec 054).
+  - name: ReleaseSchedule
+    description: Information disclosure schedule — items, groups and periodicities.
+  - name: Laws
+    description: Legal acts, their categories and attachments.
+  - name: MoneyMarks
+    description: Banknotes and coins, their categories and related news.
+  - name: Meas
+    description: MEAS disclosure documents, emitents and information types.
+  - name: Organization
+    description: Staff (management), structural divisions and regional offices.
+  - name: MediaContent
+    description: Photo galleries, videos, live video streams and image popups.
+  - name: Homepage
+    description: Homepage blocks — banners, news slider, links, publications, running lines, info lines.
+  - name: Statistics
+    description: Currencies, official exchange rates, AZIR, inflation and yield curves.
+  - name: Access
+    description: Roles, permissions and the audit log (spec 008).
+  - name: Health
+    description: Liveness/readiness probe.
+
+paths:
+  /api/v1/auth/login:
+    $ref: paths/auth.yaml#/login
+  /api/v1/auth/refresh:
+    $ref: paths/auth.yaml#/refresh
+  /api/v1/auth/logout:
+    $ref: paths/auth.yaml#/logout
+
+  /api/v1/users:
+    $ref: paths/users.yaml#/collection
+  /api/v1/users/{id}:
+    $ref: paths/users.yaml#/item
+  /api/v1/users/{id}/password:
+    $ref: paths/users.yaml#/password
+
+  /api/v1/settings:
+    $ref: paths/settings.yaml#/collection
+  /api/v1/settings/{key}:
+    $ref: paths/settings.yaml#/item
+
+  /api/v1/media:
+    $ref: paths/media.yaml#/collection
+  /api/v1/media/{id}:
+    $ref: paths/media.yaml#/item
+  /api/v1/media/{id}/preview:
+    $ref: paths/media.yaml#/preview
+
+  /api/v1/pages:
+    $ref: paths/pages.yaml#/collection
+  /api/v1/pages/tree:
+    $ref: paths/pages.yaml#/tree
+  /api/v1/pages/{id}:
+    $ref: paths/pages.yaml#/item
+  /api/v1/pages/{id}/move:
+    $ref: paths/pages.yaml#/move
+  /api/v1/pages/{id}/assets:
+    $ref: paths/pages.yaml#/assets
+  /api/v1/pages/{id}/assets/order:
+    $ref: paths/pages.yaml#/assetsOrder
+  /api/v1/pages/{id}/assets/{assetId}:
+    $ref: paths/pages.yaml#/asset
+
+  /api/v1/events:
+    $ref: paths/events.yaml#/collection
+  /api/v1/events/{id}:
+    $ref: paths/events.yaml#/item
+  /api/v1/event-categories:
+    $ref: paths/events.yaml#/categories
+  /api/v1/event-categories/{id}:
+    $ref: paths/events.yaml#/category
+  /api/v1/csr-projects:
+    $ref: paths/csr-projects.yaml#/collection
+  /api/v1/csr-projects/{id}:
+    $ref: paths/csr-projects.yaml#/item
+  /api/v1/csr-projects/{id}/assets:
+    $ref: paths/csr-projects.yaml#/assets
+  /api/v1/csr-projects/{id}/assets/order:
+    $ref: paths/csr-projects.yaml#/assetsOrder
+  /api/v1/csr-projects/{id}/assets/{mediaId}:
+    $ref: paths/csr-projects.yaml#/asset
+  /api/v1/csr-categories:
+    $ref: paths/csr-projects.yaml#/categories
+  /api/v1/csr-categories/{id}:
+    $ref: paths/csr-projects.yaml#/category
+  /api/v1/ifi-organizations:
+    $ref: paths/ifi-organizations.yaml#/collection
+  /api/v1/ifi-organizations/{id}:
+    $ref: paths/ifi-organizations.yaml#/item
+  /api/v1/ifi-organizations/{id}/memberships:
+    $ref: paths/ifi-organizations.yaml#/memberships
+  /api/v1/ifi-organizations/{id}/memberships/order:
+    $ref: paths/ifi-organizations.yaml#/membershipsOrder
+  /api/v1/ifi-organizations/{id}/memberships/{membershipId}:
+    $ref: paths/ifi-organizations.yaml#/membership
+  /api/v1/faq/topics:
+    $ref: paths/faq.yaml#/topicsCollection
+  /api/v1/faq/topics/order:
+    $ref: paths/faq.yaml#/topicsOrder
+  /api/v1/faq/topics/{id}:
+    $ref: paths/faq.yaml#/topicsItem
+  /api/v1/faq/topics/{id}/questions/order:
+    $ref: paths/faq.yaml#/topicQuestionsOrder
+  /api/v1/faq/questions:
+    $ref: paths/faq.yaml#/questionsCollection
+  /api/v1/faq/questions/{id}:
+    $ref: paths/faq.yaml#/questionsItem
+  /api/v1/faq/videos:
+    $ref: paths/faq.yaml#/videosCollection
+  /api/v1/faq/videos/order:
+    $ref: paths/faq.yaml#/videosOrder
+  /api/v1/faq/videos/{id}:
+    $ref: paths/faq.yaml#/videosItem
+  /api/v1/fincert/settings:
+    $ref: paths/fincert.yaml#/settings
+  /api/v1/fincert/directions:
+    $ref: paths/fincert.yaml#/directionsCollection
+  /api/v1/fincert/directions/order:
+    $ref: paths/fincert.yaml#/directionsOrder
+  /api/v1/fincert/directions/{id}:
+    $ref: paths/fincert.yaml#/directionsItem
+  /api/v1/fincert/memberships:
+    $ref: paths/fincert.yaml#/membershipsCollection
+  /api/v1/fincert/memberships/order:
+    $ref: paths/fincert.yaml#/membershipsOrder
+  /api/v1/fincert/memberships/{id}:
+    $ref: paths/fincert.yaml#/membershipsItem
+  /api/v1/memorandums:
+    $ref: paths/memorandums.yaml#/collection
+  /api/v1/memorandums/{id}:
+    $ref: paths/memorandums.yaml#/item
+  /api/v1/monthly-reports:
+    $ref: paths/monthly-reports.yaml#/collection
+  /api/v1/monthly-reports/series:
+    $ref: paths/monthly-reports.yaml#/series
+  /api/v1/monthly-reports/{id}:
+    $ref: paths/monthly-reports.yaml#/item
+  /api/v1/working-papers:
+    $ref: paths/working-papers.yaml#/collection
+  /api/v1/working-papers/{id}:
+    $ref: paths/working-papers.yaml#/item
+  /api/v1/release-schedule/items:
+    $ref: paths/release-schedule.yaml#/items
+  /api/v1/release-schedule/items/{id}:
+    $ref: paths/release-schedule.yaml#/item
+  /api/v1/release-schedule/groups:
+    $ref: paths/release-schedule.yaml#/groups
+  /api/v1/release-schedule/groups/{id}:
+    $ref: paths/release-schedule.yaml#/group
+  /api/v1/release-schedule/periodicities:
+    $ref: paths/release-schedule.yaml#/periodicities
+  /api/v1/release-schedule/periodicities/{id}:
+    $ref: paths/release-schedule.yaml#/periodicity
+  /api/v1/press-releases:
+    $ref: paths/press-releases.yaml#/collection
+  /api/v1/press-releases/{id}:
+    $ref: paths/press-releases.yaml#/item
+  /api/v1/press-releases/{id}/assets:
+    $ref: paths/press-releases.yaml#/assets
+  /api/v1/press-releases/{id}/assets/order:
+    $ref: paths/press-releases.yaml#/assetsOrder
+  /api/v1/press-releases/{id}/assets/{mediaId}:
+    $ref: paths/press-releases.yaml#/asset
+  /api/v1/press-releases/{id}/assets/{mediaId}/locale:
+    $ref: paths/press-releases.yaml#/assetLocale
+
+  /api/v1/laws:
+    $ref: paths/laws.yaml#/collection
+  /api/v1/laws/{id}:
+    $ref: paths/laws.yaml#/item
+  /api/v1/laws/{id}/assets:
+    $ref: paths/laws.yaml#/assets
+  /api/v1/laws/{id}/assets/{mediaId}:
+    $ref: paths/laws.yaml#/asset
+  /api/v1/law-categories:
+    $ref: paths/law-categories.yaml#/collection
+  /api/v1/law-categories/{id}:
+    $ref: paths/law-categories.yaml#/item
+
+  /api/v1/money-marks:
+    $ref: paths/money-marks.yaml#/marks
+  /api/v1/money-marks/{id}:
+    $ref: paths/money-marks.yaml#/mark
+  /api/v1/money-mark-categories:
+    $ref: paths/money-marks.yaml#/categories
+  /api/v1/money-mark-categories/{id}:
+    $ref: paths/money-marks.yaml#/category
+  /api/v1/money-mark-news:
+    $ref: paths/money-marks.yaml#/news
+  /api/v1/money-mark-news/{id}:
+    $ref: paths/money-marks.yaml#/newsItem
+
+  /api/v1/meas-documents:
+    $ref: paths/meas.yaml#/documents
+  /api/v1/meas-documents/{id}:
+    $ref: paths/meas.yaml#/document
+  /api/v1/meas-emitents:
+    $ref: paths/meas.yaml#/emitents
+  /api/v1/meas-emitents/{id}:
+    $ref: paths/meas.yaml#/emitent
+  /api/v1/meas-info-types:
+    $ref: paths/meas.yaml#/infoTypes
+  /api/v1/meas-info-types/{id}:
+    $ref: paths/meas.yaml#/infoType
+
+  /api/v1/organization/staff:
+    $ref: paths/organization.yaml#/staff
+  /api/v1/organization/staff/{id}:
+    $ref: paths/organization.yaml#/staffMember
+  /api/v1/organization/staff/{id}/photos:
+    $ref: paths/organization.yaml#/staffPhotos
+  /api/v1/organization/staff/{id}/photos/order:
+    $ref: paths/organization.yaml#/staffPhotosOrder
+  /api/v1/organization/staff/{id}/photos/{photoId}:
+    $ref: paths/organization.yaml#/staffPhoto
+  /api/v1/organization/divisions:
+    $ref: paths/organization.yaml#/divisions
+  /api/v1/organization/divisions/{id}:
+    $ref: paths/organization.yaml#/division
+  /api/v1/organization/offices:
+    $ref: paths/organization.yaml#/offices
+  /api/v1/organization/offices/{id}:
+    $ref: paths/organization.yaml#/office
+  /api/v1/organization/chart:
+    $ref: paths/organization.yaml#/chart
+  /api/v1/organization/chart/layout:
+    $ref: paths/organization.yaml#/chartLayout
+  /api/v1/organization/chart/order:
+    $ref: paths/organization.yaml#/chartOrder
+  /api/v1/organization/chart/{id}:
+    $ref: paths/organization.yaml#/chartNode
+
+  /api/v1/galleries:
+    $ref: paths/media-content.yaml#/galleries
+  /api/v1/galleries/{id}:
+    $ref: paths/media-content.yaml#/gallery
+  /api/v1/galleries/{id}/images:
+    $ref: paths/media-content.yaml#/galleryImages
+  /api/v1/galleries/{id}/images/order:
+    $ref: paths/media-content.yaml#/galleryImagesOrder
+  /api/v1/galleries/{id}/images/{imageId}:
+    $ref: paths/media-content.yaml#/galleryImage
+  /api/v1/videos:
+    $ref: paths/media-content.yaml#/videos
+  /api/v1/videos/{id}:
+    $ref: paths/media-content.yaml#/video
+  /api/v1/video-streams:
+    $ref: paths/media-content.yaml#/videoStreams
+  /api/v1/video-streams/{id}:
+    $ref: paths/media-content.yaml#/videoStream
+  /api/v1/image-popups:
+    $ref: paths/media-content.yaml#/imagePopups
+  /api/v1/image-popups/{id}:
+    $ref: paths/media-content.yaml#/imagePopup
+
+  /api/v1/banners:
+    $ref: paths/homepage.yaml#/banners
+  /api/v1/banners/{id}:
+    $ref: paths/homepage.yaml#/banner
+  /api/v1/news-slider:
+    $ref: paths/homepage.yaml#/newsSlides
+  /api/v1/news-slider/{id}:
+    $ref: paths/homepage.yaml#/newsSlide
+  /api/v1/homepage-links:
+    $ref: paths/homepage.yaml#/links
+  /api/v1/homepage-links/{id}:
+    $ref: paths/homepage.yaml#/link
+  /api/v1/homepage-publications:
+    $ref: paths/homepage.yaml#/publications
+  /api/v1/homepage-publications/{id}:
+    $ref: paths/homepage.yaml#/publication
+  /api/v1/homepage-strategy-docs:
+    $ref: paths/homepage.yaml#/strategyDocs
+  /api/v1/homepage-strategy-docs/order:
+    $ref: paths/homepage.yaml#/strategyDocsOrder
+  /api/v1/homepage-strategy-docs/{id}:
+    $ref: paths/homepage.yaml#/strategyDoc
+  /api/v1/running-lines:
+    $ref: paths/homepage.yaml#/runningLines
+  /api/v1/running-lines/{id}:
+    $ref: paths/homepage.yaml#/runningLine
+  /api/v1/info-lines:
+    $ref: paths/homepage.yaml#/infoLines
+  /api/v1/info-lines/{id}:
+    $ref: paths/homepage.yaml#/infoLine
+
+  /api/v1/currencies:
+    $ref: paths/statistics.yaml#/currencies
+  /api/v1/currencies/{code}:
+    $ref: paths/statistics.yaml#/currency
+  /api/v1/currency-rates:
+    $ref: paths/statistics.yaml#/rateSheet
+  /api/v1/currency-rates/dates:
+    $ref: paths/statistics.yaml#/rateDates
+  /api/v1/currency-rates/import:
+    $ref: paths/statistics.yaml#/rateImport
+  /api/v1/azir:
+    $ref: paths/statistics.yaml#/azir
+  /api/v1/azir/import:
+    $ref: paths/statistics.yaml#/azirImport
+  /api/v1/azir/{id}:
+    $ref: paths/statistics.yaml#/azirItem
+  /api/v1/inflation:
+    $ref: paths/statistics.yaml#/inflation
+  /api/v1/inflation/settings:
+    $ref: paths/statistics.yaml#/inflationSettings
+  /api/v1/inflation/{id}:
+    $ref: paths/statistics.yaml#/inflationItem
+  /api/v1/yield-curves/yields:
+    $ref: paths/statistics.yaml#/yieldCurveYields
+  /api/v1/yield-curves/yields/import:
+    $ref: paths/statistics.yaml#/yieldCurveYieldsImport
+  /api/v1/yield-curves/yields/{date}:
+    $ref: paths/statistics.yaml#/yieldCurveYieldsByDate
+  /api/v1/yield-curves/parameters:
+    $ref: paths/statistics.yaml#/yieldCurveParameters
+  /api/v1/yield-curves/parameters/import:
+    $ref: paths/statistics.yaml#/yieldCurveParametersImport
+  /api/v1/yield-curves/parameters/{date}:
+    $ref: paths/statistics.yaml#/yieldCurveParametersByDate
+  /api/v1/yield-curves/periods:
+    $ref: paths/statistics.yaml#/yieldCurvePeriods
+  /api/v1/yield-curves/periods/import:
+    $ref: paths/statistics.yaml#/yieldCurvePeriodsImport
+  /api/v1/yield-curves/periods/{date}:
+    $ref: paths/statistics.yaml#/yieldCurvePeriodsByDate
+
+  /api/v1/me/permissions:
+    $ref: paths/rbac.yaml#/mePermissions
+  /api/v1/roles:
+    $ref: paths/rbac.yaml#/roles
+  /api/v1/audit-log:
+    $ref: paths/rbac.yaml#/auditLog
+
+  /healthz:
+    $ref: paths/misc.yaml#/healthz
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token from `POST /api/v1/auth/login` or `/refresh`; valid 15 minutes.
+    refreshCookie:
+      type: apiKey
+      in: cookie
+      name: cbar_admin_rt
+      description: httpOnly refresh-token cookie set by login/refresh, scoped to `/api/v1/auth`.

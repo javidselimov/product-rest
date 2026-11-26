@@ -1,0 +1,32 @@
+{
+  "mission": "Azərbaycan Respublikasının Mərkəzi Bankı (Mərkəzi Bank) tərəfindən yaradılmış Maliyyə sektorunda sahəvi Kompüter İnsidentlərinə qarşı Mübarizə Mərkəzinin (FinCERT) missiyası maliyyə bazarının kibertəhlükəsizlik səviyyəsini və dayanıqlılığını gücləndirməkdir.",
+  "directions": [
+    {
+      "title": "İnsidentlər barədə məlumatların əldə olunması və paylaşılması",
+      "body": "<p>FinCERT maliyyə bazar iştirakçılarına təsir edən kibertəhlükəsizlik insidentləri barədə məlumatların mərkəzləşdirilmiş formada toplanmasını və vaxtında paylaşılmasını təmin edir.</p>\n<p>FinCERT bu istiqamətdə:</p>\n<ul><li>qanunvericilik çərçivəsində CERT-lər ilə sıx kommunikasiya və əməkdaşlıq həyata keçirir;</li>\n<li>maliyyə bazarlarında kibertəhlükəsizlik səviyyəsinin artırılmasını təmin edən effektiv kommunikasiya mühitini formalaşdırır;</li>\n<li>beynəlxalq maliyyə CERT-ləri ilə əməkdaşlıq edərək qlobal ən yaxşı təcrübələri tətbiq edir.</li>\n</ul>"
+    },
+    {
+      "title": "İnsidentlərin təhlili və ilkin cavab tədbirlərinin təmin olunması",
+      "body": "<p>FinCERT daxil olan məlumatları analiz edərək insidentlərin əsas səbəblərini müəyyənləşdirir, onların maliyyə sektoruna təsirini qiymətləndirir və müvafiq tərəflərin uyğun tədbirlər görməsini təmin etmək üçün operativ məlumat mübadiləsini və istiqamətləndirici tövsiyələrin təqdim olunmasını təmin edir.</p>"
+    },
+    {
+      "title": "İnsidentlər üzrə fəaliyyətin koordinasiyası və maliyyə ekosistemində dayanıqlılığın gücləndirilməsi",
+      "body": "<p>FinCERT maliyyə bazarı iştirakçıları, CERT-lər və digər maraqlı tərəflər arasında koordinasiyanı təmin etməklə insidentlərə cavab proseslərini vahid formada təşkil edir. Bu koordinasiya nəticəsində sektor üzrə daha sürətli və effektiv reaksiya göstərilir, maliyyə sisteminin dayanıqlılığı artırılır.</p>\n<p>FinCERT eyni zamanda:</p>\n<ul><li>maliyyə bazarında kibertəhlükəsizlik üzrə bilik və bacarıqların artırılmasına şərait yaradır;</li>\n<li>maarifləndirmə təşəbbüsləri vasitəsilə kibergigiyena səviyyəsini yüksəldir;</li>\n<li>rəqəmsal kanallar üzərindən CERT-lərlə sıx əməkdaşlıqda kibertəhlükəsizlik məlumatlarının yayılmasını təmin edir.</li>\n</ul>"
+    },
+    {
+      "title": "Təhdidlərin proaktiv aşkarlanması və iştirakçıların əvvəlcədən xəbərdar edilməsi",
+      "body": "<p>FinCERT-in fəaliyyət istiqamətlərindən biri də maliyyə sektorunu hədəfləyən kibertəhdidlərin proaktiv şəkildə aşkarlanması və onların mümkün nəticələrinin qarşısının alınmasıdır. Bu çərçivədə FinCERT müxtəlif məlumatların toplanması və təhlili mexanizmlərindən istifadə etməklə yeni və yaranmaqda olan təhdidlərin identifikasiyasını həyata keçirir, onların maliyyə institutlarına potensial təsirlərini qiymətləndirir və müvafiq qabaqlayıcı tədbirlərin görülməsi üçün iştirakçıları vaxtında məlumatlandırır.</p>\n<p>Bu fəaliyyət nəticəsində maliyyə sektoru üzrə risklərin əvvəlcədən müəyyən olunması təmin edilir, bazar iştirakçılarının insidentlərə hazırlıq səviyyəsi artırılır və ümumi kiberdayanıqlılıq gücləndirilir.</p>"
+    }
+  ],
+  "email": "fincert@cbar.az",
+  "phone": "(+994 12) 437 00 97",
+  "portal": {
+    "url": "https://portal.e-cbar.az/",
+    "title": "Vahid Elektron Hesabatlılıq Portalı",
+    "description": "Yüksək kateqoriyalı insidentlər üzrə hesabatlar nəzarət subyektləri tərəfindən Mərkəzi Banka bu portal vasitəsilə göndərilir."
+  },
+  "rfc": {
+    "legacyName": "f7322827bd3688a2be3136204.pdf",
+    "url": "https://uploads.cbar.az/assets/f7322827bd3688a2be3136204.pdf"
+  }
+}

@@ -1,0 +1,102 @@
+rates:
+  get:
+    tags: [Currencies]
+    operationId: getCurrencyRates
+    summary: Official exchange rates for a date
+    description: |
+      Without `date`, returns the latest published sheet. A `date` with no sheet
+      returns 200 with an empty `rates` array (not 404).
+    parameters:
+      - name: date
+        in: query
+        description: Sheet date, `yyyy-MM-dd`. Defaults to the latest rate date.
+        schema:
+          type: string
+          format: date
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Rate sheet.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/currencies.yaml#/CurrencyRateSheet
+      '400':
+        $ref: ../components/responses.yaml#/BadRequest
+      '404':
+        description: No rates have been published at all (only when `date` is omitted).
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/common.yaml#/ErrorMessage
+            example:
+              message: No rates published yet.
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+    x-known-issues:
+      - 404 body is `{message}` instead of ProblemDetails like every other 404.
+
+ratesXml:
+  get:
+    tags: [Currencies]
+    operationId: getCurrencyRatesXml
+    summary: Legacy XML rates feed (compatibility contract)
+    description: |
+      Reproduces the historical `https://www.cbar.az/currencies/{DD.MM.YYYY}.xml` feed
+      that external systems have consumed for years. **Element names, ordering and number
+      formatting are a contract** — do not change them. Names are always Azerbaijani;
+      there is no `locale` parameter. `Value` always has exactly 4 decimals (invariant
+      culture).
+
+      Precious metals (`XPD`, `XPT`, `XAG`, `XAU`) are never listed as currencies. When the date
+      has any of them they come first, in their own `Bank metalları` block, in that fixed order,
+      with `Nominal` `1 t.u.` and the bare az name; a date without metals has no such block.
+
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <ValCurs Date="01.09.2026" Name="AZN məzənnələri">
+        <ValType Type="Bank metalları">
+          <Valute Code="XAU">
+            <Nominal>1 t.u.</Nominal>
+            <Name>Qızıl</Name>
+            <Value>7133.2510</Value>
+          </Valute>
+        </ValType>
+        <ValType Type="Xarici valyutalar">
+          <Valute Code="USD">
+            <Nominal>1</Nominal>
+            <Name>1 ABŞ dolları</Name>
+            <Value>1.7000</Value>
+          </Valute>
+        </ValType>
+      </ValCurs>
+      ```
+    parameters:
+      - name: date
+        in: path
+        required: true
+        description: Sheet date in `dd.MM.yyyy` format.
+        schema:
+          type: string
+          pattern: ^\d{2}\.\d{2}\.\d{4}$
+          examples: [01.09.2026]
+    responses:
+      '200':
+        description: Rate sheet as XML.
+        content:
+          application/xml:
+            schema:
+              type: string
+      '400':
+        description: The date is not `dd.MM.yyyy`.
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: 'Expected date format: DD.MM.YYYY'
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests
+    x-known-issues:
+      - Element order and number formatting not yet verified against archived production responses (TODO(compat) in CurrenciesController).

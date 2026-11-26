@@ -1,0 +1,9 @@
+# Hook və skript faylları həmişə LF — husky hook-u `sh -e` ilə işlədir, CRLF onu qırır
+.husky/*  text eol=lf
+*.mjs     text eol=lf
+*.sh      text eol=lf
+
+# Vendored UI kit arxivi binar qalır. `binary` makrosu `-text` daşıyır, yəni git
+# heç bir sətir sonu normalizasiyası etmir — əks halda Windows-da CRLF çevrilməsi
+# baytları dəyişər və `install:offline`-ın sha512 yoxlaması səbəbsiz qırılardı.
+vendor/*.tgz  binary

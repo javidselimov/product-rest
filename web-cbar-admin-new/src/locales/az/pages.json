@@ -1,0 +1,164 @@
+{
+  "title": "Səhifələr",
+  "description": "CMS səhifə ağacı. Alt səhifə əlavə edin, köçürün, redaktə edin.",
+  "newPage": "Yeni səhifə",
+  "newTitle": "Yeni səhifə",
+  "editTitle": "Səhifə: {{name}}",
+  "untitled": "(başlıqsız)",
+  "empty": "Səhifə yoxdur",
+  "localeSwitch": "Ağac dili",
+  "moved": "Səhifə köçürüldü",
+  "deleted": "Səhifə silindi",
+  "lockedHint": "Səhifə yalnız oxunur və ya söndürülüb — məzmun sahələri kilidlidir.",
+  "slugAuto": "başlıqdan avtomatik yaradılır",
+  "slugFixed": "Slug URL-in bir hissəsidir; adı dəyişəndə sabit qalır.",
+  "navUrlHint": "Doldurulsa, menyu bu ünvana yönləndirir (səhifə məzmunu əvəzinə).",
+  "flagsTitle": "Bayraqlar",
+  "menuVisibility": {
+    "title": "Saytın menyusunda",
+    "visible": "Görünəcək",
+    "hidden": "Görünməyəcək",
+    "hiddenBecause": "Görünməyəcək: {{reasons}}",
+    "reasons": {
+      "status": "status «Dərc olunub» deyil",
+      "inactive": "aktiv deyil",
+      "hidden": "gizlidir",
+      "localeOff": "bu dildə göstərilmir",
+      "noTitle": "bu dildə başlıq yoxdur",
+      "tooDeep": "menyu yalnız 3 səviyyə göstərir",
+      "sectionRoot": "bölmənin kökü, sol menyunun başlığıdır",
+      "sideNavOff": "sol menyuda göstərilmir",
+      "parentSideNavOff": "valideyn sol menyuda gizlidir",
+      "dropdownNavOff": "açılan menyularda göstərilmir",
+      "parentDropdownNavOff": "valideyn açılan menyularda gizlidir"
+    },
+    "location": {
+      "legend": "Menyudakı yeri",
+      "all": "Bütün menyularda",
+      "allHint": "Bölmənin sol menyusunda və saytın açılan menyularında (üst menyu, mobil menyu).",
+      "dropdownOnly": "Yalnız açılan menyularda (sol menyuda yox)",
+      "dropdownOnlyHint": "Üst və mobil menyuda görünür, bölmənin sol menyusunda yox.",
+      "dropdownOnlyRoot": "Bölmə kökü üçün bu seçim yoxdur: kök açılan menyuda bölmənin başlığıdır.",
+      "none": "Menyularda yox",
+      "noneHint": "Heç bir menyuda görünmür. Səhifə öz ünvanı ilə açılır, sol menyuda yalnız özü açıq olanda görünür.",
+      "noneRoot": "Bölmə geniş ekranın hamburger panelində görünməyəcək. Nav zolağı, planşet və mobil menyu, footer dəyişmir.",
+      "sideOnly": "Bu səhifə yalnız sol menyuda göstərilir (köhnə ayar). Seçim edənə qədər belə qalır."
+    },
+    "promotedToRoot": "Valideyn bu dildə görünmür — səhifə menyuda üst səviyyədə çıxacaq.",
+    "rootPanelHidden": "Geniş ekranın hamburger panelində görünməyəcək. Nav zolağındakı ilk {{count}} bölmə zolaqda qalır.",
+    "hint": "Dəyişiklik saytda bir neçə saniyə ərzində görünür.",
+    "rows": {
+      "top": "Üst menyu",
+      "side": "Sol menyu"
+    },
+    "sideNavOpenOnly": "Səhifənin özü açıq olanda sol menyuda görünür."
+  },
+  "columns": {
+    "title": "Başlıq / slug",
+    "navUrl": "Menyu linki",
+    "status": "Status",
+    "sortOrder": "Sıra",
+    "actions": "Əməllər"
+  },
+  "badges": {
+    "inactive": "Qeyri-aktiv",
+    "hidden": "Gizli",
+    "sideNavHidden": "Sol menyuda gizli"
+  },
+  "actions": {
+    "expand": "Aç: {{name}}",
+    "collapse": "Yığ: {{name}}",
+    "addChild": "Alt səhifə əlavə et: {{name}}",
+    "edit": "Redaktə et: {{name}}",
+    "move": "Köçür: {{name}}",
+    "delete": "Sil: {{name}}",
+    "drag": "Sürükləyib sırala: {{name}}"
+  },
+  "fields": {
+    "title": "Başlıq",
+    "slug": "Slug",
+    "content": "Məzmun",
+    "status": "Status",
+    "sortOrder": "Sıra",
+    "navUrl": "Menyu linki (override)",
+    "menuGroup": "Menyu qrupu"
+  },
+  "menuGroupHint": "Açılan menyuda eyni qrupu olan bacı səhifələr bir yerdə göstərilir. Saytın yeni menyusunda görünəcək.",
+  "flagGroups": {
+    "visibility": "Görünürlük",
+    "protection": "Qoruma",
+    "movement": "Hərəkət",
+    "treeState": "Admin ağac vəziyyəti"
+  },
+  "flags": {
+    "active": "Aktiv",
+    "visible": "Menyuda görünür",
+    "showAz": "AZ saytda göstər",
+    "showEn": "EN saytda göstər",
+    "showInFooter": "Footer-də göstər",
+    "readonly": "Yalnız oxunur",
+    "disabled": "Söndürülüb",
+    "removable": "Silinə bilər",
+    "removableAll": "Alt səhifələrlə birlikdə silinə bilər",
+    "movableU": "Yuxarı köçürülə bilər",
+    "movableD": "Aşağı köçürülə bilər",
+    "movableL": "Sola köçürülə bilər (valideyndən çıxar)",
+    "movableR": "Sağa köçürülə bilər (qardaşın altına)",
+    "selected": "Seçilmiş",
+    "collapsed": "Default olaraq yığılmış"
+  },
+  "validation": {
+    "titleRequired": "Başlıq ən azı bir dildə doldurulmalıdır",
+    "menuGroupTooLong": "Menyu qrupu ən çox {{max}} simvol ola bilər",
+    "sortOrder": "Sıra tam ədəd olmalıdır"
+  },
+  "move": {
+    "title": "Köçür: {{name}}",
+    "description": "Yeni valideyn səhifəni və sıranı seçin. Səhifənin özü və alt səhifələri seçilə bilməz.",
+    "parent": "Valideyn səhifə",
+    "root": "Kök səviyyə",
+    "sortOrderInvalid": "Sıra tam ədəd olmalıdır",
+    "submit": "Köçür"
+  },
+  "delete": {
+    "title": "Səhifəni sil",
+    "confirm": "\"{{name}}\" səhifəsi silinsin?",
+    "withChildren": "\"{{name}}\" səhifəsi və onun {{count}} alt səhifəsi silinsin?"
+  },
+  "assets": {
+    "title": "Sənədlər",
+    "description": "Səhifəyə bağlanmış fayllar. Eyni qrup etiketli sənədlər saytda accordion kimi göstərilir.",
+    "add": "Sənəd əlavə et",
+    "empty": "Sənəd yoxdur.",
+    "attach": "Bağla",
+    "attachTitle": "Sənəd əlavə et",
+    "titlesTitle": "Başlıqları redaktə et",
+    "titleAz": "Başlıq (AZ)",
+    "titleEn": "Başlıq (EN)",
+    "group": "Qrup etiketi",
+    "groupHint": "Məsələn il (2024) — eyni qrupdakı sənədlər saytda bir accordion-da toplanır.",
+    "attached": "Sənəd bağlandı",
+    "updated": "Sənəd başlıqları yeniləndi",
+    "reordered": "Sıra dəyişdirildi",
+    "detached": "Sənəd ayrıldı",
+    "detach": "Ayır",
+    "detachTitle": "Sənədi ayır",
+    "detachConfirm": "\"{{name}}\" bu səhifədən ayrılsın? Fayl kitabxanada qalır.",
+    "detachAria": "{{name}} sənədini ayır",
+    "moveUp": "{{name}} sənədini yuxarı",
+    "moveDown": "{{name}} sənədini aşağı",
+    "editTitles": "{{name}} başlıqlarını redaktə et"
+  },
+  "reorder": {
+    "done": "Sıra yeniləndi",
+    "locked": "Sıra dəyişmədi: «{{name}}» səhifəsinin sırası kilidlidir."
+  },
+  "managedSection": {
+    "title": "Bu səhifənin məzmunu",
+    "linkText": "Cədvəl və ya kartlar səhifənin mətnindən yox, {{path}} bölməsindən gəlir.",
+    "open": "{{name}} bölməsini aç",
+    "workingPapersText": "Məqalələr səhifənin mətnindən yox, {{path}} bölməsindən gəlir. Burada yalnız səhifənin başlığı və giriş mətni redaktə olunur.",
+    "monthlyReportsText": "İl → ay arxivi (aylıq fayllar) səhifənin mətnindən yox, {{path}} bölməsindən gəlir. Giriş mətni və metodologiya burada redaktə olunur.",
+    "membershipsNote": "Üzvlüklər bu səhifənin mətnindəki birinci cədvəldir: birinci sütun təşkilat, ikinci sütun il. Sayt sıranı ilə görə özü qurur, ona görə yeni sətri cədvəlin istənilən yerinə əlavə edə bilərsiniz."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Media library",
+  "description": "Uploaded files and images. Accepted formats: jpg, png, gif, webp, svg, pdf, xlsx, xls, docx, doc, zip, xml.",
+  "search": "Search files",
+  "searchPlaceholder": "File name…",
+  "empty": "No files found",
+  "emptyHint": "Change the search term or upload a new file.",
+  "grid": "Files",
+  "refreshing": "Refreshing…",
+  "dismiss": "Dismiss notice",
+  "deleteAria": "Delete file {{name}}",
+  "deleteFailed": "The file could not be deleted",
+  "upload": "Upload file",
+  "uploading": "Uploading",
+  "uploaded": "\"{{name}}\" uploaded",
+  "uploadFailed": "The file could not be uploaded",
+  "deleted": "File deleted",
+  "deleteTitle": "Delete file",
+  "deleteConfirm": "Delete the file \"{{name}}\"?",
+  "attachedWarning": "The file is attached to content — detach it first.",
+  "dimensions": "Dimensions",
+  "size": "Size",
+  "created": "Uploaded",
+  "type": "Type",
+  "picker": {
+    "title": "Choose a file",
+    "description": "Pick a file from the media library.",
+    "list": "Files",
+    "pick": "Pick file {{name}}",
+    "accept": {
+      "image": "Only an image can be picked.",
+      "document": "Only a document can be picked (PDF, Word, Excel, archive)."
+    }
+  },
+  "field": {
+    "none": "No file selected",
+    "choose": "Choose",
+    "change": "Change",
+    "clear": "Clear"
+  },
+  "preview": {
+    "open": "Enlarge {{name}}",
+    "unavailable": "Preview unavailable",
+    "loading": "Loading preview"
+  },
+  "assets": {
+    "title": "Attachments",
+    "description": "Files attached to this record.",
+    "add": "Add attachment",
+    "empty": "No attachments.",
+    "attached": "Attachment added",
+    "attachFailed": "The attachment could not be added",
+    "detached": "Attachment removed",
+    "detach": "Detach",
+    "detachTitle": "Detach attachment",
+    "detachConfirm": "Detach \"{{name}}\" from this record? The file stays in the library.",
+    "detachAria": "Detach attachment {{name}}",
+    "moveUpAria": "Move {{name}} up",
+    "moveDownAria": "Move {{name}} down",
+    "reordered": "Order updated",
+    "reorderFailed": "The order could not be updated",
+    "localeChanged": "File language updated",
+    "localeFailed": "File language was not updated"
+  }
+}

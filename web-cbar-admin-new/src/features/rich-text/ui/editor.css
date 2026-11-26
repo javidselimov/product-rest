@@ -1,0 +1,168 @@
+/*
+ * Rich-text redaktoru (.rte .ProseMirror) və sanitizasiya olunmuş önizləmə
+ * (.rte-preview) stilləri. Rənglər yalnız kit-in semantik tokenləri ilə
+ * (`var(--…)`) — hex/rgb/oklch yoxdur (konstitusiya III.3). Redaktor görünüşü
+ * ictimai saytın görünüşünü təxmini əks etdirir ki, redaktor nəticəni görsün.
+ */
+
+.rte .ProseMirror {
+  min-height: var(--rte-min-h, 240px);
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.rte-preview {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.rte .ProseMirror p,
+.rte-preview p {
+  margin: 0 0 0.5rem;
+}
+
+.rte .ProseMirror h2,
+.rte-preview h2 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.rte .ProseMirror h3,
+.rte-preview h3 {
+  margin: 0.65rem 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.rte .ProseMirror ul,
+.rte-preview ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.rte .ProseMirror ol,
+.rte-preview ol {
+  margin: 0 0 0.5rem;
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.rte .ProseMirror blockquote,
+.rte-preview blockquote {
+  margin: 0.5rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted-foreground);
+}
+
+.rte .ProseMirror a,
+.rte-preview a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Accordion */
+.rte .ProseMirror details,
+.rte-preview details {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--ui-radius-sm);
+}
+
+.rte .ProseMirror details summary,
+.rte-preview details summary {
+  display: list-item;
+  list-style: disclosure-open inside;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.rte .ProseMirror details summary {
+  cursor: text;
+}
+
+.rte-preview details summary {
+  cursor: pointer;
+}
+
+.rte .ProseMirror details summary::marker,
+.rte-preview details summary::marker {
+  color: var(--primary);
+}
+
+.rte .ProseMirror details > div[data-type='details-content'],
+.rte-preview details > div[data-type='details-content'] {
+  margin-top: 0.4rem;
+  padding-left: 1.1rem;
+}
+
+/* Cədvəl */
+.rte .ProseMirror table,
+.rte-preview table {
+  width: 100%;
+  margin: 0.6rem 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  overflow: hidden;
+}
+
+.rte .ProseMirror table td,
+.rte .ProseMirror table th,
+.rte-preview table td,
+.rte-preview table th {
+  position: relative;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.rte .ProseMirror table th,
+.rte-preview table th {
+  background-color: var(--muted);
+  color: var(--primary);
+  font-weight: 700;
+  text-align: left;
+}
+
+.rte .ProseMirror table .selectedCell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklab, var(--primary) 15%, transparent);
+  pointer-events: none;
+}
+
+/* Şəkil və embed */
+.rte .ProseMirror img,
+.rte-preview img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}
+
+.rte .ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid var(--ring);
+  border-radius: var(--ui-radius-sm);
+}
+
+.rte .ProseMirror div[data-youtube-video] iframe,
+.rte .ProseMirror iframe,
+.rte-preview div[data-youtube-video] iframe,
+.rte-preview iframe {
+  max-width: 100%;
+  margin: 0.5rem 0;
+  border: 0;
+  border-radius: var(--ui-radius-md);
+}
+
+.rte .ProseMirror .ProseMirror-selectednode:not(img) {
+  outline: 2px solid var(--ring);
+  background-color: var(--background);
+}

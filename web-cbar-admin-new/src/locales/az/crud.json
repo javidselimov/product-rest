@@ -1,0 +1,67 @@
+{
+  "new": "Yeni",
+  "newEntity": "Yeni {{entity}}",
+  "editEntity": "{{entity}} redaktəsi",
+  "save": "Yadda saxla",
+  "cancel": "Ləğv et",
+  "delete": "Sil",
+  "edit": "Redaktə et",
+  "deleteTitle": "Qeydi sil",
+  "deleteConfirm": "\"{{name}}\" qeydi silinsin? Bu əməliyyat geri qaytarıla bilməz.",
+  "deleted": "Qeyd silindi",
+  "saved": "Dəyişikliklər yadda saxlanıldı",
+  "created": "Qeyd yaradıldı",
+  "pagination": "{{total}} qeyd · səhifə {{page}} / {{pageCount}}",
+  "paginationAria": "Səhifələmə",
+  "previousPage": "Əvvəlki səhifə",
+  "nextPage": "Növbəti səhifə",
+  "goToPage": "{{page}}-ci səhifəyə keç",
+  "empty": "Qeyd tapılmadı",
+  "emptyHint": "Axtarış və ya filtr şərtlərini dəyişin, ya da yeni qeyd yaradın.",
+  "search": "Axtar",
+  "searchPlaceholder": "Axtarış…",
+  "filterAll": "{{label}}: hamısı",
+  "all": "Hamısı",
+  "filters": "Filtrlər",
+  "refreshing": "Yenilənir…",
+  "actions": "Əməllər",
+  "rowActions": "{{name}} üçün əməllər",
+  "generalFields": "Ümumi sahələr",
+  "translations": "Tərcümələr",
+  "localeTab": {
+    "az": "AZ",
+    "en": "EN"
+  },
+  "localeHasErrors": "Xəta",
+  "notFound": "Qeyd tapılmadı və ya silinib",
+  "backToList": "Siyahıya qayıt",
+  "readOnly": "Bu qeyd yalnız oxunur",
+  "validation": {
+    "required": "{{field}} sahəsi məcburidir",
+    "requiredOneLocale": "{{field}} ən azı bir dildə doldurulmalıdır",
+    "number": "{{field}} rəqəm olmalıdır",
+    "min": "{{field}} ən azı {{min}} olmalıdır",
+    "max": "{{field}} ən çox {{max}} olmalıdır",
+    "date": "{{field}} düzgün tarix deyil",
+    "datetime": "{{field}} düzgün tarix-vaxt deyil",
+    "time": "{{field}} düzgün saat deyil",
+    "fixErrors": "Formda xətalar var — sahələri yoxlayın"
+  },
+  "unsaved": {
+    "title": "Yadda saxlanmamış dəyişikliklər",
+    "description": "Formda yadda saxlanmamış dəyişikliklər var. Səhifədən çıxsanız, onlar itəcək.",
+    "leave": "Çıx"
+  },
+  "reorder": {
+    "button": "Sıranı dəyiş",
+    "description": "Sətri sürüşdürün və ya oxlarla yerini dəyişin. Saytda bu sıra ilə görünür.",
+    "close": "Bağla",
+    "saved": "Sıra yadda saxlanıldı",
+    "failed": "Sıranı saxlamaq alınmadı"
+  },
+  "sortable": {
+    "moveUp": "{{name}} — yuxarı",
+    "moveDown": "{{name}} — aşağı",
+    "moved": "«{{name}}» {{position}}-ci yerə keçdi"
+  }
+}

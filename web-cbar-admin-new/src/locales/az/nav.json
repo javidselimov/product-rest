@@ -1,0 +1,133 @@
+{
+  "groups": {
+    "about": "Haqqımızda",
+    "marketParticipants": "Bazar iştirakçıları",
+    "legalActs": "Hüquqi aktlar",
+    "nationalCurrency": "Milli pul nişanları",
+    "statistics": "Statistika",
+    "media": "Media",
+    "cooperation": "Beynəlxalq əməkdaşlıq",
+    "consumer": "İstehlakçı hüquqları",
+    "publications": "Nəşrlər və tədqiqatlar",
+    "faq": "Sual-cavab",
+    "fincert": "FinCERT",
+    "homepage": "Ana səhifə",
+    "admin": "İdarəetmə"
+  },
+  "dashboard": {
+    "label": "İdarə paneli",
+    "description": "Dərc növbəsi, son redaktələr və audit"
+  },
+  "pages": {
+    "label": "Səhifələr",
+    "description": "CMS səhifə ağacı və məzmun"
+  },
+  "pressReleases": {
+    "label": "Press relizlər",
+    "description": "Mətbuat açıqlamaları və sənədləri"
+  },
+  "events": {
+    "label": "Tədbirlər",
+    "description": "Gələcək və keçmiş tədbirlər, bölmələr"
+  },
+  "csrProjects": {
+    "label": "KSM layihələri",
+    "description": "Korporativ sosial məsuliyyət layihələri, kateqoriyalar"
+  },
+  "ifiOrganizations": {
+    "label": "Maliyyə təşkilatları",
+    "description": "Beynəlxalq maliyyə təşkilatları və üzvlük tarixləri"
+  },
+  "memorandums": {
+    "label": "Memorandumlar",
+    "description": "Mərkəzi banklar və nəzarət qurumları ilə Anlaşma Memorandumları"
+  },
+  "releaseSchedule": {
+    "label": "Yayım qrafiki",
+    "description": "Məlumatların yayımlanması qrafiki: sətirlər, qruplar, dövriliklər"
+  },
+  "monthlyReports": {
+    "label": "Aylıq hesabatlar",
+    "description": "Şikayət indeksləri və infoqrafika, ay-ay fayllar"
+  },
+  "workingPapers": {
+    "label": "İşçi məqalələri",
+    "description": "İşçi məqalələr silsiləsi: nömrə, müəlliflər, xülasə, PDF"
+  },
+  "faq": {
+    "label": "Sual-cavab",
+    "description": "Sual-cavab səhifəsi: suallar, mövzular, videolar"
+  },
+  "fincert": {
+    "label": "FinCERT",
+    "description": "Missiya, istiqamətlər, əlaqə, RFC-2350 və üzvlüklər"
+  },
+  "laws": {
+    "label": "Qanunlar",
+    "description": "Qanunlar, qaydalar və kateqoriyaları"
+  },
+  "meas": {
+    "label": "MEAS",
+    "description": "MEAS sənədləri, emitentlər və məlumat tipləri"
+  },
+  "organization": {
+    "label": "Təşkilat",
+    "description": "Rəhbərlik, şöbələr və regional ofislər"
+  },
+  "moneyMarks": {
+    "label": "Pul nişanları",
+    "description": "Əskinaslar, sikkələr, kateqoriyalar və xəbərlər"
+  },
+  "mediaLibrary": {
+    "label": "Media kitabxanası",
+    "description": "Yüklənmiş fayllar və şəkillər"
+  },
+  "galleries": {
+    "label": "Qalereyalar",
+    "description": "Foto qalereyalar"
+  },
+  "videos": {
+    "label": "Videolar",
+    "description": "YouTube videoları"
+  },
+  "liveStreams": {
+    "label": "Canlı yayımlar",
+    "description": "Saytda popup kimi göstərilən YouTube canlı yayımı"
+  },
+  "imagePopups": {
+    "label": "Şəkilli popup-lar",
+    "description": "Saytda popup kimi göstərilən elan şəkli"
+  },
+  "homepageBlocks": {
+    "label": "Ana səhifə blokları",
+    "description": "Bannerlər, slayder, sürüşən sətirlər, linklər, nəşrlər"
+  },
+  "infoLines": {
+    "label": "Məlumat sətirləri",
+    "description": "Əsas göstəricilər və faiz dəhlizi"
+  },
+  "currencyRates": {
+    "label": "Məzənnələr",
+    "description": "Gündəlik valyuta məzənnə vərəqləri və valyutalar"
+  },
+  "azir": {
+    "label": "AZIR",
+    "description": "AZIR indeks dəyərləri"
+  },
+  "inflation": {
+    "label": "İnflyasiya",
+    "description": "Aylıq inflyasiya parametrləri"
+  },
+  "yieldCurves": {
+    "label": "Gəlirlik əyriləri",
+    "description": "Əyri nöqtələri, Nelson–Siegel parametrləri və müddətlər — Excel-dən"
+  },
+  "users": {
+    "label": "İstifadəçilər",
+    "description": "Panel istifadəçiləri və rollar"
+  },
+  "settings": {
+    "label": "Parametrlər",
+    "description": "Sistem parametrləri (açar → JSON)"
+  }
+}

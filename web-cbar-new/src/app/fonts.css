@@ -1,0 +1,84 @@
+/*
+ * DM Sans — saytın əsas şrifti (spec 022 research R2). Lora yalnız Tarix hero başlığı və Missiya bannerinin vurğularıdır
+ * (spec 024 R11, Figma `1845:118925`, `968:1095`) — `--font-serif` / `font-serif`.
+ *
+ * Kit `--ui-font-sans: 'DM Sans', …` təyin edir, amma faylı göndərmir; fayllar
+ * `public/fonts/dm-sans/` və `public/fonts/lora/`-dadır (OFL 1.1, `OFL.txt`), mənbə
+ * `@fontsource-variable/dm-sans` və `@fontsource-variable/lora` 5.3.0 — paketlər dependency
+ * deyil, fayllar bir dəfə köçürülüb. Kənar origin yoxdur, CSP `font-src 'self'` dəyişmir.
+ *
+ * İki alt dəst `unicode-range` ilə: Azərbaycan hərflərindən ə (U+0259), ğ, ş, İ latin-ext
+ * faylındadır, ona görə ikisi də lazımdır; brauzer yalnız səhifədə olan simvolların
+ * faylını yükləyir. `next/font/local` fayl başına `unicode-range` vermir — buna görə
+ * adi `@font-face`. DM Sans latin faylı root layout-da preload olunur; Lora bir səhifədə
+ * işləndiyi üçün preload olunmur.
+ */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url('/fonts/dm-sans/dm-sans-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url('/fonts/dm-sans/dm-sans-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Lora — Tarix hero başlığı və Missiya bannerinin `<em>` vurğuları; italik ayrıca fayldır. */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('/fonts/lora/lora-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('/fonts/lora/lora-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('/fonts/lora/lora-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('/fonts/lora/lora-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

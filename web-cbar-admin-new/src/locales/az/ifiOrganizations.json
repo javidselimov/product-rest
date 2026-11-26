@@ -1,0 +1,65 @@
+{
+  "title": "Beynəlxalq maliyyə təşkilatları",
+  "entity": "təşkilat",
+  "description": "\"Beynəlxalq maliyyə təşkilatları ilə əməkdaşlıq\" səhifəsindəki kartlar",
+  "columns": {
+    "id": "ID",
+    "name": "Ad",
+    "memberSince": "Üzvlük ili",
+    "memberships": "Tarixlər",
+    "sortOrder": "Sıra",
+    "status": "Status"
+  },
+  "fields": {
+    "status": "Status",
+    "sortOrder": "Sıra",
+    "sortOrderHelp": "Kartlar saytda bu rəqəmə görə, kiçikdən böyüyə düzülür.",
+    "showAz": "Azərbaycan dilində göstər",
+    "showEn": "İngilis dilində göstər",
+    "logo": "Loqo",
+    "logoHelp": "Kartın başlığında 103×58 ölçüdə göstərilir. Şəffaf fonlu PNG və ya SVG tövsiyə olunur.",
+    "memberSince": "Üzvlük ili",
+    "memberSinceHelp": "Kartın başlığında \"Üzvlük: 1992\" kimi görünür. Boş qalsa, göstərilmir.",
+    "websiteUrl": "Sayt ünvanı",
+    "websiteUrlPlaceholder": "https://www.worldbank.org",
+    "name": "Ad",
+    "mission": "Əsas missiya",
+    "missionHelp": "Açılan kartın yuxarısındakı göy qutunun mətni. Boş qalsa, qutu göstərilmir.",
+    "membershipIntro": "Üzvlük tarixlərinin başlığı",
+    "membershipIntroHelp": "Tarix kartlarının üstündəki qalın sətir.",
+    "content": "Mətn"
+  },
+  "filters": {
+    "status": "Status"
+  },
+  "validation": {
+    "nameRequired": "Bu dilin adını yazın və ya dili tam boş saxlayın",
+    "websiteUrl": "Ünvan http:// və ya https:// ilə başlamalıdır"
+  },
+  "memberships": {
+    "title": "Üzvlük tarixləri",
+    "description": "Saytda açılan kartın içində tarix kartları kimi bu sıra ilə görünür. Sıranı oxlarla dəyişin.",
+    "empty": "Tarix əlavə edilməyib",
+    "add": "Tarix əlavə et",
+    "addTitle": "Yeni tarix",
+    "editTitle": "Tarixi redaktə et",
+    "date": "Tarix",
+    "name": "Qurumun adı ({{locale}})",
+    "save": "Tarixi saxla",
+    "cancel": "Ləğv et",
+    "saved": "Tarix yadda saxlanıldı",
+    "saveFailed": "Tarixi yadda saxlamaq alınmadı",
+    "dateRequired": "Tarixi seçin",
+    "nameRequired": "Ən azı bir dildə qurumun adını yazın",
+    "reordered": "Sıra dəyişdi",
+    "reorderFailed": "Sıranı dəyişmək alınmadı",
+    "moveUpAria": "{{name}} — yuxarı",
+    "moveDownAria": "{{name}} — aşağı",
+    "editAria": "{{name}} — redaktə et",
+    "deleteAria": "{{name}} — sil",
+    "deleteTitle": "Tarixi silmək",
+    "deleteConfirm": "\"{{name}}\" tarixi silinsin?",
+    "delete": "Sil",
+    "deleted": "Tarix silindi"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "tabs": {
+    "overview": "Overview",
+    "banners": "Banners",
+    "newsSlider": "News slider",
+    "runningLines": "Running lines",
+    "links": "Links",
+    "publications": "Publications",
+    "infoLines": "Info lines",
+    "strategyDocs": "Strategy and documents"
+  },
+  "hub": {
+    "title": "Homepage blocks",
+    "description": "Blocks shown on the homepage — each section is managed separately.",
+    "open": "Open section: {{name}}",
+    "banners": {
+      "title": "Banners",
+      "description": "Image banners at the top of the homepage and their display period."
+    },
+    "newsSlider": {
+      "title": "News slider",
+      "description": "Dated news slides — title, image, description and link."
+    },
+    "runningLines": {
+      "title": "Running lines",
+      "description": "Short texts scrolling on the homepage and their active period."
+    },
+    "links": {
+      "title": "Links",
+      "description": "The list of useful links on the homepage."
+    },
+    "publications": {
+      "title": "Publications",
+      "description": "Publications shown on the homepage — a file or an external link."
+    },
+    "infoLines": {
+      "title": "Info lines",
+      "description": "Key indicators, the rate corridor and other numeric lines."
+    },
+    "strategyDocs": {
+      "title": "Strategy and documents",
+      "description": "The homepage \"Strategy and documents\" block: documents, covers and links."
+    }
+  },
+  "columns": {
+    "id": "ID",
+    "title": "Title",
+    "text": "Text",
+    "url": "URL",
+    "sortOrder": "Sort",
+    "isActive": "Status",
+    "startsAt": "Starts at",
+    "endsAt": "Ends at",
+    "newsDate": "News date",
+    "publishedAt": "Published at",
+    "cover": "Cover",
+    "link": "Link",
+    "languages": "Languages",
+    "status": "Status"
+  },
+  "fields": {
+    "image": "Image",
+    "file": "File",
+    "sortOrder": "Sort order",
+    "isActive": "Active",
+    "startsAt": "Starts at",
+    "endsAt": "Ends at",
+    "newsDate": "News date",
+    "publishedAt": "Published at",
+    "title": "Title",
+    "link": "Link",
+    "url": "URL",
+    "description": "Description",
+    "text": "Text",
+    "status": "Status",
+    "statusHelp": "A draft is not shown on the site.",
+    "page": "Page",
+    "pageHelp": "The card opens this page. In a language with an address, the address wins.",
+    "summary": "Short text",
+    "summaryHelp": "Shown on the small cards only.",
+    "cover": "Cover",
+    "coverHelp": "Large card 424×240, small card 200×236. Without one in this language, the other language's cover is shown.",
+    "address": "Address",
+    "addressPlaceholder": "/en/… or https://…",
+    "addressHelp": "When empty, the address of the chosen page in this language is used."
+  },
+  "banners": {
+    "title": "Banners",
+    "entity": "banner",
+    "description": "Homepage banners. A banner may be image-only — title and link are optional."
+  },
+  "newsSlider": {
+    "title": "News slider",
+    "entity": "slide",
+    "description": "News slides on the homepage."
+  },
+  "runningLines": {
+    "title": "Running lines",
+    "entity": "running line",
+    "description": "Short texts scrolling on the homepage."
+  },
+  "links": {
+    "title": "Links",
+    "entity": "link",
+    "description": "Useful links on the homepage."
+  },
+  "publications": {
+    "title": "Publications",
+    "entity": "publication",
+    "description": "Publications shown on the homepage."
+  },
+  "filters": {
+    "status": "Status"
+  },
+  "badges": {
+    "linkBroken": "No working link"
+  },
+  "strategyDocs": {
+    "title": "Strategy and documents",
+    "entity": "document",
+    "description": "The site shows the first three published documents. The first is the large card.",
+    "reorderTitle": "Order of the documents"
+  },
+  "validation": {
+    "titleRequired": "Write a title in one language at least.",
+    "titleForLanguage": "A language with text needs a title too.",
+    "address": "The address must start with http://, https:// or /.",
+    "linkRequired": "Choose a page or write an address in one language at least.",
+    "tooLong": "At most {{max}} characters."
+  }
+}

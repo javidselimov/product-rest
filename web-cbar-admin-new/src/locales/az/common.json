@@ -1,0 +1,121 @@
+{
+  "tagline": "Məzmun idarəetmə paneli",
+  "search": "Axtar…",
+  "loading": "Yüklənir…",
+  "pageTitleFallback": "{{appName}}",
+  "footer": "© {{year}} {{orgName}}",
+  "brand": {
+    "orgName": "Azərbaycan Respublikasının Mərkəzi Bankı"
+  },
+  "template": {
+    "badge": "Bu, {{appName}} başlanğıc şablonudur",
+    "linkLabel": "GitLab-da mənbə",
+    "linkAria": "Repo-nu GitLab-da yeni tab-da aç",
+    "demoHint": "Demo giriş: admin, şifrə"
+  },
+  "status": {
+    "draft": "Qaralama",
+    "scheduled": "Planlaşdırılıb",
+    "published": "Dərc olunub",
+    "archived": "Arxiv",
+    "active": "Aktiv",
+    "inactive": "Qeyri-aktiv",
+    "live": "Canlı",
+    "offline": "Oflayn",
+    "yes": "Bəli",
+    "no": "Xeyr"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "moderator": "Moderator",
+    "measManager": "MEAS meneceri"
+  },
+  "months": {
+    "1": "Yanvar",
+    "2": "Fevral",
+    "3": "Mart",
+    "4": "Aprel",
+    "5": "May",
+    "6": "İyun",
+    "7": "İyul",
+    "8": "Avqust",
+    "9": "Sentyabr",
+    "10": "Oktyabr",
+    "11": "Noyabr",
+    "12": "Dekabr"
+  },
+  "actions": {
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "close": "Bağla",
+    "delete": "Sil",
+    "edit": "Redaktə et",
+    "create": "Yarat",
+    "add": "Əlavə et",
+    "remove": "Çıxar",
+    "back": "Geri",
+    "confirm": "Təsdiq et",
+    "choose": "Seç",
+    "change": "Dəyiş",
+    "clear": "Təmizlə",
+    "up": "Yuxarı",
+    "down": "Aşağı",
+    "refresh": "Yenilə",
+    "open": "Aç"
+  },
+  "theme": {
+    "light": "İşıqlı tema",
+    "dark": "Qaranlıq tema",
+    "switchToLight": "İşıqlı temaya keç",
+    "switchToDark": "Qaranlıq temaya keç"
+  },
+  "language": {
+    "label": "Dil",
+    "az": "Azərbaycanca",
+    "en": "English"
+  },
+  "navigation": {
+    "open": "Naviqasiyanı aç",
+    "title": "Naviqasiya",
+    "description": "{{appName}} — bütün bölmələr",
+    "primary": "Əsas naviqasiya"
+  },
+  "account": {
+    "menu": "Hesab menyusu",
+    "user": "İstifadəçi",
+    "signOut": "Çıxış"
+  },
+  "commandPalette": {
+    "title": "Əmr paleti",
+    "description": "Bölməyə keç və ya əməliyyat icra et",
+    "placeholder": "Bölmə axtar…",
+    "empty": "Heç nə tapılmadı.",
+    "goTo": "Keçid",
+    "actions": "Əməliyyatlar"
+  },
+  "errors": {
+    "unexpected": "Gözlənilməz xəta baş verdi",
+    "requestFailed": "Sorğu yerinə yetirilmədi",
+    "unauthorized": "Sessiya etibarsızdır — yenidən daxil olun",
+    "forbidden": "Bu əməliyyat üçün icazəniz yoxdur",
+    "notFound": "Qeyd tapılmadı",
+    "conflict": "Əməliyyat mövcud məlumatla ziddiyyət təşkil edir",
+    "contract": "API cavabı gözlənilən formada deyil — texniki komandaya bildirin",
+    "timeout": "Sorğunun vaxtı bitdi",
+    "network": "Şəbəkə xətası — bağlantını yoxlayın",
+    "loadFailed": "Məlumat yüklənmədi",
+    "boundaryTitle": "Nəsə səhv getdi",
+    "boundaryDescription": "Səhifə render olunarkən xəta baş verdi. Yenidən cəhd edin — problem davam edərsə, komandaya bildirin.",
+    "retry": "Yenidən cəhd et"
+  },
+  "languages": {
+    "az": "AZ",
+    "en": "EN",
+    "missing": "{{locale}} yoxdur"
+  },
+  "notFound": {
+    "title": "{{path}} ünvanında səhifə yoxdur",
+    "description": "Link {{appName}}-in köhnə versiyasından ola bilər.",
+    "back": "Əsas səhifəyə qayıt"
+  }
+}

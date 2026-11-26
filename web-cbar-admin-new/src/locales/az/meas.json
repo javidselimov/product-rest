@@ -1,0 +1,46 @@
+{
+  "title": "MEAS sənədləri",
+  "entity": "sənəd",
+  "description": "Mərkəzləşdirilmiş emissiya açıqlama sistemi (MEAS) sənədləri",
+  "tabs": {
+    "documents": "Sənədlər",
+    "emitents": "Emitentlər",
+    "infoTypes": "Məlumat tipləri"
+  },
+  "columns": {
+    "id": "ID",
+    "dqn": "DQN",
+    "emitent": "Emitent",
+    "infoType": "Məlumat tipi",
+    "registrationDate": "Qeydiyyat tarixi",
+    "status": "Status",
+    "name": "Ad",
+    "isActive": "Status",
+    "updatedAt": "Yenilənib"
+  },
+  "fields": {
+    "emitent": "Emitent",
+    "emitentPlaceholder": "Emitent seçin",
+    "infoType": "Məlumat tipi",
+    "infoTypePlaceholder": "Məlumat tipi seçin",
+    "registrationDate": "Qeydiyyat tarixi",
+    "dqn": "DQN",
+    "dqnPlaceholder": "AZ1001-2026",
+    "media": "Sənəd faylı",
+    "status": "Status",
+    "isActive": "Aktiv",
+    "name": "Ad"
+  },
+  "emitents": {
+    "title": "Emitentlər",
+    "entity": "emitent",
+    "description": "MEAS sənədlərini təqdim edən emitentlər",
+    "deleteConfirm": "\"{{name}}\" emitenti silinsin? Bu emitentə aid sənədlər əvvəlcə başqa emitentə köçürülməlidir."
+  },
+  "infoTypes": {
+    "title": "Məlumat tipləri",
+    "entity": "məlumat tipi",
+    "description": "MEAS sənədlərinin məlumat tipləri",
+    "deleteConfirm": "\"{{name}}\" məlumat tipi silinsin? Bu tipə aid sənədlər əvvəlcə başqa tipə köçürülməlidir."
+  }
+}

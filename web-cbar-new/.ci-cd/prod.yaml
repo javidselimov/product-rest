@@ -1,0 +1,18 @@
+# Prod mühitinin ünvanı `cbar.e-cbar.az`-dır — DNS və TLS orada hazırdır.
+#
+# ⚠ Bu dəyəri dəyişmək = ingress-i köçürmək: `helm upgrade` ingress-i yeni host ilə
+# yenidən yazır, köhnə ünvan həmin an ingress-nginx default backend-inin 404-ünə
+# düşür. `web-cbar-next.e-cbar.az` adına keçid yalnız devops DNS qeydini və
+# sertifikatı hazırlayandan sonra (cutover spec-i) edilir.
+
+ingress:
+  hostname: cbar.e-cbar.az
+
+# Runtime-da `src/server/env.ts` oxuyur — yalnız server tərəfdə (spec 002 FR-026).
+env:
+  - name: API_URL
+    value: "https://api-cbar.e-cbar.az"
+  - name: NODE_ENV
+    value: "production"
+  - name: TZ
+    value: "Asia/Baku"

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "mission": "Mission",
+    "directions": "Main areas of activity",
+    "contacts": "Contact information",
+    "portal": "Submitting reports on high-category incidents",
+    "rfc": "RFC-2350",
+    "cooperation": "International cooperation"
+  },
+  "contacts": {
+    "email": "Email",
+    "phone": "Contact number"
+  },
+  "portal": {
+    "open": "Go to the portal"
+  },
+  "rfc": {
+    "name": "RFC-2350",
+    "download": "Download"
+  },
+  "newTab": "opens in a new tab"
+}

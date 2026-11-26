@@ -1,0 +1,103 @@
+{
+  "title": "Currency rates",
+  "description": "Daily currency rate sheets — load by date, edit and save.",
+  "tabs": {
+    "rates": "Rates",
+    "currencies": "Currencies"
+  },
+  "homepageCount": "{{n}} currencies shown on the homepage",
+  "sheet": {
+    "date": "Sheet date",
+    "latest": "Latest sheet",
+    "newSheet": "New sheet",
+    "draftNotice": "The new sheet is not saved yet — rows are prefilled from the last loaded sheet.",
+    "deleteSheet": "Delete sheet",
+    "dates": "Dates",
+    "save": "Save sheet",
+    "addCurrency": "Add currency",
+    "addPlaceholder": "Pick a currency…",
+    "searchPlaceholder": "Code or name…",
+    "noOptions": "No matching currency.",
+    "addHint": "The picked currency is added as a row immediately.",
+    "removeRow": "Remove row {{code}}",
+    "rateFor": "{{code}} rate",
+    "columns": {
+      "code": "Code",
+      "name": "Name (AZ)",
+      "nominal": "Nominal",
+      "rate": "Rate"
+    },
+    "empty": "No rates for this date",
+    "emptyHint": "Add currencies below or pick another date.",
+    "saved": "Sheet saved",
+    "deleted": "Sheet deleted",
+    "deleteTitle": "Delete sheet",
+    "deleteConfirm": "Delete all rates for {{date}}? This action cannot be undone.",
+    "errors": {
+      "pickDate": "Pick a date first",
+      "atLeastOne": "At least one rate is required",
+      "duplicate": "{{code}} is already in the sheet",
+      "fixRows": "Some rows have errors — check the rates",
+      "rateRequired": "Rate cannot be empty",
+      "rateNumber": "Rate must be a number",
+      "ratePositive": "Rate must be greater than zero"
+    }
+  },
+  "import": {
+    "open": "Import from Excel",
+    "title": "Import bulletin",
+    "description": "Choose the Central Bank’s official rate bulletin (.xlsx) — the rates are written for the selected date straight away.",
+    "date": "Date",
+    "file": "Bulletin file",
+    "pickFile": "Drop the file here, or click to choose",
+    "fileHint": ".xlsx only, up to 5 MB",
+    "submit": "Import",
+    "overwrite": "Overwrite",
+    "confirmOverwrite": "{{date}} already has {{count}} rates. Update the currencies in the file? Rates not in the file stay as they are.",
+    "done": "Rates written for {{count}} currencies",
+    "skipped": "Unknown codes skipped: {{codes}}",
+    "errors": {
+      "pickDate": "Choose a date",
+      "pickFile": "Choose a file",
+      "date_required": "Choose a date",
+      "file_required": "Choose a file",
+      "not_xlsx": "Only an .xlsx bulletin can be imported",
+      "file_too_large": "The file is too large",
+      "no_rates": "No rates found in the file — no known currency code in B7:G100",
+      "invalid_rate": "Row {{row}}, {{currency}}: the rate is empty or not a positive number",
+      "duplicate_code": "Row {{row}}: {{currency}} appears more than once"
+    }
+  },
+  "dates": {
+    "title": "Sheet dates",
+    "description": "Click a date to load that sheet.",
+    "list": "Sheet dates list",
+    "columns": {
+      "date": "Date",
+      "count": "Currencies"
+    },
+    "empty": "No sheets yet"
+  },
+  "currencies": {
+    "title": "Currencies",
+    "description": "Choose which currencies appear on the homepage card and in what order.",
+    "columns": {
+      "code": "Code",
+      "nameAz": "Name (AZ)",
+      "nameEn": "Name (EN)",
+      "nominal": "Nominal",
+      "sortOrder": "Sort",
+      "isActive": "Active",
+      "showOnHomepage": "Homepage"
+    },
+    "homepageBadge": "Homepage",
+    "save": "Save changes",
+    "saveCount": "Save changes ({{n}})",
+    "saved": "Currency changes saved",
+    "saveFailed": "{{code}}: {{message}}",
+    "sortOrderFor": "{{code}} sort order",
+    "isActiveFor": "{{code}} active",
+    "showOnHomepageFor": "{{code}} on homepage",
+    "empty": "No currencies found"
+  }
+}

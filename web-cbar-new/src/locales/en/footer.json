@@ -1,0 +1,26 @@
+{
+  "contact": "Contact",
+  "addressLabel": "Address",
+  "address": "167 Heydar Aliyev Avenue, Nizami District, AZ1029, Baku, Azerbaijan",
+  "hotline": "Hotline",
+  "phone": "Contact number",
+  "press": "For media",
+  "internal": "internal",
+  "onlineFeedback": "Online feedback",
+  "questionary": "Online surveys",
+  "navigation": "Navigation",
+  "usefulLinks": "Useful links",
+  "privacy": "Privacy policy",
+  "sitemap": "Site map",
+  "legalLabel": "Legal information",
+  "allRightsReserved": "All rights reserved",
+  "socialLabel": "Social networks",
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "X",
+    "telegram": "Telegram",
+    "youtube": "YouTube",
+    "linkedin": "LinkedIn"
+  }
+}

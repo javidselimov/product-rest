@@ -1,0 +1,19 @@
+variables:
+  IMAGE_VERSION: "10.0"   # .NET SDK image tag used by the build-and-scan job
+
+# Shared CBAR pipeline: check -> build-and-scan (SonarQube) -> image-packaging
+# -> helm-packaging -> deploy -> verify -> image-scanning.
+#
+# The "multi" variant builds at solution level, which this repo needs: the
+# solution holds both Cbar.WebApi and the Cbar.Domain class library.
+#
+# Branch to environment (decided by the shared pipeline):
+#   merge request from feature/* or bugfix/*  ->  dev
+#   test branch                               ->  test
+#   master branch                             ->  prod
+#
+# Per-environment Helm values live in .ci-cd/.
+include:
+  - project: devops-linux-team/ci-cd
+    ref: 1.0.0
+    file: pipelines/dotnet-multi.gitlab-ci.yml

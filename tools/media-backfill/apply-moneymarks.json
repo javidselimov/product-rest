@@ -1,0 +1,2200 @@
+[
+  {
+    "table": "money_marks",
+    "id": 2,
+    "key": "1 AZN (2006)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2e1bd25c355bfc1279a31a83b.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/5b4a134ae7a13635a21f81648.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1852,
+        "bytes": 75087,
+        "createdAsset": 1852,
+        "key": "2026/09/a46baf8522ac591c.jpg",
+        "dimensions": "800×463"
+      },
+      "rear": {
+        "mediaId": 1854,
+        "bytes": 70506,
+        "createdAsset": 1854,
+        "key": "2026/09/ba1260258fae0e5e.jpg",
+        "dimensions": "800×461"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 3,
+    "key": "1 AZN (2021)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/94e9d6118f0e480b137013aba.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/0b950b853f6ea6e0eb1a06873.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1853,
+        "bytes": 76969,
+        "createdAsset": 1853,
+        "key": "2026/09/fa9fe4fecb8f260f.jpg",
+        "dimensions": "800×467"
+      },
+      "rear": {
+        "mediaId": 1855,
+        "bytes": 158315,
+        "createdAsset": 1855,
+        "key": "2026/09/94b8f0730fedec4c.jpg",
+        "dimensions": "800×1370"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 4,
+    "key": "1 AZN (2023)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/d772a04e947affc515967ae6f.png",
+      "rear": "https://uploads.cbar.az/money-marks/dd70f0397b571ea2babd8851d.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1856,
+        "bytes": 963153,
+        "createdAsset": 1856,
+        "key": "2026/09/6b247e2c3ee048be.png",
+        "dimensions": "800×469"
+      },
+      "rear": {
+        "mediaId": 1861,
+        "bytes": 246500,
+        "createdAsset": 1861,
+        "key": "2026/09/80f70211b90207f9.jpg",
+        "dimensions": "800×1370"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 5,
+    "key": "5 AZN (2006)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/86b8dde946c9a03626a12696b.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/80cde3f8a7e08e23c5b6ea17f.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1851,
+        "bytes": 59548,
+        "createdAsset": 1851,
+        "key": "2026/09/624dc362052292d9.jpg",
+        "dimensions": "800×438"
+      },
+      "rear": {
+        "mediaId": 1867,
+        "bytes": 60128,
+        "createdAsset": 1867,
+        "key": "2026/09/762ae65ad5a42888.jpg",
+        "dimensions": "800×438"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 6,
+    "key": "5 AZN (2021)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/19a9ab993a5febac96989ef20.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/91ea74be2ceb2ff7d127fde7d.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1857,
+        "bytes": 75951,
+        "createdAsset": 1857,
+        "key": "2026/09/bcf0171f74c25422.jpg",
+        "dimensions": "800×441"
+      },
+      "rear": {
+        "mediaId": 1860,
+        "bytes": 230364,
+        "createdAsset": 1860,
+        "key": "2026/09/bcdd1a1a66403f03.jpg",
+        "dimensions": "800×1451"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 7,
+    "key": "10 AZN (2006)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/c27275b5545cd77dd527b1001.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/4af9064287fd0df22def3a3d0.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1858,
+        "bytes": 70121,
+        "createdAsset": 1858,
+        "key": "2026/09/5ee6ef6c71a36e53.jpg",
+        "dimensions": "800×420"
+      },
+      "rear": {
+        "mediaId": 1859,
+        "bytes": 61124,
+        "createdAsset": 1859,
+        "key": "2026/09/051605f421f77546.jpg",
+        "dimensions": "800×418"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 8,
+    "key": "10 AZN (2019)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2ec0615a09daae2279fef965f.png",
+      "rear": "https://uploads.cbar.az/money-marks/5d4c1e5ad861463222ecb93f0.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1864,
+        "bytes": 490432,
+        "createdAsset": 1864,
+        "key": "2026/09/c901ef0aac507804.png",
+        "dimensions": "800×426"
+      },
+      "rear": {
+        "mediaId": 1870,
+        "bytes": 466961,
+        "createdAsset": 1870,
+        "key": "2026/09/d187466e66f47e22.png",
+        "dimensions": "800×421"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 9,
+    "key": "10 AZN (2022)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/331484b6f2e18f74c672684e4.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/4e87cbafbfd3fa0a3ec44e478.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1862,
+        "bytes": 102622,
+        "createdAsset": 1862,
+        "key": "2026/09/2de8d5260cebd3b0.jpg",
+        "dimensions": "800×424"
+      },
+      "rear": {
+        "mediaId": 1866,
+        "bytes": 311329,
+        "createdAsset": 1866,
+        "key": "2026/09/225e4501bb5abd72.jpg",
+        "dimensions": "800×1536"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 10,
+    "key": "20 AZN (2006)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/09448dae30036517b85cbad16.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/8baa8157e0cd28a621f1b1138.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1863,
+        "bytes": 64194,
+        "createdAsset": 1863,
+        "key": "2026/09/35080fe6d13e015b.jpg",
+        "dimensions": "800×420"
+      },
+      "rear": {
+        "mediaId": 1865,
+        "bytes": 59973,
+        "createdAsset": 1865,
+        "key": "2026/09/273661c3bd80bc8b.jpg",
+        "dimensions": "800×420"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 11,
+    "key": "20 AZN (2022)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/87fce4853a9c843f6ac3fffbd.png",
+      "rear": "https://uploads.cbar.az/money-marks/9310265508d23b13297fbc8cc.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1872,
+        "bytes": 587667,
+        "createdAsset": 1872,
+        "key": "2026/09/7e89edef45966094.png",
+        "dimensions": "800×397"
+      },
+      "rear": {
+        "mediaId": 1884,
+        "bytes": 1982035,
+        "createdAsset": 1884,
+        "key": "2026/09/3ad42a72ffe92b25.png",
+        "dimensions": "800×1610"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 12,
+    "key": "50 AZN (2006)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/4f707e7d10c8d5f02cf0cdabc.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/a3fa692155eceadef8993c989.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1868,
+        "bytes": 61290,
+        "createdAsset": 1868,
+        "key": "2026/09/f44d7fbc5293e04a.jpg",
+        "dimensions": "800×420"
+      },
+      "rear": {
+        "mediaId": 1871,
+        "bytes": 55639,
+        "createdAsset": 1871,
+        "key": "2026/09/70b53264497acff0.jpg",
+        "dimensions": "800×420"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 13,
+    "key": "50 AZN (2021)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/6edeb18a8c55822ead4ed64fc.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/ddd1aeee68996e9723a4b9740.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1869,
+        "bytes": 55926,
+        "createdAsset": 1869,
+        "key": "2026/09/f240c7efefad046d.jpg",
+        "dimensions": "800×377"
+      },
+      "rear": {
+        "mediaId": 1873,
+        "bytes": 250395,
+        "createdAsset": 1873,
+        "key": "2026/09/a99ff9561376a0bb.jpg",
+        "dimensions": "800×1690"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 14,
+    "key": "50 AZN (2025)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/c5e46604f7ba43dadbcf965c1.png",
+      "rear": "https://uploads.cbar.az/money-marks/8e800129e191a6718d30e19cd.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1877,
+        "bytes": 722373,
+        "createdAsset": 1877,
+        "key": "2026/09/98b0ca16c86b37fc.png",
+        "dimensions": "800×379"
+      },
+      "rear": {
+        "mediaId": 1894,
+        "bytes": 3246781,
+        "createdAsset": 1894,
+        "key": "2026/09/731b68b4b7c98ad3.png",
+        "dimensions": "800×1689"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 15,
+    "key": "100 AZN",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/7946f525c70013fe3548252ad.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/f8035fe99d2f5c8ae6070546a.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1874,
+        "bytes": 78132,
+        "createdAsset": 1874,
+        "key": "2026/09/1952663ed5e94e49.jpg",
+        "dimensions": "800×420"
+      },
+      "rear": {
+        "mediaId": 1876,
+        "bytes": 63511,
+        "createdAsset": 1876,
+        "key": "2026/09/806808c11222ceee.jpg",
+        "dimensions": "800×420"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 16,
+    "key": "200 AZN",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/cfbea244063f7b314df34a63d.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/e3ddf198f09c78d5a25843375.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1875,
+        "bytes": 82605,
+        "createdAsset": 1875,
+        "key": "2026/09/d5982a29f5abf283.jpg",
+        "dimensions": "800×420"
+      },
+      "rear": {
+        "mediaId": 1878,
+        "bytes": 78092,
+        "createdAsset": 1878,
+        "key": "2026/09/80774b30af437961.jpg",
+        "dimensions": "800×420"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 17,
+    "key": "1 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/87c619da148cd9b74cab7d96c.png",
+      "rear": "https://uploads.cbar.az/money-marks/38921174a0eecaaac040ac9b1.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1879,
+        "bytes": 840549,
+        "createdAsset": 1879,
+        "key": "2026/09/6d8cfc7254d61816.png",
+        "dimensions": "800×779"
+      },
+      "rear": {
+        "mediaId": 1881,
+        "bytes": 682852,
+        "createdAsset": 1881,
+        "key": "2026/09/dcdcf2670bdd0af2.png",
+        "dimensions": "800×792"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 18,
+    "key": "1 Qəpik (2024)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/71886158b7f72fa17728e3db6.png",
+      "rear": "https://uploads.cbar.az/money-marks/586995a4902d81acce9f94bbe.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1880,
+        "bytes": 787277,
+        "createdAsset": 1880,
+        "key": "2026/09/f50768eb0184ac98.png",
+        "dimensions": "800×790"
+      },
+      "rear": {
+        "mediaId": 1882,
+        "bytes": 556774,
+        "createdAsset": 1882,
+        "key": "2026/09/2fdb3dd7070e8bb7.png",
+        "dimensions": "800×790"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 19,
+    "key": "3 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/832d627ca26d4a03c02d61f62.png",
+      "rear": "https://uploads.cbar.az/money-marks/0b43e2f72762099cdf6cf0531.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1883,
+        "bytes": 843312,
+        "createdAsset": 1883,
+        "key": "2026/09/441d1f8356a77f44.png",
+        "dimensions": "800×810"
+      },
+      "rear": {
+        "mediaId": 1886,
+        "bytes": 809125,
+        "createdAsset": 1886,
+        "key": "2026/09/ec20c5f0158ed32d.png",
+        "dimensions": "800×803"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 20,
+    "key": "3 Qəpik (2024)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/e7972777ef9d15851dd59e579.png",
+      "rear": "https://uploads.cbar.az/money-marks/44e77ef54fe85a18f4252e620.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1885,
+        "bytes": 692853,
+        "createdAsset": 1885,
+        "key": "2026/09/fcf74cd03ef0d2e4.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1887,
+        "bytes": 632381,
+        "createdAsset": 1887,
+        "key": "2026/09/96e05832be13f953.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 21,
+    "key": "5 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/b3da09d1244cb0c6fe7a9f669.png",
+      "rear": "https://uploads.cbar.az/money-marks/bbdbd78589c7922e9f0d1038e.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1888,
+        "bytes": 1004170,
+        "createdAsset": 1888,
+        "key": "2026/09/68a3f7c585619f47.png",
+        "dimensions": "800×790"
+      },
+      "rear": {
+        "mediaId": 1890,
+        "bytes": 969580,
+        "createdAsset": 1890,
+        "key": "2026/09/d3869bfbaf934162.png",
+        "dimensions": "800×794"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 22,
+    "key": "5 Qəpik (2023)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/b89bcd18e44e2cabb1d4aa588.png",
+      "rear": "https://uploads.cbar.az/money-marks/d2381f1aa1b06ca74727bf13c.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1889,
+        "bytes": 1032296,
+        "createdAsset": 1889,
+        "key": "2026/09/b076f9ce20b7892a.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1891,
+        "bytes": 988107,
+        "createdAsset": 1891,
+        "key": "2026/09/0ea41459855b5f04.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 23,
+    "key": "10 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2357ecea56b6ec52bb551e452.png",
+      "rear": "https://uploads.cbar.az/money-marks/60376f0f711af25a1c6071591.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1892,
+        "bytes": 865756,
+        "createdAsset": 1892,
+        "key": "2026/09/bcd094fcb40258d1.png",
+        "dimensions": "800×769"
+      },
+      "rear": {
+        "mediaId": 1895,
+        "bytes": 881197,
+        "createdAsset": 1895,
+        "key": "2026/09/d80144d49a7288db.png",
+        "dimensions": "800×795"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 24,
+    "key": "10 Qəpik (2022)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/55c70a364dd5da75d7afe520c.png",
+      "rear": "https://uploads.cbar.az/money-marks/2827d6f2e06df6cd57eb2e411.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1893,
+        "bytes": 988340,
+        "createdAsset": 1893,
+        "key": "2026/09/176a4e99d603160a.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1897,
+        "bytes": 937174,
+        "createdAsset": 1897,
+        "key": "2026/09/3454aa58968171be.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 25,
+    "key": "20 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/3ea0ffd0491acb2521a69104b.png",
+      "rear": "https://uploads.cbar.az/money-marks/157a317bb1dabdda842cf81ff.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1899,
+        "bytes": 926659,
+        "createdAsset": 1899,
+        "key": "2026/09/aa53522248faf1c9.png",
+        "dimensions": "800×783"
+      },
+      "rear": {
+        "mediaId": 1903,
+        "bytes": 951482,
+        "createdAsset": 1903,
+        "key": "2026/09/738e83df2eb95336.png",
+        "dimensions": "800×801"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 26,
+    "key": "20 Qəpik (2021)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/89a580bfe73f222041266954c.png",
+      "rear": "https://uploads.cbar.az/money-marks/95360b3d0543807024fba2362.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1896,
+        "bytes": 1055465,
+        "createdAsset": 1896,
+        "key": "2026/09/efc0b0e50d96bef7.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1904,
+        "bytes": 959281,
+        "createdAsset": 1904,
+        "key": "2026/09/e8fc2a61a8398cb1.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 27,
+    "key": "50 Qəpik (2006)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/fecd33b8a52ec27d9a76a1003.png",
+      "rear": "https://uploads.cbar.az/money-marks/912c54a4ef655b24898fca6c1.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1898,
+        "bytes": 979703,
+        "createdAsset": 1898,
+        "key": "2026/09/bc2045c611dc36cf.png",
+        "dimensions": "800×792"
+      },
+      "rear": {
+        "mediaId": 1901,
+        "bytes": 927909,
+        "createdAsset": 1901,
+        "key": "2026/09/d73a37eb7a6fd18b.png",
+        "dimensions": "800×784"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 28,
+    "key": "50 Qəpik (2022)",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/49fcc31c90d172c8af5c5854e.png",
+      "rear": "https://uploads.cbar.az/money-marks/314c8bd3feafdce3ddebb7da2.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1900,
+        "bytes": 881752,
+        "createdAsset": 1900,
+        "key": "2026/09/7778de9d9336ad96.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1902,
+        "bytes": 702486,
+        "createdAsset": 1902,
+        "key": "2026/09/f0dd50e472e00794.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 29,
+    "key": "“ZƏFƏR” mövzusuna həsr olunmuş xatirə pul nişanı",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/638d112f7ec7872230a7ec01b.png",
+      "rear": "https://uploads.cbar.az/money-marks/05d73487b1f807e97e6d96e30.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1905,
+        "bytes": 717033,
+        "createdAsset": 1905,
+        "key": "2026/09/e14f703f6b695f32.png",
+        "dimensions": "800×343"
+      },
+      "rear": {
+        "mediaId": 1908,
+        "bytes": 3835246,
+        "createdAsset": 1908,
+        "key": "2026/09/780b0eb31df6b2b3.png",
+        "dimensions": "800×1864"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 30,
+    "key": "Heydər Əliyev – investisiya pul nişanı / 1 troy unsiya - qızıl",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/16a5ce669d82ebc942ba565d7.png",
+      "rear": "https://uploads.cbar.az/money-marks/e925446f643147a19fd881980.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1906,
+        "bytes": 990663,
+        "reusedAsset": 1906
+      },
+      "rear": {
+        "mediaId": 1916,
+        "bytes": 758807,
+        "createdAsset": 1916,
+        "key": "2026/09/35ea2b487b1f53f0.png",
+        "dimensions": "800×799"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 31,
+    "key": "Heydər Əliyev – investisiya pul nişanı / 1/2 troy unsiya - qızıl",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2afebe7e3e591f1c4530ec235.png",
+      "rear": "https://uploads.cbar.az/money-marks/1efb796d63be5f01574c03ea4.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1906,
+        "bytes": 990663,
+        "createdAsset": 1906,
+        "key": "2026/09/a8046768859ef770.png",
+        "dimensions": "800×799"
+      },
+      "rear": {
+        "mediaId": 1907,
+        "bytes": 758631,
+        "createdAsset": 1907,
+        "key": "2026/09/7012640674a5fe48.png",
+        "dimensions": "800×799"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 32,
+    "key": "Heydər Əliyev – investisiya pul nişanı / 1/4 troy unsiya- qızıl",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/a9f6c1471b276da7333355b13.png",
+      "rear": "https://uploads.cbar.az/money-marks/7d48b2a4f67857ebe97d24705.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1906,
+        "bytes": 990663,
+        "reusedAsset": 1906
+      },
+      "rear": {
+        "mediaId": 1909,
+        "bytes": 758899,
+        "createdAsset": 1909,
+        "key": "2026/09/b9fe86a28ebdfa10.png",
+        "dimensions": "800×799"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 33,
+    "key": "Heydər Əliyev – investisiya pul nişanı / 1/10 troy unsiya - qızıl",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/770b1994c8cbec80a5023889d.png",
+      "rear": "https://uploads.cbar.az/money-marks/44b5c00b252f596187103d745.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1906,
+        "bytes": 990663,
+        "reusedAsset": 1906
+      },
+      "rear": {
+        "mediaId": 1910,
+        "bytes": 758897,
+        "createdAsset": 1910,
+        "key": "2026/09/e6f62415ad3cd4ac.png",
+        "dimensions": "800×799"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 34,
+    "key": "Milli Olimpiya Komitəsi 30 il - gümüş",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/df07bf11e818315074e1e7b38.png",
+      "rear": "https://uploads.cbar.az/money-marks/e7181633ed4c2c7aaa78bab55.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1915,
+        "bytes": 947840,
+        "createdAsset": 1915,
+        "key": "2026/09/c81b9af3f07e8475.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1917,
+        "bytes": 710267,
+        "createdAsset": 1917,
+        "key": "2026/09/135f50683513e1f5.png",
+        "dimensions": "800×799"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 35,
+    "key": "Qətər 2022 Dünya kuboku – qızıl",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/1c04a6eb84bc986a4c5e13c3e.png",
+      "rear": "https://uploads.cbar.az/money-marks/b50b60317661b511eec7b4a7e.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1911,
+        "bytes": 960448,
+        "createdAsset": 1911,
+        "key": "2026/09/e220e81b002613f5.png",
+        "dimensions": "800×779"
+      },
+      "rear": {
+        "mediaId": 1913,
+        "bytes": 907801,
+        "createdAsset": 1913,
+        "key": "2026/09/ce22592956e99734.png",
+        "dimensions": "800×779"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 36,
+    "key": "Qətər 2022 Dünya kuboku – gümüş",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/33e73e0e72d8c4ad84156de7e.png",
+      "rear": "https://uploads.cbar.az/money-marks/9aeb4d63a7c5a6ea6471be6cc.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1912,
+        "bytes": 665247,
+        "createdAsset": 1912,
+        "key": "2026/09/120e64cce5da7fad.png",
+        "dimensions": "800×782"
+      },
+      "rear": {
+        "mediaId": 1914,
+        "bytes": 629211,
+        "createdAsset": 1914,
+        "key": "2026/09/89f221bdb940e2d6.png",
+        "dimensions": "800×782"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 37,
+    "key": "12 ədədlik Zəfər dəsti",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/1d4da88ac3ddb11a6a64efa1e.png",
+      "rear": "https://uploads.cbar.az/money-marks/1c102ff9433c6696458951962.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1922,
+        "bytes": 1014547,
+        "createdAsset": 1922,
+        "key": "2026/09/d6bab5ca184ef9a3.png",
+        "dimensions": "800×976"
+      },
+      "rear": {
+        "mediaId": 1922,
+        "bytes": 1014547,
+        "reusedAsset": 1922
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 38,
+    "key": "2 ədədlik Zəfər dəsti",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/33f7896f9d8289c4c314d3140.png",
+      "rear": "https://uploads.cbar.az/money-marks/aa8d3ec08d939ea20e2e0ca12.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1919,
+        "bytes": 871231,
+        "createdAsset": 1919,
+        "key": "2026/09/220e127a8667675f.png",
+        "dimensions": "800×809"
+      },
+      "rear": {
+        "mediaId": 1919,
+        "bytes": 871231,
+        "reusedAsset": 1919
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 39,
+    "key": "“ZƏFƏR” mövzusuna həsr olunmuş qızıl xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/49531c725905824ca29a72709.png",
+      "rear": "https://uploads.cbar.az/money-marks/9f4257a743eb7ab9028104235.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1918,
+        "bytes": 752122,
+        "createdAsset": 1918,
+        "key": "2026/09/50e553a82c24075e.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1923,
+        "bytes": 699978,
+        "createdAsset": 1923,
+        "key": "2026/09/a572d292bf8da6ac.png",
+        "dimensions": "800×798"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 40,
+    "key": "“ZƏFƏR” mövzusuna həsr olunmuş gümüş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/99b65686884f9aacff53872e0.png",
+      "rear": "https://uploads.cbar.az/money-marks/a84a181243989552efeff260e.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1920,
+        "bytes": 513078,
+        "createdAsset": 1920,
+        "key": "2026/09/aea725d53687a852.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "createdAsset": 1921,
+        "key": "2026/09/462854e44b5503ea.png",
+        "dimensions": "800×798"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 41,
+    "key": "ŞUŞA şəhərinə həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/9481c5d3150168fcffc89e341.png",
+      "rear": "https://uploads.cbar.az/money-marks/793096dc603e0edc5ea095086.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1925,
+        "bytes": 500997,
+        "createdAsset": 1925,
+        "key": "2026/09/55f2611996b1a2dd.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 42,
+    "key": "CƏBRAYIL rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/9cf89345258ca733799d0a31b.png",
+      "rear": "https://uploads.cbar.az/money-marks/bcc9439e7e36c5151056ba3e1.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1926,
+        "bytes": 573434,
+        "createdAsset": 1926,
+        "key": "2026/09/90b38e69f5a74739.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 43,
+    "key": "QUBADLI rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/5f565c67dcc8ebaf8830e28c9.png",
+      "rear": "https://uploads.cbar.az/money-marks/e6d6c89ea7ab9f1ea39c7f648.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1924,
+        "bytes": 543403,
+        "createdAsset": 1924,
+        "key": "2026/09/5d1ca2bc8daf0726.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 44,
+    "key": "AĞDAM rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/9b1d6a633b8d6ac73b2a55a77.png",
+      "rear": "https://uploads.cbar.az/money-marks/fc17a38cde3a3c14299f164de.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1928,
+        "bytes": 545271,
+        "createdAsset": 1928,
+        "key": "2026/09/4e77038290dfcb99.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 45,
+    "key": "ZƏNGİLAN rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/50b9950488d3d5719ebc67f66.png",
+      "rear": "https://uploads.cbar.az/money-marks/5b2c09828e38f76c041c0f4e4.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1927,
+        "bytes": 499711,
+        "createdAsset": 1927,
+        "key": "2026/09/4797485ec2d7bdb4.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 46,
+    "key": "FÜZULİ rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/847470d1162e8b9e91d50a40c.png",
+      "rear": "https://uploads.cbar.az/money-marks/0233fd533a24e51ab5023b7eb.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1929,
+        "bytes": 567780,
+        "createdAsset": 1929,
+        "key": "2026/09/9f830f3aed6b4e55.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 47,
+    "key": "LAÇIN rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/50b60ede4c8eb5facae514adb.png",
+      "rear": "https://uploads.cbar.az/money-marks/c31e8d7b3b388ef0c6e1b9b95.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1932,
+        "bytes": 563722,
+        "createdAsset": 1932,
+        "key": "2026/09/c39426b977144ed0.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 48,
+    "key": "KƏLBƏCƏR rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/edb4c7fe09721eb42b98f6449.png",
+      "rear": "https://uploads.cbar.az/money-marks/e0cfe420af832b2ce33134cab.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1930,
+        "bytes": 592965,
+        "createdAsset": 1930,
+        "key": "2026/09/5e9c76ebbb35afd2.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 49,
+    "key": "XOCAVƏND rayonuna həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/0b2653a96824c6b18cafeda46.png",
+      "rear": "https://uploads.cbar.az/money-marks/47cd71e8a00922ad43fd21a62.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1934,
+        "bytes": 549765,
+        "createdAsset": 1934,
+        "key": "2026/09/e0c40cb634a1d360.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 50,
+    "key": "SUQOVUŞAN qəsəbəsinə həsr olunmuş xatirə sikkəsi",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/24cdd1bde1f622a15caceb6b2.png",
+      "rear": "https://uploads.cbar.az/money-marks/6db5cdd2518f5fd13ee1b533f.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1931,
+        "bytes": 558190,
+        "createdAsset": 1931,
+        "key": "2026/09/f128bf372ee57e70.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1921,
+        "bytes": 483225,
+        "reusedAsset": 1921
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 51,
+    "key": "Bakı Dövlət Universiteti 100 il - gümüş",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/135bcf77388375758384e0f4c.png",
+      "rear": "https://uploads.cbar.az/money-marks/67545cea960f609dc4e50e4c5.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1933,
+        "bytes": 927959,
+        "createdAsset": 1933,
+        "key": "2026/09/717883daefc6ebff.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1935,
+        "bytes": 779606,
+        "createdAsset": 1935,
+        "key": "2026/09/da2a79749d51aa89.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 52,
+    "key": "Azərbaycan Dövlət Neft Fondu 20 il - gümüş",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/66fb2aeaff8a86734494ddedc.png",
+      "rear": "https://uploads.cbar.az/money-marks/9aad4cba5978a4f1e4bd24d86.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1938,
+        "bytes": 846899,
+        "createdAsset": 1938,
+        "key": "2026/09/5d8c230ef94d9a63.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1942,
+        "bytes": 871105,
+        "createdAsset": 1942,
+        "key": "2026/09/750948ae915511a3.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 53,
+    "key": "Azərbaycan Mərkəzi Bankçılığı 100 il - gümüş",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/409d5e6798141a0a11097912b.png",
+      "rear": "https://uploads.cbar.az/money-marks/dab4e1e85d35edfe87f99999d.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1937,
+        "bytes": 824604,
+        "createdAsset": 1937,
+        "key": "2026/09/8c322ae3db2260c1.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1940,
+        "bytes": 954257,
+        "createdAsset": 1940,
+        "key": "2026/09/73df4e03fd676b32.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 54,
+    "key": "1 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/c8beacdaedd075a3b6d25d5c2.png",
+      "rear": "https://uploads.cbar.az/money-marks/c98a1c90815002e33b6fbe4b5.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1936,
+        "bytes": 500541,
+        "createdAsset": 1936,
+        "key": "2026/09/7c3ed88d38f4f912.png",
+        "dimensions": "800×400"
+      },
+      "rear": {
+        "mediaId": 1943,
+        "bytes": 515598,
+        "createdAsset": 1943,
+        "key": "2026/09/55cb73a2d81da0ff.png",
+        "dimensions": "800×400"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 55,
+    "key": "5 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2d9b0d0297b2d9a4134b2b132.png",
+      "rear": "https://uploads.cbar.az/money-marks/e08afc22478b59a09adfd7326.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1939,
+        "bytes": 505569,
+        "createdAsset": 1939,
+        "key": "2026/09/83feb1aed34466b1.png",
+        "dimensions": "800×400"
+      },
+      "rear": {
+        "mediaId": 1941,
+        "bytes": 498534,
+        "createdAsset": 1941,
+        "key": "2026/09/d85f3c0ed7d6417f.png",
+        "dimensions": "800×400"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 56,
+    "key": "10 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/9c62e117d8d15134b7827a4ce.png",
+      "rear": "https://uploads.cbar.az/money-marks/9f69847558ce7bf03ee054050.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1947,
+        "bytes": 490655,
+        "createdAsset": 1947,
+        "key": "2026/09/59dc1d7934b28f78.png",
+        "dimensions": "800×400"
+      },
+      "rear": {
+        "mediaId": 1958,
+        "bytes": 528333,
+        "createdAsset": 1958,
+        "key": "2026/09/ed265b0982123d2b.png",
+        "dimensions": "800×400"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 57,
+    "key": "50 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/6aee60c55ababb6831eb8fcb1.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/ad0d08791644f077c118e0c5e.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1944,
+        "bytes": 68162,
+        "createdAsset": 1944,
+        "key": "2026/09/cba0d737992c6ae2.jpg",
+        "dimensions": "800×403"
+      },
+      "rear": {
+        "mediaId": 1946,
+        "bytes": 56552,
+        "createdAsset": 1946,
+        "key": "2026/09/4526d3670d431798.jpg",
+        "dimensions": "800×403"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 58,
+    "key": "100 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/4f66a39ab58db848231db79d8.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/1505b8449c76c288afc59873e.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1945,
+        "bytes": 69726,
+        "createdAsset": 1945,
+        "key": "2026/09/bb4bbfeead5cd8dd.jpg",
+        "dimensions": "800×404"
+      },
+      "rear": {
+        "mediaId": 1949,
+        "bytes": 68117,
+        "createdAsset": 1949,
+        "key": "2026/09/82cc6590c4665ed9.jpg",
+        "dimensions": "800×403"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 59,
+    "key": "250 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/9a6b249b11fb46842b08e254f.png",
+      "rear": "https://uploads.cbar.az/money-marks/334084afe794e25a1eda97d4b.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1948,
+        "bytes": 524604,
+        "createdAsset": 1948,
+        "key": "2026/09/5091fde654b91147.png",
+        "dimensions": "800×400"
+      },
+      "rear": {
+        "mediaId": 1957,
+        "bytes": 510935,
+        "createdAsset": 1957,
+        "key": "2026/09/bda25212145e6ec9.png",
+        "dimensions": "800×400"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 60,
+    "key": "500 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/c293092350cf5a1b53fbdf0c6.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/6ef05f74b6e1475645c172087.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1950,
+        "bytes": 71843,
+        "createdAsset": 1950,
+        "key": "2026/09/0b5192bc806320c9.jpg",
+        "dimensions": "800×404"
+      },
+      "rear": {
+        "mediaId": 1951,
+        "bytes": 72510,
+        "createdAsset": 1951,
+        "key": "2026/09/9ddfef6392b2c461.jpg",
+        "dimensions": "800×404"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 61,
+    "key": "1000 manat - 1993 il",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/758bb793f7876c99188e1569b.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/987667ac860abf9b734cef15c.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1952,
+        "bytes": 73582,
+        "createdAsset": 1952,
+        "key": "2026/09/691baaa2659bbeca.jpg",
+        "dimensions": "800×398"
+      },
+      "rear": {
+        "mediaId": 1954,
+        "bytes": 88106,
+        "createdAsset": 1954,
+        "key": "2026/09/2ac1f8729d0e16aa.jpg",
+        "dimensions": "800×399"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 62,
+    "key": "1000 manat - 2001 il",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/38e34af9b946a13e81061e1de.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/845fc27031411d1986774568f.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1953,
+        "bytes": 89358,
+        "createdAsset": 1953,
+        "key": "2026/09/af675d3010724004.jpg",
+        "dimensions": "800×401"
+      },
+      "rear": {
+        "mediaId": 1955,
+        "bytes": 86853,
+        "createdAsset": 1955,
+        "key": "2026/09/f2efcce3ace324ae.jpg",
+        "dimensions": "800×402"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 63,
+    "key": "10000 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/fdf05261b65264cebe877e7f8.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/9479502e580799161d8aa6ac7.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1956,
+        "bytes": 61251,
+        "createdAsset": 1956,
+        "key": "2026/09/f4b200b063709f76.jpg",
+        "dimensions": "800×397"
+      },
+      "rear": {
+        "mediaId": 1959,
+        "bytes": 57571,
+        "createdAsset": 1959,
+        "key": "2026/09/b741d3b45e1a784e.jpg",
+        "dimensions": "800×395"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 64,
+    "key": "50000 manat",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/65c763b017bcdf1d82ca6a6e3.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/a24f3aca11631aab81b97ba9d.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1960,
+        "bytes": 87242,
+        "createdAsset": 1960,
+        "key": "2026/09/bfca3d42b454d1d2.jpg",
+        "dimensions": "800×396"
+      },
+      "rear": {
+        "mediaId": 1962,
+        "bytes": 86593,
+        "createdAsset": 1962,
+        "key": "2026/09/8e0ef734e9c210d5.jpg",
+        "dimensions": "800×400"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 65,
+    "key": "5 qəpik - Tunc - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/118aca1935ebb24a5caf38afd.png",
+      "rear": "https://uploads.cbar.az/money-marks/bccabf21ec82ff1da16c9541a.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1961,
+        "bytes": 361855,
+        "createdAsset": 1961,
+        "key": "2026/09/bfc27c095b6ca119.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1963,
+        "bytes": 366250,
+        "createdAsset": 1963,
+        "key": "2026/09/b5d91cceb57e5e51.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 66,
+    "key": "5 qəpik - Alüminium - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/ac7145bf3892f6b39a64a0bdf.png",
+      "rear": "https://uploads.cbar.az/money-marks/a62cc0cb390fcf1d6d390d8c6.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1965,
+        "bytes": 568768,
+        "createdAsset": 1965,
+        "key": "2026/09/990e705feaef735c.png",
+        "dimensions": "800×798"
+      },
+      "rear": {
+        "mediaId": 1967,
+        "bytes": 593110,
+        "createdAsset": 1967,
+        "key": "2026/09/3bb806d9ba8e2ba8.png",
+        "dimensions": "800×801"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 67,
+    "key": "10 qəpik - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/4a6d53f385b13736b523c3341.png",
+      "rear": "https://uploads.cbar.az/money-marks/7d1862be011e2343e98c3632c.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1969,
+        "bytes": 1347594,
+        "createdAsset": 1969,
+        "key": "2026/09/a6abfdef65a0b449.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1975,
+        "bytes": 1315419,
+        "createdAsset": 1975,
+        "key": "2026/09/da601f97b909f74a.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 68,
+    "key": "20 qəpik - Tunc - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/d98d3efbb9306e43cfc6f7ab0.png",
+      "rear": "https://uploads.cbar.az/money-marks/4b0b917cfdbf3e93f81c8ef58.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1964,
+        "bytes": 483534,
+        "createdAsset": 1964,
+        "key": "2026/09/c4be8f4dae0d5cd5.png",
+        "dimensions": "800×806"
+      },
+      "rear": {
+        "mediaId": 1966,
+        "bytes": 630368,
+        "createdAsset": 1966,
+        "key": "2026/09/3edfb52f50472e79.png",
+        "dimensions": "800×793"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 69,
+    "key": "20 qəpik - Alüminium - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/5c409a04292b5fd59f15215b7.png",
+      "rear": "https://uploads.cbar.az/money-marks/756b3c64cd21f68a4b3ec2c99.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1970,
+        "bytes": 576406,
+        "createdAsset": 1970,
+        "key": "2026/09/a09a91a7d8436e20.png",
+        "dimensions": "800×795"
+      },
+      "rear": {
+        "mediaId": 1973,
+        "bytes": 703371,
+        "createdAsset": 1973,
+        "key": "2026/09/fc2d24cc524ecc54.png",
+        "dimensions": "800×804"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 70,
+    "key": "50 qəpik - Nikel - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/088b04588c2dbbfeabed2f4b8.png",
+      "rear": "https://uploads.cbar.az/money-marks/a466ccd253fb007c109a6f01f.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1968,
+        "bytes": 914765,
+        "createdAsset": 1968,
+        "key": "2026/09/5fed4eed5d1c9dd3.png",
+        "dimensions": "800×800"
+      },
+      "rear": {
+        "mediaId": 1971,
+        "bytes": 1016811,
+        "createdAsset": 1971,
+        "key": "2026/09/cf99011e83c655e2.png",
+        "dimensions": "800×800"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 71,
+    "key": "50 qəpik - Alüminium - 1992 - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/7f9e750c9b065a9367160b6b0.png",
+      "rear": "https://uploads.cbar.az/money-marks/2a7e8e5990e838eb3eb27f744.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1972,
+        "bytes": 1009949,
+        "createdAsset": 1972,
+        "key": "2026/09/b5f08e63d3e14d2d.png",
+        "dimensions": "800×786"
+      },
+      "rear": {
+        "mediaId": 1974,
+        "bytes": 985245,
+        "createdAsset": 1974,
+        "key": "2026/09/e8075bfe73c2f1da.png",
+        "dimensions": "800×786"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 72,
+    "key": "50 qəpik - Alüminium - 1993 - AZM",
+    "current": {
+      "front": "1713",
+      "rear": "1714"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/71f609946c46f835dd13d63f4.png",
+      "rear": "https://uploads.cbar.az/money-marks/14e315544c9851004e2041318.png"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1976,
+        "bytes": 1004643,
+        "createdAsset": 1976,
+        "key": "2026/09/89758bfb52a5097f.png",
+        "dimensions": "800×787"
+      },
+      "rear": {
+        "mediaId": 1977,
+        "bytes": 1081308,
+        "createdAsset": 1977,
+        "key": "2026/09/b59909f856cdf4f7.png",
+        "dimensions": "800×808"
+      }
+    }
+  },
+  {
+    "table": "money_marks",
+    "id": 74,
+    "key": "1 AZN (2006) (Copy)",
+    "current": {
+      "front": "1711",
+      "rear": "1712"
+    },
+    "images": {
+      "front": "https://uploads.cbar.az/money-marks/2e1bd25c355bfc1279a31a83b.jpg",
+      "rear": "https://uploads.cbar.az/money-marks/5b4a134ae7a13635a21f81648.jpg"
+    },
+    "legacyId": null,
+    "status": "relinked",
+    "assets": {
+      "front": {
+        "mediaId": 1852,
+        "bytes": 75087,
+        "reusedAsset": 1852
+      },
+      "rear": {
+        "mediaId": 1854,
+        "bytes": 70506,
+        "reusedAsset": 1854
+      }
+    }
+  }
+]

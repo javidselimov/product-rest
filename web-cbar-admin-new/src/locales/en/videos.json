@@ -1,0 +1,26 @@
+{
+  "title": "Videos",
+  "entity": "video",
+  "description": "YouTube videos shown on the site",
+  "columns": {
+    "id": "ID",
+    "title": "Title",
+    "youtubeUrl": "YouTube URL",
+    "publishedAt": "Published at",
+    "sortOrder": "Sort",
+    "isActive": "Status"
+  },
+  "fields": {
+    "youtubeUrl": "YouTube URL",
+    "publishedAt": "Published at",
+    "sortOrder": "Sort order",
+    "isActive": "Active",
+    "title": "Title"
+  },
+  "placeholders": {
+    "youtubeUrl": "https://www.youtube.com/watch?v=…"
+  },
+  "validation": {
+    "url": "The YouTube URL must start with http:// or https://"
+  }
+}

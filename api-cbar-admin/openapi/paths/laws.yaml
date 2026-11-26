@@ -1,0 +1,188 @@
+collection:
+  get:
+    tags: [Laws]
+    operationId: listLaws
+    x-permission: laws.read
+    summary: Laws, newest first
+    description: Ordered by `publishedAt`, falling back to creation time. Soft-deleted items are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - name: categoryId
+        in: query
+        description: Only laws in this category.
+        schema:
+          type: integer
+          format: int32
+      - $ref: ../components/parameters.yaml#/Status
+    responses:
+      '200':
+        description: One page of laws.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Laws]
+    operationId: createLaw
+    x-permission: laws.create
+    summary: Create a law
+    description: |
+      Slugs are generated from each title, unique per locale (`-2`, `-3` on collision).
+      Rejected with 400 when `translations` is empty or `categoryId` does not exist.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/laws.yaml#/LawUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item. `assets` is empty.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '409':
+        description: 'Another item in the same language took this slug concurrently (`urn:cbar:problem:unique-violation`, `field: slug`); saving again picks a free one.'
+        $ref: ../components/responses.yaml#/Conflict
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Laws]
+    operationId: getLaw
+    x-permission: laws.read
+    summary: Law by id
+    responses:
+      '200':
+        description: The law with all translations and attachments.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Laws]
+    operationId: updateLaw
+    x-permission: laws.update
+    summary: Replace a law
+    description: |
+      Locales absent from `translations` are deleted; an empty map is rejected (400). A slug
+      is regenerated only when that locale's title changes. `categoryId` is checked only
+      when it changes. Attachments are managed separately (`/assets`).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/laws.yaml#/LawUpsert
+    responses:
+      '200':
+        description: |
+          The updated law. `assets` is always empty here (not loaded on update);
+          re-fetch the item to see them.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        description: 'Another item in the same language took this slug concurrently (`urn:cbar:problem:unique-violation`, `field: slug`); saving again picks a free one.'
+        $ref: ../components/responses.yaml#/Conflict
+  delete:
+    tags: [Laws]
+    operationId: deleteLaw
+    x-permission: laws.delete
+    summary: Soft-delete a law
+    description: The law keeps blocking deletion of its category (409 there).
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+assets:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [Laws]
+    operationId: attachLawAsset
+    x-permission: laws.update
+    summary: Attach an uploaded file
+    description: Appended after the existing attachments.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/common.yaml#/AttachAsset
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+asset:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - $ref: ../components/parameters.yaml#/MediaId
+  delete:
+    tags: [Laws]
+    operationId: detachLawAsset
+    x-permission: laws.update
+    summary: Detach a file
+    description: |
+      Removes the attachment only; the media asset itself stays. Works on soft-deleted
+      laws too (the attachment is looked up directly).
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

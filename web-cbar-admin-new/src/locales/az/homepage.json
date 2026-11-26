@@ -1,0 +1,131 @@
+{
+  "tabs": {
+    "overview": "Ümumi",
+    "banners": "Bannerlər",
+    "newsSlider": "Xəbər slayderi",
+    "runningLines": "Sürüşən sətirlər",
+    "links": "Linklər",
+    "publications": "Nəşrlər",
+    "infoLines": "Məlumat sətirləri",
+    "strategyDocs": "Strategiya və sənədlər"
+  },
+  "hub": {
+    "title": "Ana səhifə blokları",
+    "description": "Ana səhifədə göstərilən bloklar — hər bölmə ayrıca idarə olunur.",
+    "open": "Bölməni aç: {{name}}",
+    "banners": {
+      "title": "Bannerlər",
+      "description": "Ana səhifənin yuxarı hissəsindəki şəkilli bannerlər və göstərilmə müddəti."
+    },
+    "newsSlider": {
+      "title": "Xəbər slayderi",
+      "description": "Tarixli xəbər slaydları — başlıq, şəkil, təsvir və keçid."
+    },
+    "runningLines": {
+      "title": "Sürüşən sətirlər",
+      "description": "Ana səhifədə sürüşən qısa mətnlər və onların aktivlik müddəti."
+    },
+    "links": {
+      "title": "Linklər",
+      "description": "Ana səhifədəki faydalı keçidlər siyahısı."
+    },
+    "publications": {
+      "title": "Nəşrlər",
+      "description": "Ana səhifədə göstərilən nəşrlər — fayl və ya xarici keçid."
+    },
+    "infoLines": {
+      "title": "Məlumat sətirləri",
+      "description": "Əsas göstəricilər, faiz dəhlizi və digər rəqəmli sətirlər."
+    },
+    "strategyDocs": {
+      "title": "Strategiya və sənədlər",
+      "description": "Ana səhifənin «Strategiya və sənədlər» bloku: sənədlər, üz qabıqları və keçidlər."
+    }
+  },
+  "columns": {
+    "id": "ID",
+    "title": "Başlıq",
+    "text": "Mətn",
+    "url": "URL",
+    "sortOrder": "Sıra",
+    "isActive": "Status",
+    "startsAt": "Başlanğıc",
+    "endsAt": "Bitmə",
+    "newsDate": "Xəbər tarixi",
+    "publishedAt": "Dərc tarixi",
+    "cover": "Üz qabığı",
+    "link": "Keçid",
+    "languages": "Dillər",
+    "status": "Status"
+  },
+  "fields": {
+    "image": "Şəkil",
+    "file": "Fayl",
+    "sortOrder": "Sıra",
+    "isActive": "Aktiv",
+    "startsAt": "Başlanğıc vaxtı",
+    "endsAt": "Bitmə vaxtı",
+    "newsDate": "Xəbər tarixi",
+    "publishedAt": "Dərc tarixi",
+    "title": "Başlıq",
+    "link": "Keçid",
+    "url": "URL",
+    "description": "Təsvir",
+    "text": "Mətn",
+    "status": "Status",
+    "statusHelp": "«Qaralama» saytda görünmür.",
+    "page": "Səhifə",
+    "pageHelp": "Kart bu səhifəyə aparır. Ünvan yazılan dildə ünvan üstündür.",
+    "summary": "Qısa mətn",
+    "summaryHelp": "Yalnız kiçik kartlarda görünür.",
+    "cover": "Üz qabığı",
+    "coverHelp": "Böyük kart 424×240, kiçik kart 200×236. Bu dildə yoxdursa digər dilin üz qabığı göstərilir.",
+    "address": "Ünvan",
+    "addressPlaceholder": "/az/… və ya https://…",
+    "addressHelp": "Boş qalsa, seçilmiş səhifənin bu dildəki ünvanı işlədilir."
+  },
+  "banners": {
+    "title": "Bannerlər",
+    "entity": "banner",
+    "description": "Ana səhifə bannerləri. Banner yalnız şəkildən ibarət ola bilər — başlıq və keçid məcburi deyil."
+  },
+  "newsSlider": {
+    "title": "Xəbər slayderi",
+    "entity": "slayd",
+    "description": "Ana səhifədəki xəbər slaydları."
+  },
+  "runningLines": {
+    "title": "Sürüşən sətirlər",
+    "entity": "sürüşən sətir",
+    "description": "Ana səhifədə sürüşən qısa mətnlər."
+  },
+  "links": {
+    "title": "Linklər",
+    "entity": "link",
+    "description": "Ana səhifədəki faydalı keçidlər."
+  },
+  "publications": {
+    "title": "Nəşrlər",
+    "entity": "nəşr",
+    "description": "Ana səhifədə göstərilən nəşrlər."
+  },
+  "filters": {
+    "status": "Status"
+  },
+  "badges": {
+    "linkBroken": "Keçid işləmir"
+  },
+  "strategyDocs": {
+    "title": "Strategiya və sənədlər",
+    "entity": "sənəd",
+    "description": "Saytda ilk üç dərc olunmuş sənəd göstərilir. Birincisi böyük kartdır.",
+    "reorderTitle": "Sənədlərin sırası"
+  },
+  "validation": {
+    "titleRequired": "Ən azı bir dildə başlıq yazın.",
+    "titleForLanguage": "Bu dildə mətn yazılıbsa, başlıq da yazılmalıdır.",
+    "address": "Ünvan http://, https:// və ya / ilə başlamalıdır.",
+    "linkRequired": "Səhifə seçin və ya ən azı bir dildə ünvan yazın.",
+    "tooLong": "Ən çox {{max}} simvol."
+  }
+}

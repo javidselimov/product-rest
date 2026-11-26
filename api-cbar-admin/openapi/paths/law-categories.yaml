@@ -1,0 +1,113 @@
+collection:
+  get:
+    tags: [Laws]
+    operationId: listLawCategories
+    x-permission: law_categories.read
+    summary: All law categories, by sort order
+    responses:
+      '200':
+        description: Every category, active or not (not paged).
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../components/schemas/laws.yaml#/LawCategory
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [Laws]
+    operationId: createLawCategory
+    x-permission: law_categories.create
+    summary: Create a law category
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/laws.yaml#/LawCategoryUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawCategory
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [Laws]
+    operationId: getLawCategory
+    x-permission: law_categories.read
+    summary: Law category by id
+    responses:
+      '200':
+        description: The category with all its translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawCategory
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [Laws]
+    operationId: updateLawCategory
+    x-permission: law_categories.update
+    summary: Replace a law category
+    description: Locales absent from `translations` are deleted.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/laws.yaml#/LawCategoryUpsert
+    responses:
+      '200':
+        description: The updated category.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/laws.yaml#/LawCategory
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [Laws]
+    operationId: deleteLawCategory
+    x-permission: law_categories.delete
+    summary: Delete a law category
+    description: Hard delete. Refused while any law (including soft-deleted ones) references it.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict

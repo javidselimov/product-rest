@@ -1,0 +1,807 @@
+/* Charts */
+.two-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.two-column, .one-column {
+    min-height: 415px;
+    margin-bottom: 50px;
+}
+
+.two-column .chart {
+    width: 49%;
+}
+
+.two-column .chart,
+.one-column .chart {
+    background-color: #FFFFFF;
+    max-height: 980px;
+    min-height: 415px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0 rgb(0 0 0 / 15%);
+    overflow: hidden;
+}
+
+.one-column.pie-chart .chart {
+    min-height: auto;
+}
+
+.flip-card-front > .resize-triggers {
+    height: 0;
+}
+
+.chart > .resize-triggers {
+    height: 0;
+}
+
+.two-column .chart h4,
+.one-column .chart h4 {
+    background-color: #1A324B;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.pie-chart h4 {
+    background-color: #1A324B;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+#chart5 .apexcharts-legend-series[rel="2"],
+#chart6 .apexcharts-legend-series[rel="2"],
+#chart7 .apexcharts-legend-series[rel="2"],
+#chart8 .apexcharts-legend-series[rel="2"],
+#chart9 .apexcharts-legend-series[rel="2"] {
+    display: none;
+}
+
+.pie-chart .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-chart .chart {
+    transition: .3s ease;
+}
+
+#chart10 .apexcharts-slices g[rel="1"],
+#chart16 .apexcharts-slices g[rel="1"] {
+    cursor: pointer;
+}
+
+#chart10 {
+    overflow: hidden;
+}
+
+#chart13 .apexcharts-legend {
+    justify-content: left;
+}
+
+#chart13:before {
+    content: "";
+    position: absolute;
+    top: 9%;
+    left: 28%;
+    background-color: #222;
+    width: 2px;
+    height: 15px;
+    transform: rotate(-25deg);
+    opacity: 0;
+}
+
+#chart13.animated:before {
+    opacity: 1;
+}
+
+.animated {
+    -webkit-animation-name: bounceInLeft;
+    animation: bounceInLeft;
+    animation-duration: 2s;
+}
+
+.animate-chart {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated-out {
+    opacity: 0;
+    -webkit-animation-name: bounceOutLeft;
+    animation: bounceOutLeft;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(3);
+        transform: translate3d(-300px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0) scaleX(1);
+        transform: translate3d(25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0) scaleX(0.98);
+        transform: translate3d(-10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0) scaleX(0.995);
+        transform: translate3d(5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(3);
+        transform: translate3d(-300px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0) scaleX(1);
+        transform: translate3d(25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0) scaleX(0.98);
+        transform: translate3d(-10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0) scaleX(0.995);
+        transform: translate3d(5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0) scaleX(0.9);
+        transform: translate3d(20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(2);
+        transform: translate3d(-300px, 0, 0) scaleX(2);
+    }
+}
+
+@keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0) scaleX(0.9);
+        transform: translate3d(20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-300px, 0, 0) scaleX(2);
+        transform: translate3d(-300px, 0, 0) scaleX(2);
+    }
+}
+
+@-webkit-keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(-20px, 0, 0) scaleX(0.9);
+        transform: translate3d(-20px, 0, 0) scaleX(0.9);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(300px, 0, 0) scaleX(2);
+        transform: translate3d(300px, 0, 0) scaleX(2);
+    }
+}
+
+#chart5 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(1) {
+    /*opacity: 0;*/
+    transform: translate(0, -4px);
+}
+
+#chart5 .apexcharts-bar-series > g:nth-child(3) text,
+#chart6 .apexcharts-bar-series > g:nth-child(3) text,
+#chart7 .apexcharts-bar-series > g:nth-child(3) text {
+    fill: #FFFFFF;
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) text {
+    transform: translate(0px, -30px);
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(2) {
+    transform: translate(0px, -3px);
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(3) {
+    transform: translate(0px, -12px);
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(4),
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5) {
+    transform: translate(0px, -15px);
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6) {
+    transform: translate(0px, -20px);
+}
+
+#chart6 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+    transform: translate(0px, -15px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) text {
+    transform: translate(0px, -80px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(2) {
+    transform: translate(0px, -5px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(3) {
+    transform: translate(0px, 5px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(4) {
+    transform: translate(0px, -2px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5) {
+    transform: translate(0px, 20px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6) {
+    transform: translate(0px, 20px);
+}
+
+#chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+    transform: translate(0px, 20px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(1),
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(2),
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(3),
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(4),
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(5) {
+    opacity: 0;
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(1),
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(2),
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(3),
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(4),
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(5) {
+    opacity: 0;
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(6) text,
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(7) text,
+#chart8 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(8) text,
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(6) text,
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(7) text,
+#chart9 .apexcharts-bar-series > g:nth-child(3) > g:nth-child(8) text {
+    fill: #FFFFFF;
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) text {
+    transform: translate(0px, -35px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(2) {
+    transform: translate(0px, -5px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(3) {
+    transform: translate(0px, -10px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(4) {
+    transform: translate(0px, -15px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5) {
+    transform: translate(0px, -22px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6) {
+    transform: translate(0px, -25px);
+}
+
+#chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+    transform: translate(0px, -27px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) text {
+    transform: translate(0px, -50px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(2) {
+    transform: translate(0px, -7px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(3) {
+    transform: translate(0px, -5px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(4) {
+    transform: translate(0px, -10px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5) {
+    transform: translate(0px, -20px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6) {
+    transform: translate(0px, -25px);
+}
+
+#chart9 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+    transform: translate(0px, -22px);
+}
+
+
+#chart5 .apexcharts-bar-series > g:nth-child(4) text {
+    transform: translate(0px, -95px);
+}
+
+#chart5 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(4) {
+    transform: translate(0px, 10px);
+}
+
+#chart13 .apexcharts-slices > g:nth-child(5) {
+    transform: translate(-20px, -45px);
+}
+
+#chart13 .apexcharts-inner .apexcharts-pie > g:nth-child(1) {
+    transform: translateY(25px);
+}
+
+#chart13 .apexcharts-slices > g:nth-child(5) text {
+    fill: #222;
+}
+
+
+#chart6 .apexcharts-tooltip,
+#chart7 .apexcharts-tooltip {
+    white-space: pre-wrap !important;
+    max-width: 210px;
+}
+
+#chart6 .apexcharts-tooltip-marker,
+#chart7 .apexcharts-tooltip-marker {
+    min-width: 12px;
+    min-height: 12px;
+    margin-right: 8px;
+}
+
+#chart10 .apexcharts-slices g:nth-child(3) {
+    transform: translate(0, -107px);
+}
+
+.pie-text-1, .pie-text-2 {
+    position: absolute;
+    z-index: 10;
+    color: #FFFFFF;
+}
+
+.pie-text-1 {
+    width: 15%;
+    top: 38%;
+    left: 35%;
+}
+
+.pie-text-2 {
+    width: 20%;
+    top: 38%;
+    left: 52%;
+}
+
+.chart.show-chart .pie-text-1 {
+    left: 20%;
+}
+
+.chart.show-chart .pie-text-2 {
+    left: 38%;
+}
+
+#chart10 .apexcharts-datalabels {
+    position: relative;
+}
+
+#chart10 .apexcharts-datalabels:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+
+/*#chart .apexcharts-legend-series [rel="2"],
+#chart2 .apexcharts-legend-series [rel="2"] {
+    cursor: pointer;
+}*/
+
+/* apexcharts global styles */
+#chart10 .apexcharts-legend {
+    display: none;
+}
+
+#chart .apexcharts-legend .apexcharts-legend-marker,
+#chart2 .apexcharts-legend .apexcharts-legend-marker {
+    cursor: auto;
+}
+
+#chart17 {
+    cursor: pointer;
+}
+
+.chart.chart-flip {
+    background-color: transparent;
+    box-shadow: none;
+    overflow: unset;
+}
+
+.flip-card-inner {
+    height: 100%;
+    max-height: 477px;
+    position: relative;
+    -webkit-transition: all 1.5s cubic-bezier(0.5, 1.1, 0.5, 1.1);
+    transition: all 1.5s cubic-bezier(0.5, 1.1, 0.5, 1.1);
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    height: 100%;
+    background-color: #ffffff;
+    -webkit-perspective: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    visibility: visible;
+    backface-visibility: hidden;
+    box-shadow: 5px 5px 15px 0 rgb(0 0 0 / 15%);
+    border-radius: 5px;
+}
+
+.flip-card-front {
+    z-index: 2;
+}
+
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.rotate-card {
+    transform: rotateY(180deg);
+}
+
+.chart.multiple-chart .inner-title {
+    background-color: transparent;
+    display: none;
+    color: #222222;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.chart.multiple-chart .open-title {
+    display: block;
+}
+
+
+/* Float */
+.hvr_float {
+    display: inline-block;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr_float:hover, .hvr_float:focus, .hvr_float:active {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+}
+
+@media (max-width: 1370px) {
+    .pie-text-1 {
+        left: 30%;
+    }
+
+    .pie-text-2 {
+        left: 53%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 14%;
+    }
+
+    .chart.show-chart .pie-text-2 {
+        left: 36%;
+    }
+
+    .flip-card-inner {
+        max-height: none;
+    }
+
+    #chart16 {
+        padding-top: 60px;
+    }
+
+    .two-column .chart h4, .one-column .chart h4 {
+        min-height: 84px;
+    }
+
+    #chart17 .apexcharts-canvas {
+        padding-top: 38px;
+    }
+}
+
+@media (max-width: 1171px) {
+
+    .two-column {
+        flex-direction: column;
+    }
+
+    .two-column .chart {
+        width: 100%;
+        min-height: 320px;
+    }
+
+    .two-column .chart:first-child {
+        margin-bottom: 50px;
+    }
+
+    .chart-button {
+        top: 90px;
+    }
+
+    #chart16 {
+        padding-top: 0;
+    }
+
+    .two-column .chart h4, .one-column .chart h4 {
+        min-height: auto;
+    }
+
+    #chart17 .apexcharts-canvas {
+        padding-top: 0;
+    }
+
+    #chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5),
+    #chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6) {
+        transform: translate(0px, -30px);
+    }
+
+    #chart8 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+        transform: translate(0, -35px);
+    }
+
+    #chart9 .apexcharts-bar-series > g:nth-child(4) text {
+        transform: translate(0px, -60px);
+    }
+
+    #chart7 .apexcharts-bar-series > g:nth-child(4) text {
+        transform: translate(0px, -95px);
+    }
+
+    #chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(5),
+    #chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(6),
+    #chart7 .apexcharts-bar-series > g:nth-child(4) > g:nth-child(7) {
+        transform: translate(0px, 30px);
+    }
+}
+
+
+@media (max-width: 1170px) {
+    #chart13 .apexcharts-slices > g:nth-child(5) {
+        transform: translate(-15px, -35px);
+    }
+
+    #chart10 .apexcharts-slices g:nth-child(3) {
+        transform: translate(0, -79px);
+    }
+
+    .pie-text-1, .pie-text-2 {
+        font-size: 14px;
+    }
+
+    .pie-text-1 {
+        left: 32%;
+    }
+
+    .pie-text-2 {
+        left: 52%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 18%;
+    }
+
+    .chart.show-chart .pie-text-2 {
+        left: 37%;
+    }
+}
+
+
+@media (max-width: 1080px) {
+    .pie-text-1, .pie-text-2 {
+        font-size: 12px;
+    }
+
+    .pie-text-1 {
+        left: 32%;
+    }
+
+    .pie-text-2 {
+        width: 22%;
+        left: 54%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 12%;
+    }
+
+    .chart.show-chart .pie-text-2 {
+        left: 36%;
+    }
+
+    #chart10 {
+        overflow: visible;
+    }
+
+    #chart13 {
+        margin-left: -15px;
+    }
+
+    #chart9 .apexcharts-bar-series > g:nth-child(4) text {
+        transform: translate(0px, -50px);
+    }
+
+    #chart7 .apexcharts-bar-series > g:nth-child(4) text {
+        transform: translate(0px, -80px);
+    }
+}
+
+@media (max-width: 880px) {
+    .one-column.pie-chart .chart {
+        padding: 10px 0;
+    }
+
+    #chart10 .apexcharts-slices g:nth-child(3) {
+        transform: translate(0, -62px);
+    }
+
+    .pie-text-1 {
+        width: 20%;
+        left: 33%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 14%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pie-text-1 {
+        left: 37%;
+    }
+
+    .pie-text-2 {
+        width: 15%;
+        left: 54%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 23%;
+    }
+
+    .chart.show-chart .pie-text-2 {
+        left: 40%;
+    }
+}
+
+@media (max-width: 667px) {
+    .pie-text-1 {
+        left: 34%;
+    }
+
+    .pie-text-2 {
+        left: 55%;
+    }
+
+    .chart.show-chart .pie-text-1 {
+        left: 17%;
+    }
+
+    .chart.show-chart .pie-text-2 {
+        left: 38%;
+    }
+}
+
+@media (max-width: 480px) {
+    .pie-text-1 {
+        left: 32%;
+    }
+
+    .pie-text-2 {
+        left: 56%;
+    }
+}
+
+@media (max-width: 414px) {
+    #chart10 .apexcharts-slices g:nth-child(4) {
+        transform: translate(-5px, -5px);
+    }
+
+    #chart10 .apexcharts-slices g:nth-child(3) {
+        transform: translate(5px, -50px);
+    }
+
+    .pie-text-1, .pie-text-2 {
+        font-size: 10px;
+        top: 35%;
+    }
+}
+
+@media (max-width: 376px) {
+    #chart13 .apexcharts-slices > g:nth-child(6) {
+        transform: translateY(-30px);
+    }
+}

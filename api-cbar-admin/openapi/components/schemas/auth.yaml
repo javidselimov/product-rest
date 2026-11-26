@@ -1,0 +1,40 @@
+LoginRequest:
+  type: object
+  required: [username, password]
+  properties:
+    username:
+      type: string
+    password:
+      type: string
+      format: password
+
+LoginResponse:
+  type: object
+  required: [accessToken, expiresAt]
+  properties:
+    accessToken:
+      type: string
+      description: JWT (HS256) with `sub` (user id), `preferred_username` and the role claim.
+    expiresAt:
+      type: string
+      format: date-time
+
+SessionError:
+  allOf:
+    - $ref: ./common.yaml#/ProblemDetails
+    - type: object
+      required: [message, code]
+      properties:
+        code:
+          type: string
+          enum: [refresh_missing, refresh_stale, refresh_invalid, refresh_reused, refresh_expired]
+
+OriginError:
+  allOf:
+    - $ref: ./common.yaml#/ProblemDetails
+    - type: object
+      required: [message, code]
+      properties:
+        code:
+          type: string
+          const: origin_forbidden

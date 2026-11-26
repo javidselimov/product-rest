@@ -1,0 +1,29 @@
+{
+  "title": "Canlı yayımlar",
+  "entity": "canlı yayım",
+  "description": "Saytda popup və header düyməsi kimi göstərilən YouTube canlı yayımı",
+  "columns": {
+    "title": "Başlıq",
+    "startsAt": "Tarix",
+    "createdAt": "Yaradılma vaxtı",
+    "updatedAt": "Yenilənmə vaxtı",
+    "isLive": "Status"
+  },
+  "fields": {
+    "title": "Başlıq",
+    "streamUrl": "YouTube URL",
+    "startsAt": "Tarix",
+    "isLive": "Aktiv"
+  },
+  "placeholders": {
+    "streamUrl": "https://www.youtube.com/watch?v=…"
+  },
+  "toggle": {
+    "action": "Statusu dəyiş: {{name}} ({{status}})",
+    "activated": "\"{{name}}\" aktiv edildi",
+    "deactivated": "\"{{name}}\" qeyri-aktiv edildi"
+  },
+  "validation": {
+    "url": "YouTube linki daxil edin (https://www.youtube.com/… və ya https://youtu.be/…)"
+  }
+}

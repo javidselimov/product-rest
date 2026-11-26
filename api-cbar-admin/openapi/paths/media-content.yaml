@@ -1,0 +1,569 @@
+galleries:
+  get:
+    tags: [MediaContent]
+    operationId: listGalleries
+    x-permission: galleries.read
+    summary: Photo galleries, newest event first
+    description: |
+      Ordered by `eventDate` descending, then id descending. Galleries without an
+      `eventDate` sort **first** (PostgreSQL puts NULLs first in a descending order).
+      `sortOrder` and `isActive` do not affect the list. Soft-deleted galleries are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of galleries.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [MediaContent]
+    operationId: createGallery
+    x-permission: galleries.create
+    summary: Create a photo gallery
+    description: Images are added afterwards (`POST /api/v1/galleries/{id}/images`).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/GalleryUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item. `images` is always empty.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+gallery:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [MediaContent]
+    operationId: getGallery
+    x-permission: galleries.read
+    summary: Photo gallery by id
+    responses:
+      '200':
+        description: The gallery with all translations and its images in order.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [MediaContent]
+    operationId: updateGallery
+    x-permission: galleries.update
+    summary: Replace a photo gallery
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up. Images are managed separately (`/images`).
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/GalleryUpsert
+    responses:
+      '200':
+        description: The updated gallery, images included.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [MediaContent]
+    operationId: deleteGallery
+    x-permission: galleries.delete
+    summary: Soft-delete a photo gallery
+    description: The gallery's images and translations are kept in the database.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+galleryImages:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [MediaContent]
+    operationId: attachGalleryImage
+    x-permission: galleries.update
+    summary: Add an uploaded image to a gallery
+    description: |
+      Appended after the existing images. The same media asset cannot be in one gallery
+      twice (409). The media type is not checked — any uploaded file is accepted.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/common.yaml#/AttachAsset
+    responses:
+      '200':
+        description: The new gallery image.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/GalleryImageAttached
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+galleryImagesOrder:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [MediaContent]
+    operationId: reorderGalleryImages
+    x-permission: galleries.update
+    summary: Reorder a gallery's images
+    description: '`imageIds` must be exactly the set of the gallery''s image ids, otherwise 400.'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/GalleryImageOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+galleryImage:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - name: imageId
+      in: path
+      required: true
+      description: Route constraint `{imageId:long}`. The gallery-image id (`images[].id`), not the media id.
+      schema:
+        type: integer
+        format: int64
+  delete:
+    tags: [MediaContent]
+    operationId: detachGalleryImage
+    x-permission: galleries.update
+    summary: Remove an image from a gallery
+    description: |
+      Removes the gallery image only; the media asset itself stays. The remaining images keep
+      their `sortOrder` (a gap is left). Works on soft-deleted galleries too.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        description: No image with this id in this gallery.
+        content:
+          application/problem+json:
+            schema:
+              $ref: ../components/schemas/common.yaml#/ProblemDetails
+
+videos:
+  get:
+    tags: [MediaContent]
+    operationId: listVideos
+    x-permission: videos.read
+    summary: Videos, newest first
+    description: |
+      Ordered by `publishedAt`, falling back to creation time. `sortOrder` and `isActive` do
+      not affect the list. Soft-deleted videos are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+    responses:
+      '200':
+        description: One page of videos.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [MediaContent]
+    operationId: createVideo
+    x-permission: videos.create
+    summary: Create a video
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/VideoUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+video:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [MediaContent]
+    operationId: getVideo
+    x-permission: videos.read
+    summary: Video by id
+    responses:
+      '200':
+        description: The video with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [MediaContent]
+    operationId: updateVideo
+    x-permission: videos.update
+    summary: Replace a video
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/VideoUpsert
+    responses:
+      '200':
+        description: The updated video.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [MediaContent]
+    operationId: deleteVideo
+    x-permission: videos.delete
+    summary: Soft-delete a video
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+videoStreams:
+  get:
+    tags: [MediaContent]
+    operationId: listVideoStreams
+    x-permission: video_streams.read
+    summary: All video streams, newest first
+    description: Ordered by id descending (not paged). Returns `{ items }`, not a bare array.
+    responses:
+      '200':
+        description: Every video stream.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoStreamList
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [MediaContent]
+    operationId: createVideoStream
+    x-permission: video_streams.create
+    summary: Create a video stream
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/VideoStreamUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoStream
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+videoStream:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [MediaContent]
+    operationId: getVideoStream
+    x-permission: video_streams.read
+    summary: Video stream by id
+    responses:
+      '200':
+        description: The video stream with all translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoStream
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [MediaContent]
+    operationId: updateVideoStream
+    x-permission: video_streams.update
+    summary: Replace a video stream
+    description: |
+      Locales absent from `translations` are deleted. An empty `translations` map is rejected
+      (400) before the id is looked up.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/VideoStreamUpsert
+    responses:
+      '200':
+        description: The updated video stream.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/VideoStream
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [MediaContent]
+    operationId: deleteVideoStream
+    x-permission: video_streams.delete
+    summary: Delete a video stream
+    description: Hard delete, together with its translations.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+# --- Image popups ----------------------------------------------------------
+
+imagePopups:
+  get:
+    tags: [MediaContent]
+    operationId: listImagePopups
+    x-permission: image_popups.read
+    summary: All image popups, newest first
+    description: Every popup, active or not, ordered by id descending (not paged).
+    responses:
+      '200':
+        description: All image popups.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/ImagePopupList
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [MediaContent]
+    operationId: createImagePopup
+    x-permission: image_popups.create
+    summary: Create an image popup
+    description: |
+      At least one locale must have an image; every `mediaId` must be an existing image
+      (`image/*`) asset. Title and link/alt text are trimmed, blank link/alt text becomes
+      null. An unknown locale key is rejected with 400. An active popup gets
+      `activatedAt = now`, which puts it in front on the public site.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/ImagePopupUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/ImagePopup
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+imagePopup:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [MediaContent]
+    operationId: getImagePopup
+    x-permission: image_popups.read
+    summary: Image popup by id
+    responses:
+      '200':
+        description: The popup with all its translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/ImagePopup
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [MediaContent]
+    operationId: updateImagePopup
+    x-permission: image_popups.update
+    summary: Replace an image popup
+    description: |
+      Same validation as create. Locales absent from `translations` are deleted. Only an
+      inactive → active switch refreshes `activatedAt`; editing an active popup keeps its
+      place. The body is validated before the id is looked up, so an invalid body on an
+      unknown id is 400, not 404.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/media-content.yaml#/ImagePopupUpsert
+    responses:
+      '200':
+        description: The updated popup.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/media-content.yaml#/ImagePopup
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [MediaContent]
+    operationId: deleteImagePopup
+    x-permission: image_popups.delete
+    summary: Delete an image popup
+    description: Hard delete, together with its translations. The images stay in the media library.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound

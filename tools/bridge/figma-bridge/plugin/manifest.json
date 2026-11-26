@@ -1,0 +1,15 @@
+{
+  "name": "CBAR Figma bridge",
+  "id": "1691348482941559806",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma", "dev"],
+  "capabilities": ["inspect"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["none"],
+    "devAllowedDomains": ["http://localhost:7332"],
+    "reasoning": "Polls the local bridge (bridge.mjs) for read commands and posts the answers back. Loopback only, development plugin only — nothing leaves the machine and nothing in the document is modified except the current selection."
+  }
+}

@@ -1,0 +1,17 @@
+homepage:
+  get:
+    tags: [Homepage]
+    operationId: getHomepage
+    summary: Aggregate homepage payload
+    description: Banners, news slider, running lines, links, publications, info lines and strategy documents in one call.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Locale
+    responses:
+      '200':
+        description: Homepage blocks.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/homepage.yaml#/Homepage
+      '429':
+        $ref: ../components/responses.yaml#/TooManyRequests

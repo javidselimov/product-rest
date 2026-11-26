@@ -1,0 +1,108 @@
+{
+  "tabs": {
+    "questions": "Questions",
+    "topics": "Topics",
+    "videos": "Videos"
+  },
+  "questions": {
+    "title": "FAQ",
+    "entity": "question",
+    "description": "Questions of the site's \"FAQ\" page. Change their order on the topic's page."
+  },
+  "topics": {
+    "title": "FAQ topics",
+    "entity": "topic",
+    "description": "Topic cards of the FAQ page, in the site's order"
+  },
+  "videos": {
+    "title": "Video Q&A",
+    "entity": "video",
+    "description": "Video cards below the FAQ page — they open on YouTube"
+  },
+  "columns": {
+    "number": "No.",
+    "question": "Question",
+    "topic": "Topic",
+    "languages": "Languages",
+    "status": "Status",
+    "name": "Name",
+    "questionCount": "Questions",
+    "pages": "Linked pages",
+    "preview": "Preview",
+    "title": "Title"
+  },
+  "fields": {
+    "topic": "Topic",
+    "status": "Status",
+    "statusHelp": "A draft does not show on the site.",
+    "question": "Question",
+    "questionHelp": "Shown with its number (e.g. \"1. What is monetary policy?\"); do not type the number — it comes from the order.",
+    "answer": "Answer",
+    "name": "Name",
+    "youtubeUrl": "YouTube link",
+    "youtubeUrlPlaceholder": "https://www.youtube.com/watch?v=…",
+    "youtubeUrlHelp": "Paste the video's YouTube address — the preview image is taken from it.",
+    "title": "Title"
+  },
+  "filters": {
+    "topic": "Topic",
+    "status": "Status",
+    "translation": "Translation",
+    "missingEn": "No EN"
+  },
+  "validation": {
+    "pairRequired": "Fill in both the question and the answer in this language, or leave both empty",
+    "oneLanguage": "Write the question and the answer in at least one language",
+    "nameRequired": "Write the topic's name in at least one language",
+    "titleRequired": "Write the video's title in at least one language",
+    "youtubeUrl": "The YouTube link was not recognised"
+  },
+  "topicQuestions": {
+    "title": "Questions of the topic",
+    "description": "Numbered on the site in this order. Drag a row or use the arrows — the change is saved at once.",
+    "empty": "This topic has no questions yet",
+    "add": "New question",
+    "edit": "Edit",
+    "editAria": "{{name}} — edit",
+    "list": "Questions of the topic",
+    "draft": "Draft",
+    "reordered": "Order saved",
+    "reorderFailed": "The order could not be saved"
+  },
+  "topicPages": {
+    "title": "Link card on site pages",
+    "description": "The selected pages show a \"<Topic>: questions and answers\" card after their text, leading to this topic's questions.",
+    "empty": "Not linked to any page",
+    "add": "Add a page",
+    "search": "Search pages…",
+    "noResults": "No page found",
+    "remove": "{{name}} — remove the link",
+    "list": "Linked pages",
+    "saved": "Linked pages saved",
+    "saveFailed": "The linked pages could not be saved",
+    "afterSave": "Save the topic first to link pages."
+  },
+  "reorder": {
+    "topicsTitle": "Order of topics",
+    "videosTitle": "Order of videos"
+  },
+  "sortable": {
+    "moveUp": "{{name}} — up",
+    "moveDown": "{{name}} — down",
+    "moved": "“{{name}}” moved to position {{position}}"
+  },
+  "preview": {
+    "title": "Preview",
+    "open": "Open on YouTube",
+    "alt": "{{title}} — preview"
+  },
+  "pageCard": {
+    "title": "FAQ link card",
+    "description": "After its text this page shows a link card to these topics:",
+    "open": "Open the topic"
+  },
+  "address": {
+    "title": "Address on the site",
+    "description": "This topic opens on the site's FAQ page at this address. It is taken from the name when the topic is created and does not change."
+  }
+}

@@ -1,0 +1,316 @@
+collection:
+  get:
+    tags: [CsrProjects]
+    operationId: listCsrProjects
+    x-permission: csr.read
+    summary: CSR projects, by sort order
+    description: Soft-deleted projects are excluded.
+    parameters:
+      - $ref: ../components/parameters.yaml#/Page
+      - $ref: ../components/parameters.yaml#/PageSize20
+      - $ref: ../components/parameters.yaml#/Search
+      - $ref: ../components/parameters.yaml#/Status
+      - name: categoryId
+        in: query
+        schema:
+          type: integer
+          format: int32
+    responses:
+      '200':
+        description: One page of projects.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrProjectPage
+      '400':
+        $ref: ../components/responses.yaml#/ValidationFailed
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [CsrProjects]
+    operationId: createCsrProject
+    x-permission: csr.create
+    summary: Create a CSR project
+    description: Photos are attached afterwards through `/assets`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/csr-projects.yaml#/CsrProjectUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrProjectDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+item:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [CsrProjects]
+    operationId: getCsrProject
+    x-permission: csr.read
+    summary: CSR project by id
+    responses:
+      '200':
+        description: The project with all translations and photos.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrProjectDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [CsrProjects]
+    operationId: updateCsrProject
+    x-permission: csr.update
+    summary: Update a CSR project
+    description: A locale left out of `translations` is removed. Photos are managed through `/assets`.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/csr-projects.yaml#/CsrProjectUpsert
+    responses:
+      '200':
+        description: The updated project.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrProjectDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [CsrProjects]
+    operationId: deleteCsrProject
+    x-permission: csr.delete
+    summary: Soft-delete a CSR project
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+assets:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  post:
+    tags: [CsrProjects]
+    operationId: attachCsrProjectAsset
+    x-permission: csr.update
+    summary: Attach an uploaded photo
+    description: Appended after the existing photos. A file that is not an image is a 400.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/common.yaml#/AttachAsset
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict
+
+assetsOrder:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  put:
+    tags: [CsrProjects]
+    operationId: reorderCsrProjectAssets
+    x-permission: csr.update
+    summary: Reorder a project's photos
+    description: "`mediaIds` must be exactly the set of the project's photos, otherwise 400 with `message`."
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/csr-projects.yaml#/CsrProjectAssetOrder
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+asset:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+    - $ref: ../components/parameters.yaml#/MediaId
+  delete:
+    tags: [CsrProjects]
+    operationId: detachCsrProjectAsset
+    x-permission: csr.update
+    summary: Detach a photo
+    description: The file stays in the media library.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+
+categories:
+  get:
+    tags: [CsrProjects]
+    operationId: listCsrCategories
+    x-permission: csr.read
+    summary: CSR categories, by sort order
+    description: Inactive categories are included.
+    responses:
+      '200':
+        description: The categories.
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryListItem
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+  post:
+    tags: [CsrProjects]
+    operationId: createCsrCategory
+    x-permission: csr.create
+    summary: Create a CSR category
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryUpsert
+    responses:
+      '201':
+        description: Created; `Location` points at the new item.
+        headers:
+          Location:
+            schema:
+              type: string
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+
+category:
+  parameters:
+    - $ref: ../components/parameters.yaml#/Id
+  get:
+    tags: [CsrProjects]
+    operationId: getCsrCategory
+    x-permission: csr.read
+    summary: CSR category by id
+    responses:
+      '200':
+        description: The category with its translations.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryDetail
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  put:
+    tags: [CsrProjects]
+    operationId: updateCsrCategory
+    x-permission: csr.update
+    summary: Update a CSR category
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryUpsert
+    responses:
+      '200':
+        description: The updated category.
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/csr-projects.yaml#/CsrCategoryDetail
+      '400':
+        $ref: ../components/responses.yaml#/BusinessRule
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+  delete:
+    tags: [CsrProjects]
+    operationId: deleteCsrCategory
+    x-permission: csr.delete
+    summary: Delete a CSR category
+    description: Refused while any project uses it, soft-deleted ones included.
+    responses:
+      '204':
+        $ref: ../components/responses.yaml#/NoContent
+      '401':
+        $ref: ../components/responses.yaml#/Unauthorized
+      '403':
+        $ref: ../components/responses.yaml#/Forbidden
+      '404':
+        $ref: ../components/responses.yaml#/NotFound
+      '409':
+        $ref: ../components/responses.yaml#/Conflict

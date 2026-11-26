@@ -1,0 +1,24 @@
+{
+  "home": "Ana səhifə",
+  "menu": "Menyu",
+  "mainNavigation": "Əsas naviqasiya",
+  "mobileMenu": "Mobil menyu",
+  "topLinks": {
+    "label": "Əlavə keçidlər",
+    "career": "Karyera",
+    "media": "Media",
+    "contact": "Əlaqə"
+  },
+  "openMenu": "Menyunu aç",
+  "allSections": "Bütün bölmələr",
+  "closeMenu": "Menyunu bağla",
+  "search": {
+    "label": "Saytda axtarış",
+    "placeholder": "Axtar",
+    "submit": "Axtar"
+  },
+  "hotline": "Qaynar xətt",
+  "ecbar": "E-CBAR",
+  "skipToContent": "Məzmuna keç",
+  "logoAlt": "Azərbaycan Respublikasının Mərkəzi Bankı"
+}

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SegoeUI';
+    src: url('../fonts/cbar/SegoeUI.eot');/* IE 5-8 */
+    src: url('../fonts/cbar/SegoeUI.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cbar/SegoeUI.woff') format('woff'),
+    url('../fonts/cbar/SegoeUI.ttf') format('truetype'),
+    url('../fonts/cbar/SegoeUI.svg#requlyar') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

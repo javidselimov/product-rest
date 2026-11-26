@@ -1,0 +1,43 @@
+IfiOrganization:
+  type: object
+  required: [id, name, logo, memberSince, websiteUrl, mission, membershipIntro, content, memberships]
+  properties:
+    id:
+      type: integer
+      format: int32
+    name:
+      type: string
+    logo:
+      type: [string, 'null']
+      description: "`/media/{id}` of the logo. Null when none is set."
+    memberSince:
+      type: [integer, 'null']
+      format: int16
+      description: The year in the card header.
+    websiteUrl:
+      type: [string, 'null']
+    mission:
+      type: [string, 'null']
+      description: Text of the "main mission" box.
+    membershipIntro:
+      type: [string, 'null']
+      description: The line above the membership dates.
+    content:
+      type: [string, 'null']
+      description: HTML shown below the membership dates.
+    memberships:
+      type: array
+      description: The membership dates that have a name in the locale, in display order.
+      items:
+        $ref: '#/IfiMembership'
+
+IfiMembership:
+  type: object
+  required: [joinedOn, name]
+  properties:
+    joinedOn:
+      type: string
+      format: date
+      description: "`yyyy-MM-dd`."
+    name:
+      type: string
