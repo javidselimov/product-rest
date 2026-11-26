@@ -1,9 +1,0 @@
-.next/
-coverage/
-node_modules/
-package-lock.json
-.ci-cd/
-app.gitlab-ci.yml
-*.md
-public/vendor/
-src/features/about-content/fixtures/

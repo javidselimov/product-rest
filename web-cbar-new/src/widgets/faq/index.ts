@@ -1,6 +1,0 @@
-export { FaqHashOpener } from './faq-hash-opener'
-export { FaqSearchForm, type FaqSearchLabels } from './faq-search-form'
-export { FaqTopicLinks, type FaqTopicLink } from './faq-topic-links'
-export { FaqTopicList } from './faq-topic-list'
-export { FaqTopics } from './faq-topics'
-export { FaqVideos, type FaqVideoCard } from './faq-videos'

@@ -1,9 +1,0 @@
-# Deliberate exceptions to the lint rules — each one is true behaviour, not a gap.
-openapi.yaml:
-  # The local `dotnet run` server is listed on purpose, for try-it-out during development.
-  no-server-example.com:
-    - '#/servers/1/url'
-paths/misc.yaml:
-  # /healthz answers 200 or 503, never 4xx.
-  operation-4xx-response:
-    - '#/healthz/get/responses'

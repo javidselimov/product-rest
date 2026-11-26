@@ -1,4 +1,0 @@
-# Hook və skript faylları həmişə LF — husky hook-u `sh -e` ilə işlədir, CRLF onu qırır (spec 006 D8)
-.husky/*  text eol=lf
-*.mjs     text eol=lf
-*.sh      text eol=lf

@@ -1,9 +1,0 @@
-**/bin/
-**/obj/
-**/.vs/
-.git/
-.gitlab-ci.yml
-db/dev/
-scripts/
-docker-compose.yml
-*.md

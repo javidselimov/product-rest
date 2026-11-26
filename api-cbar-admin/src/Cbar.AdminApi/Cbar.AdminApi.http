@@ -1,6 +1,0 @@
-@Cbar.AdminApi_HostAddress = http://localhost:5253
-
-GET {{Cbar.AdminApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

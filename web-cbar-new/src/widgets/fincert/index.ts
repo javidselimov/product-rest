@@ -1,6 +1,0 @@
-export { FincertContacts } from './fincert-contacts'
-export { FincertDirections } from './fincert-directions'
-export { FincertDocument } from './fincert-document'
-export { FincertMemberships } from './fincert-memberships'
-export { FincertPortal } from './fincert-portal'
-export { FincertSection } from './fincert-section'
