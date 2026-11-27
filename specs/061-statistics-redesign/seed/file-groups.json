@@ -1,0 +1,284 @@
+{
+  "_comment": "spec 061 seed source (research R9-R11). legacyOrder: the az titles (date suffix stripped) in the legacy import order, the order guard of FR-042. files: Figma order; legacy = az title to match exactly (date suffix stripped), figma = the Figma title (written only over legacy, FR-041), group = page_assets.group_label (FR-037, \"heading | chip\"). Generated 2026-11-27 from the test API and Figma 2910:20935, 2931:24174, 2939:26629.",
+  "pages": {
+    "makroiqtisadi-statistika": {
+      "reorder": false,
+      "legacyOrder": [
+        "Əsas Makroiqtisadi göstəricilər",
+        "Qiymət indekslərinin dəyişməsi",
+        "Azərbaycan Respublikasının Dövlət Büdcəsinin əsas göstəriciləri",
+        "Azərbaycan Respublikasının tədiyə balansı",
+        "Azərbaycan Respublikasının xarici ticarəti",
+        "Manatın xarici valyutalara nisbətən nominal və real effektiv məzənnəsi",
+        "Manatın əsas ticarət tərəfdaşı olan ölkələrin valyutalarına qarşı real məzənnəsi",
+        "Real sektorda İşgüzar Fəallıq İndeksləri",
+        "Daşınar əmlaka dair Reyestrdə qeydə alınan yüklülüklərin statistikası"
+      ],
+      "files": [
+        {
+          "legacy": "Əsas Makroiqtisadi göstəricilər",
+          "figma": "Əsas makroiqtisadi göstəricilər",
+          "group": "Real sektor və qiymətlər"
+        },
+        {
+          "legacy": "Qiymət indekslərinin dəyişməsi",
+          "figma": "Qiymət indekslərinin dəyişməsi",
+          "group": "Real sektor və qiymətlər"
+        },
+        {
+          "legacy": "Real sektorda İşgüzar Fəallıq İndeksləri",
+          "figma": "Real sektorda işgüzar fəallıq indeksləri",
+          "group": "Real sektor və qiymətlər"
+        },
+        {
+          "legacy": "Azərbaycan Respublikasının Dövlət Büdcəsinin əsas göstəriciləri",
+          "figma": "Azərbaycan Respublikasının Dövlət Büdcəsinin əsas göstəriciləri",
+          "group": "Dövlət maliyyəsi"
+        },
+        {
+          "legacy": "Azərbaycan Respublikasının tədiyə balansı",
+          "figma": "Azərbaycan Respublikasının tədiyə balansı",
+          "group": "Xarici sektor"
+        },
+        {
+          "legacy": "Azərbaycan Respublikasının xarici ticarəti",
+          "figma": "Azərbaycan Respublikasının xarici ticarəti",
+          "group": "Xarici sektor"
+        },
+        {
+          "legacy": "Manatın xarici valyutalara nisbətən nominal və real effektiv məzənnəsi",
+          "figma": "Manatın xarici valyutalara nisbətən nominal və real effektiv məzənnəsi",
+          "group": "Məzənnə"
+        },
+        {
+          "legacy": "Manatın əsas ticarət tərəfdaşı olan ölkələrin valyutalarına qarşı real məzənnəsi",
+          "figma": "Manatın əsas ticarət tərəfdaşı olan ölkələrin valyutalarına qarşı real məzənnəsi",
+          "group": "Məzənnə"
+        },
+        {
+          "legacy": "Daşınar əmlaka dair Reyestrdə qeydə alınan yüklülüklərin statistikası",
+          "figma": "Daşınar əmlaka dair Reyestrdə qeydə alınan yüklülüklərin statistikası",
+          "group": "Daşınar əmlak reyestri | Reyestr"
+        }
+      ]
+    },
+    "pul-kredit-statistikasi": {
+      "reorder": false,
+      "legacyOrder": [
+        "Pul icmalı",
+        "AMB-nin analitik balansı",
+        "Kommersiya banklarının analitik balansı",
+        "Pul aqreqatları",
+        "Pul bazası (dövrün sonuna)",
+        "İqtisadiyyata kredit qoyuluşlarının kredıt təşkilatları üzrə strukturu (dövrün sonuna)",
+        "Kredit təşkilatlarının müddətlər üzrə kredit qoyuluşları (dövrün sonuna)",
+        "Kredit təşkilatlarının müddətlər üzrə yeni kredit qoyuluşları",
+        "Kredit qoyuluşlarının sahələr üzrə strukturu (dövrün sonuna)",
+        "Kredit qoyuluşunun sektorlar üzrə bölgüsü",
+        "İpoteka kreditləri haqqında məlumat",
+        "Regionlar üzrə kredit qoyuluşu",
+        "Regionlar (şəhər və rayonlar) üzrə kredit qoyuluşu",
+        "Kredit təşkilatlarında yerləşdirilmiş depozit və əmanətlər (dövrün sonuna)",
+        "Cəmi depozit bazasının valyutalar üzrə strukturu (dövrün sonuna)",
+        "Fiziki şəxslərin əmanətlərinin strukturu mln. manat",
+        "Regionlar üzrə cəlb olunmuş əmanətlər",
+        "Regionlar üzrə (şəhər və rayonlar üzrə) cəlb olunmuş əmanətlər",
+        "Mərkəzi Bankın məcburi ehtiyat normaları %-lə",
+        "Manatın xarici valyutalara qarşı rəsmi orta məzənnəsi",
+        "Əsas ticarət tərəfdaşı olan ölkələrin valyutalarının manata qarşı dəyişimi, (ilin əvvəlinə nəzərən %-lə)",
+        "Müddətli depozit və kreditlər üzrə orta faiz dərəcələri",
+        "Yeni cəlb olunmuş müddətli depozit və yeni verilmiş kreditlər üzrə orta faiz dərəcələri",
+        "Nağd xarici valyuta ilə mübadilə əməliyyatları"
+      ],
+      "files": [
+        {
+          "legacy": "Pul icmalı",
+          "figma": "Pul icmalı",
+          "group": "Pul göstəriciləri"
+        },
+        {
+          "legacy": "AMB-nin analitik balansı",
+          "figma": "AMB-nin analitik balansı",
+          "group": "Pul göstəriciləri"
+        },
+        {
+          "legacy": "Kommersiya banklarının analitik balansı",
+          "figma": "Kommersiya banklarının analitik balansı",
+          "group": "Pul göstəriciləri"
+        },
+        {
+          "legacy": "Pul aqreqatları",
+          "figma": "Pul aqreqatları",
+          "group": "Pul göstəriciləri"
+        },
+        {
+          "legacy": "Pul bazası (dövrün sonuna)",
+          "figma": "Pul bazası (dövrün sonuna)",
+          "group": "Pul göstəriciləri"
+        },
+        {
+          "legacy": "İqtisadiyyata kredit qoyuluşlarının kredıt təşkilatları üzrə strukturu (dövrün sonuna)",
+          "figma": "İqtisadiyyata kredit qoyuluşlarının kredit təşkilatları üzrə strukturu (dövrün sonuna)",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Kredit təşkilatlarının müddətlər üzrə kredit qoyuluşları (dövrün sonuna)",
+          "figma": "Kredit təşkilatlarının müddətlər üzrə kredit qoyuluşları (dövrün sonuna)",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Kredit təşkilatlarının müddətlər üzrə yeni kredit qoyuluşları",
+          "figma": "Kredit təşkilatlarının müddətlər üzrə yeni kredit qoyuluşları",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Kredit qoyuluşlarının sahələr üzrə strukturu (dövrün sonuna)",
+          "figma": "Kredit qoyuluşlarının sahələr üzrə strukturu (dövrün sonuna)",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Kredit qoyuluşunun sektorlar üzrə bölgüsü",
+          "figma": "Kredit qoyuluşunun sektorlar üzrə bölgüsü",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "İpoteka kreditləri haqqında məlumat",
+          "figma": "İpoteka kreditləri haqqında məlumat",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Regionlar üzrə kredit qoyuluşu",
+          "figma": "Regionlar üzrə kredit qoyuluşu",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Regionlar (şəhər və rayonlar) üzrə kredit qoyuluşu",
+          "figma": "Regionlar üzrə (şəhər və rayonlar üzrə) kredit qoyuluşu",
+          "group": "Kreditlər"
+        },
+        {
+          "legacy": "Kredit təşkilatlarında yerləşdirilmiş depozit və əmanətlər (dövrün sonuna)",
+          "figma": "Kredit təşkilatlarında yerləşdirilmiş depozit və əmanətlər (dövrün sonuna)",
+          "group": "Depozitlər"
+        },
+        {
+          "legacy": "Cəmi depozit bazasının valyutalar üzrə strukturu (dövrün sonuna)",
+          "figma": "Cəmi depozit bazasının valyutalar üzrə strukturu (dövrün sonuna)",
+          "group": "Depozitlər"
+        },
+        {
+          "legacy": "Fiziki şəxslərin əmanətlərinin strukturu mln. manat",
+          "figma": "Fiziki şəxslərin əmanətlərinin strukturu, mln. manat",
+          "group": "Depozitlər"
+        },
+        {
+          "legacy": "Regionlar üzrə cəlb olunmuş əmanətlər",
+          "figma": "Regionlar üzrə cəlb olunmuş əmanətlər",
+          "group": "Depozitlər"
+        },
+        {
+          "legacy": "Regionlar üzrə (şəhər və rayonlar üzrə) cəlb olunmuş əmanətlər",
+          "figma": "Regionlar (şəhər və rayonlar) üzrə cəlb olunmuş əmanətlər",
+          "group": "Depozitlər"
+        },
+        {
+          "legacy": "Mərkəzi Bankın məcburi ehtiyat normaları %-lə",
+          "figma": "Mərkəzi Bankın məcburi ehtiyat normaları, %-lə",
+          "group": "Faiz dərəcələri"
+        },
+        {
+          "legacy": "Müddətli depozit və kreditlər üzrə orta faiz dərəcələri",
+          "figma": "Müddətli depozit və kreditlər üzrə orta faiz dərəcələri",
+          "group": "Faiz dərəcələri"
+        },
+        {
+          "legacy": "Yeni cəlb olunmuş müddətli depozit və yeni verilmiş kreditlər üzrə orta faiz dərəcələri",
+          "figma": "Yeni cəlb olunmuş müddətli depozit və yeni verilmiş kreditlər üzrə orta faiz dərəcələri",
+          "group": "Faiz dərəcələri"
+        },
+        {
+          "legacy": "Manatın xarici valyutalara qarşı rəsmi orta məzənnəsi",
+          "figma": "Manatın xarici valyutalara qarşı rəsmi orta məzənnəsi",
+          "group": "Valyuta bazarı"
+        },
+        {
+          "legacy": "Əsas ticarət tərəfdaşı olan ölkələrin valyutalarının manata qarşı dəyişimi, (ilin əvvəlinə nəzərən %-lə)",
+          "figma": "Əsas ticarət tərəfdaşı olan ölkələrin valyutalarının manata qarşı dəyişimi (ilin əvvəlinə nəzərən, %-lə)",
+          "group": "Valyuta bazarı"
+        },
+        {
+          "legacy": "Nağd xarici valyuta ilə mübadilə əməliyyatları",
+          "figma": "Nağd xarici valyuta ilə mübadilə əməliyyatları",
+          "group": "Valyuta bazarı"
+        }
+      ]
+    },
+    "odenis-sistemlerinin-statistikasi": {
+      "reorder": true,
+      "legacyOrder": [
+        "Milli Ödəniş Sistemləri üzrə əməliyyatlar",
+        "Milli Ödəniş Sistemləri vasitəsilə aparılan ödəniş əməliyyatlarının iştirakçılar üzrə bölgüsü",
+        "Statistik vahidə məxsus ödəniş xidməti şəbəkəsi (dövrün sonuna)",
+        "Statistik vahidə məxsus ödəniş xidməti şəbəkəsinin iqtisadi rayonlar üzrə statistikası",
+        "Debet və kredit kartları ilə aparılan əməliyyatlar",
+        "Ödəniş kartları və terminallardan istifadə göstəriciləri",
+        "Müştərilərin bank hesablarının tərkibi və elektron bankçılıq",
+        "Statistik vahidə məxsus ödəniş xidməti şəbəkəsində ödəniş kartları vasitəsilə aparılan əməliyyatlar",
+        "Pul köçürmə sistemləri üzrə əməliyyatlar",
+        "Banklararası Kart Mərkəzi (BKM) vasitəsilə emal olunmuş ödəniş əməliyyatları"
+      ],
+      "files": [
+        {
+          "legacy": "Milli Ödəniş Sistemləri üzrə əməliyyatlar",
+          "figma": "Milli Ödəniş Sistemləri üzrə əməliyyatlar",
+          "group": "Milli Ödəniş Sistemləri"
+        },
+        {
+          "legacy": "Milli Ödəniş Sistemləri vasitəsilə aparılan ödəniş əməliyyatlarının iştirakçılar üzrə bölgüsü",
+          "figma": "Milli Ödəniş Sistemləri vasitəsilə aparılan ödəniş əməliyyatlarının iştirakçılar üzrə bölgüsü",
+          "group": "Milli Ödəniş Sistemləri"
+        },
+        {
+          "legacy": "Debet və kredit kartları ilə aparılan əməliyyatlar",
+          "figma": "Debet və kredit kartları ilə aparılan əməliyyatlar",
+          "group": "Ödəniş kartları"
+        },
+        {
+          "legacy": "Ödəniş kartları və terminallardan istifadə göstəriciləri",
+          "figma": "Ödəniş kartları və terminallardan istifadə göstəriciləri",
+          "group": "Ödəniş kartları"
+        },
+        {
+          "legacy": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsində ödəniş kartları vasitəsilə aparılan əməliyyatlar",
+          "figma": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsində ödəniş kartları vasitəsilə aparılan əməliyyatlar",
+          "group": "Ödəniş kartları"
+        },
+        {
+          "legacy": "Banklararası Kart Mərkəzi (BKM) vasitəsilə emal olunmuş ödəniş əməliyyatları",
+          "figma": "Banklararası Kart Mərkəzi (BKM) vasitəsilə emal olunmuş ödəniş əməliyyatları",
+          "group": "Ödəniş kartları"
+        },
+        {
+          "legacy": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsi (dövrün sonuna)",
+          "figma": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsi (dövrün sonuna)",
+          "group": "Ödəniş xidməti şəbəkəsi"
+        },
+        {
+          "legacy": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsinin iqtisadi rayonlar üzrə statistikası",
+          "figma": "Statistik vahidə məxsus ödəniş xidməti şəbəkəsinin iqtisadi rayonlar üzrə statistikası",
+          "group": "Ödəniş xidməti şəbəkəsi"
+        },
+        {
+          "legacy": "Müştərilərin bank hesablarının tərkibi və elektron bankçılıq",
+          "figma": "Müştərilərin bank hesablarının tərkibi və elektron bankçılıq",
+          "group": "Hesablar və köçürmələr"
+        },
+        {
+          "legacy": "Pul köçürmə sistemləri üzrə əməliyyatlar",
+          "figma": "Pul köçürmə sistemləri üzrə əməliyyatlar",
+          "group": "Hesablar və köçürmələr"
+        }
+      ]
+    }
+  }
+}

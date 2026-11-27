@@ -1,0 +1,55 @@
+{
+  "_comment": "spec 061 seed source (research R9, R10; contracts/seed-contract.md Q2-Q5, Q8). legacyOrder: the root's children in the legacy import order (az slugs; NSDP by en slug), the guard of Q4. figmaOrder: Figma 2846:137973 (az) and 3071:32085 (en). titles: written only over the old value.",
+  "root": { "az": "statistika", "en": "statistics" },
+  "legacyOrder": [
+    "statistik-bulleten",
+    "makroiqtisadi-statistika",
+    "pul-kredit-statistikasi",
+    "xarici-sektorun-statistikasi",
+    "maliyye-sektorunun-statistikasi",
+    "odenis-sistemlerinin-statistikasi",
+    "interaktiv-statistik-melumat-bazasi",
+    "statistika-copy",
+    "statistik-hesabatlarin-yayimlanmasi-qrafiki",
+    "en:statistical-data-for-nsdp"
+  ],
+  "figmaOrder": [
+    "statistik-bulleten",
+    "makroiqtisadi-statistika",
+    "pul-kredit-statistikasi",
+    "maliyye-sektorunun-statistikasi",
+    "odenis-sistemlerinin-statistikasi",
+    "xarici-sektorun-statistikasi",
+    "interaktiv-statistik-melumat-bazasi",
+    "statistik-hesabatlarin-yayimlanmasi-qrafiki",
+    "metodologiya",
+    "melumatlarin-reviziyasi-siyaseti",
+    "en:statistical-data-for-nsdp",
+    "statistika-copy"
+  ],
+  "newPages": [
+    { "az": { "slug": "metodologiya", "title": "Metodologiya" }, "en": { "slug": "methodology", "title": "Methodology" } },
+    {
+      "az": { "slug": "melumatlarin-reviziyasi-siyaseti", "title": "Məlumatların reviziyası siyasəti" },
+      "en": { "slug": "data-revision-policy", "title": "Data revision policy" }
+    }
+  ],
+  "titles": [
+    { "slug": "makroiqtisadi-statistika", "locale": "en", "old": "Macroeconomic indicators", "new": "Macroeconomic statistics" },
+    { "slug": "pul-kredit-statistikasi", "locale": "en", "old": "Monetary indicators", "new": "Monetary statistics" },
+    { "slug": "maliyye-sektorunun-statistikasi", "locale": "en", "old": "Financial market indicators", "new": "Financial sector statistics" },
+    { "slug": "odenis-sistemlerinin-statistikasi", "locale": "en", "old": "Payment system indicators", "new": "Payment systems statistics" },
+    { "slug": "interaktiv-statistik-melumat-bazasi", "locale": "en", "old": "Interactive Statistic Database", "new": "Interactive statistical database" },
+    { "slug": "statistik-hesabatlarin-yayimlanmasi-qrafiki", "locale": "az", "old": "Statistik hesabatların yayımlanması qrafiki", "new": "Statistik məlumatların yayımlanması qrafiki" },
+    { "slug": "statistik-hesabatlarin-yayimlanmasi-qrafiki", "locale": "en", "old": "Schedule of statistical releases", "new": "Statistical data release calendar" },
+    { "slug": "sigorta-3", "locale": "az", "old": "Sığorta", "new": "Sığorta sektoru" },
+    { "slug": "sigorta-3", "locale": "en", "old": "Insurance", "new": "Insurance sector" }
+  ],
+  "financialSectorIntro": {
+    "slug": "maliyye-sektorunun-statistikasi",
+    "sameAs": "kredit-teskilatlari-3",
+    "az": "<p>Kredit təşkilatları, sığorta şirkətləri və kapital bazarları üzrə icmallar və əsas göstəricilər burada təqdim olunur.</p>",
+    "en": "<p>Reviews and key indicators for credit institutions, insurance companies and capital markets are presented here.</p>"
+  },
+  "draftRoot": "statistika-copy"
+}
